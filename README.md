@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To manage a FabLab: 
+to operate more efficient, 
+to keep oversight of all the things being made, 
+to educate and improve useabilty.
 
-Things you may want to cover:
 
-* Ruby version
+Build:
 
-* System dependencies
+* Ruby 2.3.0
 
-* Configuration
+* Rails 5.0.0
 
-* Database creation
+* Configurated to use NL (Dutch) as the default local
 
-* Database initialization
+* Mind the use of w3.css and simple form for styling. In the simple form config file you can easily make adjustments.
 
-* How to run the test suite
+* Works with Postgres
 
-* Services (job queues, cache servers, search engines, etc.)
+* Has a stabilzing test suite as basis using RSpec, FactoryGirl and Capybara
 
-* Deployment instructions
-
-* ...
