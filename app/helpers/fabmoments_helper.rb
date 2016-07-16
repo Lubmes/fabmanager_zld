@@ -1,0 +1,2 @@
+module FabmomentsHelper
+end

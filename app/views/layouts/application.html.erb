@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fabmanager</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+	  <div class="w3-container w3-blue">
+		  <h1>Fabmanager</h1>
+	  </div>
+
+		<% flash.each do |key, message| %>
+			<div class="w3-container w3-red alert alert-<%= key %>">
+	  	<span class="w3-closebtn" onclick="this.parentElement.style.display='none'">X</span>
+					<p><%= message %></p>
+			</div>
+		<% end %>
+
+    <%= yield %>
+  </body>
+</html>
