@@ -28,7 +28,7 @@ RSpec.feature "Users can create new fabmoments", type: :feature do
     click_button "Creëer Fabmoment"
 
     expect(page).to have_content "Fabmoment is niet gecreëerd."
-    expect(page).to have_content "Naam is niet ingevuld"
-    expect(page).to have_content "Omschrijving is niet ingevuld"
+    expect(page).to have_content "Titel moet opgegeven zijn"
+    expect(page).to have_content "Omschrijving moet opgegeven zijn"
   end
 end

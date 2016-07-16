@@ -1,0 +1,6 @@
+nl:
+  activerecord:
+    attributes:
+      fabmoment:
+        title: Titel
+        description: Omschrijving
