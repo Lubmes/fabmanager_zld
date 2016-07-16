@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Fabmanager</title>
+	<title><% if content_for?(:title) %><%= yield(:title) %>
+		<% else %>FabLab<% end %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,14 +10,15 @@
   </head>
 
   <body>
-	  <div class="w3-container w3-blue">
-		  <h1>Fabmanager</h1>
-	  </div>
+  	<ul class="w3-navbar w3-blue w3-large">
+			<li><%= link_to "FabLab", root_path %></li>
+		</ul>
 
 		<% flash.each do |key, message| %>
-			<div class="w3-container w3-red alert alert-<%= key %>">
-	  	<span class="w3-closebtn" onclick="this.parentElement.style.display='none'">X</span>
-					<p><%= message %></p>
+			<% color = key == "notice" ? "green" : "red" %>
+			<div class="w3-container alert alert-<%= key %> w3-<%= color %>">
+		  	<span class="w3-closebtn" onclick="this.parentElement.style.display='none'">X</span>
+				<p><%= message %></p>
 			</div>
 		<% end %>
 
