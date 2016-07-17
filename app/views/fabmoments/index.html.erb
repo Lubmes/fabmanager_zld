@@ -1,6 +1,21 @@
 <header class="w3-container">
-	<h2>Lijst van fabmomenten</h2>
+	<h2>Fabmomenten</h2>
 	<ul class="actions w3-ul">
-		<li><%= link_to "Nieuw Fabmoment", new_fabmoment_path, class: "new w3-btn w3-blue"%></li>
+		<li><%= link_to "Nieuw Fabmoment", new_fabmoment_path, class: "new w3-btn w3-lime"%></li>
 	</ul>
-<header>
+</header>
+ 
+<div id="fabmoments" class="w3-row-padding w3-margin-top">
+  <% @fabmoments.each do |fabmoment| %>
+    <div class="w3-col m4 l3">
+    <div class="w3-card-2 w3-margin-bottom">
+    	<header class="w3-container w3-blue w3-center">
+					<p><%= link_to fabmoment.title, fabmoment, class: "w3-hover-text-pink" %><p>
+			</header>
+			<div class="w3-container">
+			  <p><%= fabmoment.description %></p>
+			</div>
+		</div>
+  	</div>
+  <% end %>
+</div>

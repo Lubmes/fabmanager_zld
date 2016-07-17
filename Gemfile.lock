@@ -208,7 +208,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.4)
   coffee-rails (~> 4.2)
-  database_cleaner (~> 1.4)
+  database_cleaner (~> 1.5, >= 1.5.3)
   email_spec (~> 1.6.0)
   factory_girl_rails (~> 4.7)
   jbuilder (~> 2.5)

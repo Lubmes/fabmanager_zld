@@ -5,18 +5,22 @@ to operate more efficient,
 to keep oversight of all the things being made, 
 to educate and improve useabilty.
 
-
 Build:
 
 * Ruby 2.3.0
 
 * Rails 5.0.0
 
-* Configurated to use NL (Dutch) as the default local
+* Postgres
 
-* Mind the use of w3.css and simple form for styling. In the simple form config file you can easily make adjustments.
+* Styling with w3.css & simple form.
 
-* Works with Postgres
+* RSpec, FactoryGirl and Capybara are used for testing. BDD building style approach. 
 
-* Has a stabilzing test suite as basis using RSpec, FactoryGirl and Capybara
+* Configurated to use NL (Dutch) as the default local (in config/application.rb)
 
+# Styling
+
+Styling is done with the css only library w3 found in one file: lib/assets/stylesheets/w3.css.
+This to make the styling as lightweight as possible, so others can easily apply their own style. 
+Mind the simple_form config file (config/initializers/simle_form.rb). There you can easliy adjust the forms their style classes, ids and the shape of errors. 

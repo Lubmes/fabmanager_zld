@@ -2,3 +2,7 @@
  *= require_self
  *= require w3
  */
+
+ a {
+ 	text-decoration: none;
+ }

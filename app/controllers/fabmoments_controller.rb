@@ -1,4 +1,12 @@
 class FabmomentsController < ApplicationController
+  def index
+    @fabmoments = Fabmoment.all
+  end
+
+  def show
+    @fabmoment = Fabmoment.find(params[:id])
+  end
+
   def new
     @fabmoment = Fabmoment.new
   end
@@ -13,10 +21,6 @@ class FabmomentsController < ApplicationController
       flash.now[:alert] = "Fabmoment is niet gecreëerd."
       render "new"
     end
-  end
-
-  def show
-    @fabmoment = Fabmoment.find(params[:id])
   end
 
   private
