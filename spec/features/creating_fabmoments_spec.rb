@@ -9,9 +9,9 @@ RSpec.feature "Users can create new fabmoments", type: :feature do
   # Je test wat kan...
   scenario "with valid attributes" do
     within("form") do
-    fill_in "Titel", with: "Fabmoment ABC"
-    fill_in "Omschrijving", with: ""
-    click_button "Creëer Fabmoment"
+      fill_in "Titel", with: "Fabmoment ABC"
+      fill_in "Omschrijving", with: ""
+      click_button "Fabmoment toevoegen"
     end
 
     expect(page).to have_content "Fabmoment is succesvol gecreëerd."
@@ -25,7 +25,7 @@ RSpec.feature "Users can create new fabmoments", type: :feature do
 
   # ...maar je test ook wat kan, maar niet moet!
   scenario "when providing invalid attributes" do
-    click_button "Creëer Fabmoment"
+    click_button "Fabmoment toevoegen"
 
     expect(page).to have_content "Fabmoment is niet gecreëerd."
     expect(page).to have_content "Titel moet opgegeven zijn"

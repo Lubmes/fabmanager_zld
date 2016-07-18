@@ -1,8 +1,7 @@
-<% title("Nieuw", "Fabmoments") %>
+<% title(@fabmoment.title, "Fabmoments") %>
 <div class="w3-container">
 	<header>
-		<h1>Nieuw Fabmoment</h1>
+		<h1><%= @fabmoment.title %></h1>
 	<header>
 </div>
-
 <%= render "form", fabmoment: @fabmoment %>

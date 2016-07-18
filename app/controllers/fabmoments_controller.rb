@@ -1,5 +1,5 @@
 class FabmomentsController < ApplicationController
-  before_action :set_fabmoment, only: [:show, :edit, :destroy]
+  before_action :set_fabmoment, only: [:show, :edit, :update, :destroy]
 
   def index
     @fabmoments = Fabmoment.all
@@ -22,6 +22,19 @@ class FabmomentsController < ApplicationController
     else
       flash.now[:alert] = "Fabmoment is niet gecreëerd."
       render "new"
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @fabmoment.update(fabmoment_params)
+      flash[:notice] = "Fabmoment is gewijzigd."
+      redirect_to @fabmoment
+    else
+      flash.now[:alert] = "Fabmoment is niet gewijzigd."
+      render "edit"
     end
   end
 

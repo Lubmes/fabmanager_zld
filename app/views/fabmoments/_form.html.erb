@@ -1,0 +1,9 @@
+<%= simple_form_for @fabmoment do |f| %>
+  <%= f.input_field :title %>
+  <%= f.label :title %>
+  <%= f.error :title %>
+	<%= f.input_field :description %>
+  <%= f.label :description %>
+  <%= f.error :title %><br><br>
+  <%= f.button :button, class: "w3-btn w3-blue" %>
+<% end %>
