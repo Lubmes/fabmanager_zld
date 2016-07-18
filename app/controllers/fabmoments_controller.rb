@@ -1,4 +1,6 @@
 class FabmomentsController < ApplicationController
+  before_action :set_fabmoment, only: [:show, :edit, :destroy]
+
   def index
     @fabmoments = Fabmoment.all
   end
@@ -23,9 +25,19 @@ class FabmomentsController < ApplicationController
     end
   end
 
+  def destroy
+    @fabmoment.destroy
+    flash[:notice] = "Fabmoment is verwijderd."
+    redirect_to fabmoments_path 
+  end
+
   private
 
   def fabmoment_params
     params.require(:fabmoment).permit(:title, :description)
+  end
+
+  def set_fabmoment
+    @fabmoment = Fabmoment.find(params[:id])
   end
 end

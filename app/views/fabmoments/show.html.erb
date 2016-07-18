@@ -5,4 +5,9 @@
 	<header>
 
 		<p><%= @fabmoment.description %></p>
+
+		<%= link_to "Verwijder Fabmoment", [@fabmoment], 
+																				method: :delete, 
+																				data: { confirm: "Weet je zeker dat je het fabmoment wil verwijderen?"},
+																				class: "delete w3-btn w3-red" %>
 </div>

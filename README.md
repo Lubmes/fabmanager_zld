@@ -13,7 +13,7 @@ Build:
 
 * Postgres
 
-* Styling with w3.css & simple form.
+* Styling with W3.CSS & simple form.
 
 * RSpec, FactoryGirl and Capybara are used for testing. BDD building style approach. 
 
@@ -21,6 +21,6 @@ Build:
 
 # Styling
 
-Styling is done with the css only library w3 found in one file: lib/assets/stylesheets/w3.css.
-This to make the styling as lightweight as possible, so others can easily apply their own style. 
-Mind the simple_form config file (config/initializers/simle_form.rb). There you can easliy adjust the forms their style classes, ids and the shape of errors. 
+Styling is done with the css only library W3.CSS found in one file: lib/assets/stylesheets/w3.css.
+This is done to make the styling as lightweight as possible, so others can easily apply their own style. 
+Mind the simple_form config file (config/initializers/simle_form.rb). There you can easily adjust the forms their style classes, ids and the shape of errors. 
