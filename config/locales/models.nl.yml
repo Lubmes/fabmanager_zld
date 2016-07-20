@@ -1,6 +1,10 @@
 nl:
   activerecord:
     attributes:
+      user:
+        email: E-mail
+        password: Wachtwoord
+        password_confirmation: Wachtwoord bevestigen
       fabmoment:
         title: Titel
         description: Omschrijving

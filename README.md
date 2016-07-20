@@ -17,10 +17,14 @@ Build:
 
 * RSpec, FactoryGirl and Capybara are used for testing. BDD building style approach. 
 
-* Configurated to use NL (Dutch) as the default local (in config/application.rb)
+* Configurated to use NL (Dutch) as the default local (in config/application.rb). I18n building approach.
 
-# Styling
+## Styling
 
-Styling is done with the css-only library W3.CSS found in a single file: lib/assets/stylesheets/w3.css.
+Styling is done with the css-only library W3.CSS found in a single file (in lib/assets/stylesheets/w3.css).
 This is done to make the styling as lightweight as possible, so others can easily apply their own style. 
-Mind the simple_form config file (config/initializers/simle_form.rb). There you can easily adjust the forms their style classes, ids and the shape of errors.
+Mind the simple_form config file (config/initializers/simle_form.rb). There you can easily adjust the forms their style classes, ids and the shape of the errors.
+
+### Devise & styling
+
+If your unhappy about the devise forms and want to customize in favour of your own idea for the layout, use `rails g devise:views` and when prompted for overwriting the view files answer `Yes`. Bootstrap should automatically work (when installed of course), or use something entirely diferent. 
