@@ -4,6 +4,7 @@ RSpec.feature "Users can delete fabmoments", type: :feature do
   let(:fabmoment) { FactoryGirl.create(:fabmoment, title: "Bad Cover for smartphone") }
 
   before do
+    login_as FactoryGirl.create(:user, :admin)
     visit fabmoment_path(fabmoment)
   end
 
