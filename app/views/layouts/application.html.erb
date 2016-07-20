@@ -10,21 +10,26 @@
   </head>
 
   <body>
-  	<ul class="w3-navbar w3-blue w3-large">
+  	<ul class="w3-navbar w3-indigo w3-large">
 			<li class="<% "active" if current_page?("/") %>">
-				<%= link_to "FabLab", root_path, class: "w3-hover-text-dark-grey" %>	
+				<%= link_to "FabLab", root_path, 
+															class: "w3-hover-text-dark-grey" %>	
 			</li>
 			<% unless user_signed_in? %>
 				<li class="<% "active" if current_page?("users/sign_up") %> w3-right">
-					<%= link_to "Inschrijven", new_user_registration_path, class: "w3-hover-sand w3-hover-text-dark-grey" %>
+					<%= link_to "Inschrijven", 	new_user_registration_path, 
+																			class: "w3-hover-sand w3-hover-text-dark-grey" %>
 				</li>
 				<li class="<% "active" if current_page?("users/sign_in") %> w3-right">
-					<%= link_to "Inloggen", new_user_session_path, class: "w3-hover-sand w3-hover-text-dark-grey" %>
+					<%= link_to "Inloggen", new_user_session_path, 
+																	class: "w3-hover-sand w3-hover-text-dark-grey" %>
 				</li>
 			<% end %>
 			<% if user_signed_in? %>
 				<li class="w3-right">
-					<%= link_to "Log uit", destroy_user_session_path, method: :delete, class: "w3-hover-sand w3-hover-text-dark-grey" %>
+					<%= link_to "Log uit", 	destroy_user_session_path, 
+																	method: :delete, 
+																	class: "w3-hover-orange w3-hover-text-dark-grey" %>
 				</li>
 				<li class="<% "active" if current_page?("users/sign_in") %> w3-right w3-padding">
 					<small>Ingelogd als <%= current_user.email %></small>
@@ -34,7 +39,7 @@
 
 		<% flash.each do |key, message| %>
 			<!-- De kleur: Is de melding gelijk aan type "notice"? dan groen : anders rood -->
-			<% color = key == "notice" ? "green" : "red" %>
+			<% color = key == "notice" ? "pale-green" : "red" %>
 			<!-- De melding -->
 			<div class="alert alert-<%= key %> w3-container w3-<%= color %>">
 		  	<span class="w3-closebtn" onclick="this.parentElement.style.display='none'">X</span>

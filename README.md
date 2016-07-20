@@ -27,4 +27,4 @@ Mind the simple_form config file (config/initializers/simle_form.rb). There you 
 
 ### Devise & styling
 
-If you're unhappy about the devise forms and want to customize in favour of your own idea for the layout, use `rails g devise:views` and when prompted for overwriting the view files answer `Yes`. Bootstrap should automatically work (when installed of course), or use something entirely diferent. 
+If you're unhappy about the devise forms and want to customize in favour of your own idea for the layout, use `rails g devise:views` and when prompted for overwriting the view files answer `Yes`. Bootstrap automatically works (when installed of course), or use something entirely different. 

@@ -1,22 +1,28 @@
 <% title("Inloggen", "Gebruikers") %>
-<div class="w3-container">
+<div class="w3-container w3-margin-top">
 	<header>
-		<h1>Inloggen</h1>
+		<h1 class="w3-center">Inloggen</h1>
 	<header>
-</div>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-	<%= f.input_field :email, required: true, autofocus: true %>
-	<%= f.label :email %>
-	<%= f.error :email %>
-	<%= f.input_field :password, required: false %>
-	<%= f.label :password %>
-	<%= f.error :password %><br><br>
-	<%= f.label :remember_me %>
-	<%= f.check_box :remember_me, as: :boolean if devise_mapping.rememberable? %>
-	<%= f.error :remember_me %><br><br>
-	<%= f.button :submit, "Login", class: "w3-btn w3-blue" %>
-<% end %>
+	<div class="w3-row">
+		<div class="w3-third w3-center" style="margin-left: 33.3%">
+			<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+				<%= f.input_field :email, required: true, autofocus: true %>
+				<%= f.label :email %>
+				<%= f.error :email %>
+				<%= f.input_field :password, required: false %>
+				<%= f.label :password %>
+				<%= f.error :password %><br><br>
+				<%= f.label :remember_me %>
+				<%= f.check_box :remember_me, as: :boolean if devise_mapping.rememberable? %>
+				<%= f.error :remember_me %><br><br>
+				<div class="w3-center">
+				<%= f.button :submit, "Login", class: "w3-btn w3-lime" %>
+				<br><br><br>
+				</div>
+			<% end %>
+		</div>
+	</div>
 
-<br><br>
 <%= render "devise/shared/links" %>
+</div>
