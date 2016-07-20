@@ -17,10 +17,10 @@ class FabmomentsController < ApplicationController
     @fabmoment = Fabmoment.new(fabmoment_params)
 
     if @fabmoment.save
-      flash[:notice] = "Fabmoment is succesvol gecreëerd."
+      flash[:notice] = "Fabmoment is succesvol toegevoegd."
       redirect_to @fabmoment
     else
-      flash.now[:alert] = "Fabmoment is niet gecreëerd."
+      flash.now[:alert] = "Fabmoment is niet toegevoegd."
       render "new"
     end
   end
@@ -30,10 +30,10 @@ class FabmomentsController < ApplicationController
 
   def update
     if @fabmoment.update(fabmoment_params)
-      flash[:notice] = "Fabmoment is gewijzigd."
+      flash[:notice] = "Fabmoment is bijgewerkt."
       redirect_to @fabmoment
     else
-      flash.now[:alert] = "Fabmoment is niet gewijzigd."
+      flash.now[:alert] = "Fabmoment is niet bijgewerkt."
       render "edit"
     end
   end

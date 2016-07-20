@@ -15,7 +15,7 @@ RSpec.feature "Users can edit fabmoments", type: :feature do
       click_button "Fabmoment bijwerken" # Roept update actie aan.
     end
 
-    expect(page).to have_content "Fabmoment is gewijzigd."
+    expect(page).to have_content "Fabmoment is bijgewerkt."
     expect(page).to have_content "Way beter cover for smartphone"
   end
 
@@ -24,6 +24,6 @@ RSpec.feature "Users can edit fabmoments", type: :feature do
     fill_in "Titel", with: ""
     click_button "Fabmoment bijwerken" # Roept update actie aan.
 
-    expect(page).to have_content "Fabmoment is niet gewijzigd."
+    expect(page).to have_content "Fabmoment is niet bijgewerkt."
   end
 end

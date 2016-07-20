@@ -14,7 +14,7 @@ RSpec.feature "Users can create new fabmoments", type: :feature do
       click_button "Fabmoment toevoegen"
     end
 
-    expect(page).to have_content "Fabmoment is succesvol gecreëerd."
+    expect(page).to have_content "Fabmoment is succesvol toegevoegd."
     
     fabmoment = Fabmoment.find_by(title: "Fabmoment ABC")
     expect(page.current_url).to eq fabmoment_url(fabmoment)
@@ -27,7 +27,7 @@ RSpec.feature "Users can create new fabmoments", type: :feature do
   scenario "when providing invalid attributes" do
     click_button "Fabmoment toevoegen"
 
-    expect(page).to have_content "Fabmoment is niet gecreëerd."
+    expect(page).to have_content "Fabmoment is niet toegevoegd."
     expect(page).to have_content "Titel moet opgegeven zijn"
     expect(page).to have_content "Omschrijving moet opgegeven zijn"
   end
