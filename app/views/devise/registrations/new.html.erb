@@ -1,12 +1,14 @@
 <% title("Inschrijving", "Gebruikers") %>
 <div class="w3-container w3-margin-top">
 	<header>
-		<h1 class="w3-center">Nieuwe aanmelding</h1>
+		<h2 class="w3-center">Inschrijving</h2>
 	<header>
 
 	<div class="w3-row">
-		<div class="w3-third w3-center" style="margin-left: 33.3%">
-			<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+		<div class="w3-half w3-center" style="margin-left: 25%">
+			<%= simple_form_for(resource, as: resource_name, 
+																		url: registration_path(resource_name)) do |f| %>
+				<!-- Input -->
 				<%= f.input_field :email, required: true, autofocus: true %>
 				<%= f.label :email %>
 				<%= f.error :email %>
@@ -16,10 +18,12 @@
 				<%= f.error :password %>
 				<%= f.input_field :password_confirmation, required: true %>
 				<%= f.label :password_confirmation %>
-				<%= f.error :password_confirmation %><br><br><br>
+				<%= f.error :password_confirmation %><br><br>
+				<!-- Zenden -->
 				<div class="w3-center">
 					<%= f.button :submit, "Versturen", class: "w3-btn w3-blue w3-center" %>
 				</div>
+				
 			<% end %>
 		</div>
 	</div>

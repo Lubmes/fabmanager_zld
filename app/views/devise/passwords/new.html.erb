@@ -1,15 +1,28 @@
-<h2>Forgot your password?</h2>
+<% title("Wachtwoordherstel", "Gebruikers") %>
+<div class="w3-container w3-margin-top">
+	<header>
+		<h2 class="w3-center">Wachtwoord vergeten?</h2>
+	<header>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
+	<div class="w3-row">
+		<div class="w3-half w3-center" style="margin-left: 25%">
+			<%= simple_form_for(resource, as: resource_name, 
+																		url: password_path(resource_name), 
+																		html: { method: :post }) do |f| %>
+				<!-- Input -->
+				<%= f.input_field :email, required: true, autofocus: true %>
+				<%= f.label :email %>
+				<%= f.error :email %><br><br>
+				<!-- Zenden -->
+	  		<div class="w3-center">
+			    <%= f.button :submit, "Verstuur herstel instructies", 
+			    							class: "w3-btn w3-blue w3-center" %>
+		    </div>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-  </div>
+			<% end %>
+		</div>
+	</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+	<br><br><br>
+	<%= render "devise/shared/links" %>
+</div>
