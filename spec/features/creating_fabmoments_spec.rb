@@ -1,49 +1,64 @@
 require 'rails_helper'
+### WALK THROUGH THE PARK: Behaviour Driven Development ###
+# Testen volgen een AAA opbouw: Arrange - Act - Assert.
+# Een applicatie opbouwen volgens de BDD aanpak betekent
+# dat je eerst je testen schrijft, dan de bijhorende correcte 
+# code, dan alles nog eens naloopt, ookwel samengevat als: 
+# Red - Green - Refactor.
 
 RSpec.feature "Users can create new fabmoments", type: :feature do
   let(:user) { FactoryGirl.create(:user) }
 
+  # Arrange
   before do
     login_as(user)
     visit "/"
     click_link "Nieuw Fabmoment"
   end
 
-  # Je test wat kan...
-  scenario "with valid attributes" do
+  scenario "with valid attributes" do  # Je test wat kan...
+    # Act
     within("form") do
-      fill_in "Titel", with: "Laser Foto"
+      fill_in "Titel", with: "Gegraveerde foto"
       fill_in "Omschrijving", with: "Deze foto is met een laser gegraveerd."
       click_button "Fabmoment toevoegen"
     end
 
+    # Assert
     expect(page).to have_content "Fabmoment is succesvol toegevoegd."
     
-    fabmoment = Fabmoment.find_by(title: "Laser Foto")
+    fabmoment = Fabmoment.find_by(title: "Gegraveerde foto")
     expect(page.current_url).to eq fabmoment_url(fabmoment)
 
-    title = "Laser Foto - Fabmoments - FabLab"
+    title = "Gegraveerde foto - Fabmoments - FabLab"
     expect(page).to have_title title
   end
 
-  # ...en je test ook wat kan, maar niet moet!
-  scenario "when providing invalid attributes" do
+  scenario "when providing invalid attributes" do # ...en je test ook wat kan, maar niet moet!
+    # Act
     click_button "Fabmoment toevoegen"
 
+    # Assert
     expect(page).to have_content "Fabmoment is niet toegevoegd."
     expect(page).to have_content "Titel moet opgegeven zijn"
   end
 
   scenario "with associated machines" do
-    fill_in "Titel", with: "Laser Foto"
-    fill_in "Omschrijving", with: "Deze foto is met een laser gegraveerd."
-    select "Lasersnijder", from: "Machines"
-    click_button "Fabmoment toevoegen"
+    # Act
+    within("form") do
+      fill_in "Titel", with: "Gegraveerde foto"
+      fill_in "Omschrijving", with: "Deze foto is met een laser gegraveerd."
 
+      within("#machines") do
+        page.check "Lasersnijder"
+      end
+      click_button "Fabmoment toevoegen"
+    end
+
+    # Assert
     expect(page).to have_content "Fabmoment is succesvol toegevoegd."
-    within("#ticket #machines") do
-      expect(page).to have_content ""
-      expect(page).to have_content ""
+    within("#machines") do
+      expect(page).to have_content "Lasersnijder"
     end
   end
 end

@@ -6,17 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-unless User.exists?(email: "admin@example.com")
-  User.create!(email: "admin@example.com", password: "password", admin: true)
+unless User.exists?(email: "admin@fabmanager.com")
+  User.create!(email: "admin@fabmanager.com", password: "password", admin: true)
 end
 
-# Machine.create(name: "Ultimaker Original")
-# Machine.create(name: "Ultimaker Original Plus")
-# Machine.create(name: "Ultimaker Two")
-# Machine.create(name: "Ultimaker Two Plus")
-# Machine.create(name: "Lasersnijder")
-# Machine.create(name: "Vinylsnijder")
-# Machine.create(name: "3D Scanner")
+unless Machine.exists?(name: "Ultimaker Original")
+  Machine.create(name: "Ultimaker Original")
+  Machine.create(name: "Ultimaker Original Plus")
+  Machine.create(name: "Ultimaker Two")
+  Machine.create(name: "Ultimaker Two Plus")
+  Machine.create(name: "Lasersnijder")
+  Machine.create(name: "Vinylsnijder")
+  Machine.create(name: "3D Scanner")
+end
 
 # Program.create(name: "Adobe Illustrator")
 # Program.create(name: "Tinkercad")

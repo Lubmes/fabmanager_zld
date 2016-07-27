@@ -1,7 +1,9 @@
 <% title(@fabmoment.title, "Fabmoments") %>
-<div class="w3-container w3-margin-top">
-	<header>
+
+<div class="w3-container">
+	<header class="w3-center">
 		<h1><%= @fabmoment.title %></h1>
 	<header>
 </div>
+
 <%= render "form", fabmoment: @fabmoment %>

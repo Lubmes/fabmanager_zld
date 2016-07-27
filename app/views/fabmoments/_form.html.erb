@@ -1,14 +1,39 @@
-<%= simple_form_for @fabmoment do |f| %>
-	
-	<!-- Input -->
-  <%= f.input_field :title %>
-  <%= f.label :title %>
-  <%= f.error :title %>
-	<%= f.input_field :description %>
-  <%= f.label :description %>
-	<%= f.error :description %>
-  <br><br>
-  <!-- Zenden -->
-  <%= f.button :button, class: "w3-btn w3-blue w3-center" %>
-  
-<% end %>
+<div class="w3-row">
+    <div class="w3-twothird" style="margin-left: 16.65%">
+
+      <%= simple_form_for @fabmoment do |f| %>
+      	
+      	<!-- Input -->
+        <%= f.input_field :title %>
+        <%= f.label :title %>
+        <%= f.error :title %>
+      	<%= f.input_field :description, rows: 7 %>
+        <%= f.label :description %>
+        <%= f.error :description %><br><br>
+        
+        <div class="w3-row w3-margin-top">
+          <div class="w3-third w3-card w3-padding-bottom">
+            <h5 class="w3-text-teal w3-center">Machines</h5>
+            <ul class="w3-ul" id="machines">
+            <%= f.collection_check_boxes :machine_ids, @machines, :id, :name do |b| %>
+              <li>
+                <%= b.label do %>
+                  <%= b.check_box class: "w3-check" %>
+                  <%= b.text %>
+                <% end %>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+
+        <br><br>
+        <!-- Zenden -->
+        <div class="w3-center w3-margin-bottom">
+          <%= f.button :button, class: "w3-btn w3-blue w3-center" %>
+        </div>
+
+      <% end %>
+
+  </div>
+</div>

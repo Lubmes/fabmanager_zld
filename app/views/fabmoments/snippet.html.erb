@@ -1,0 +1,7 @@
+        <strong>Machines</strong>
+        <% @machines.each do |m| %>
+          <br>
+          <!-- f.input_field :remember_me, as: :boolean -->
+          <%= f.label m.name %>
+          <%= f.check_box %>
+        <% end %>

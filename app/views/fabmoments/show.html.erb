@@ -1,22 +1,39 @@
 <% title(@fabmoment.title, "Fabmoments") %>
-<div class="w3-container">
-	<header>
-		<h1 class="w3-center"><%= @fabmoment.title %></h1>
-	<header>
 
-	<p class="w3-padding-jumbo"><%= @fabmoment.description %></p>
+<div class="w3-row">
+	<div class="w3-twothird" style="margin-left: 16.65%">
 
-	<footer class="w3-center">
-		<br>
-		<% if current_user %>
-			<%= link_to "Bijwerken Fabmoment", [:edit, @fabmoment],  
-																					class: "edit w3-btn w3-amber" %>
-			<% if current_user.admin? %>
-				<%= link_to "Verwijder Fabmoment", [@fabmoment], 
-																						method: :delete, 
-																						data: { confirm: "Weet je zeker dat je het fabmoment wil verwijderen?"},
-																						class: "delete w3-btn w3-amber" %>
+		<header>
+			<h1 class="w3-center"><%= @fabmoment.title %></h1>
+		</header>
+
+		<p><%= @fabmoment.description %></p>
+
+		<% if @fabmoment.machines.any? %>
+			<div class="w3-row w3-margin-top">
+        <div class="w3-third w3-card w3-padding-bottom">
+          <h5 class="w3-center">Machines</h5>
+          <ul id="machines">
+						<% @fabmoment.machines.each do |machine| %>
+							<p><%= machine.name %></p>
+						<% end %>
+					</ul>
+				</div>
+			</div>
 		<% end %>
-	<% end %>
-	</footer>
+
+		<footer class="w3-center">
+			<br>
+				<% if current_user %>
+					<%= link_to "Bijwerken Fabmoment", [:edit, @fabmoment],  
+																							class: "edit w3-btn w3-amber" %>
+					<% if current_user.admin? %>
+						<%= link_to "Verwijder Fabmoment", [@fabmoment], 
+																								method: :delete, 
+																								data: { confirm: "Weet je zeker dat je het fabmoment wil verwijderen?"},
+																								class: "delete w3-btn w3-amber" %>
+				<% end %>
+			<% end %>
+		</footer>
+	</div>
 </div>
