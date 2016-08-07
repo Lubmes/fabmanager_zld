@@ -15,9 +15,9 @@ RSpec.feature "Users can only see the appropriate links" do
   context "non-admin users" do
     before do
       login_as(user)
-   end
+    end
 
-   scenario "can see the New Fabmoment link" do
+    scenario "can see the New Fabmoment link" do
       visit "/"
       expect(page).to have_link "Nieuw Fabmoment"
     end

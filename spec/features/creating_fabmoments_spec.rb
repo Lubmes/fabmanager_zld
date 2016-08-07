@@ -3,7 +3,7 @@ require 'rails_helper'
 # Testen volgen een AAA opbouw: Arrange - Act - Assert.
 # Een applicatie opbouwen volgens de BDD aanpak betekent
 # dat je eerst je testen schrijft, dan de bijhorende correcte 
-# code, dan alles nog eens naloopt, ookwel samengevat als: 
+# code, dan alles nog eens naloopt, ook wel samengevat als: 
 # Red - Green - Refactor.
 
 RSpec.feature "Users can create new fabmoments", type: :feature do
@@ -48,7 +48,6 @@ RSpec.feature "Users can create new fabmoments", type: :feature do
     within("form") do
       fill_in "Titel", with: "Gegraveerde foto"
       fill_in "Omschrijving", with: "Deze foto is met een laser gegraveerd."
-
       within("#machines") do
         page.check "Lasersnijder"
       end
@@ -61,4 +60,47 @@ RSpec.feature "Users can create new fabmoments", type: :feature do
       expect(page).to have_content "Lasersnijder"
     end
   end
+
+  scenario "with associated materials" do
+    # Act
+    within("form") do
+      fill_in "Titel", with: "Gegraveerde foto"
+      fill_in "Omschrijving", with: "Deze foto is met een laser gegraveerd."
+      within("#machines") do
+        page.check "Lasersnijder"
+      end
+      within("#materials") do
+        page.check "Multiplex 3mm"
+      end
+      click_button "Fabmoment toevoegen"
+    end
+
+    # Assert
+    expect(page).to have_content "Fabmoment is succesvol toegevoegd."
+    within("#materials") do
+      expect(page).to have_content "Multiplex 3mm"
+    end
+  end
+
+  scenario "with associated programs" do
+    # Act
+    within("form") do
+      fill_in "Titel", with: "Gegraveerde foto"
+      fill_in "Omschrijving", with: "Deze foto is met een laser gegraveerd."
+      within("#machines") do
+        page.check "Lasersnijder"
+      end
+      within("#programs") do
+        page.check "Inkscape"
+      end
+      click_button "Fabmoment toevoegen"
+    end
+
+    # Assert
+    expect(page).to have_content "Fabmoment is succesvol toegevoegd."
+    within("#programs") do
+      expect(page).to have_content "Inkscape"
+    end
+  end
+
 end
