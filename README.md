@@ -17,7 +17,7 @@ Build:
 
 * RSpec, FactoryGirl and Capybara are used for testing. BDD building style approach. 
 
-* Configurated to use NL (Dutch) as the default local (in config/application.rb). I18n building approach.
+* Configurated to use NL (Dutch) as the default local (in config/application.rb). I18n building approach intended.
 
 ## Styling
 

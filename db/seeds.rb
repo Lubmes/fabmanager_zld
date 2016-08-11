@@ -28,7 +28,7 @@ unless Program.exists?(name: "Adobe Illustrator")
   Program.create(name: "Blender")
 end
 
-unless Material.exists?(sort: "Multiplex")
+unless Material.exists?(sort: "multiplex")
   Material.create(sort: "multiplex", thickness: 3)
   Material.create(sort: "multiplex", thickness: 4)
   Material.create(sort: "multiplex", thickness: 6)
