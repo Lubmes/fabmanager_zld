@@ -19,4 +19,14 @@ RSpec.feature 'Admins can create new users', type: :feature do
     expect(page).to have_content 'Gebruiker is succesvol toegevoegd.'
   end
 
+  scenario 'when the new user is an admin' do
+    fill_in 'E-mail', with: 'admin@example.com'
+    fill_in 'Wachtwoord', with: 'password'
+    check 'Adminrechten?'
+
+    click_button 'Toevoegen'
+    expect(page).to have_content 'Gebruiker is succesvol toegevoegd.'
+    expect(page).to have_content 'admin@example.com (Admin)'
+  end
+
 end

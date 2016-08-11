@@ -17,7 +17,7 @@
 		    <div class="w3-quarter">
 			    <div class="w3-card-2 w3-hover-shadow w3-margin-bottom">
 			    	<header class="w3-container w3-indigo w3-center">
-			    		<h5><%= user.email %></h5>
+			    		<h5><%= user.email %><%= " (Admin)" if user.admin? %></h5>
 						</header>
 						<div class="w3-container">
 						  <p> user.avatar </p>
