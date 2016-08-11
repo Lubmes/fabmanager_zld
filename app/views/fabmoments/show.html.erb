@@ -53,7 +53,7 @@
 				<% if current_user %>
 					<%= link_to "Bijwerken Fabmoment", [:edit, @fabmoment],  
 																							class: "edit w3-btn w3-amber" %>
-					<% if current_user.admin? %>
+					<% admins_only do %>
 						<%= link_to "Verwijder Fabmoment", [:admin, @fabmoment], 
 																								method: :delete, 
 																								data: { confirm: "Weet je zeker dat je het fabmoment wil verwijderen?"},

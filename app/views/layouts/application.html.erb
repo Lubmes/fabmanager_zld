@@ -15,6 +15,12 @@
 				<%= link_to "FabLab", root_path, 
 															class: "w3-hover-text-dark-grey" %>	
 			</li>
+			<% admins_only do %>
+			<li class="<% "active" if current_page?("/") %>">
+				<%= link_to "Admin", admin_root_path, 
+															class: "w3-hover-text-dark-grey" %>	
+			</li>
+			<% end %>
 			<% unless user_signed_in? %>
 				<li class="<% "active" if current_page?("users/sign_up") %> w3-right">
 					<%= link_to "Inschrijven", 	new_user_registration_path, 

@@ -1,0 +1,20 @@
+<div class="w3-row">
+	<div class="w3-half w3-center" style="margin-left: 25%">
+		<%= simple_form_for [:admin, user] do |f| %>
+			<!-- Input -->
+			<%= f.input_field :email, required: true, autofocus: true %>
+			<%= f.label :email %>
+			<%= f.error :email %>
+			<%= f.input_field :password, required: true %>
+			<%= f.label :password %>
+			<%= "minimaal #{@minimum_password_length} karakters" if @minimum_password_length %>
+			<%= f.error :password %><br><br>
+			<!-- Zenden -->
+  		<div class="w3-center">
+		    <%= f.button :submit, "Toevoegen", 
+		    							class: "w3-btn w3-blue w3-center" %>
+	    </div>
+
+		<% end %>
+	</div>
+</div>

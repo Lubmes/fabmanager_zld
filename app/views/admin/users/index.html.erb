@@ -1,0 +1,30 @@
+<% title("Gebruikers", "Admin") %>
+
+<div class="w3-container w3-margin-top">
+	<header class="w3-center">
+		<h2>Gebruikers</h2>
+		<% if current_user %>
+			<ul class="actions w3-ul">
+				<li><%= link_to "Nieuwe Gebruiker", new_admin_user_path, 
+								class: "new w3-btn w3-lime w3-margin-bottom"%></li>
+			</ul>
+		<% end %>
+	</header>
+	 
+	<div id="fabmoments" class="w3-row-padding w3-margin-top">
+	  <% @users.each do |user| %>
+	  	<%= link_to [:admin, user] do %>
+		    <div class="w3-quarter">
+			    <div class="w3-card-2 w3-hover-shadow w3-margin-bottom">
+			    	<header class="w3-container w3-indigo w3-center">
+			    		<h5><%= user.email %></h5>
+						</header>
+						<div class="w3-container">
+						  <p> user.avatar </p>
+						</div>
+					</div>
+		  <% end %>
+		  </div>
+	  <% end %>
+	</div>
+</div>
