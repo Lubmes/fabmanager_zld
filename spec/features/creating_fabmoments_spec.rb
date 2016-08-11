@@ -26,10 +26,8 @@ RSpec.feature "Users can create new fabmoments", type: :feature do
 
     # Assert
     expect(page).to have_content "Fabmoment is succesvol toegevoegd."
-    
     fabmoment = Fabmoment.find_by(title: "Gegraveerde foto")
     expect(page.current_url).to eq fabmoment_url(fabmoment)
-
     title = "Gegraveerde foto - Fabmoments - FabLab"
     expect(page).to have_title title
   end
@@ -66,9 +64,6 @@ RSpec.feature "Users can create new fabmoments", type: :feature do
     within("form") do
       fill_in "Titel", with: "Gegraveerde foto"
       fill_in "Omschrijving", with: "Deze foto is met een laser gegraveerd."
-      within("#machines") do
-        page.check "Lasersnijder"
-      end
       within("#materials") do
         page.check "Multiplex 3mm"
       end
@@ -87,15 +82,12 @@ RSpec.feature "Users can create new fabmoments", type: :feature do
     within("form") do
       fill_in "Titel", with: "Gegraveerde foto"
       fill_in "Omschrijving", with: "Deze foto is met een laser gegraveerd."
-      within("#machines") do
-        page.check "Lasersnijder"
-      end
       within("#programs") do
         page.check "Inkscape"
       end
       click_button "Fabmoment toevoegen"
     end
-
+    
     # Assert
     expect(page).to have_content "Fabmoment is succesvol toegevoegd."
     within("#programs") do

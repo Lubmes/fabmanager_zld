@@ -10,7 +10,24 @@
       	<%= f.input_field :description, rows: 7 %>
         <%= f.label :description %>
         <%= f.error :description %><br><br>
-        
+
+        <div class="w3-row-padding w3-margin-top">
+          <!-- Programs card -->
+          <div class="w3-col m3">
+            <div class="w3-card">
+              <h5 class="w3-text-teal w3-center">Programs</h5>
+              <ul class="w3-ul" id="programs">
+              <%= f.collection_check_boxes :program_ids, @programs, :id, :name do |b| %>
+                <li>
+                  <%= b.label class: "w3-small" do %>
+                    <%= b.check_box class: "w3-check" %>
+                    <%= b.text %>
+                  <% end %>
+                </li>
+              <% end %>
+              </ul>
+            </div>
+          </div>
         <div class="w3-row-padding w3-margin-top">
           <!-- Machines card -->
           <div class="w3-col m4">

@@ -1,6 +1,9 @@
 class Fabmoment < ApplicationRecord
     validates :title, presence: true
     validates :description, presence: true
+    # Fabmoment to interface with programs. 
+    has_many :interfaces, :dependent => :destroy
+    has_many :programs, :through => :interfaces
     # Fabmoment to handle machines. 
     has_many :handles, :dependent => :destroy
     has_many :machines, :through => :handles

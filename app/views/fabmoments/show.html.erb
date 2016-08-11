@@ -10,6 +10,18 @@
 		<p><%= @fabmoment.description %></p>
 
 		<div class="w3-row-padding w3-margin-top">
+		<% if @fabmoment.programs.any? %>
+			<div class="w3-col m3">
+        <div class="w3-card">
+          <h5 class="w3-center">Programs</h5>
+          <ul id="programs">
+						<% @fabmoment.programs.each do |program| %>
+							<p><%= program.name %></p>
+						<% end %>
+					</ul>
+				</div>
+			</div>
+		<% end %>
 		<% if @fabmoment.machines.any? %>
 			<div class="w3-col m4">
         <div class="w3-card">
@@ -22,14 +34,13 @@
 				</div>
 			</div>
 		<% end %>
-
 		<% if @fabmoment.materials.any? %>
 			<div class="w3-col m5">
         <div class="w3-card">
           <h5 class="w3-center">Materialen</h5>
           <ul id="materials">
 						<% @fabmoment.materials.each do |material| %>
-							<p><%= "#{material.name} #{material.sort} #{material.thickness}mm" %></p>
+							<p><%= material.full_name %></p>
 						<% end %>
 					</ul>
 				</div>

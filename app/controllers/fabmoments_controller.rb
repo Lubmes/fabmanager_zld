@@ -1,8 +1,8 @@
 class FabmomentsController < ApplicationController
   before_action :set_fabmoment, only: [:show, :edit, :update, :destroy]
+  before_action :set_programs, only: [:new, :create, :edit, :update]
   before_action :set_machines, only: [:new, :create, :edit, :update]
   before_action :set_materials, only: [:new, :create, :edit, :update]
-
 
   def index
     @fabmoments = Fabmoment.all
@@ -51,11 +51,15 @@ class FabmomentsController < ApplicationController
 
   def fabmoment_params
     params.require(:fabmoment).permit(:title, :description, 
-      :machine_ids => [], :material_ids => [] )
+      :program_ids => [], :machine_ids => [], :material_ids => [] )
   end
 
   def set_fabmoment
     @fabmoment = Fabmoment.find(params[:id])
+  end
+
+  def set_programs
+    @programs = Program.all
   end
 
   def set_machines

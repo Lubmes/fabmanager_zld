@@ -20,11 +20,13 @@ unless Machine.exists?(name: "Ultimaker Original")
   Machine.create(name: "3D Scanner")
 end
 
-# Program.create(name: "Adobe Illustrator")
-# Program.create(name: "Tinkercad")
-# Program.create(name: "Sketchup")
-# Program.create(name: "Inkscape")
-# Program.create(name: "Blender")
+unless Program.exists?(name: "Adobe Illustrator")
+  Program.create(name: "Adobe Illustrator")
+  Program.create(name: "Tinkercad")
+  Program.create(name: "Sketchup")
+  Program.create(name: "Inkscape")
+  Program.create(name: "Blender")
+end
 
 unless Material.exists?(sort: "Multiplex")
   Material.create(sort: "multiplex", thickness: 3)

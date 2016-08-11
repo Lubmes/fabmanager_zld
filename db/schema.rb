@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802094333) do
+ActiveRecord::Schema.define(version: 20160811093618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 20160802094333) do
     t.index ["machine_id"], name: "index_handles_on_machine_id", using: :btree
   end
 
+  create_table "interfaces", force: :cascade do |t|
+    t.integer  "fabmoment_id"
+    t.integer  "program_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["fabmoment_id"], name: "index_interfaces_on_fabmoment_id", using: :btree
+    t.index ["program_id"], name: "index_interfaces_on_program_id", using: :btree
+  end
+
   create_table "machines", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -50,6 +59,12 @@ ActiveRecord::Schema.define(version: 20160802094333) do
     t.string   "sort"
     t.string   "name"
     t.integer  "thickness"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "programs", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
