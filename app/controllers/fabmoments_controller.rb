@@ -1,5 +1,5 @@
 class FabmomentsController < ApplicationController
-  before_action :set_fabmoment, only: [:show, :edit, :update, :destroy]
+  before_action :set_fabmoment, only: [:show, :edit, :update]
   before_action :set_programs, only: [:new, :create, :edit, :update]
   before_action :set_machines, only: [:new, :create, :edit, :update]
   before_action :set_materials, only: [:new, :create, :edit, :update]
@@ -41,11 +41,11 @@ class FabmomentsController < ApplicationController
     end
   end
 
-  def destroy
-    @fabmoment.destroy
-    flash[:notice] = "Fabmoment is verwijderd."
-    redirect_to fabmoments_path 
-  end
+  # def destroy
+  #   @fabmoment.destroy
+  #   flash[:notice] = "Fabmoment is verwijderd."
+  #   redirect_to fabmoments_path 
+  # end
 
   private
 
