@@ -15,6 +15,8 @@ nl:
       inactive: 'Uw account is nog niet geactiveerd.'
       last_attempt: 'U hebt nog een poging over voordat uw account wordt geblokkeerd.'
       not_found_in_database: "Ongeldig e-mail of wachtwoord."
+      user:
+        archived: "Uw account is gearchiveerd."
     mailer:
       confirmation_instructions:
         subUct: 'Bevestiging mailadres'
