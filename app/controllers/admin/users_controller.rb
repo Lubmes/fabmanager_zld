@@ -1,8 +1,8 @@
 class Admin::UsersController < Admin::ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :archive]
 
   def index
-    @users = User.order(:email)
+    @users = User.excluding_archived.order(:email)
   end
 
   def show
@@ -38,6 +38,17 @@ class Admin::UsersController < Admin::ApplicationController
       flash.now[:alert] = "Gebruiker is niet bijgewerkt."
       render "edit"
     end
+  end
+
+  def archive
+    if @user == current_user
+      flash[:alert] = 'Je kunt jezelf niet archiveren!'
+    else
+      @user.archive
+      flash[:notice] = 'Gebruiker is gearchiveerd.'
+    end
+
+    redirect_to admin_users_path
   end
 
   private

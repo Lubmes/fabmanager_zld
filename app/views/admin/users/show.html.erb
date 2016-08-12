@@ -5,9 +5,14 @@
 
 		<header class="w3-center">
 			<h1><%= @user.email %></h1>
-			<ul class="w3-ul">
-				<li><%= link_to "Bijwerken", [:edit, :admin, @user], class: "edit w3-btn w3-amber" %></li>
-			</ul>
+			<%= link_to "Bijwerken", 
+									[:edit, :admin, @user], 
+									class: "edit w3-btn w3-amber" %>
+			<%= link_to "Archiveer", 
+									[:archive, :admin, @user],
+									method: :patch,
+									data: { confirm: 'Weet je zeker dat je deze gebruiker wil archiveren?' },
+									class: "edit w3-btn w3-red" %>
 		</header>
 
 		<p> user.avatar </p>
