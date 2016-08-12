@@ -1,5 +1,9 @@
 nl:
   activerecord:
+    models:
+      user: 
+        one: Gebruiker
+        other: Gebruikers
     attributes:
       user:
         email: E-mail

@@ -1,0 +1,19 @@
+<% title(@user.id, "Gebruiker") %>
+
+<div class="w3-row">
+	<div class="w3-twothird" style="margin-left: 16.65%">
+
+		<header class="w3-center">
+			<h1><%= @user.email %></h1>
+			<ul class="w3-ul">
+				<li><%= link_to "Bijwerken", [:edit, :admin, @user], class: "edit w3-btn w3-amber" %></li>
+			</ul>
+		</header>
+
+		<p> user.avatar </p>
+		<p> user.bio </p>
+		<p> user.fabmoments </p>
+		<p> user.comments.order(#van recent tot in verleden) </p>
+
+	</div>
+</div>
