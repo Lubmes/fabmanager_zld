@@ -1,4 +1,7 @@
 <div class="tag">
-	<%= link_to "<span></span>".html_safe, "#", class: "remove", title: "remove" %>
+	<%= link_to "<span></span>".html_safe, 
+			remove_fabmoment_tag_path(fabmoment, tag), method: :delete, remote: true, 
+			class: "remove", 
+			title: "remove" %>
 	<%= tag.name %>
 </div>

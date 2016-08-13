@@ -12,5 +12,11 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'fabmoments#index'
-  resources 'fabmoments', except: [:destroy]
+  resources 'fabmoments', except: [:destroy] do
+    resources 'tags' do
+      member do
+        delete :remove
+      end
+    end
+  end
 end
