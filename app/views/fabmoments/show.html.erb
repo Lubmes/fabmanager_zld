@@ -48,7 +48,13 @@
 		<% end %>
 		</div>
 
-		<footer class="w3-center">
+		<% if @fabmoment.tags.any? %>
+			<div id="tags" class="w3-margin-top">
+				<%= render @fabmoment.tags %>
+			</div>
+		<% end %>
+
+		<footer class="w3-center w3-margin-top">
 			<br>
 				<% if current_user %>
 					<%= link_to "Bijwerken Fabmoment", [:edit, @fabmoment],  

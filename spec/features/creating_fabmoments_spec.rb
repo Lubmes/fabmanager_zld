@@ -95,4 +95,20 @@ RSpec.feature "Users can create new fabmoments", type: :feature do
     end
   end
 
+  scenario "with associated tags" do
+    # Act
+    within("form") do
+      fill_in "Titel", with: "Gegraveerde foto"
+      fill_in "Omschrijving", with: "Deze foto is met een laser gegraveerd."
+      fill_in "Tags", with: "laser afbeeldingen"
+      click_button "Fabmoment toevoegen"
+    end
+    
+    # Assert
+    expect(page).to have_content "Fabmoment is succesvol toegevoegd."
+    within("#tags") do
+      expect(page).to have_content "laser"
+      expect(page).to have_content "afbeeldingen"
+    end
+  end
 end

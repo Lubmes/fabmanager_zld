@@ -5,3 +5,18 @@
 .w3-card-2 {
 	height: 180px;
 }
+
+.tag {
+	@extend .w3-tag;
+	@extend .w3-padding-medium;
+	@extend .w3-light-blue;
+	@extend .w3-margin-right;
+
+	a {
+		&.remove {
+			font-family: "FontAwesome";
+			@extend .fa-times-circle;
+			text-decoration: none;
+		}
+	}
+}
