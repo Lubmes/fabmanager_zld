@@ -18,6 +18,7 @@ class FabmomentsController < ApplicationController
 
   def create
     @fabmoment = Fabmoment.new(fabmoment_params)
+    @fabmoment.author = current_user
 
     if @fabmoment.save
       flash[:notice] = "Fabmoment is succesvol toegevoegd."

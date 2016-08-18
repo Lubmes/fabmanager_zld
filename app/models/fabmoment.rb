@@ -1,5 +1,5 @@
 class Fabmoment < ApplicationRecord
-  # belongs_to :user
+  belongs_to :author, class_name: "User"
   validates :title, presence: true
   validates :description, presence: true
   # Fabmoment to interface with programs. 

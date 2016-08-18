@@ -1,7 +1,8 @@
 require "rails_helper"
 
 RSpec.feature "Users can only see the appropriate links" do
-  let(:fabmoment) { FactoryGirl.create(:fabmoment) }
+  let(:author) { FactoryGirl.create(:user) }
+  let(:fabmoment) { FactoryGirl.create(:fabmoment, author: author) }
   let(:user) { FactoryGirl.create(:user) }
   let(:admin) { FactoryGirl.create(:user, :admin) }
 

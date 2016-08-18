@@ -30,6 +30,7 @@ RSpec.feature "Users can create new fabmoments", type: :feature do
     expect(page.current_url).to eq fabmoment_url(fabmoment)
     title = "Gegraveerde foto - Fabmoments - FabLab"
     expect(page).to have_title title
+    expect(page).to have_content "Door #{user.email}"
   end
 
   scenario "when providing invalid attributes" do # ...en je test ook wat kan, maar niet moet!

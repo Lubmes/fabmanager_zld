@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.feature "Users can delete unwanted tags from a ticket" do
   let(:user) { FactoryGirl.create(:user) }
   let(:fabmoment) do
-    FactoryGirl.create(:fabmoment, tag_names: "ThisTagMustDie") #, author: user)
+    FactoryGirl.create(:fabmoment, tag_names: "ThisTagMustDie", author: user)
   end
 
   before do

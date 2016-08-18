@@ -1,12 +1,11 @@
 require "rails_helper"
 
 RSpec.feature "Users can edit fabmoments", type: :feature do
-  let(:fabmoment) { FactoryGirl.create(:fabmoment, title: "Nice Cover for smartphone") }
-  let(:user) { FactoryGirl.create(:user) }
-
+  let(:author) { FactoryGirl.create(:user) }
+  let(:fabmoment) { FactoryGirl.create(:fabmoment, title: "Bad Cover for smartphone", author: author) }
 
   before do
-    login_as(user)
+    login_as author
     visit fabmoment_path(fabmoment)
     click_link "Bijwerken Fabmoment"
   end

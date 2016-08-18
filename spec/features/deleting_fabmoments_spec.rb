@@ -1,7 +1,8 @@
 require "rails_helper"
 
 RSpec.feature "Users can delete fabmoments", type: :feature do
-  let(:fabmoment) { FactoryGirl.create(:fabmoment, title: "Bad Cover for smartphone") }
+  let(:author) { FactoryGirl.create(:user) }
+  let(:fabmoment) { FactoryGirl.create(:fabmoment, title: "Bad Cover for smartphone", author: author) }
 
   before do
     login_as FactoryGirl.create(:user, :admin)
