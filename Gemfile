@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'simple_form'
 gem 'devise', '~> 4.2'
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
+gem 'pundit', '~> 1.1'
 
 group :development, :test do
   gem 'byebug', platform: :mri

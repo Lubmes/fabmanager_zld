@@ -30,6 +30,7 @@ class FabmomentsController < ApplicationController
   end
 
   def edit
+    authorize @fabmoment, :edit?
   end
 
   def update
@@ -41,12 +42,6 @@ class FabmomentsController < ApplicationController
       render "edit"
     end
   end
-
-  # def destroy
-  #   @fabmoment.destroy
-  #   flash[:notice] = "Fabmoment is verwijderd."
-  #   redirect_to fabmoments_path 
-  # end
 
   private
 
