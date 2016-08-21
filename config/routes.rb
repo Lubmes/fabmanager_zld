@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
+  
   namespace :admin do
     root 'application#index'
-
-    resources 'fabmoments', only: [:destroy]
     resources 'users' do
       member do 
         patch :archive
@@ -11,12 +10,14 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
+    
   root 'fabmoments#index'
-  resources 'fabmoments', except: [:destroy] do
+  resources 'fabmoments' do
     resources 'tags' do
       member do
         delete :remove
       end
     end
   end
+
 end

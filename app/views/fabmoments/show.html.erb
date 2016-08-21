@@ -60,12 +60,12 @@
 				<% if policy(@fabmoment).update? %>
 					<%= link_to "Bijwerken Fabmoment", [:edit, @fabmoment],  
 							class: "edit w3-btn w3-amber" %>
-					<% admins_only do %>
-						<%= link_to "Verwijder Fabmoment", [:admin, @fabmoment], method: :delete, 
-								data: { confirm: "Weet je zeker dat je het fabmoment wil verwijderen?"},
-								class: "delete w3-btn w3-amber" %>
 				<% end %>
-			<% end %>
+				<% if policy(@fabmoment).destroy? %>
+					<%= link_to "Verwijder Fabmoment", [@fabmoment], method: :delete, 
+							data: { confirm: "Weet je zeker dat je het fabmoment wil verwijderen?"},
+							class: "delete w3-btn w3-amber" %>
+				<% end %>
 		</footer>
 	</div>
 </div>

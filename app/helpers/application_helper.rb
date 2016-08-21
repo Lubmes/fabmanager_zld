@@ -7,7 +7,9 @@ module ApplicationHelper
     end
   end
 
-  def admins_only(&block)
-    block.call if current_user.try(:admin?)
-  end
+  # In ongebruik na fabmoment policy destroy refactor.
+  # Eventueel later weer te gebruiken.
+  # def admins_only(&block)
+  #   block.call if current_user.try(:admin?)
+  # end
 end

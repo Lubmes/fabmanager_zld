@@ -9,6 +9,11 @@ class FabmomentPolicy < ApplicationPolicy
     user.try(:admin?) || record.author == user
   end
 
+
+  def destroy?
+    user.try(:admin?)
+  end
+
   def tag?
     update?
   end
