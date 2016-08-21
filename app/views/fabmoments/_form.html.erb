@@ -63,6 +63,12 @@
           </div>
         </div>
 
+        <% if @fabmoment.tags.any? %>
+          <div id="tags" class="w3-margin-top">
+            <%= render @fabmoment.tags, fabmoment: @fabmoment %>
+          </div>
+        <% end %>
+
         <br>
         <%= f.input_field :tag_names %>
         <%= f.label :tag_names %>

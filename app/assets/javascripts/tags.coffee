@@ -3,5 +3,5 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-	$(".tag .remove").on "ajax:success", ->
-		$(this).parent().fadeOut()
+  $(".tag .remove").on "ajax:success", (event, data, status, xhr) ->
+    $(this).parent().fadeOut()

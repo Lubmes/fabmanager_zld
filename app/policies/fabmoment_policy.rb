@@ -8,4 +8,8 @@ class FabmomentPolicy < ApplicationPolicy
   def update?
     user.try(:admin?) || record.author == user
   end
+
+  def tag?
+    update?
+  end
 end

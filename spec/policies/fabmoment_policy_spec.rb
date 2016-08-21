@@ -13,24 +13,29 @@ RSpec.describe FabmomentPolicy do
       let(:user) { nil }
 
       it { should_not permit_action :update }
+      it { should_not permit_action :tag }
+
     end
 
     context "for random users" do
       let(:random_user) { FactoryGirl.create :user }
 
       it { should_not permit_action :update }
+      it { should_not permit_action :tag }
     end
 
     context 'for authors of the fabmoment' do
       let(:user) { author }
 
       it { should permit_action :update }
+      it { should permit_action :tag }
     end
 
     context 'for admins of the fabmoment' do
       let(:user) { FactoryGirl.create :user, :admin }
 
       it { should permit_action :update }
+      it { should permit_action :tag }
     end
   end
 end
