@@ -1,28 +1,36 @@
 require 'rails_helper'
 
 RSpec.describe FabmomentPolicy do
+  context "permissions" do
+    subject { FabmomentPolicy.new(user, fabmoment) }
+  
+    let(:user) { FactoryGirl.create :user }
+    let(:author) { FactoryGirl.create :user }
+    let(:fabmoment) { FactoryGirl.create :fabmoment, author: author }
 
-  let(:user) { User.new }
 
-  subject { described_class }
+    context 'for anonymous users' do
+      let(:user) { nil }
 
-  permissions ".scope" do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+      it { should_not permit_action :update }
+    end
 
-  permissions :show? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+    context "for random users" do
+      let(:random_user) { FactoryGirl.create :user }
 
-  permissions :create? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+      it { should_not permit_action :update }
+    end
 
-  permissions :update? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+    context 'for authors of the fabmoment' do
+      let(:user) { author }
 
-  permissions :destroy? do
-    pending "add some examples to (or delete) #{__FILE__}"
+      it { should permit_action :update }
+    end
+
+    context 'for admins of the fabmoment' do
+      let(:user) { FactoryGirl.create :user, :admin }
+
+      it { should permit_action :update }
+    end
   end
 end
