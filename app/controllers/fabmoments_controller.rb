@@ -52,6 +52,9 @@ class FabmomentsController < ApplicationController
 
   def set_fabmoment
     @fabmoment = Fabmoment.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "Het fabmoment waar je naar zocht is niet hier."
+    redirect_to fabmoments_path
   end
 
   def set_programs
