@@ -13,6 +13,9 @@ class Fabmoment < ApplicationRecord
   has_many :materials, :through => :feeds
   # Fabmoment has many tags (and vice versa).
   has_and_belongs_to_many :tags, uniq: true
+  
+  # Multiple uploads of images possible.
+  mount_uploaders :images, ImageUploader
 
   attr_accessor :tag_names
 

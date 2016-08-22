@@ -10,6 +10,12 @@
       	<%= f.input_field :description, rows: 7 %>
         <%= f.label :description %>
         <%= f.error :description %><br><br>
+        <div class="w3-center">
+          <%= f.label :images %>
+          <%= f.file_field :images, multiple: true %><br><br>          
+          <%= f.error :images %><br><br>
+        </div>
+
 
         <div class="w3-row-padding w3-margin-top">
           <!-- Programs card -->
