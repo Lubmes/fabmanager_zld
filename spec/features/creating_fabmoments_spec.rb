@@ -148,4 +148,21 @@ RSpec.feature 'Users can create new fabmoments', type: :feature do
   #     expect(page).to have_selector 'img'
   #   end
   # end
+
+  scenario 'with a 3d-model attachment', js: true do
+    # Act
+    within('form') do
+      fill_in 'Titel', with: 'Reeks ontwerp studies'
+      fill_in 'Omschrijving', with: 'Deze maquettes komen uit verscheidene machines.'
+    end
+    attach_file 'Project Bestanden', Rails.root.join('spec/fixtures/the_puritan_1st_floor.stl')
+    click_button 'Fabmoment toevoegen'
+
+    # Assert
+    expect(page).to have_content 'Fabmoment is succesvol toegevoegd.'
+    fabmoment = Fabmoment.find_by(title: 'Reeks ontwerp studies')
+    within('#attachments') do
+      expect(page).to have_content 'the_puritan_1st_floor.stl'
+    end
+  end
 end

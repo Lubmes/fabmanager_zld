@@ -68,6 +68,20 @@
 		<% end %>
 		</div>
 
+		<% if @fabmoment.project_files.any? %>
+			<div id="attachments" class="w3-container w3-margin w3-border">
+				<h5 class="w3-center">Project Bestanden</h5>
+					<ul class="w3-ul">
+					<% @fabmoment.project_files.each do |p| %>
+				    <li>
+				    	<%= link_to File.basename(p.url), p.url %>
+			        (<%= number_to_human_size(p.file.size) %>)
+				    </li>
+					<% end %>
+					</ul>
+			</div>
+		<% end %>
+
 		<% if @fabmoment.tags.any? %>
 			<div id="tags" class="w3-margin-top">
 				<%= render @fabmoment.tags, fabmoment: @fabmoment %>

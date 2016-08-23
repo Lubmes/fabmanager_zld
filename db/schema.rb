@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160822192931) do
+ActiveRecord::Schema.define(version: 20160823115116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,10 +18,11 @@ ActiveRecord::Schema.define(version: 20160822192931) do
   create_table "fabmoments", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "author_id"
     t.json     "images"
+    t.json     "project_files"
     t.index ["author_id"], name: "index_fabmoments_on_author_id", using: :btree
   end
 

@@ -19,5 +19,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  resources :project_file, only: [:show, :new]
+
 
 end

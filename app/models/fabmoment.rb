@@ -14,8 +14,10 @@ class Fabmoment < ApplicationRecord
   # Fabmoment has many tags (and vice versa).
   has_and_belongs_to_many :tags, uniq: true
   
-  # Multiple uploads of images possible.
+  # Multiple file uploads of images possible.
   mount_uploaders :images, ImageUploader
+  # Multiple file uploads of project files possible.
+  mount_uploaders :project_files, ProjectFileUploader
 
   attr_accessor :tag_names
 
