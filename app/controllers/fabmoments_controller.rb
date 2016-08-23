@@ -53,7 +53,7 @@ class FabmomentsController < ApplicationController
   private
 
   def fabmoment_params
-    params.require(:fabmoment).permit(:title, :description, {images: []}, :tag_names, 
+    params.require(:fabmoment).permit(:title, :description, {images: []}, {images_cache: []}, :tag_names, 
       :program_ids => [], :machine_ids => [], :material_ids => [] )
   end
 

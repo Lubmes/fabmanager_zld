@@ -14,7 +14,14 @@
 			<%= f.error :password_confirmation %><br><br>
 			<%= f.label :admin, label: 'Adminrechten?' %>
 			<%= f.check_box :admin, as: :boolean %>
-			<%= f.error :admin %>
+			<%= f.error :admin %><br><br><br>
+			<!-- Upload: Avatar -->
+			<div class="w3-center">
+        <%= f.label :avatar %><br><br>
+        <%= f.file_field :avatar %><br><br>
+        <%= f.hidden_field :avatar_cache %><br><br>
+      </div>
+
 			<br><br>
       <!-- Zenden -->
       <div class="w3-center w3-margin-bottom">

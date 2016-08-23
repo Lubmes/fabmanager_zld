@@ -15,7 +15,10 @@
 									class: "edit w3-btn w3-red" %>
 		</header>
 
-		<p> user.avatar </p>
+		<div class='w3-center w3-margin-top'>
+			<img src="<%= @user.avatar.url unless @user.avatar.file.nil? %>" style="height:300px">
+		</div>
+
 		<p> user.bio </p>
 		<p> user.fabmoments </p>
 		<p> user.comments.order(#van recent tot in verleden) </p>

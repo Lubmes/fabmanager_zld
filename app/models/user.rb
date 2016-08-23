@@ -3,6 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  # Avatar
+  mount_uploader :avatar, AvatarUploader
+
 
   scope :excluding_archived, lambda { where(archived_at: nil) }
 
