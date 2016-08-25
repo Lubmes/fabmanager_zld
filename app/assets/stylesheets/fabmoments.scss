@@ -22,3 +22,13 @@
 		}
 	}
 }
+
+.project_file {
+	a {
+		&.remove {
+			font-family: "FontAwesome";
+			@extend .fa-times-circle;
+			text-decoration: none;
+		}
+	}
+}

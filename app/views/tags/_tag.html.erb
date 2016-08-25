@@ -1,5 +1,5 @@
 <div class="tag">
-	<% if policy(@fabmoment).tag? %>
+	<% if policy(fabmoment).tag? %>
 		<%= link_to "<span></span>".html_safe, 
 				remove_fabmoment_tag_path(fabmoment, tag), method: :delete, remote: true, 
 				class: "remove", 

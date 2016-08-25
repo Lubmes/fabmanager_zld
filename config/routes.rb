@@ -18,8 +18,6 @@ Rails.application.routes.draw do
         delete :remove
       end
     end
+    resources 'project_files', only: [:create, :destroy]
   end
-  resources :project_file, only: [:show, :new]
-
-
 end

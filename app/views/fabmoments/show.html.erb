@@ -72,11 +72,10 @@
 			<div id="attachments" class="w3-container w3-margin w3-border">
 				<h5 class="w3-center">Project Bestanden</h5>
 					<ul class="w3-ul">
-					<% @fabmoment.project_files.each do |p| %>
-				    <li>
-				    	<%= link_to File.basename(p.url), p.url %>
-			        (<%= number_to_human_size(p.file.size) %>)
-				    </li>
+					<% @fabmoment.project_files.each_with_index do |project_file, index| %>
+						<%= render 'project_files/project_file', fabmoment: @fabmoment, 
+																										 project_file: project_file, 
+																										 index: index %>
 					<% end %>
 					</ul>
 			</div>
