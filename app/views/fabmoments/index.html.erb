@@ -1,11 +1,20 @@
 <div class="w3-container w3-margin-top">
-	<header class="w3-center">
-		<h2>Fabmomenten</h2>
+	<header class="w3-container">
+		<h2 class="w3-center">Fabmomenten</h2>
 		<% if current_user %>
-			<ul class="actions w3-ul">
-				<li><%= link_to "Nieuw Fabmoment", new_fabmoment_path, 
-								class: "new w3-btn w3-lime w3-margin-bottom"%></li>
-			</ul>
+			<div class="actions w3-margin-bottom">
+				<%= link_to "Nieuw Fabmoment", new_fabmoment_path, 
+							class: "new w3-left w3-btn w3-lime"%>
+
+				<div class="">			
+				<%= form_tag search_fabmoments_path, 
+						method: :get,
+		        class: "w3-right" do %>
+			        <%= text_field_tag "search", params[:search], class: "w3-form" %>
+			        <%= submit_tag "Zoek", class: "w3-btn w3-indigo" %>
+			  </div>
+	      <% end %>
+			</div>
 		<% end %>
 	</header>
 	 

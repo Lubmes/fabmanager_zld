@@ -1,4 +1,5 @@
 class Fabmoment < ApplicationRecord
+  # Main Models
   belongs_to :author, class_name: "User"
   validates :title, presence: true
   validates :description, presence: true
@@ -13,18 +14,28 @@ class Fabmoment < ApplicationRecord
   has_many :materials, :through => :feeds
   # Fabmoment has many tags (and vice versa).
   has_and_belongs_to_many :tags, uniq: true
+  # Tags
+  attr_accessor :tag_names
   
+  #Files
   # Multiple file uploads of images possible.
   mount_uploaders :images, ImageUploader
   # Multiple file uploads of project files possible.
   mount_uploaders :project_files, ProjectFileUploader
 
-  attr_accessor :tag_names
-
+  
   def tag_names=(names)
     @tag_names = names
     names.split.each do |name|
       self.tags << Tag.find_or_initialize_by(name: name)
+    end
+  end
+
+  def self.search(search)
+    if search
+      Fabmoment.where('lower(title) LIKE ?', "%#{search.downcase}%").order(:created_at)
+    else
+      Fabmoment.all
     end
   end
 end

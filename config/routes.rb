@@ -11,8 +11,14 @@ Rails.application.routes.draw do
 
   devise_for :users
     
+  resources 'users'
+
   root 'fabmoments#index'
+
   resources 'fabmoments' do
+    collection do
+      get :search
+    end
     resources 'tags' do
       member do
         delete :remove

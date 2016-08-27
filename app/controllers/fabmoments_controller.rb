@@ -50,6 +50,15 @@ class FabmomentsController < ApplicationController
     redirect_to fabmoments_path 
   end
 
+  def search
+    if params[:search].present?
+      @fabmoments = Fabmoment.all.search(params[:search])
+    else
+      @fabmoments = Fabmoment.all
+    end
+    render 'fabmoments/index'
+  end
+
   private
 
   def fabmoment_params

@@ -5,7 +5,12 @@
 
 		<header class="w3-center">
 			<h1><%= @fabmoment.title %></h1>
-			<p class="w3-text-pink"><%= "Door #{@fabmoment.author.email} aangemaakt #{time_ago_in_words(@fabmoment.created_at)} geleden" %></p>
+			<p class="w3-text-pink">
+				Door
+				<b><%= link_to @fabmoment.author.email, user_path(@fabmoment.author) %></b>
+				<%= " aangemaakt #{time_ago_in_words(@fabmoment.created_at)} geleden" %>
+					
+			</p>
 		</header>
 
 		<p><%= @fabmoment.description %></p>
@@ -89,15 +94,15 @@
 
 		<footer class="w3-center w3-margin-top w3-margin-bottom">
 			<br>
-				<% if policy(@fabmoment).update? %>
-					<%= link_to "Bijwerken Fabmoment", [:edit, @fabmoment],  
-							class: "edit w3-btn w3-amber" %>
-				<% end %>
-				<% if policy(@fabmoment).destroy? %>
-					<%= link_to "Verwijder Fabmoment", [@fabmoment], method: :delete, 
-							data: { confirm: "Weet je zeker dat je het fabmoment wil verwijderen?"},
-							class: "delete w3-btn w3-amber" %>
-				<% end %>
+			<% if policy(@fabmoment).update? %>
+				<%= link_to "Bijwerken Fabmoment", [:edit, @fabmoment],  
+						class: "edit w3-btn w3-amber" %>
+			<% end %>
+			<% if policy(@fabmoment).destroy? %>
+				<%= link_to "Verwijder Fabmoment", [@fabmoment], method: :delete, 
+						data: { confirm: "Weet je zeker dat je het fabmoment wil verwijderen?"},
+						class: "delete w3-btn w3-amber" %>
+			<% end %>
 		</footer>
 	</div>
 </div>

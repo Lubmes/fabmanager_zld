@@ -3,14 +3,14 @@ class ProjectFilesController < ApplicationController
 
   def create
     add_more_project_files(project_files_params[:project_files])
-    flash[:error] = "Failed uploading project files" unless @gfabmoment.save
-    redirect_to :back
+    flash[:error] = "Failed uploading project files" unless @fabmoment.save
+    redirect_back(fallback_location: edit_fabmoment_path)
   end
 
   def destroy
     remove_project_file_at_index(params[:id].to_i)
     flash[:error] = "Failed deleting project file" unless @fabmoment.save
-    redirect_to :back
+    redirect_back(fallback_location: edit_fabmoment_path)
     head :ok
   end
 
