@@ -25,5 +25,6 @@ Rails.application.routes.draw do
       end
     end
     resources 'project_files', only: [:create, :destroy]
+    resources 'comments', only: [:create]
   end
 end

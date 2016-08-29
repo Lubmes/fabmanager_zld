@@ -104,9 +104,21 @@
 						class: "delete w3-btn w3-amber" %>
 			<% end %>
 		</footer>
+
+		<div id="comments" class="w3-margin-top w3-half" style="margin-left: 25%">
+			<% if @fabmoment.comments.persisted.any? %>
+				<%= render @fabmoment.comments.persisted, fabmoment: @fabmoment %>
+			<% else %>
+				<p>Er zijn geen commentaren op dit fabmoment.</p>
+			<% end %>
+
+			<%= render 'comments/form', fabmoment: @fabmoment, comment: @comment %>
+		</div>
 	</div>
 </div>
 
+
+<!-- Dit stukje moet naar fabmoments.coffee als coffeescript ! -->
 <script>
 	function onClick(element) {
 	  document.getElementById("img01").src = element.src;

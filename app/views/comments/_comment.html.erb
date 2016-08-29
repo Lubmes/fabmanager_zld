@@ -1,0 +1,9 @@
+<blockquote class="w3-card-2 w3-padding-medium">
+	
+	<%= simple_format comment.text %>
+
+	<footer class="w3-text-pink">
+		<%= time_ago_in_words(comment.created_at) %> geleden
+		door <cite><%= comment.author.email %></cite>
+	</footer>
+</blockquote>

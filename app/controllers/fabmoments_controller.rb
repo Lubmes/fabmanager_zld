@@ -9,7 +9,7 @@ class FabmomentsController < ApplicationController
   end
 
   def show
-    @fabmoment = Fabmoment.find(params[:id])
+    @comment = @fabmoment.comments.build
   end
 
   def new
