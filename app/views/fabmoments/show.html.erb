@@ -7,7 +7,7 @@
 			<h1><%= @fabmoment.title %></h1>
 			<p class="w3-text-pink">
 				Door
-				<b><%= link_to @fabmoment.author.email, user_path(@fabmoment.author) %></b>
+				<b class="w3-btn w3-pink w3-padding-tiny w3-padding-left w3-padding-right"><%= link_to @fabmoment.author.email, user_path(@fabmoment.author) %></b>
 				<%= " aangemaakt #{time_ago_in_words(@fabmoment.created_at)} geleden" %>
 					
 			</p>
@@ -74,7 +74,7 @@
 		</div>
 
 		<% if @fabmoment.project_files.any? %>
-			<div id="attachments" class="w3-container w3-margin w3-border">
+			<div id="attachments" class="w3-container w3-margin">
 				<h5 class="w3-center">Project Bestanden</h5>
 					<ul class="w3-ul">
 					<% @fabmoment.project_files.each_with_index do |project_file, index| %>

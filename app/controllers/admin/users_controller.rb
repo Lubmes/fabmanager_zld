@@ -6,6 +6,7 @@ class Admin::UsersController < Admin::ApplicationController
   end
 
   def show
+    @fabmoments = Fabmoment.where(author: @user)
   end
 
   def new

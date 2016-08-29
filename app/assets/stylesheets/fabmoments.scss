@@ -24,8 +24,13 @@
 }
 
 .project_file {
+	@extend .w3-black;
+	@extend .w3-round-jumbo;
+
 	a {
+		@extend .w3-hover-text-light-blue;
 		&.remove {
+			@extend .w3-hover-text-red;
 			font-family: "FontAwesome";
 			@extend .fa-times-circle;
 			text-decoration: none;

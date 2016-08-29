@@ -24,21 +24,26 @@
 		<p> user.bio etc. & user.comments.order(#van recent tot in verleden) </p>
 </div>
 
-		<h2 class="w3-center">Fabmomenten</h2>
-
+				
+	<% if @fabmoments.any? %>
 		<div id="fabmoments" class="w3-row-padding w3-margin-top w3-margin-bottom">
-	  <% @fabmoments.each do |fabmoment| %>
-	  	<%= link_to fabmoment do %>
-		    <div class="w3-col m3">
-			    <div class="w3-card-2 w3-hover-shadow w3-margin-bottom">
-			    	<header class="w3-container w3-blue-grey w3-center">
-			    		<h4><%= fabmoment.title %></h4>
-						</header>
-						<div class="w3-container">
-						  <p><%= fabmoment.description %></p>
+			<header class="w3-container">
+				<h2 class="w3-center">Fabmomenten</h2>
+			</header>
+
+		  <% @fabmoments.each do |fabmoment| %>
+		  	<%= link_to fabmoment do %>
+			    <div class="w3-col m3">
+				    <div class="w3-card-2 w3-hover-shadow w3-margin-bottom">
+				    	<header class="w3-container w3-blue-grey w3-center">
+				    		<h4><%= fabmoment.title %></h4>
+							</header>
+							<div class="w3-container">
+							  <p><%= fabmoment.description %></p>
+							</div>
 						</div>
-					</div>
-		  <% end %>
-		  </div>
+			  <% end %>
+			  </div>
+	  <% end %>
 	  <% end %>
 	</div>
