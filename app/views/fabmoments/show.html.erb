@@ -3,7 +3,7 @@
 <div class="w3-row">
 	<div class="w3-twothird" style="margin-left: 16.65%">
 
-		<header class="w3-center">
+		<header class="w3-center w3-bottombar w3-border-blue-grey">
 			<h1><%= @fabmoment.title %></h1>
 			<p class="w3-text-pink">
 				Door
@@ -74,7 +74,7 @@
 		</div>
 
 		<% if @fabmoment.project_files.any? %>
-			<div id="attachments" class="w3-container w3-margin">
+			<div id="attachments" class="w3-container w3-margin-large">
 				<h5 class="w3-center">Project Bestanden</h5>
 					<ul class="w3-ul">
 					<% @fabmoment.project_files.each_with_index do |project_file, index| %>
@@ -92,7 +92,7 @@
 			</div>
 		<% end %>
 
-		<footer class="w3-center w3-margin-top w3-margin-bottom">
+		<footer class="w3-center w3-bottombar w3-border-blue-grey w3-padding-xlarge">
 			<br>
 			<% if policy(@fabmoment).update? %>
 				<%= link_to "Bijwerken Fabmoment", [:edit, @fabmoment],  
@@ -105,11 +105,11 @@
 			<% end %>
 		</footer>
 
-		<div id="comments" class="w3-margin-top w3-half" style="margin-left: 25%">
+		<div id="comments" class="w3-half w3-margin-top" style="margin-left: 25%">
 			<% if @fabmoment.comments.persisted.any? %>
 				<%= render @fabmoment.comments.persisted, fabmoment: @fabmoment %>
 			<% else %>
-				<p>Er zijn geen commentaren op dit fabmoment.</p>
+				<p class="w3-text-dark-grey w3-padding w3-center">Er zijn geen commentaren op dit fabmoment.</p>
 			<% end %>
 
 			<%= render 'comments/form', fabmoment: @fabmoment, comment: @comment %>
