@@ -1,18 +1,24 @@
 <% title(@user.id, "Gebruiker") %>
 
 <div class="w3-row">
+	<!-- Basis Profiel gegevens -->
 	<div class="w3-twothird" style="margin-left: 16.65%">
 
 		<header class="w3-center">
 			<h1><%= @user.email %></h1>
-			<%= link_to "Bijwerken", 
-									[:edit, :admin, @user], 
-									class: "edit w3-btn w3-amber" %>
-			<%= link_to "Archiveer", 
-									[:archive, :admin, @user],
-									method: :patch,
-									data: { confirm: 'Weet je zeker dat je deze gebruiker wil archiveren?' },
-									class: "edit w3-btn w3-red" %>
+			<!-- Acties -->
+			<% if policy(@user).edit? %>		
+				<%= link_to "Bijwerken", 
+										[:edit, :admin, @user], 
+										class: "edit w3-btn w3-amber" %>
+			<% end %>
+			<% if policy(@user).archive? %>
+				<%= link_to "Archiveer", 
+										[:archive, :admin, @user],
+										method: :patch,
+										data: { confirm: 'Weet je zeker dat je deze gebruiker wil archiveren?' },
+										class: "edit w3-btn w3-red" %>
+				<% end %>
 		</header>
 
 		<% unless @user.avatar.file.nil? %>
@@ -22,28 +28,31 @@
 		<%end %>
 		
 		<p> user.bio etc. & user.comments.order(#van recent tot in verleden) </p>
-</div>
-
-				
-	<% if @fabmoments.any? %>
-		<div id="fabmoments" class="w3-row-padding w3-margin-top w3-margin-bottom">
-			<header class="w3-container">
-				<h2 class="w3-center">Fabmomenten</h2>
-			</header>
-
-		  <% @fabmoments.each do |fabmoment| %>
-		  	<%= link_to fabmoment do %>
-			    <div class="w3-col m3">
-				    <div class="w3-card-2 w3-hover-shadow w3-margin-bottom">
-				    	<header class="w3-container w3-blue-grey w3-center">
-				    		<h4><%= fabmoment.title %></h4>
-							</header>
-							<div class="w3-container">
-							  <p><%= fabmoment.description %></p>
-							</div>
-						</div>
-			  <% end %>
-			  </div>
-	  <% end %>
-	  <% end %>
 	</div>
+
+	<!-- Links naar de laatste vijf comments van de gebruiker -->
+	<!-- Hier !! -->
+
+	<!-- Fabmomenten van de gebruiker -->
+	<h2 class="w3-center">Fabmomenten</h2>
+
+	<div id="fabmoments" class="w3-row-padding w3-margin-top w3-margin-bottom">
+	<% @fabmoments.each do |fabmoment| %>
+    <div class="w3-col m3">
+
+		<%= link_to fabmoment do %>
+	    	<!-- Fabmoment card -->
+		    <div class="w3-card-2 w3-hover-shadow w3-margin-bottom">
+		    	<header class="w3-container w3-blue-grey w3-center">
+		    		<h4><%= fabmoment.title %></h4>
+					</header>
+					<div class="w3-container">
+					  <p><%= fabmoment.description %></p>
+					</div>
+				</div>
+	  <% end %>
+
+	  </div>
+
+	<% end %>
+</div>

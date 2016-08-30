@@ -1,10 +1,17 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :archive]
+
+  # def edit
+  #   @fabmoments = Fabmoment.where(author: @user)
+  # end
+
+  # def update
+  #   @fabmoments = Fabmoment.where(author: @user)
+  # end
     
   def show
     @fabmoments = Fabmoment.where(author: @user)
   end
-
 
   private
 

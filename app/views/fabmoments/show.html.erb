@@ -9,7 +9,9 @@
 				Door
 				<b class="w3-btn w3-pink w3-padding-tiny w3-padding-left w3-padding-right"><%= link_to @fabmoment.author.email, user_path(@fabmoment.author) %></b>
 				<%= " aangemaakt #{time_ago_in_words(@fabmoment.created_at)} geleden" %>
-					
+				<!-- De fout in bovenstaande regel zit hem erin dat je als admin 
+						 naar admin_user_path zou moeten gaan, tenzij je geen admin namespace
+						 gebruikt en alles met één controller + pundit regelt. -->
 			</p>
 		</header>
 
@@ -26,13 +28,13 @@
 				<% end %>
 			</div>
 		</div>
-			<!-- Zoom -->
-			<div id="modal01" class="w3-modal" onclick="this.style.display='none'">
-			  <span class="w3-closebtn w3-hover-red w3-text-white w3-xxlarge w3-container w3-display-topright">&times;</span>
-			  <div class="w3-modal-content w3-animate-zoom">
-			    <img id="img01" style="width:100%">
-			  </div>
-			</div>
+		<!-- Gallery: Zoom -->
+		<div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+		  <span class="w3-closebtn w3-hover-red w3-text-white w3-xxlarge w3-container w3-display-topright">&times;</span>
+		  <div class="w3-modal-content w3-animate-zoom">
+		    <img id="img01" style="width:100%">
+		  </div>
+		</div>
 
 		<div class="w3-row-padding w3-margin-top">
 		<% if @fabmoment.programs.any? %>
@@ -73,6 +75,9 @@
 		<% end %>
 		</div>
 
+		<!-- Fabmoment model moet de project files scopen, vergelijkbaar 
+				 met de persisted method in het Comment model.
+				 Vind in de console uit hoe deze scope eruit moet zien. -->
 		<% if @fabmoment.project_files.any? %>
 			<div id="attachments" class="w3-container w3-margin-large">
 				<h5 class="w3-center">Project Bestanden</h5>
@@ -96,12 +101,13 @@
 			<br>
 			<% if policy(@fabmoment).update? %>
 				<%= link_to "Bijwerken Fabmoment", [:edit, @fabmoment],  
-						class: "edit w3-btn w3-amber" %>
+								class: "edit w3-btn w3-amber" %>
 			<% end %>
 			<% if policy(@fabmoment).destroy? %>
-				<%= link_to "Verwijder Fabmoment", [@fabmoment], method: :delete, 
-						data: { confirm: "Weet je zeker dat je het fabmoment wil verwijderen?"},
-						class: "delete w3-btn w3-amber" %>
+				<%= link_to "Verwijder Fabmoment", [@fabmoment], 
+								method: :delete, 
+								data: { confirm: "Weet je zeker dat je het fabmoment wil verwijderen?"},
+								class: "delete w3-btn w3-amber" %>
 			<% end %>
 		</footer>
 
@@ -109,10 +115,14 @@
 			<% if @fabmoment.comments.persisted.any? %>
 				<%= render @fabmoment.comments.persisted, fabmoment: @fabmoment %>
 			<% else %>
-				<p class="w3-text-dark-grey w3-padding w3-center">Er zijn geen commentaren op dit fabmoment.</p>
+				<p class="w3-text-dark-grey w3-padding w3-center">
+					Er zijn geen commentaren op dit fabmoment.
+				</p>
 			<% end %>
-
-			<%= render 'comments/form', fabmoment: @fabmoment, comment: @comment %>
+			<% if policy(@fabmoment).comment? %>
+				<%= render 'comments/form', fabmoment: @fabmoment, 
+																		comment: @comment %>
+			<% end %>
 		</div>
 	</div>
 </div>

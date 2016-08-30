@@ -20,4 +20,8 @@ class FabmomentPolicy < ApplicationPolicy
   def tag?
     update?
   end
+
+  def comment?
+    user
+  end
 end
