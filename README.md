@@ -22,7 +22,7 @@ Build:
 ## Styling
 
 Styling is done with the css-only library W3.CSS found in a single file (in lib/assets/stylesheets/w3.css).
-This is done to make the styling as lightweight as possible, so others can easily apply their own style. 
+This is done to make the styling as lightweight as possible, this way others can easily apply their own style. 
 Mind the simple_form config file (config/initializers/simle_form.rb). There you can easily adjust the forms their style classes, ids and the shape of the errors.
 
 ### Devise & styling

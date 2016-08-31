@@ -6,7 +6,9 @@ class Admin::UsersController < Admin::ApplicationController
   end
 
   def show
+    @comments = Comment.where(author: @user)
     @fabmoments = Fabmoment.where(author: @user)
+    render 'users/show'
   end
 
   def new

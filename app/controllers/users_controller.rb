@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # end
     
   def show
+    @comments = Comment.where(author: @user)
     @fabmoments = Fabmoment.where(author: @user)
   end
 
