@@ -21,6 +21,11 @@
 															class: "w3-hover-text-dark-grey" %>	
 			</li>
 			<% end %>
+			<% if user_signed_in? %>
+			<li class="w3-right">
+			<%= link_to 'Profiel', user_path(current_user) %>
+			</li>
+			<% end %>
 			<% unless user_signed_in? %>
 				<li class="<% "active" if current_page?("users/sign_up") %> w3-right">
 					<%= link_to "Inschrijven", 	new_user_registration_path, 

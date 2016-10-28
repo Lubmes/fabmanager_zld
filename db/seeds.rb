@@ -11,7 +11,7 @@ unless User.exists?(email: "admin@fabmanager.com")
 end
 
 unless Machine.exists?(name: "Ultimaker Original")
-  Machine.create(name: "Ultimaker Original")
+  Machine.create(name: "Ultimaker Three")
   Machine.create(name: "Ultimaker Original Plus")
   Machine.create(name: "Ultimaker Two")
   Machine.create(name: "Ultimaker Two Plus")

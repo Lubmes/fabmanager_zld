@@ -1,0 +1,17 @@
+<p>
+  <%= link_to "Nieuw Programma", [:new, :admin, :program], 
+                class: "new w3-btn w3-purple w3-margin-bottom"%>
+
+  <ul>
+    <strong>Programma's:</strong>
+    <% @programs.each do |program| %>
+      <li>
+        <%= program.name%>
+        <button> <%= link_to 'Verwijder', admin_program_path(program),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %> </button>
+              <button> <%= link_to 'Edit', edit_admin_program_path(program)%></button>
+      </li>
+    <% end %>
+  </ul>
+</p>
