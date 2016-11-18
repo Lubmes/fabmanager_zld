@@ -1,6 +1,6 @@
 class Admin::MachinesController < ApplicationController
 	before_action :set_machine, only: [:show, :edit, :update, :destroy, :archive]
-	def index
+  def index
 		@machines = Machine.all
 	end
 	def new

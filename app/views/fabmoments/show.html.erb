@@ -8,7 +8,7 @@
 			<p class="w3-text-pink">
 				Door
 				<b class="w3-btn w3-pink w3-padding-tiny w3-padding-left w3-padding-right">
-					<%= link_to @fabmoment.author.email, user_path(@fabmoment.author) %>
+					<%= link_to @fabmoment.author.username, user_path(@fabmoment.author) %>
 				</b>
 				<%= " aangemaakt #{time_ago_in_words(@fabmoment.created_at)} geleden" %>
 				<!-- De fout in bovenstaande link_to zit hem erin dat je als admin 

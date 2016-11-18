@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829111712) do
+ActiveRecord::Schema.define(version: 20161101102224) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "text",         limit: 65535
@@ -107,6 +107,8 @@ ActiveRecord::Schema.define(version: 20160829111712) do
     t.boolean  "admin",                  default: false
     t.datetime "archived_at"
     t.string   "avatar"
+    t.string   "username"
+    t.string   "adress"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

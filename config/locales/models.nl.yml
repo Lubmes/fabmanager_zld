@@ -12,6 +12,8 @@ nl:
         other: Commentaren 
     attributes:
       user:
+        username: Gebruikersnaam
+        adress: Woonplaats
         email: E-mail
         password: Wachtwoord
         password_confirmation: Wachtwoord bevestigen
@@ -23,3 +25,19 @@ nl:
         project_files: Project Bestanden
       comment:
         text: Tekst
+      machine:
+        name: Printer naam
+      program:
+        name: Programma naam
+      materials:
+        sort: Matriaal naam
+        name: Matriaal soort
+        thickness: Dikte matriaal 
+
+
+    errors:
+      models:
+          user:
+            attributes:
+              username:
+                blank: "test"

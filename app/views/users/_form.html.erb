@@ -1,13 +1,10 @@
 <div class="w3-row">
 	<div class="w3-half w3-center" style="margin-left: 25%">
-		<%= simple_form_for [:admin, user] do |f| %>
+		<%= simple_form_for [user] do |f| %>
 			<!-- Input -->
 			<%= f.input_field :username, required: true, autofocus: true %>
 			<%= f.label :username %>
 			<%= f.error :username %>
-			<%= f.input_field :adress, required: true, autofocus: true %>
-			<%= f.label :adress %>
-			<%= f.error :adress %>
 			<%= f.input_field :adress, required: true, autofocus: true %>
 			<%= f.label :adress %>
 			<%= f.error :adress %>
@@ -21,10 +18,7 @@
 			<%= f.input_field :password_confirmation, required: true %>
 			<%= f.label :password_confirmation %>
 			<%= f.error :password_confirmation %><br><br>
-			<%= f.label :admin, label: 'Adminrechten?' %>
-			<%= f.check_box :admin, as: :boolean %>
-			<%= f.error :admin %><br><br><br>
-			
+			<br><br><br>
 			<!-- Upload: Avatar -->
 			<div class="w3-center">
         <%= f.label :avatar %><br><br>
