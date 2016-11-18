@@ -1,0 +1,20 @@
+<% title("Material", "Admin") %>
+<p>
+  <%= link_to "Nieuw Matriaal", [:new, :admin, :material], 
+                class: "new w3-btn w3-purple w3-margin-bottom"%>
+
+  <ul>
+    <strong>Material:</strong>
+    <% @materials.each do |material| %>
+      <li>
+        <%= material.sort %>
+        <%= material.name %>
+        <%= material.thickness %>
+        <button> <%= link_to 'Verwijder', admin_material_path(material),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %> </button>
+              <button> <%= link_to 'Edit', edit_admin_material_path(material)%></button>
+      </li>
+    <% end %>
+  </ul>
+</p>

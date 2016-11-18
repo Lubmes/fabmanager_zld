@@ -1,0 +1,22 @@
+<div class="w3-row">
+	<div class="w3-half w3-center" style="margin-left: 25%">
+		<%= simple_form_for [:admin, @materials] do |f| %>
+			<!-- Input -->
+			<%= f.input_field :sort, required: true, autofocus: true %>
+			<%= f.label :sort %>
+			<%= f.error :admin %>
+			<%= f.input_field :name, required: true, autofocus: true %>
+			<%= f.label :name %>
+			<%= f.error :admin %>
+			<%= f.input_field :thickness, required: true, autofocus: true %>
+			<%= f.label :thickness %>
+			<%= f.error :admin %>
+			<br><br>
+      <!-- Zenden -->
+      <div class="w3-center w3-margin-bottom">
+        <%= f.button :button, class: "w3-btn w3-blue w3-center" %>
+      </div>
+
+		<% end %>
+	</div>
+</div>

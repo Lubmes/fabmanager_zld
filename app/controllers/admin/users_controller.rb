@@ -2,7 +2,7 @@ class Admin::UsersController < Admin::ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :archive]
 
   def index
-    @users = User.excluding_archived.order(:email)
+    @users = User.excluding_archived.order(:username)
   end
 
   def show
@@ -13,6 +13,7 @@ class Admin::UsersController < Admin::ApplicationController
 
   def new
     @user = User.new
+    flash[:notice] = "U bent succesvol ingeschreven."
   end
 
   def create
@@ -57,7 +58,7 @@ class Admin::UsersController < Admin::ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :admin)
+    params.require(:user).permit(:username ,:adress,:email,:password, :admin)
   end
 
   def set_user

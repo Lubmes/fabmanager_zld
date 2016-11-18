@@ -10,6 +10,12 @@
 																		url: registration_path(resource_name), 
 																		html: {multipart: true} ) do |f| %>
 				<!-- Input -->
+				<%= f.input_field :username, required: true, autofocus: true %>
+				<%= f.label :username %>
+				<%= f.error :username %>
+				<%= f.input_field :adress, required: true, autofocus: true %>
+				<%= f.label :adress %>
+				<%= f.error :adress %>
 				<%= f.input_field :email, required: true, autofocus: true %>
 				<%= f.label :email %>
 				<%= f.error :email %>

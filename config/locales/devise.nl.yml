@@ -9,12 +9,12 @@ nl:
       unauthenticated: 'U dient in te loggen of u in te schrijven.'
       unconfirmed: 'U dient eerst uw account te bevestigen.'
       locked: 'Uw account is vergrendeld.'
-      invalid: 'Ongeldig e-mail of wachtwoord.'
+      invalid: 'Ongeldige gebruikersnaam of wachtwoord.'
       invalid_token: 'Ongeldig authenticatie token.'
       timeout: 'Uw sessie is verlopen, log a.u.b. opnieuw in.'
       inactive: 'Uw account is nog niet geactiveerd.'
       last_attempt: 'U hebt nog een poging over voordat uw account wordt geblokkeerd.'
-      not_found_in_database: "Ongeldig e-mail of wachtwoord."
+      not_found_in_database: "Ongeldige gebruikersnaam of wachtwoord."
       user:
         archived: "Uw account is gearchiveerd."
     mailer:
