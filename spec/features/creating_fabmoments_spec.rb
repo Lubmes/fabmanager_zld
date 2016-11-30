@@ -149,7 +149,7 @@ RSpec.feature 'Users can create new fabmoments', type: :feature do
   #   end
   # end
 
-  scenario 'with a 3d-model attachment', js: true do
+  xscenario 'with a 3d-model attachment', js: true do
     # Act
     within('form') do
       fill_in 'Titel', with: 'Reeks ontwerp studies'
