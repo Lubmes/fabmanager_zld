@@ -2,7 +2,7 @@
     <div class="w3-twothird" style="margin-left: 16.65%">
 
       <%= simple_form_for @fabmoment, html: {multipart: true} do |f| %>
-      	
+
       	<!-- Input -->
         <%= f.input_field :title %>
         <%= f.label :title %>
@@ -34,8 +34,8 @@
         <!-- Upload -->
         <div class="w3-center">
           <%= f.label :images %><br>
-          <%= f.file_field :images, multiple: true %><br><br>          
-          <%= f.hidden_field :images_cache %><br><br>          
+          <%= f.file_field :images, multiple: true %><br><br>
+          <%= f.hidden_field :images_cache %><br><br>
           <%= f.error :images %>
         </div>
 
@@ -61,7 +61,7 @@
           <div class="w3-col m4">
             <div class="w3-card">
               <h5 class="w3-text-teal w3-center">Machines</h5>
-              <ul class="w3-ul" id="Machines">
+              <ul class="w3-ul" id="machines">
               <%= f.collection_check_boxes :machine_ids, @machines, :id, :name do |b| %>
                 <li>
                   <%= b.label class: "w3-small" do %>
@@ -98,8 +98,8 @@
         <h5 class="w3-center">Project Bestanden</h5>
           <ul class="w3-ul">
           <% @fabmoment.project_files.each_with_index do |project_file, index| %>
-            <%= render 'project_files/project_file', fabmoment: @fabmoment, 
-                                                     project_file: project_file, 
+            <%= render 'project_files/project_file', fabmoment: @fabmoment,
+                                                     project_file: project_file,
                                                      index: index %>
           <% end %>
           </ul>
@@ -109,8 +109,8 @@
         <div class="w3-center w3-margin-top">
           <% label = "Andere Project bestanden" if @fabmoment.project_files.any? %>
           <%= f.label :project_files, label: label %><br>
-          <%= f.file_field :project_files, multiple: true %><br><br>          
-          <%= f.hidden_field :project_files_cache %><br><br>          
+          <%= f.file_field :project_files, multiple: true %><br><br>
+          <%= f.hidden_field :project_files_cache %><br><br>
           <%= f.error :project_files %>
         </div>
 
@@ -123,7 +123,7 @@
         <br>
         <%= f.input_field :tag_names %>
         <%= f.label :tag_names %>
-        <%= f.error :tag_names %>        
+        <%= f.error :tag_names %>
 
         <br><br>
         <!-- Zenden -->

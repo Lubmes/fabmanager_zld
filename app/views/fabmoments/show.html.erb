@@ -11,7 +11,7 @@
 					<%= link_to @fabmoment.author.username, user_path(@fabmoment.author) %>
 				</b>
 				<%= " aangemaakt #{time_ago_in_words(@fabmoment.created_at)} geleden" %>
-				<!-- De fout in bovenstaande link_to zit hem erin dat je als admin 
+				<!-- De fout in bovenstaande link_to zit hem erin dat je als admin
 						 naar admin_user_path zou moeten gaan, tenzij je geen admin namespace
 						 gebruikt en alles met één controller + pundit regelt. -->
 			</p>
@@ -77,7 +77,7 @@
 		<% end %>
 		</div>
 
-		<!-- Fabmoment model moet de project files scopen, vergelijkbaar 
+		<!-- Fabmoment model moet de project files scopen, vergelijkbaar
 				 met de persisted method in het Comment model.
 				 Vind in de console uit hoe deze scope eruit moet zien. -->
 		<% if @fabmoment.project_files.any? %>
@@ -85,8 +85,8 @@
 				<h5 class="w3-center">Project Bestanden</h5>
 					<ul class="w3-ul">
 					<% @fabmoment.project_files.each_with_index do |project_file, index| %>
-						<%= render 'project_files/project_file', fabmoment: @fabmoment, 
-																										 project_file: project_file, 
+						<%= render 'project_files/project_file', fabmoment: @fabmoment,
+																										 project_file: project_file,
 																										 index: index %>
 					<% end %>
 					</ul>
@@ -102,12 +102,12 @@
 		<footer class="w3-center w3-bottombar w3-border-blue-grey w3-padding-xlarge">
 			<br>
 			<% if policy(@fabmoment).update? %>
-				<%= link_to "Bijwerken Fabmoment", [:edit, @fabmoment],  
+				<%= link_to "Bijwerken Fabmoment", [:edit, @fabmoment],
 								class: "edit w3-btn w3-amber" %>
 			<% end %>
 			<% if policy(@fabmoment).destroy? %>
-				<%= link_to "Verwijder Fabmoment", [@fabmoment], 
-								method: :delete, 
+				<%= link_to "Verwijder Fabmoment", [@fabmoment],
+								method: :delete,
 								data: { confirm: "Weet je zeker dat je het fabmoment wil verwijderen?"},
 								class: "delete w3-btn w3-amber" %>
 			<% end %>
@@ -122,7 +122,7 @@
 				</p>
 			<% end %>
 			<% if policy(@fabmoment).comment? %>
-				<%= render 'comments/form', fabmoment: @fabmoment, 
+				<%= render 'comments/form', fabmoment: @fabmoment,
 																		comment: @comment %>
 			<% end %>
 		</div>
@@ -137,4 +137,3 @@
 	  document.getElementById("modal01").style.display = "block";
 	}
 </script>
-

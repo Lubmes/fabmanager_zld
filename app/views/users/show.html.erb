@@ -7,22 +7,22 @@
 		<header class="w3-center">
 			<h3>Gebruikersnaam: <%= @user.username %></h3>
 			<h3>Email: <%= @user.email %></h3>
-			<%if @user == current_user || current_user.admin%>
+			<% if policy(@user).show? %>
 			<h3>Woonplaats: <%= @user.adress %></h3>
 			<% end %>
 			<!-- Acties -->
 			<% if policy(@user).edit? %>
-              <%if current_user.admin %>
-				<%= link_to "Bijwerken", 
-								     	[:edit,:admin,@user], 
+              <% if current_user.admin %>
+				<%= link_to "Bijwerken",
+								     	[:edit,:admin,@user],
 											class: "edit w3-btn w3-amber" %>
 			<% else %>
-				<%= link_to "Bijwerken", 
-								     	[:edit, @user], 
+				<%= link_to "Bijwerken",
+								     	[:edit, @user],
 											class: "edit w3-btn w3-amber" %>
 			<% end %>
 			<% if policy(@user).archive? %>
-				<%= link_to "Archiveer", 
+				<%= link_to "Archiveer",
 										[:archive, :admin, @user],
 										method: :patch,
 										data: { confirm: 'Weet je zeker dat je deze gebruiker wil archiveren?' },
@@ -36,7 +36,7 @@
 				<img src="<%= @user.avatar.url %>" style="height:300px">
 			</div>
 		<%end %>
-		
+
 		<!-- <p> user.bio etc. & user.comments.order(#van recent tot in verleden) </p> -->
 
 		<div id="comments">
@@ -44,12 +44,12 @@
 			<ul class="w3-ul">
 			<% @comments.each do |comment| %>
 				<li class="w3-text-pink">
-					<%= "#{time_ago_in_words(comment.created_at)} geleden gaf <i>#{@user.username}</i> 
+					<%= "#{time_ago_in_words(comment.created_at)} geleden gaf <i>#{@user.username}</i>
 							commentaar op fabmoment <strong>#{comment.fabmoment.title}</strong>".html_safe %>
 				</li>
 			<% end %>
 			<ul>
-		</div>			
+		</div>
 		<h2 class="w3-center">Fabmomenten</h2>
 	</div>
 	<!-- (Einde van de twothird kolom.) -->
@@ -58,7 +58,7 @@
 	<div id="fabmoments" class="w3-row-padding w3-margin-top w3-margin-bottom">
 	<% @fabmoments.each do |fabmoment| %>
     <div class="w3-col m3">
-			
+
 			<!-- Fabmoment card -->
 			<%= link_to fabmoment do %>
 			    <div class="w3-card-2 w3-hover-shadow w3-margin-bottom">

@@ -6,6 +6,10 @@ class UserPolicy < ApplicationPolicy
     @user = model
   end
 
+  def show?
+    edit?
+  end
+
   def edit?
     @current_user.try(:admin?) or @current_user == @user
   end

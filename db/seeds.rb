@@ -10,6 +10,10 @@ unless User.exists?(email: "admin@fabmanager.com")
   User.create!(email: "admin@fabmanager.com", password: "password", admin: true)
 end
 
+Machine.delete_all
+Program.delete_all
+Material.delete_all
+
 unless Machine.exists?(name: "Ultimaker Original")
   Machine.create(name: "Ultimaker Three")
   Machine.create(name: "Ultimaker Original Plus")

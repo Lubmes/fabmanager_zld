@@ -1,19 +1,19 @@
 Rails.application.routes.draw do
-  
+
   namespace :admin do
     root 'application#index'
     resources 'users' do
-      member do 
+      member do
         patch :archive
       end
     end
     resources 'programs'
     resources 'materials'
-     resources 'machines'
+    resources 'machines'
   end
 
   devise_for :users
-    
+
   resources 'users'
 
   root 'fabmoments#index'

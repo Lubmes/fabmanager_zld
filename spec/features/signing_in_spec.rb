@@ -6,7 +6,7 @@ RSpec.feature "Users can sign in", type: :feature do
   scenario "with valid credentials" do
     visit "/"
     click_link "Inloggen"
-    fill_in "", with: user.username
+    fill_in "E-mail", with: user.email
     fill_in "Wachtwoord", with: "password"
     click_button "Login"
 
@@ -19,7 +19,7 @@ RSpec.feature "Users can sign in", type: :feature do
 
     visit "/"
     click_link "Inloggen"
-    fill_in "Gebruikersnaam", with: user.username
+    fill_in "E-mail", with: user.email
     fill_in "Wachtwoord", with: "password"
     click_button "Login"
 
