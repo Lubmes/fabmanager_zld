@@ -24,7 +24,7 @@ class Fabmoment < ApplicationRecord
   # Multiple file uploads of project files possible.
   mount_uploaders :project_files, ProjectFileUploader
 
-  
+
   def tag_names=(names)
     @tag_names = names
     names.split.each do |name|
