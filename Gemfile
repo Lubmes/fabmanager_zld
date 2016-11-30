@@ -1,9 +1,12 @@
 source 'http://rubygems.org/'
-ruby "2.3.1"
+ruby "2.3.0"
 
 gem 'rails', '~> 5.0.0.1'
-#gem 'pg', '~> 0.19.0'
-gem 'mysql2', '>= 0.3.18', '< 0.5'
+if Gem.win_platform?
+  gem 'mysql2', '>= 0.3.18', '< 0.5'
+else
+  gem 'pg', '~> 0.19.0'
+end
 gem 'puma', '~> 3.6'
 gem 'sass-rails', '~> 5.0.6'
 gem 'uglifier', '>= 1.3.0'
@@ -16,8 +19,8 @@ gem 'devise', '~> 4.2'
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
 gem 'pundit', '~> 1.1'
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
-gem 'wdm', '>= 0.1.0'
-gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt' 
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 gem 'coffee-script-source', '1.8.0'
 
 group :development, :test do
@@ -36,7 +39,7 @@ group :test do
   gem "capybara", "~> 2.4"
   gem 'factory_girl_rails', '~> 4.7'
   gem "selenium-webdriver", "~> 2.45"
-  gem 'database_cleaner', '~> 1.5', '>= 1.5.3'  
+  gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
   gem "email_spec", "~> 1.6.0"
 end
 
