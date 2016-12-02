@@ -33,6 +33,7 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'capistrano-rails', '~> 1.2'
 end
 
 group :test do
