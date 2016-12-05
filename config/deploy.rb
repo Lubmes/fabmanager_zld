@@ -1,5 +1,5 @@
 # Change these
-server '146.185.157.188', roles: [:web, :app, :db], primary: true
+server '146.185.157.188', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:Lubmes/fabmanager_zld.git'
 set :application,     'fabmanager_zld'
@@ -78,6 +78,10 @@ namespace :deploy do
   after  :finishing,    :cleanup
   after  :finishing,    :restart
 end
+
+# ps aux | grep puma    # Get puma pid
+# kill -s SIGUSR2 pid   # Restart puma
+# kill -s SIGTERM pid   # Stop puma
 
 
 # CAPISTRANO DEFAULT CONTENT
