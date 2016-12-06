@@ -27,8 +27,6 @@ role :app, %w{root@188.166.22.201}
 role :web, %w{root@188.166.22.201}
 role :db,  %w{root@188.166.22.201}
 
-
-
 # Configuration
 # =============
 # You can set any configuration variable like in config/deploy.rb

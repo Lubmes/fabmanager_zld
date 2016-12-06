@@ -36,6 +36,8 @@ group :development do
   gem 'capistrano'
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
+  gem 'capistrano-database-yml', '~> 1.0', '>= 1.0.1'
+  gem 'capistrano-secrets-yml', '~> 1.0'
 end
 
 group :test do
