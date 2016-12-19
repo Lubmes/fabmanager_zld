@@ -3,10 +3,11 @@ ruby "2.3.0"
 
 gem 'rails', '~> 5.0.0.1'
 if Gem.win_platform?
-  gem 'mysql2', '>= 0.3.18', '< 0.5'
+  gem 'mysql2', '>= 0.3.18', '< 0.5', group: [:development, :test]
 else
-  gem 'pg', '~> 0.19.0'
+  gem 'pg', '~> 0.19.0', group: [:development, :test]
 end
+gem 'pg', '~> 0.19.0', group: :production
 gem 'puma', '~> 3.6'
 gem 'sass-rails', '~> 5.0.6'
 gem 'uglifier', '>= 1.3.0'
