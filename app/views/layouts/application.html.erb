@@ -12,12 +12,12 @@
   <body>
   	<ul class="w3-navbar w3-blue-grey w3-large w3-card-8">
 			<li class="<% "active" if current_page?("/") %>">
-				<%= link_to "FabLab", root_path, 
-															class: "w3-hover-text-dark-grey" %>	
+				<%= link_to "FabLab", root_path,
+															class: "w3-hover-text-dark-grey" %>
 			</li>
 			<% admins_only do %>
 			<li class="<% "active" if current_page?("/") %>">
-				<%= link_to "Admin", admin_root_path, 
+				<%= link_to "Admin", admin_root_path,
 														 class: "w3-hover-text-dark-grey" %>
 			</li>
 			<% end %>
@@ -25,33 +25,34 @@
 			<% end %>
 			<% unless user_signed_in? %>
 				<li class="<% "active" if current_page?("users/sign_up") %> w3-right">
-					<%= link_to "Inschrijven", 	new_user_registration_path, 
+					<%= link_to "Inschrijven", 	new_user_registration_path,
 																			class: "w3-hover-sand w3-hover-text-dark-grey" %>
 				</li>
 				<li class="<% "active" if current_page?("users/sign_in") %> w3-right">
-					<%= link_to "Inloggen", new_user_session_path, 
+					<%= link_to "Inloggen", new_user_session_path,
 																	class: "w3-hover-sand w3-hover-text-dark-grey" %>
 				</li>
 			<% end %>
 
 			<% if user_signed_in? %>
-				<li class="<% "active" if current_page?("users/sign_in") %> w3-right w3-padding">
-					<small>Ingelogd als </small>
-						<div class = 'w3-dropdown-hover'><button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"> <%= current_user.username %></button>
-							<ul class="w3-dropdown-content w3-white w3-card-4">
-    						<li><%= link_to 'Profiel', user_path(current_user) %></li><br>
-    						<li><%= link_to "Log uit", 	destroy_user_session_path, 
-																	method: :delete, 
-																	class: "w3-hover-red w3-hover-text-dark-grey" %></li><br>
-  							</ul>
-						</div>
-					</div>
-			</li>
-		
-				</li>
+        <div class='w3-right'>
+          <li class='w3-padding'>
+            <small>Ingelogd als:</small>
+          </li>
+          <li class="w3-dropdown-hover w3-hover-orange">
+            <%= link_to "#{current_user.username} <i class='fa fa-caret-down'></i>".html_safe,
+                class: "#{active if current_page?("users/sign_in")} w3-hover-text-dark-grey" %>
+            <div class="w3-dropdown-content w3-white w3-card-4">
+              <%= link_to 'Profiel', user_path(current_user) %>
+              <%= link_to "Log uit", 	destroy_user_session_path,
+                                method: :delete,
+                                class: "w3-hover-red w3-hover-text-dark-grey" %>
+            </div>
+          </li>
+        </div>
 			<% end %>
 		</ul>
-		
+
 		<% flash.each do |key, message| %>
 			<!-- De kleur: Is de melding gelijk aan type "notice"? dan groen : anders rood -->
 			<% color = key == "notice" ? "pale-green" : "red" %>
@@ -64,4 +65,3 @@
     <%= yield %>
   </body>
 </html>
-  

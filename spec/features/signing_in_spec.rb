@@ -11,7 +11,7 @@ RSpec.feature "Users can sign in", type: :feature do
     click_button "Login"
 
     expect(page).to have_content "U bent succesvol ingelogd."
-    expect(page).to have_content "Ingelogd als #{user.username}"
+    expect(page).to have_content "Ingelogd als: #{user.username}"
   end
 
   scenario "unless they are archived" do
