@@ -1,8 +1,9 @@
 require "rails_helper"
 
 RSpec.feature "Users can edit fabmoments", type: :feature do
+  let(:license) { FactoryGirl.create(:license) }
   let(:author) { FactoryGirl.create(:user) }
-  let(:fabmoment) { FactoryGirl.create(:fabmoment, title: "Schuur", author: author) }
+  let(:fabmoment) { FactoryGirl.create(:fabmoment, title: "Schuur", author: author, license: license) }
 
   before do
     login_as author
@@ -13,7 +14,7 @@ RSpec.feature "Users can edit fabmoments", type: :feature do
   # Bij 'edit' geldt, net als bij create, je test wat kan...
   scenario "with valid details" do
     within("form") do
-      fill_in "Titel", with: "Huis"
+      fill_in "Titel", with: "Huisje"
       click_button "Fabmoment bijwerken" # Roept update actie aan.
     end
 

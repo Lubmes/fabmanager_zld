@@ -3,10 +3,11 @@ require 'rails_helper'
 RSpec.describe FabmomentPolicy do
   context "permissions" do
     subject { FabmomentPolicy.new(user, fabmoment) }
+    let(:license) { FactoryGirl.create(:license) }
   
     let(:user) { FactoryGirl.create :user }
     let(:author) { FactoryGirl.create :user }
-    let(:fabmoment) { FactoryGirl.create :fabmoment, author: author }
+    let(:fabmoment) { FactoryGirl.create :fabmoment, author: author, license: license }
 
 
     context 'for anonymous users' do

@@ -15,7 +15,8 @@ RSpec.describe FabmomentsController, type: :controller do
     author = FactoryGirl.create(:user)
     allow(controller).to receive(:current_user)
 
-    fabmoment = FactoryGirl.create(:fabmoment, author: author)
+    license = FactoryGirl.create(:license)
+    fabmoment = FactoryGirl.create(:fabmoment, author: author, license: license)
     get :edit, params: { id: fabmoment }
 
     expect(response).to redirect_to(root_path)
