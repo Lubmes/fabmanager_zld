@@ -126,6 +126,10 @@
         <%= f.error :tag_names %>
 
         <br><br>
+
+        <!-- Creative Commons -->
+        <%= f.collection_select(:license_id, License.all, :id, :title) %>
+
         <!-- Zenden -->
         <div class="w3-center w3-margin-bottom">
           <%= f.button :button, class: "w3-btn w3-blue w3-center" %>

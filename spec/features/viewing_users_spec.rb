@@ -1,12 +1,15 @@
 require "rails_helper"
 
 RSpec.feature "Users can view profiles", type: :feature do
+  let(:license) { FactoryGirl.create(:license) }
   let(:profile_user) { FactoryGirl.create(:user, username: 'test_user') }
 
   let!(:fabmoment_1) { FactoryGirl.create(:fabmoment, title: "Cover for smartphone",
-                                                      author: profile_user) }
+                                                      author: profile_user,
+                                                      license: license) }
   let!(:fabmoment_2) { FactoryGirl.create(:fabmoment, title: "Pokemon character",
-                                                      author: profile_user) }
+                                                      author: profile_user,
+                                                      license: license) }
 
   let!(:comment_1) { FactoryGirl.create(:comment, text: "Comment abc",
                                                   fabmoment: fabmoment_1,

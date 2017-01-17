@@ -1,8 +1,9 @@
 require "rails_helper"
 
 RSpec.feature "Users can comment on tickets" do
+  let(:license) { FactoryGirl.create(:license) }
   let(:user) { FactoryGirl.create(:user) }
-  let(:fabmoment) { FactoryGirl.create(:fabmoment, author: user) }
+  let(:fabmoment) { FactoryGirl.create(:fabmoment, author: user, license: license) }
 
   before do
     login_as(user)

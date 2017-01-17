@@ -1,12 +1,13 @@
 require "rails_helper"
 
 RSpec.feature "Users can only see the appropriate links:" do
+  let(:license) { FactoryGirl.create(:license) }
   let(:author) { FactoryGirl.create(:user) }
   let(:random_user) { FactoryGirl.create(:user) }
   let(:other_random_user) { FactoryGirl.create(:user) }
   let(:admin) { FactoryGirl.create(:user, :admin) }
-  let(:fabmoment) { FactoryGirl.create(:fabmoment, author: author) }
-  let(:odd_fabmoment) { FactoryGirl.create(:fabmoment, author: random_user) }
+  let(:fabmoment) { FactoryGirl.create(:fabmoment, author: author, license: license) }
+  let(:odd_fabmoment) { FactoryGirl.create(:fabmoment, author: random_user, license: license) }
 
   context "anonymous users" do
     context "in the fabmoment's index" do

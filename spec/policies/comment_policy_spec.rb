@@ -4,9 +4,10 @@ RSpec.describe CommentPolicy do
   context "permissions" do
     subject { CommentPolicy.new(user, comment) }
   
+    let(:license) { FactoryGirl.create(:license) }
     let(:user) { FactoryGirl.create :user }
     let(:author) { FactoryGirl.create :user }
-    let(:fabmoment) { FactoryGirl.create :fabmoment, author: author }
+    let(:fabmoment) { FactoryGirl.create :fabmoment, author: author, license: license }
     let(:comment) { FactoryGirl.create :comment, fabmoment: fabmoment, author: author }
 
 

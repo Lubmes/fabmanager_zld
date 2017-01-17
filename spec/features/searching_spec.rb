@@ -2,13 +2,14 @@ require 'rails_helper'
 
 RSpec.feature 'Users can search for fabmoments matching specific criteria' do
   let(:user) { FactoryGirl.create(:user) }
+  let(:license) { FactoryGirl.create(:license) }
 
   let!(:fabmoment_1) do
-    FactoryGirl.create(:fabmoment, title: 'Experimenten', author: user, tag_names: 'iteration_1')
+    FactoryGirl.create(:fabmoment, title: 'Experimenten', author: user, tag_names: 'iteration_1', license: license)
   end
 
   let!(:fabmoment_2) do
-    FactoryGirl.create(:fabmoment, title: 'Studies + Maquette', author: user, tag_names: 'iteration_2')
+    FactoryGirl.create(:fabmoment, title: 'Studies + Maquette', author: user, tag_names: 'iteration_2', license: license)
   end
 
   before do

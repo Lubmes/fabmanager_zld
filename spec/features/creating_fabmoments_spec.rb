@@ -39,7 +39,7 @@ RSpec.feature 'Users can create new fabmoments', type: :feature do
 
     # Assert
     expect(page).to have_content 'Fabmoment is niet toegevoegd.'
-    expect(page).to have_content 'Titel moet opgegeven zijn'
+    expect(page).to have_content 'Titel is te kort (minimaal 5 tekens)'
   end
 
   scenario 'with associated machines' do
