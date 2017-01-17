@@ -1,8 +1,8 @@
 class Fabmoment < ApplicationRecord
   # Main Models
   belongs_to :author, class_name: "User"
-  validates :title, presence: true
-  validates :description, presence: true
+  validates :title, length: { minimum: 5 }
+  validates :description, length: { minimum: 20 }
   # Fabmoment to interface with programs.
   has_many :interfaces, :dependent => :destroy
   has_many :programs, :through => :interfaces
@@ -17,6 +17,8 @@ class Fabmoment < ApplicationRecord
   attr_accessor :tag_names
   # Fabmoment has many comments
   has_many :comments, dependent: :destroy
+
+  belongs_to :license
 
   #Files
   # Multiple file uploads of images possible.

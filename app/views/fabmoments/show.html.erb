@@ -77,6 +77,10 @@
 		<% end %>
 		</div>
 
+		<br>
+			<%= @fabmoment.license.title %>
+		<br>
+
 		<!-- Fabmoment model moet de project files scopen, vergelijkbaar
 				 met de persisted method in het Comment model.
 				 Vind in de console uit hoe deze scope eruit moet zien. -->
@@ -86,8 +90,8 @@
 					<ul class="w3-ul">
 					<% @fabmoment.project_files.each_with_index do |project_file, index| %>
 						<%= render 'project_files/project_file', fabmoment: @fabmoment,
-																										 project_file: project_file,
-																										 index: index %>
+																 project_file: project_file,
+																 index: index %>
 					<% end %>
 					</ul>
 			</div>
@@ -123,7 +127,7 @@
 			<% end %>
 			<% if policy(@fabmoment).comment? %>
 				<%= render 'comments/form', fabmoment: @fabmoment,
-																		comment: @comment %>
+											comment: @comment %>
 			<% end %>
 		</div>
 	</div>
