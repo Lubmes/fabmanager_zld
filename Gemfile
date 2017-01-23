@@ -23,6 +23,8 @@ gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 gem 'coffee-script-source', '1.8.0'
+gem 'paperclip', '~> 4.3', '>= 4.3.6'
+
 
 group :development, :test do
   gem 'byebug', platform: :mri

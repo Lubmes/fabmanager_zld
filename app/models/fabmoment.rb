@@ -17,8 +17,9 @@ class Fabmoment < ApplicationRecord
   attr_accessor :tag_names
   # Fabmoment has many comments
   has_many :comments, dependent: :destroy
-
+  # Fabmoment needs 1 license
   belongs_to :license
+  # fabmoment has many sources
 
   #Files
   # Multiple file uploads of images possible.
