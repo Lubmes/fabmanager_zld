@@ -21,6 +21,16 @@ class FabmomentsController < ApplicationController
     @fabmoment.author = current_user
 
     if @fabmoment.save
+      if params[:images]
+        params[:images].each do |image|
+          @fabmoment.pictures.create(image: image)
+        end
+      end
+      if params[:files]
+        params[:files].each do |file|
+          @fabmoment.project_files.create(file: file)
+        end
+      end
       flash[:notice] = "Fabmoment is succesvol toegevoegd."
       redirect_to @fabmoment
     else
@@ -34,7 +44,17 @@ class FabmomentsController < ApplicationController
   end
 
   def update
-    if @fabmoment.update(fabmoment_params)
+    if @fabmoment.update(fabmoment_params) 
+      if params[:images]
+        params[:images].each do |image|
+          @fabmoment.pictures.create(image: image)
+        end
+      end
+      if params[:files]
+        params[:files].each do |file|
+          @fabmoment.project_files.create(file: file)
+        end
+      end
       flash[:notice] = "Fabmoment is bijgewerkt."
       redirect_to @fabmoment
     else
@@ -62,10 +82,8 @@ class FabmomentsController < ApplicationController
   private
 
   def fabmoment_params
-    params.require(:fabmoment).permit(:title, :description, :license_id,
-      {images: []}, {images_cache: []}, 
-      {project_files: []}, {project_files_cache: []}, :tag_names, 
-      :program_ids => [], :machine_ids => [], :material_ids => [] )
+    params.require(:fabmoment).permit(:title, :description, :source,  :license_id, :tag_names, 
+      :program_ids => [], :machine_ids => [], :material_ids => [], pictures_attributes: [:image], project_files_attributes: [:file] )
   end
 
   def set_fabmoment

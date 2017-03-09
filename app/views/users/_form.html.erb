@@ -1,14 +1,14 @@
 <div class="w3-row">
 	<div class="w3-half w3-center" style="margin-left: 25%">
-		<%= simple_form_for [user] do |f| %>
+		<%= simple_form_for @user, html: {multipart: true} do |f| %>
 			<!-- Input -->
 			<%= f.input_field :username, required: true, autofocus: true %>
 			<%= f.label :username %>
 			<%= f.error :username %>
-			<%= f.input_field :adress, required: true, autofocus: true %>
+			<%= f.input_field :adress, required: true %>
 			<%= f.label :adress %>
 			<%= f.error :adress %>
-			<%= f.input_field :email, required: true, autofocus: true %>
+			<%= f.input_field :email, required: true %>
 			<%= f.label :email %>
 			<%= f.error :email %>
 			<%= f.input_field :password, required: true %>
@@ -20,11 +20,10 @@
 			<%= f.error :password_confirmation %><br><br>
 			<br><br><br>
 			<!-- Upload: Avatar -->
-			<div class="w3-center">
-        <%= f.label :avatar %><br><br>
-        <%= f.file_field :avatar %><br><br>
-        <%= f.hidden_field :avatar_cache %><br><br>
-      </div>
+		<div class="w3-center">
+			<%= f.label :avatar %><br>
+			<%= f.file_field :avatar, as: :file %>
+      	</div>
 
 			<br><br>
       <!-- Zenden -->

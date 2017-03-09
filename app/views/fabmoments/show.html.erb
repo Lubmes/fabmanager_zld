@@ -22,14 +22,15 @@
 		<!-- Gallery -->
 		<div id="images">
 			<div class="w3-row-padding">
-				<% @fabmoment.images.each do |i| %>
+				<% @fabmoment.pictures.each do |p| %>
 				  <div class="w3-container w3-quarter">
-				    <img src="<%= i.url%>" style="width:100%;cursor:pointer"
+				    <img src="<%= p.image.url %>" style="width:100%;cursor:pointer"
 				    onclick="onClick(this)" class="w3-hover-opacity">
 				  </div>
 				<% end %>
 			</div>
 		</div>
+
 		<!-- Gallery: Zoom -->
 		<div id="modal01" class="w3-modal" onclick="this.style.display='none'">
 		  <span class="w3-closebtn w3-hover-red w3-text-white w3-xxlarge w3-container w3-display-topright">&times;</span>
@@ -51,6 +52,19 @@
 				</div>
 			</div>
 		<% end %>
+
+		<!-- Project Files -->
+		<div id="project-files">
+			<div class="w3-row-padding">
+				<% @fabmoment.project_files.each do |files| %>
+				  <div class="w3-container">
+				    <u style="color:blue"><%= link_to files.file_file_name, files.file.url(original: false) %></u>
+				  </div>
+				<% end %>
+			</div>
+		</div>
+
+		<!-- Machine and Material cards -->
 		<% if @fabmoment.machines.any? %>
 			<div class="w3-col m4">
         <div class="w3-card">
@@ -80,22 +94,12 @@
 		<br>
 			<%= @fabmoment.license.title %>
 		<br>
-
+		<br>
+			<%= @fabmoment.source %>
+		<br>
 		<!-- Fabmoment model moet de project files scopen, vergelijkbaar
 				 met de persisted method in het Comment model.
 				 Vind in de console uit hoe deze scope eruit moet zien. -->
-		<% if @fabmoment.project_files.any? %>
-			<div id="attachments" class="w3-container w3-margin-large">
-				<h5 class="w3-center">Project Bestanden</h5>
-					<ul class="w3-ul">
-					<% @fabmoment.project_files.each_with_index do |project_file, index| %>
-						<%= render 'project_files/project_file', fabmoment: @fabmoment,
-																 project_file: project_file,
-																 index: index %>
-					<% end %>
-					</ul>
-			</div>
-		<% end %>
 
 		<% if @fabmoment.tags.any? %>
 			<div id="tags" class="w3-margin-top">
@@ -119,7 +123,13 @@
 
 		<div id="comments" class="w3-half w3-margin-top" style="margin-left: 25%">
 			<% if @fabmoment.comments.persisted.any? %>
-				<%= render @fabmoment.comments.persisted, fabmoment: @fabmoment %>
+				<% @fabmoment.comments.persisted.each do |comment| %>
+					<div id="comment-ajax-<%= comment.id %>">
+						<%= render comment %>
+					</div>
+				<% end %>
+
+				<%#= render @fabmoment.comments.persisted, fabmoment: @fabmoment %>
 			<% else %>
 				<p class="w3-text-dark-grey w3-padding w3-center">
 					Er zijn geen commentaren op dit fabmoment.
@@ -127,7 +137,7 @@
 			<% end %>
 			<% if policy(@fabmoment).comment? %>
 				<%= render 'comments/form', fabmoment: @fabmoment,
-											comment: @comment %>
+											comment: @fabmoment.comments.build %>
 			<% end %>
 		</div>
 	</div>

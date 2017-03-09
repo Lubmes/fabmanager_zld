@@ -1,11 +1,12 @@
 <blockquote class="w3-card-2 w3-padding-medium w3-margin-bottom">
-	<%= simple_form_for [fabmoment, comment] do |f| %>
+
+	<%= simple_form_for [fabmoment, comment], remote: true do |f| %>
 		<!-- Input -->
 		<%= f.input_field :text, rows: 4 %>
 		<%= f.label :text %>
 		<!-- Zenden -->
 	  <div class="w3-center w3-margin">
-	    <%= f.button :button, class: "w3-btn w3-pale-yellow w3-center" %>
+	    <%= link_to f.button :button, method: :post, remote: true, class: 'w3-btn w3-green' %>
 	  </div>
 	<% end %>
 </blockquote>

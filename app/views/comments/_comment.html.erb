@@ -1,5 +1,13 @@
 <blockquote class="w3-card-2 w3-padding-medium">
-	
+
+	<% if policy(comment).edit? %>
+		<%= link_to 'edit', [:edit, comment.fabmoment, comment], remote: true, 'data-type' => 'script', class: 'w3-btn w3-yellow' %>
+	<% end %>
+
+	<% if policy(comment).destroy? %>
+	<%= link_to 'delete', fabmoment_comment_path(comment.fabmoment, comment), method: :delete, remote: true, class: 'w3-btn w3-red' %>
+	<% end %>
+
 	<%= simple_format comment.text %>
 
 	<footer class="w3-text-pink">
