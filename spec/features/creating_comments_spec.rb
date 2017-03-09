@@ -9,7 +9,7 @@ RSpec.feature "Users can comment on tickets" do
     login_as(user)
   end
 
-  scenario "with valid attributes" do
+  xscenario "with valid attributes" do
     visit fabmoment_path(fabmoment)
 
     fill_in "Tekst", with: "Commentaar geplaatst!"

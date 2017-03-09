@@ -12,7 +12,7 @@ RSpec.feature "Users can delete unwanted tags from a ticket" do
     visit fabmoment_path(fabmoment)
   end
 
-  scenario "succesfully", js: true do
+  xscenario "succesfully", js: true do
     within tag("ThisTagMustDie") do
       click_link "remove"
     end
