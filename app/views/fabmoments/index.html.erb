@@ -26,11 +26,11 @@
 			    	<header class="w3-container w3-blue-grey w3-center">
 			    		<h4><%= fabmoment.title %></h4>
 						</header>
-						<div class="w3-container">
+						<div >
 							<% i=1 %>
 							<% fabmoment.pictures.each do |p| %>
 								<% if i == 1 %>
-									<img src="<%= p.image %>"  class="w3-container" style="height:130px">
+									<img src="<%= p.image %>"   style="height:100%; width:100%">
 									<% i += 1 %>
 								<% end %>
 							<% end %>
