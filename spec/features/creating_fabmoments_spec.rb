@@ -119,15 +119,15 @@ RSpec.feature 'Users can create new fabmoments', type: :feature do
       fill_in 'Titel', with: 'Reeks ontwerp studies'
       fill_in 'Omschrijving', with: 'Deze maquettes komen uit verscheidene machines.'
     end
-    attach_file 'Afbeeldingen', Rails.root.join('spec/fixtures/model_grof.jpg')
-    attach_file 'Afbeeldingen', Rails.root.join('spec/fixtures/model_ruw.jpg')
+    attach_file 'Bladeren...', Rails.root.join('spec/fixtures/model_grof.jpg')
+    attach_file 'Bladeren...', Rails.root.join('spec/fixtures/model_ruw.jpg')
     click_button 'Fabmoment toevoegen'
 
     # Assert
     expect(page).to have_content 'Fabmoment is succesvol toegevoegd.'
     fabmoment = Fabmoment.find_by(title: 'Reeks ontwerp studies')
     within('#images') do
-      expect(page).to have_selector 'img'
+      expect(page).to have_selector '2 Bestanden'
     end
   end
 

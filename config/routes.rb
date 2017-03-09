@@ -15,8 +15,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources 'users'
+  resources :avatar
 
   root 'fabmoments#index'
+  get '/fabmoment/index', :controller => 'fabmoments', :action => "index"
+  post '/fabmoment/index', :controller => 'fabmoments', :action => "index"
 
   resources 'fabmoments' do
     collection do
@@ -28,6 +31,6 @@ Rails.application.routes.draw do
       end
     end
     resources 'project_files', only: [:create, :destroy]
-    resources 'comments', only: [:create]
+    resources 'comments', only: [:create, :edit, :update, :destroy]
   end
 end

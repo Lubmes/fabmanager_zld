@@ -27,7 +27,13 @@
 			    		<h4><%= fabmoment.title %></h4>
 						</header>
 						<div class="w3-container">
-						  <p><%= fabmoment.description %></p>
+							<% i=1 %>
+							<% fabmoment.pictures.each do |p| %>
+								<% if i == 1 %>
+									<img src="<%= p.image %>"  class="w3-container" style="height:130px">
+									<% i += 1 %>
+								<% end %>
+							<% end %>
 						</div>
 					</div>
 		  <% end %>

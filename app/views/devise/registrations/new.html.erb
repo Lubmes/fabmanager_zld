@@ -27,12 +27,8 @@
 				<%= f.label :password_confirmation %>
 				<%= f.error :password_confirmation %><br><br><br>
 				<!-- Upload: Avatar -->
-        <div class="w3-center">
-          <%= f.label :avatar %><br><br>
-          <%= f.file_field :avatar %><br><br>
-          <%= f.hidden_field :avatar_cache %><br><br>
-          <%= f.error :avatar %><br><br>
-        </div>     
+				<%= f.label :avatar %><br>
+				<%= f.file_field :avatar, as: :file %> <br><br><br>   
 
 				<!-- Zenden -->
 				<div class="w3-center">
