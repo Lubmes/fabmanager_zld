@@ -1,5 +1,5 @@
 source 'http://rubygems.org/'
-ruby "2.3.1"
+ruby "2.3.3"
 
 gem 'rails', '~> 5.0.0.1'
 # if Gem.win_platform?
@@ -20,7 +20,6 @@ gem 'devise', '~> 4.2'
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
 gem 'pundit', '~> 1.1'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
-gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 gem 'coffee-script-source', '1.8.0'
 gem 'paperclip', '~> 5.0.0'
 gem 'rails-simple-search'
