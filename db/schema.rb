@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170116143245) do
+ActiveRecord::Schema.define(version: 20170130130736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,12 +28,11 @@ ActiveRecord::Schema.define(version: 20170116143245) do
   create_table "fabmoments", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "author_id"
-    t.text     "images"
-    t.text     "project_files"
     t.integer  "license_id"
+    t.string   "source"
     t.index ["author_id"], name: "index_fabmoments_on_author_id", using: :btree
     t.index ["license_id"], name: "index_fabmoments_on_license_id", using: :btree
   end
@@ -93,10 +92,35 @@ ActiveRecord::Schema.define(version: 20170116143245) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "pictures", force: :cascade do |t|
+    t.string   "name"
+    t.string   "imageable_type"
+    t.integer  "imageable_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable_type_and_imageable_id", using: :btree
+  end
+
   create_table "programs", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "project_files", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "fabmoment_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.index ["fabmoment_id"], name: "index_project_files_on_fabmoment_id", using: :btree
   end
 
   create_table "tags", force: :cascade do |t|
@@ -118,9 +142,12 @@ ActiveRecord::Schema.define(version: 20170116143245) do
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
     t.datetime "archived_at"
-    t.string   "avatar"
     t.string   "username"
     t.string   "adress"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
