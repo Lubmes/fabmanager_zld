@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :meetings
   namespace :admin do
     root 'application#index'
     resources 'users' do
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
     resources 'programs'
     resources 'materials'
     resources 'machines'
+    resources 'calendar'
   end
 
   devise_for :users

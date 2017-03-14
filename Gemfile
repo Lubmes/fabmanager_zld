@@ -23,6 +23,7 @@ gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'coffee-script-source', '1.8.0'
 gem 'paperclip', '~> 5.0.0'
 gem 'rails-simple-search'
+gem "simple_calendar", "~> 2.0"
 
 
 group :development, :test do
