@@ -26,7 +26,6 @@ gem 'rails-simple-search'
 gem "simple_calendar", "~> 2.0"
 gem 'acts_as_bookable'
 
-
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5', '>= 3.5.1'
