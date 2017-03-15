@@ -24,6 +24,7 @@ gem 'coffee-script-source', '1.8.0'
 gem 'paperclip', '~> 5.0.0'
 gem 'rails-simple-search'
 gem "simple_calendar", "~> 2.0"
+gem 'acts_as_bookable'
 
 
 group :development, :test do

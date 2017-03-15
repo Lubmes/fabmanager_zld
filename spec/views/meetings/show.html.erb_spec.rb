@@ -8,7 +8,7 @@ RSpec.describe "meetings/show", type: :view do
       :scaffold => "Scaffold",
       :Meeting => "Meeting",
       :name => "Name",
-      :calendar => "Calendar"
+      :agenda => "Calendar"
     ))
   end
 

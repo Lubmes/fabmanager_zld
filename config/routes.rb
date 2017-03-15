@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources 'programs'
     resources 'materials'
     resources 'machines'
-    resources 'calendar'
+    resources 'reservations'
   end
 
   devise_for :users

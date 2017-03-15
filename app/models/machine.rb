@@ -1,4 +1,5 @@
 class Machine < ApplicationRecord
+  acts_as_bookable
   has_many :handles, :dependent => :destroy
   has_many :fabmoments, :through => :handles
   # Machine is fed with materials.

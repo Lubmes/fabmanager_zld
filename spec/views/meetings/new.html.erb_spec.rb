@@ -8,7 +8,7 @@ RSpec.describe "meetings/new", type: :view do
       :scaffold => "MyString",
       :Meeting => "MyString",
       :name => "MyString",
-      :calendar => "MyString"
+      :agenda => "MyString"
     ))
   end
 
@@ -27,7 +27,7 @@ RSpec.describe "meetings/new", type: :view do
 
       assert_select "input#meeting_name[name=?]", "meeting[name]"
 
-      assert_select "input#meeting_calendar[name=?]", "meeting[calendar]"
+      assert_select "input#meeting_calendar[name=?]", "meeting[agenda]"
     end
   end
 end

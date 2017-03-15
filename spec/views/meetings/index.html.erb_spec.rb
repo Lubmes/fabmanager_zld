@@ -9,7 +9,7 @@ RSpec.describe "meetings/index", type: :view do
         :scaffold => "Scaffold",
         :Meeting => "Meeting",
         :name => "Name",
-        :calendar => "Calendar"
+        :agenda => "Calendar"
       ),
       Meeting.create!(
         :rails => "Rails",
@@ -17,7 +17,7 @@ RSpec.describe "meetings/index", type: :view do
         :scaffold => "Scaffold",
         :Meeting => "Meeting",
         :name => "Name",
-        :calendar => "Calendar"
+        :agenda => "Calendar"
       )
     ])
   end
