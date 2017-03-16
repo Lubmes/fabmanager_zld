@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315113818) do
+ActiveRecord::Schema.define(version: 20170316135851) do
 
   create_table "acts_as_bookable_bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "bookable_type"
@@ -92,8 +92,10 @@ ActiveRecord::Schema.define(version: 20170315113818) do
 
   create_table "machines", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.text     "schedule",   limit: 65535
+    t.integer  "capacity"
   end
 
   create_table "materials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -146,6 +148,11 @@ ActiveRecord::Schema.define(version: 20170315113818) do
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
     t.index ["fabmoment_id"], name: "index_project_files_on_fabmoment_id", using: :btree
+  end
+
+  create_table "reservations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

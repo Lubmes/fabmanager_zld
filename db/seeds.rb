@@ -16,13 +16,13 @@ Material.delete_all
 License.delete_all
 
 unless Machine.exists?(name: "Ultimaker Original")
-  Machine.create(name: "Ultimaker Three")
-  Machine.create(name: "Ultimaker Original Plus")
-  Machine.create(name: "Ultimaker Two")
-  Machine.create(name: "Ultimaker Two Plus")
-  Machine.create(name: "Lasersnijder")
-  Machine.create(name: "Vinylsnijder")
-  Machine.create(name: "3D Scanner")
+  Machine.create!(name: "Ultimaker Three")
+  Machine.create!(name: "Ultimaker Original Plus")
+  Machine.create!(name: "Ultimaker Two")
+  Machine.create!(name: "Ultimaker Two Plus")
+  Machine.create!(name: "Lasersnijder")
+  Machine.create!(name: "Vinylsnijder")
+  Machine.create!(name: "3D Scanner")
 end
 
 unless Program.exists?(name: "Adobe Illustrator")

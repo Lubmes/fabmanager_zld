@@ -1,13 +1,26 @@
 <p1>
 <title>Reserveren.</title>
 
-<ul>
-  <% @machines.each do |machine| %>
-      <li>
-          <%= machine.name %>
-      </li>
-  <% end %>
-  <button> <%= link_to 'Huren'%> </button>
-</ul>
+ <div class="w3-col m3">
+  <ul>
+    <% @machines.each do |machine| %>
+        <li>
+          <h4>id<%= machine.id %> - <%= machine.name %></h4>
+          <% if machine.bookings.any? %>
+            <% machine.bookings.each do |booking| %>
+                <%= booking.time_start %>
+                  <%= booking.time_end %>
 
+              <% end %>
+          <% else %>
+            <p>Geen reservaties op deze machine.</p>
+          <% end %>
+        </li>
+
+    <% end %>
+
+    <%= link_to "Nieuwe Reservatie", [:new, :admin, :reservation],
+                class: "new w3-btn w3-purple w3-margin-bottom"%>
+  </ul>
+</div>
 </p1>

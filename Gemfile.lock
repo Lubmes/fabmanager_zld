@@ -288,6 +288,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_bookable
+  bcrypt
   byebug
   capistrano
   capistrano-database-yml (~> 1.0, >= 1.0.1)
@@ -302,6 +303,7 @@ DEPENDENCIES
   email_spec (~> 1.6.0)
   factory_girl_rails (~> 4.7)
   font-awesome-rails (~> 4.6, >= 4.6.3.1)
+  ice_cube_chosko
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
