@@ -97,6 +97,18 @@
 		<br>
 			<%= @fabmoment.source %>
 		<br>
+		<br>
+			<h4 class="w3-text-cyan"> Wat ging er goed ?</h4>
+			<p><%= @fabmoment.gingGoed %></p>
+		<br>
+		<br>
+			<h4 class="w3-text-cyan"> Wat ging er fout ?</h4>
+			<p><%= @fabmoment.gingFout %></p>
+		<br>
+		<br>
+			<h4 class="w3-text-cyan"> Wat kan beter ?</h4>
+			<p><%= @fabmoment.kanBeter %></p>
+		<br>
 		<!-- Fabmoment model moet de project files scopen, vergelijkbaar
 				 met de persisted method in het Comment model.
 				 Vind in de console uit hoe deze scope eruit moet zien. -->
@@ -115,9 +127,9 @@
 			<% end %>
 			<% if policy(@fabmoment).destroy? %>
 				<%= link_to "Verwijder Fabmoment", [@fabmoment],
-								method: :delete,
+								method: :delete, remote: true,
 								data: { confirm: "Weet je zeker dat je het fabmoment wil verwijderen?"},
-								class: "delete w3-btn w3-amber" %>
+								class: "delete w3-btn w3-red" %>
 			<% end %>
 		</footer>
 
