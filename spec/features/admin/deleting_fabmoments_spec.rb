@@ -10,7 +10,7 @@ RSpec.feature "Users can delete fabmoments", type: :feature do
     visit fabmoment_path(fabmoment)
   end
 
-  xscenario "succesfully" do
+  scenario "succesfully" do
     click_link "Verwijder Fabmoment"
 
     expect(page).to have_content "Fabmoment is verwijderd."

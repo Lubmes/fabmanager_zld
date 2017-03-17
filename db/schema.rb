@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170130130736) do
+ActiveRecord::Schema.define(version: 20170314132009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 20170130130736) do
     t.integer  "author_id"
     t.integer  "license_id"
     t.string   "source"
+    t.text     "gingGoed"
+    t.text     "gingFout"
+    t.text     "kanBeter"
     t.index ["author_id"], name: "index_fabmoments_on_author_id", using: :btree
     t.index ["license_id"], name: "index_fabmoments_on_license_id", using: :btree
   end

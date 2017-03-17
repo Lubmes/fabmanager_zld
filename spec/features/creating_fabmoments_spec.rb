@@ -33,7 +33,7 @@ RSpec.feature 'Users can create new fabmoments', type: :feature do
     expect(page).to have_content "Door #{user.username}"
   end
 
-  xscenario 'when providing invalid attributes' do # ...en je test ook wat kan, maar niet moet!
+  scenario 'when providing invalid attributes' do # ...en je test ook wat kan, maar niet moet!
     # Act
     click_button 'Fabmoment toevoegen'
 
