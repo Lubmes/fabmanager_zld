@@ -32,8 +32,7 @@ nl:
       materials:
         sort: Matriaal naam
         name: Matriaal soort
-        thickness: Dikte matriaal 
-
+        thickness: Dikte matriaal
 
     errors:
       models:
@@ -41,3 +40,9 @@ nl:
             attributes:
               username:
                 blank: "test"
+
+  acts_as_bookable:
+    errors:
+      messages:
+        availability:
+          unavailable_interval: "Interval niet beschikbaar."

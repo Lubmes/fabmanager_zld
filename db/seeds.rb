@@ -15,15 +15,33 @@ Program.delete_all
 Material.delete_all
 License.delete_all
 
-unless Machine.exists?(name: "Ultimaker Original")
-  Machine.create!(name: "Ultimaker Three")
-  Machine.create!(name: "Ultimaker Original Plus")
-  Machine.create!(name: "Ultimaker Two")
-  Machine.create!(name: "Ultimaker Two Plus")
-  Machine.create!(name: "Lasersnijder")
-  Machine.create!(name: "Vinylsnijder")
-  Machine.create!(name: "3D Scanner")
+def make_machine_bookable(machine)
+    machine.schedule = IceCube::Schedule.new(Time.now, duration: 1.minute)
+    machine.schedule.add_recurrence_rule IceCube::Rule.day.daily.minute_of_hour(:monday,:tuesday,:wednesday,:thursday,:friday)
+    machine.capacity = 4
+    machine.save!
 end
+
+unless Machine.exists?(name: "Ultimaker Original")
+  m1 = Machine.new(name: "Ultimaker Three")
+  make_machine_bookable(m1)
+  m2 = Machine.new(name: "Ultimaker Original Plus")
+  make_machine_bookable(m2)
+  m3 = Machine.new(name: "Ultimaker Two")
+  make_machine_bookable(m3)
+  m4 = Machine.new(name: "Ultimaker Two Plus")
+  make_machine_bookable(m4)
+  m5 = Machine.new(name: "Lasersnijder")
+  make_machine_bookable(m5)
+  m6 = Machine.new(name: "Vinylsnijder")
+  make_machine_bookable(m6)
+  m7 = Machine.new(name: "3D Scanner")
+  make_machine_bookable(m7)
+end
+
+# Machines.all.each do |machine|
+
+# end
 
 unless Program.exists?(name: "Adobe Illustrator")
   Program.create(name: "Adobe Illustrator")

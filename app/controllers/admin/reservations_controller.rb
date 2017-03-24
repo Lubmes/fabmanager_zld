@@ -10,34 +10,38 @@ class Admin::ReservationsController < ApplicationController
   end
 
   def create
-    @machine = Machine.find(9)
-    @machine.schedule = IceCube::Schedule.new(Time.now, duration: 10.hours)
-# This machine is available every day at 8AM till 6PM
-    @machine.schedule.add_recurrence_rule IceCube::Rule.weekly.day(:monday, :tuesday, :wednesday, :thursday, :friday).hour_of_day(8).minute_of_hour(30)
-    @machine.save!
+    @reservation = Reservation.new(reservation_params)
+    @reservation.save!
 
+    begin_time = @reservation.begin_time
+    end_time = @reservation.end_time
+    # duration = end_time - begin_time
 
-    # Next Monday from 8AM for 30 minutes
-    from_ok = Date.today.next_week + 8.hours
-    to_ok = from_ok + 30.minutes
-    # reservation = Reservation.new(reservation_params)
-    @user = User.find(1)
-    @user.book! @machine, time_start: from_ok, time_end: to_ok
+    # hieronder met bookable gem zo ongeveer machine boeken, na ook machine te hebben geselecteerd
 
-    @machine = Machine.new()
-    @machine.capacity = 6
-    @machine.save!
+    @machine = Machine.last
 
-    @machine.save!
+    current_user.book! @machine, time_start: begin_time, time_end: end_time, amount: 1
 
-    redirect_to admin_reservation_path
+    redirect_to admin_reservations_path
+  end
+
+  def edit
+
+  end
+
+  def delete
+    @reservation = Reservation.delete
+  end
+
+  def remove
+
   end
 
   private
 
   def reservation_params
-    params.require(:reservation).permit(:description, :user, :machine, :begintime, :endtime)
+    params.require(:reservation).permit(:description, :user, :machine, :begin_time, :end_time)
   end
-
 end
 
