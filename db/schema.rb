@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170316135851) do
+ActiveRecord::Schema.define(version: 20170330122144) do
 
   create_table "acts_as_bookable_bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "bookable_type"
@@ -148,6 +148,11 @@ ActiveRecord::Schema.define(version: 20170316135851) do
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
     t.index ["fabmoment_id"], name: "index_project_files_on_fabmoment_id", using: :btree
+  end
+
+  create_table "rentings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reservations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
