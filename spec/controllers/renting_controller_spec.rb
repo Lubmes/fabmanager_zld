@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe RentingController, type: :controller do
+RSpec.describe RentingsController, type: :controller do
 
 end

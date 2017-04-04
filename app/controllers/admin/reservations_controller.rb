@@ -1,4 +1,6 @@
 class Admin::ReservationsController < ApplicationController
 
 
-  1
+  def index
+
+  end

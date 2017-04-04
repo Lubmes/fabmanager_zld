@@ -1,12 +1,9 @@
 <p1>
 <title>Reserveren.</title>
-
-
-
- <div class="w3-col m3">
-   <h2>Machines</h2>
-   <ul>
-     <% @machines.each do |machine| %>
+   <div class="w3-col m3">
+     <h2>Machines</h2>
+       <ul>
+           <% @machines.each do |machine| %>
          <h3><%= machine.name %></h3>
         <% machine.bookings.each do |booking| %>
          <li>

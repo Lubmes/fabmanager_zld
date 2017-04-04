@@ -11,11 +11,15 @@
   </head>
 
   <body>
-  	<ul class="w3-navbar w3-blue-grey w3-large w3-card-8">
+  	<ul class="w3-navbar w3-green w3-large w3-card-8">
 			<li class="<% "active" if current_page?("/") %>">
 				<%= link_to "FabLab", root_path,
-															class: "w3-hover-text-dark-grey" %>
+															class: "w3-hover-text-dark-blue" %>
 			</li>
+      <li class="<% "active" if current_page?("/") %>">
+        <%= link_to "Contact", root_path,
+                    class: "w3-hover-text-dark-blue" %>
+      </li>
 			<% admins_only do %>
 			<li class="<% "active" if current_page?("/") %>">
 				<%= link_to "Admin", admin_root_path,

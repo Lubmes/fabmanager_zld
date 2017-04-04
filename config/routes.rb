@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources 'materials'
     resources 'machines'
     resources 'reservations'
-    resources 'renting'
+    resources 'rentings'
   end
 
   devise_for :users

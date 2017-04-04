@@ -1,0 +1,43 @@
+<div class="w3-row">
+  <div class="w3-half w3-center" style="margin-left: 25%">
+    <%= form_for [:admin, renting] do |f| %>
+        <%= f.label :Time %>
+        <div>
+          <%= f.datetime_select :time_start %> - <%= f.datetime_select :time_end %>
+        </div>
+          <br>
+            <div>
+              <!-- Machines card -->
+              <div class="w3-col m4">
+                <div class="w3-card">
+                  <h5 class="w3-text-teal w3-center">Machines</h5>
+                  <ul class="w3-ul" id="machines">
+                    <%= f.collection_check_boxes :machine_ids, @machines, :id, :name do |b| %>
+                        <li>
+                          <%= b.label class: "w3-small" do %>
+                              <%= b.check_box class: "w3-check" %>
+                              <%= b.text %>
+                          <% end %>
+                        </li>
+                    <% end %>
+                  </ul>
+                </div>
+            </div>
+          <br>
+        <div>
+          <%= f.label :description %>
+        </div>
+        <!-- Input -->
+          <div>
+            <%= f.text_area :description, rows: 10, col: 20 %>
+          </div>
+        <br>
+        <br>
+        <!-- Zenden -->
+        <div class="w3-center w3-margin-bottom">
+          <%= f.button :button, class: "w3-btn w3-blue w3-center" %>
+        </div>
+
+    <% end %>
+  </div>
+</div>

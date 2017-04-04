@@ -1,13 +1,7 @@
 <div class="w3-container w3-margin-top">
 	<header class="w3-container">
 		<h2 class="w3-center">Fablab Zeeland</h2>
-		<% if current_user %>
 			<div class="actions w3-margin-bottom">
-				<%= link_to "Nieuw Fabmoment", new_fabmoment_path, 
-							class: "new w3-left w3-btn w3-lime"%>
-
-
-
 				<div class="">			
 				<%= form_tag search_fabmoments_path, 
 						method: :get,
@@ -17,14 +11,18 @@
 			  </div>
 	      <% end %>
 			</div>
-		<% end %>
-
 	</header>
   <header>
-    <div class="actions w3-margin-bottom">
-    <%= link_to "Nieuwe Reservatie", [:new, :admin, :reservation],
+    <%= link_to "Nieuw Fabmoment", new_fabmoment_path,
+                class: "new w3-btn w3-green w3-margin-bottom"%>
+  </header>
+  <header>
+    <%= link_to "Nieuw Reservatie", [:new, :admin, :reservation],
                 class: "new w3-btn w3-purple w3-margin-bottom"%>
-  </div>
+  </header>
+  <header>
+      <%= link_to "Nieuw Verhuur", [:new, :admin, :renting],
+                  class: "new w3-btn w3-red w3-margin-bottom"%>
   </header>
 	<div id="fabmoments" class="w3-row-padding w3-margin-top">
 	  <% @fabmoments.each do |fabmoment| %>
