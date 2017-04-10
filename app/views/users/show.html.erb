@@ -5,7 +5,8 @@
 	<div class="w3-twothird" style="margin-left: 16.65%">
 
 		<header class="w3-center">
-			<img src="<%= @user.avatar.url %>" class="img-thumbnail" width="305" height="200">
+			<img src="<%= @user.avatar.url %>"  class="img-thumbnail" ;>
+
 			<h3>Gebruikersnaam: <%= @user.username %></h3>
 			<h3>Email: <%= @user.email %></h3>
 			<% if policy(@user).show? %>
