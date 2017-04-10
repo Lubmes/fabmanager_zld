@@ -39,7 +39,9 @@ nl:
           user:
             attributes:
               username:
-                blank: "test"
+                blank: "een gebruikersnaam is vereist."
+              avatar:
+                blank: "png, jpg, gif"
 
   acts_as_bookable:
     errors:

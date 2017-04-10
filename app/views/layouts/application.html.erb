@@ -11,19 +11,31 @@
   </head>
 
   <body>
-  	<ul class="w3-navbar w3-green w3-large w3-card-8">
+  	<ul class="w3-navbar w3-lime w3-large w3-card-8">
 			<li class="<% "active" if current_page?("/") %>">
 				<%= link_to "FabLab", root_path,
-															class: "w3-hover-text-dark-blue" %>
+															class: "w3-hover-text-black" %>
 			</li>
       <li class="<% "active" if current_page?("/") %>">
-        <%= link_to "Contact", root_path,
-                    class: "w3-hover-text-dark-blue" %>
+        <%= link_to "Contact", new_fabmoment_path,
+                    class: "w3-hover-text-black" %>
+      </li>
+      <li class="<% "active" if current_page?("/") %>">
+        <%= link_to "Fabmoment", new_fabmoment_path,
+                    class: "w3-hover-text-black" %>
+      </li>
+      <li class="<% "active" if current_page?("/") %>">
+        <%= link_to "Reserveer", new_admin_reservation_path,
+                    class: "w3-hover-text-black" %>
+      </li>
+      <li class="<% "active" if current_page?("/") %>">
+        <%= link_to "Verhuur", new_admin_renting_path,
+                    class: "w3-hover-text-black" %>
       </li>
 			<% admins_only do %>
 			<li class="<% "active" if current_page?("/") %>">
 				<%= link_to "Admin", admin_root_path,
-														 class: "w3-hover-text-dark-grey" %>
+														 class: "w3-hover-text-black" %>
 			</li>
 			<% end %>
 			<% if user_signed_in? %>
@@ -42,7 +54,7 @@
 			<% if user_signed_in? %>
         <div class='w3-right'>
           <li class='w3-padding'>
-            <small>Ingelogd als:</small>
+            <small>Ingelogd als: </small>
           </li>
           <li class="w3-dropdown-hover w3-hover-orange">
             <%= link_to "#{current_user.username} <i class='fa fa-caret-down'></i>".html_safe,

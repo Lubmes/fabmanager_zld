@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources 'contactinfo'
   resources 'users'
   resources :avatar
 

@@ -7,12 +7,14 @@
         </div>
           <br>
             <div>
+
               <!-- Machines card -->
+              <% if false %>
               <div class="w3-col m4">
                 <div class="w3-card">
                   <h5 class="w3-text-teal w3-center">Machines</h5>
                   <ul class="w3-ul" id="machines">
-                    <%= f.collection_check_boxes :machine_ids, @machines, :id, :name do |b| %>
+                    <%= f.collection_check_boxes :machine_ids, machines, :id, :name do |b| %>
                         <li>
                           <%= b.label class: "w3-small" do %>
                               <%= b.check_box class: "w3-check" %>
@@ -23,6 +25,8 @@
                   </ul>
                 </div>
             </div>
+       <% end %>
+
           <br>
         <div>
           <%= f.label :description %>
