@@ -20,9 +20,11 @@
         <%= link_to "Contact", new_fabmoment_path,
                     class: "w3-hover-text-black" %>
       </li>
+      <li class="w3-dropdown-hover w3-hover-orange">
       <li class="<% "active" if current_page?("/") %>">
         <%= link_to "Fabmoment", new_fabmoment_path,
                     class: "w3-hover-text-black" %>
+      </li>
       </li>
       <li class="<% "active" if current_page?("/") %>">
         <%= link_to "Reserveer", new_admin_reservation_path,

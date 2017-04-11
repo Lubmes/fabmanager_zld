@@ -5,7 +5,7 @@
 	<div class="w3-twothird" style="margin-left: 16.65%">
 
 		<header class="w3-center">
-			<img src="<%= @user.avatar.url %>"  class="img-thumbnail" ;>
+			<img src="<%= @user.avatar.url %>"  class="img-thumbnail w3-margin-top" ;>
 
 			<h3>Gebruikersnaam: <%= @user.username %></h3>
 			<h3>Email: <%= @user.email %></h3>
@@ -37,7 +37,7 @@
 
 		<div id="comments">
 			<h3 class="w3-center">Geleverd commentaar</h3>
-			<ul class="w3-ul">
+			<ul class="w3-center w3-bottombar w3-border-blue-grey w3-padding-xlarge">
 			<% @comments.each do |comment| %>
 				<li class="w3-text-pink">
 					<%= "#{time_ago_in_words(comment.created_at)} geleden gaf <i>#{@user.username}</i>
@@ -51,28 +51,7 @@
 	<!-- (Einde van de twothird kolom.) -->
 
 	<!-- Fabmomenten van de gebruiker -->
-	<div id="fabmoments" class="w3-row-padding w3-margin-top w3-margin-bottom">
-	<% @fabmoments.each do |fabmoment| %>
-    <div class="w3-col m3">
-
-			<!-- Fabmoment card -->
-			<%= link_to fabmoment do %>
-			    <div class="w3-card-2 w3-hover-shadow w3-margin-bottom">
-			    	<header class="w3-container w3-blue-grey w3-center">
-			    		<h4><%= fabmoment.title %></h4>
-						</header>
-            <div class="w3-container">
-              <% i=1 %>
-              <% fabmoment.pictures.each do |p| %>x
-                  <% if i == 1 %>
-                      <img src="<%= p.image %>"  class="w3-container" style="height:130px">
-                      <% i += 1 %>
-                  <% end %>
-              <% end %>
-            </div>
-		 	<% end %>
-
-		</div>
-	<% end %>
-	</div>
+  <footer class="w3-center w3-topbar w3-border-blue-grey w3-padding-xlarge">
+  <%= render "fabmoments/fabmoments_gallery", fabmoments: @fabmoments %>
+  </footer>
 </div>
