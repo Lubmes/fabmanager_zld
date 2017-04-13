@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe MeetingsController, type: :routing do
   describe "routing" do
 
-    it "routes to #index" do
+    it "routes to #show" do
       expect(:get => "/meetings").to route_to("meetings#index")
     end
 

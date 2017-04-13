@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   # Avatar
   has_attached_file :avatar, :default_url => '/images/standard.png'
-  validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
+  validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/, /jpg\Z/]
   validates_presence_of :username
 
   scope :excluding_archived, lambda { where(archived_at: nil) }

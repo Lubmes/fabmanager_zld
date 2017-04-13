@@ -1,11 +1,20 @@
 <% title(@user.username, "Gebruiker") %>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</head>
 
-<div class="w3-row">
+<div class="w3-row w3-topbar w3-border-blue-grey w3-padding-xlarge">
 	<!-- Basis Profiel gegevens -->
 	<div class="w3-twothird" style="margin-left: 16.65%">
 
 		<header class="w3-center">
-			<img src="<%= @user.avatar.url %>"  class="img-thumbnail w3-margin-top" ;>
+      <div class="image-cropper">
+			<img src="<%= @user.avatar.url %>"  class="img-thumbnail" ;>
+      </div>
 
 			<h3>Gebruikersnaam: <%= @user.username %></h3>
 			<h3>Email: <%= @user.email %></h3>
@@ -35,9 +44,13 @@
 
 		<!-- <p> user.bio etc. & user.comments.order(#van recent tot in verleden) </p> -->
 
+    <div data-role="main" class="ui-content">
+  <form method="post" action="/action_page_post.php">
+    <fieldset data-role="collapsible">
+      <legend>Commentaar</legend>
 		<div id="comments">
 			<h3 class="w3-center">Geleverd commentaar</h3>
-			<ul class="w3-center w3-bottombar w3-border-blue-grey w3-padding-xlarge">
+			<ul class="w3-center">
 			<% @comments.each do |comment| %>
 				<li class="w3-text-pink">
 					<%= "#{time_ago_in_words(comment.created_at)} geleden gaf <i>#{@user.username}</i>
@@ -46,12 +59,21 @@
 			<% end %>
 			<ul>
 		</div>
+    </fieldset>
+  </form>
+</div>
+    <div class="w3-bottombar w3-border-blue-grey w3-padding-xlarge">
 		<h2 class="w3-center">Fabmomenten</h2>
 	</div>
 	<!-- (Einde van de twothird kolom.) -->
 
+    <!-- Ter informatie de <div> op lijn 62 zorgt voor verkleint gallerij fabmomenten -->
+
 	<!-- Fabmomenten van de gebruiker -->
-  <footer class="w3-center w3-topbar w3-border-blue-grey w3-padding-xlarge">
+
+
+  <footer class="w3-center">
   <%= render "fabmoments/fabmoments_gallery", fabmoments: @fabmoments %>
   </footer>
-</div>
+  </div>
+  </div>

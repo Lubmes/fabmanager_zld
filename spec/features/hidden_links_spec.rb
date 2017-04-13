@@ -10,7 +10,7 @@ RSpec.feature "Users can only see the appropriate links:" do
   let(:odd_fabmoment) { FactoryGirl.create(:fabmoment, author: random_user, license: license) }
 
   context "anonymous users" do
-    context "in the fabmoment's index" do
+    context "in the fabmoment's show" do
       scenario "cannot see the New Fabmoment link" do
         visit "/"
         expect(page).not_to have_link "Nieuw Fabmoment"
@@ -46,7 +46,7 @@ RSpec.feature "Users can only see the appropriate links:" do
       login_as(random_user)
     end
 
-    context "in the fabmoment's index" do
+    context "in the fabmoment's show" do
       scenario "can see the New Fabmoment link" do
         visit "/"
         expect(page).to have_link "Nieuw Fabmoment"
@@ -86,7 +86,7 @@ RSpec.feature "Users can only see the appropriate links:" do
       login_as(author)
     end
 
-    context "in the fabmoment's index" do
+    context "in the fabmoment's show" do
       scenario "can see the New Fabmoment link" do
         visit "/"
         expect(page).to have_link "Nieuw Fabmoment"
@@ -116,7 +116,7 @@ RSpec.feature "Users can only see the appropriate links:" do
   context "admin users" do
     before { login_as(admin) }
 
-    context "in the fabmoment's index" do
+    context "in the fabmoment's show" do
       scenario "can see the New Fabmoment link" do
         visit "/"
         expect(page).to have_link "Nieuw Fabmoment"

@@ -13,11 +13,11 @@ end
 Machine.delete_all
 Program.delete_all
 Material.delete_all
-License.delete_all
+# License.delete_all
 
 def make_machine_bookable(machine)
-    machine.schedule = IceCube::Schedule.new(Time.now, duration: 1.minute)
-    machine.schedule.add_recurrence_rule IceCube::Rule.day.daily.minute_of_hour(:monday,:tuesday,:wednesday,:thursday,:friday)
+    machine.schedule = IceCube::Schedule.new(Time.now, duration: 1.hours)
+    machine.schedule.add_recurrence_rule IceCube::Rule.daily.hour_of_day(9, 14)
     machine.capacity = 4
     machine.save!
 end

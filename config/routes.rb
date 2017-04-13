@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :meetings
   namespace :admin do
-    root 'application#index'
+    root 'application#show'
     resources 'users' do
       member do
         patch :archive
@@ -13,17 +13,18 @@ Rails.application.routes.draw do
     resources 'machines'
     resources 'reservations'
     resources 'rentings'
+    resources 'information'
   end
 
   devise_for :users
 
-  resources 'contactinfo'
+  resources 'information'
   resources 'users'
   resources :avatar
 
-  root 'fabmoments#index'
-  get '/fabmoment/index', :controller => 'fabmoments', :action => "index"
-  post '/fabmoment/index', :controller => 'fabmoments', :action => "index"
+  root 'fabmoments#show'
+  get '/fabmoment/show', :controller => 'fabmoments', :action => "show"
+  post '/fabmoment/show', :controller => 'fabmoments', :action => "show"
 
   resources 'fabmoments' do
     collection do

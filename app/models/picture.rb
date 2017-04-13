@@ -5,6 +5,6 @@ class Picture < ApplicationRecord
 		:path => ":rails_root/public/images/:id/:filename",
 		:url => "/images/:id/:filename"
 
-	#do_not_validate_attachment_file_type :image
-	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/, :message => 'file type is not allowed (only jpeg/png/gif images)'
+	do_not_validate_attachment_file_type :image
+	# validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/, :message => 'file type is not allowed (only jpeg/png/gif images)'
 end

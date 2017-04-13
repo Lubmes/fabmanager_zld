@@ -16,30 +16,32 @@ class Admin::RentingsController < ApplicationController
 
     # time_start = DateTime.strptime(@renting.time_start, '%Y-%m-%d %H:%M' )
 
-    self.time_start = DateTime.new(
-        params["time_start(1i)"].to_i,
-        params["time_start(2i)"].to_i,
-        params["time_start(3i)"].to_i,
-        params["time_start(4i)"].to_i,
-        params["time_start(5i)"].to_i
-    )
-
-    self.time_end = DateTime.new(
-        params["time_end(1i)"].to_i,
-        params["time_end(2i)"].to_i,
-        params["time_end(3i)"].to_i,
-        params["time_end(4i)"].to_i,
-        params["time_end(5i)"].to_i
-    )
+    # self.time_start = DateTime.new(
+    #     params["time_start(1i)"].to_i,
+    #     params["time_start(2i)"].to_i,
+    #     params["time_start(3i)"].to_i,
+    #     params["time_start(4i)"].to_i,
+    #     params["time_start(5i)"].to_i
+    # )
+    #
+    # self.time_end = DateTime.new(
+    #     params["time_end(1i)"].to_i,
+    #     params["time_end(2i)"].to_i,
+    #     params["time_end(3i)"].to_i,
+    #     params["time_end(4i)"].to_i,
+    #     params["time_end(5i)"].to_i
+    # )
 
 # duration = end_time - begin_time
 
 # hieronder met bookable gem zo ongeveer machine boeken, na ook machine te hebben geselecteerd
 
 
-    @machine = Machine.last
+    @machine = Machine.first
 
-    current_user.book! @machine, time_start: @renting.time_start, time_end: @renting.time_end, amount: 1
+    current_user.book! @machine, time_start: @renting.time_start.to_datetime, time_end: @renting.time_end.to_datetime, amount: 1
+
+    # flash[:now] = "#{@renting.time_start.to_datetime} #{@renting.time_end.to_datetime.class}"
 
     redirect_to admin_rentings_path
   end

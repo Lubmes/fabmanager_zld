@@ -10,22 +10,31 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="background">
   	<ul class="w3-navbar w3-lime w3-large w3-card-8">
 			<li class="<% "active" if current_page?("/") %>">
-				<%= link_to "FabLab", root_path,
+				<%= link_to "Home", root_path,
 															class: "w3-hover-text-black" %>
 			</li>
-      <li class="<% "active" if current_page?("/") %>">
-        <%= link_to "Contact", new_fabmoment_path,
-                    class: "w3-hover-text-black" %>
+
+      <li class="w3-dropdown-hover w3-hover-blue-gray">
+        <%= link_to "Contact <i class='fa fa-caret-down'></i>".html_safe,
+                    class: "#{active if current_page?("users/sign_in")} w3-hover-text-dark-grey" %>
+        <div class="w3-dropdown-content w3-white w3-card-4">
+          <%= link_to 'FAQ', new_admin_machine_path%>
+          <%= link_to 'Organiseren', new_admin_machine_path%>
+        </div>
       </li>
-      <li class="w3-dropdown-hover w3-hover-orange">
-      <li class="<% "active" if current_page?("/") %>">
-        <%= link_to "Fabmoment", new_fabmoment_path,
-                    class: "w3-hover-text-black" %>
+
+      <li class="w3-dropdown-hover w3-hover-blue-gray">
+        <%= link_to "Fabmoment <i class='fa fa-caret-down'></i>".html_safe,
+                    class: "#{active if current_page?("/")} w3-hover-text-dark-grey" %>
+        <div class="w3-dropdown-content w3-white w3-card-4">
+          <%= link_to 'Gallerij', root_path %>
+          <%= link_to 'Nieuw Fabmoment', new_fabmoment_path %>
+        </div>
       </li>
-      </li>
+
       <li class="<% "active" if current_page?("/") %>">
         <%= link_to "Reserveer", new_admin_reservation_path,
                     class: "w3-hover-text-black" %>
@@ -63,6 +72,7 @@
                 class: "#{active if current_page?("users/sign_in")} w3-hover-text-dark-grey" %>
             <div class="w3-dropdown-content w3-white w3-card-4">
               <%= link_to 'Profiel', user_path(current_user) %>
+              <%= link_to 'Instellingen', user_path(current_user) %>
               <%= link_to "Log uit", 	destroy_user_session_path,
                                 method: :delete,
                                 class: "w3-hover-red w3-hover-text-dark-grey" %>
@@ -82,5 +92,6 @@
 			</div>
 		<% end %>
     <%= yield %>
+
   </body>
 </html>
