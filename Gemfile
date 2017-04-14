@@ -24,8 +24,8 @@ gem 'coffee-script-source', '1.8.0'
 gem 'paperclip', '~> 5.0.0'
 gem 'rails-simple-search'
 gem "simple_calendar", "~> 2.0"
-gem 'acts_as_bookable'
 gem 'bcrypt', platforms: :ruby
+gem 'acts_as_bookable'
 gem 'ice_cube_chosko'
 gem 'gmaps4rails'
 

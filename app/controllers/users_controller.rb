@@ -14,13 +14,18 @@ class UsersController < ApplicationController
     @fabmoments = Fabmoment.where(author: @user)
   end
 
+  def settings
+
+  end
     
-    def edit
-    end
-    def update
+  def edit
+
+  end
+
+  def update
     if params[:user][:password].blank?
       params[:user].delete(:password)
-    end
+  end
 
     if @user.update(user_params)
       flash[:notice] = "succesvol bijgewerkt."
@@ -30,6 +35,7 @@ class UsersController < ApplicationController
       render "edit"
     end
   end
+
   def user_params
     params.require(:user).permit(:username ,:adress,:email,:password,:admin, :avatar)
   end
