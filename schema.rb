@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20161101102224) do
     t.integer  "author_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.show ["author_id"], name: "index_comments_on_author_id", using: :btree
+    t.index ["author_id"], name: "index_comments_on_author_id", using: :btree
     t.index ["fabmoment_id"], name: "index_comments_on_fabmoment_id", using: :btree
   end
 
@@ -33,13 +33,13 @@ ActiveRecord::Schema.define(version: 20161101102224) do
     t.integer  "author_id"
     t.text     "images"
     t.text     "project_files"
-    t.show ["author_id"], name: "index_fabmoments_on_author_id", using: :btree
+    t.index ["author_id"], name: "index_fabmoments_on_author_id", using: :btree
   end
 
   create_table "fabmoments_tags", id: false, force: :cascade do |t|
     t.integer "tag_id",       null: false
     t.integer "fabmoment_id", null: false
-    t.show ["fabmoment_id", "tag_id"], name: "index_fabmoments_tags_on_fabmoment_id_and_tag_id", using: :btree
+    t.index ["fabmoment_id", "tag_id"], name: "index_fabmoments_tags_on_fabmoment_id_and_tag_id", using: :btree
     t.index ["tag_id", "fabmoment_id"], name: "index_fabmoments_tags_on_tag_id_and_fabmoment_id", using: :btree
   end
 
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20161101102224) do
     t.integer  "material_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.show ["fabmoment_id"], name: "index_feeds_on_fabmoment_id", using: :btree
+    t.index ["fabmoment_id"], name: "index_feeds_on_fabmoment_id", using: :btree
     t.index ["material_id"], name: "index_feeds_on_material_id", using: :btree
   end
 
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20161101102224) do
     t.integer  "machine_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.show ["fabmoment_id"], name: "index_handles_on_fabmoment_id", using: :btree
+    t.index ["fabmoment_id"], name: "index_handles_on_fabmoment_id", using: :btree
     t.index ["machine_id"], name: "index_handles_on_machine_id", using: :btree
   end
 
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20161101102224) do
     t.integer  "program_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.show ["fabmoment_id"], name: "index_interfaces_on_fabmoment_id", using: :btree
+    t.index ["fabmoment_id"], name: "index_interfaces_on_fabmoment_id", using: :btree
     t.index ["program_id"], name: "index_interfaces_on_program_id", using: :btree
   end
 
@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(version: 20161101102224) do
     t.string   "avatar"
     t.string   "username"
     t.string   "adress"
-    t.show ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 

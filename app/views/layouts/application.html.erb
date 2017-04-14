@@ -19,16 +19,16 @@
 
       <li class="w3-dropdown-hover w3-hover-blue-gray">
         <%= link_to "Contact <i class='fa fa-caret-down'></i>".html_safe,
-                    class: "#{active if current_page?("users/sign_in")} w3-hover-text-dark-grey" %>
+                    class: "w3-hover-text-dark-grey" %>
         <div class="w3-dropdown-content w3-white w3-card-4">
-          <%= link_to 'FAQ', new_admin_machine_path%>
+          <%= link_to 'FAQ', information_index_path%>
           <%= link_to 'Organiseren', new_admin_machine_path%>
         </div>
       </li>
 
       <li class="w3-dropdown-hover w3-hover-blue-gray">
         <%= link_to "Fabmoment <i class='fa fa-caret-down'></i>".html_safe,
-                    class: "#{active if current_page?("/")} w3-hover-text-dark-grey" %>
+                    class: "w3-hover-text-dark-grey" %>
         <div class="w3-dropdown-content w3-white w3-card-4">
           <%= link_to 'Gallerij', root_path %>
           <%= link_to 'Nieuw Fabmoment', new_fabmoment_path %>

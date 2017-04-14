@@ -27,6 +27,7 @@ gem "simple_calendar", "~> 2.0"
 gem 'acts_as_bookable'
 gem 'bcrypt', platforms: :ruby
 gem 'ice_cube_chosko'
+gem 'gmaps4rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri

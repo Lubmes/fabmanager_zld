@@ -36,18 +36,18 @@ RSpec.describe MeetingsController, type: :controller do
   # MeetingsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET #show" do
+  describe "GET #index" do
     it "assigns all meetings as @meetings" do
       meeting = Meeting.create! valid_attributes
-      get :show, params: {}, session: valid_session
+      get :index, params: {}, session: valid_session
       expect(assigns(:meetings)).to eq([meeting])
     end
   end
 
-  describe "GET #show" do
+  describe "GET #index" do
     it "assigns the requested meeting as @meeting" do
       meeting = Meeting.create! valid_attributes
-      get :show, params: {id: meeting.to_param}, session: valid_session
+      get :index, params: {id: meeting.to_param}, session: valid_session
       expect(assigns(:meeting)).to eq(meeting)
     end
   end

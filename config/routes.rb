@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :meetings
   namespace :admin do
-    root 'application#show'
+    root 'application#index'
     resources 'users' do
       member do
         patch :archive
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources 'programs'
     resources 'materials'
     resources 'machines'
-    resources 'reservations'
+    resources 'occupation'
     resources 'rentings'
     resources 'information'
   end
@@ -22,9 +22,9 @@ Rails.application.routes.draw do
   resources 'users'
   resources :avatar
 
-  root 'fabmoments#show'
-  get '/fabmoment/show', :controller => 'fabmoments', :action => "show"
-  post '/fabmoment/show', :controller => 'fabmoments', :action => "show"
+  root 'fabmoments#index'
+  get '/fabmoment/index', :controller => 'fabmoments', :action => "index"
+  post '/fabmoment/index', :controller => 'fabmoments', :action => "index"
 
   resources 'fabmoments' do
     collection do

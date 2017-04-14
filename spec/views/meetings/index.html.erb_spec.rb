@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "meetings/show", type: :view do
+RSpec.describe "meetings/index", type: :view do
   before(:each) do
     assign(:meetings, [
       Meeting.create!(

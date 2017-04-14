@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170413133204) do
+ActiveRecord::Schema.define(version: 20170414141457) do
 
   create_table "acts_as_bookable_bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "bookable_type"
@@ -124,6 +124,14 @@ ActiveRecord::Schema.define(version: 20170413133204) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "occupations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "description", limit: 65535
+    t.datetime "begin_time"
+    t.datetime "end_time"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
   create_table "pictures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "imageable_type"
@@ -157,14 +165,6 @@ ActiveRecord::Schema.define(version: 20170413133204) do
 
   create_table "rentings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-  end
-
-  create_table "reservations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "description", limit: 65535
-    t.datetime "begin_time"
-    t.datetime "end_time"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end

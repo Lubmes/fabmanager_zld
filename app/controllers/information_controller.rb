@@ -1,7 +1,11 @@
 class InformationController < ApplicationController
 
-  def show
+  def index
   @information = Information.all
+  end
+
+  def show
+    index
   end
 
 end

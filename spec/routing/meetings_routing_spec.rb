@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe MeetingsController, type: :routing do
   describe "routing" do
 
-    it "routes to #show" do
+    it "routes to #index" do
       expect(:get => "/meetings").to route_to("meetings#index")
     end
 
@@ -11,7 +11,7 @@ RSpec.describe MeetingsController, type: :routing do
       expect(:get => "/meetings/new").to route_to("meetings#new")
     end
 
-    it "routes to #show" do
+    it "routes to #index" do
       expect(:get => "/meetings/1").to route_to("meetings#show", :id => "1")
     end
 
