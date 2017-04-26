@@ -11,7 +11,7 @@
   </head>
 
   <body class="background">
-  	<ul class="w3-navbar w3-lime w3-large w3-card-8">
+  	<ul class="w3-navbar w3-light-blue w3-large w3-card-8">
 			<li class="<% "active" if current_page?("/") %>">
 				<%= link_to "Home", root_path,
 															class: "w3-hover-text-black" %>
@@ -22,7 +22,7 @@
                     class: "w3-hover-text-dark-grey" %>
         <div class="w3-dropdown-content w3-white w3-card-4">
           <%= link_to 'FAQ', information_index_path%>
-          <%= link_to 'Organiseren', new_admin_machine_path%>
+          <%= link_to 'Organiseren', information_index_path%>
         </div>
       </li>
 
@@ -36,12 +36,14 @@
       </li>
 
       <li class="<% "active" if current_page?("/") %>">
-        <%= link_to "Reserveer", new_admin_occupation_path,
+        <%= link_to "Bezetting", new_admin_occupation_path,
                     class: "w3-hover-text-black" %>
       </li>
       <li class="<% "active" if current_page?("/") %>">
+        <% if user_signed_in? %>
         <%= link_to "Verhuur", new_admin_renting_path,
                     class: "w3-hover-text-black" %>
+        <% end %>
       </li>
 			<% admins_only do %>
 			<li class="<% "active" if current_page?("/") %>">
@@ -65,7 +67,7 @@
 			<% if user_signed_in? %>
         <div class='w3-right'>
           <li class='w3-padding'>
-            <small>Ingelogd als: </small>
+            <small style="color: white">Ingelogd als: </small>
           </li>
           <li class="w3-dropdown-hover w3-hover-orange">
             <%= link_to "#{current_user.username} <i class='fa fa-caret-down'></i>".html_safe,

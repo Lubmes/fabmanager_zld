@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170414141457) do
+ActiveRecord::Schema.define(version: 20170425125659) do
 
   create_table "acts_as_bookable_bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "bookable_type"
@@ -130,6 +130,19 @@ ActiveRecord::Schema.define(version: 20170414141457) do
     t.datetime "end_time"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "openingtimes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.string   "monday"
+    t.string   "tuesday"
+    t.string   "wednesday"
+    t.string   "thursday"
+    t.string   "friday"
+    t.string   "saturday"
+    t.string   "sunday"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pictures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

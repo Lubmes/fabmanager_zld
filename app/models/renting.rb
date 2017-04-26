@@ -1,7 +1,7 @@
 class Renting < ApplicationRecord
   attribute :time_start, :datetime
   attribute :time_end, :datetime
-  # attr_accessor :description
+  attr_accessor :description#, :time_start, :time_end
 
   #
   # store :properties,

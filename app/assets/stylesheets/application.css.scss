@@ -2,9 +2,12 @@
  @import "font-awesome";
  @import "fabmoments";
  @import "admin/users";
+ @import "pictures";
 
  a {
- 	text-decoration: none;
+   text-decoration: none;
+   color: white;
+   font-weight: bold;
  }
 
  body.background {
@@ -15,17 +18,9 @@
    background-attachement: scroll;
  }
 
- .image-cropper {
-   width: 200px;
-   height: 200px;
-   position: relative;
-
-   overflow: hidden;
-   border-radius: 50%;
-   border: grey;
-   border-style: solid;
-   border-width: thick;
- }
+.w3-card,.w3-card-2 {
+  @extend .w3-white;
+}
 
  img {
    display: inline;
@@ -37,6 +32,31 @@
  footer {
 
  }
+
+ // This is for fabmoments/show.html.erb sourcelink!
+
+ a.sourcelink:link {
+   text-decoration: underline;
+   color: #0000EE;
+   font-style: italic
+
+ }
+ a.sourcelink:visited {
+   text-decoration: underline;
+   color: #551A8B;
+   font-style: italic;
+ }
+ //a.sourcelink:hover {
+ //  text-decoration: underline;
+ //  color: #cc9900;
+ //  font-style: italic;
+ //}
+ a.sourcelink:active {
+   text-decoration: underline;
+   color: #EE0000;
+   font-style: italic;
+ }
+
 
  .countdown-timer {
 

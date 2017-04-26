@@ -3,7 +3,7 @@
     <%= form_for [:admin, renting] do |f| %>
         <%= f.label :Time %>
         <div>
-          <%= f.datetime_field :time_start %> - <%= f.datetime_field :time_end  %>
+          <%= f.datetime_select :time_start %> - <%= f.datetime_select :time_end  %>
         </div>
           <br>
             <div>

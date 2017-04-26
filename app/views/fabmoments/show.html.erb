@@ -1,6 +1,6 @@
 <% title(@fabmoment.title, "Fabmoments") %>
 
-<div class="w3-row w3-center w3-topbar w3-border-blue-grey w3-padding-xlarge" >
+<div class="w3-row w3-center w3-topbar w3-co w3-border-blue-grey w3-padding-xlarge" style="color: 009ee3" >
 	<div class="w3-twothird" style="margin-left: 16.65%">
 
 		<header class="w3-center w3-bottombar w3-border-blue-grey">
@@ -95,7 +95,9 @@
 			<%= @fabmoment.license.title %>
 		<br>
 		<br>
-			<%= link_to @fabmoment.source, @fabmoment.source %>
+      <div>
+        <%= link_to @fabmoment.source, @fabmoment.source, {:class => "sourcelink"}%>
+      </div>
 		<br>
 		<!-- Fabmoment model moet de project files scopen, vergelijkbaar
 				 met de persisted method in het Comment model.

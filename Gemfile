@@ -21,13 +21,16 @@ gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
 gem 'pundit', '~> 1.1'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'coffee-script-source', '1.8.0'
-gem 'paperclip', '~> 5.0.0'
+gem 'paperclip', '~> 5.1.0'
 gem 'rails-simple-search'
 gem "simple_calendar", "~> 2.0"
+#Bcrypt gets many errors when you bundle it
 gem 'bcrypt', platforms: :ruby
 gem 'acts_as_bookable'
 gem 'ice_cube_chosko'
 gem 'gmaps4rails'
+#Redcarpet Markdown.
+gem 'redcarpet'
 
 group :development, :test do
   gem 'byebug', platform: :mri

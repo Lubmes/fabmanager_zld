@@ -33,6 +33,15 @@ nl:
         sort: Matriaal naam
         name: Matriaal soort
         thickness: Dikte matriaal
+      openingtime:
+        title: Titel
+        monday: Maandag
+        tuesday: Dinsdag
+        wednesday: Woensdag
+        thursday: Donderdag
+        friday: Vrijdag
+        saturday: Zaterdag
+        sunday: Zondag
 
     errors:
       models:
