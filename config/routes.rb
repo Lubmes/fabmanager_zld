@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :events
   resources :meetings
   namespace :admin do
     root 'application#index'

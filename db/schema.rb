@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425125659) do
+ActiveRecord::Schema.define(version: 20170504133803) do
 
   create_table "acts_as_bookable_bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "bookable_type"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 20170425125659) do
     t.datetime "updated_at",                 null: false
     t.index ["author_id"], name: "index_comments_on_author_id", using: :btree
     t.index ["fabmoment_id"], name: "index_comments_on_fabmoment_id", using: :btree
+  end
+
+  create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.text     "description", limit: 65535
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "fabmoments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -124,7 +133,7 @@ ActiveRecord::Schema.define(version: 20170425125659) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "occupations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "occupation", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "description", limit: 65535
     t.datetime "begin_time"
     t.datetime "end_time"

@@ -1,4 +1,4 @@
-class CreateReservations < ActiveRecord::Migration[5.0]
+class CreateOccupations < ActiveRecord::Migration[5.0]
   def change
     create_table :occupation do |t|
       t.text :description

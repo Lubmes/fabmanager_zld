@@ -1,0 +1,14 @@
+<%= simple_form_for(@event) do |f| %>
+  <%= f.error_notification %>
+<div class="w3-row">
+  <div class="w3-card form-inputs w3-margin w3-col w3-padding m3">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :start_time %>
+    <%= f.input :end_time %>
+  </div>
+</div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

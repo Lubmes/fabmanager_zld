@@ -26,8 +26,9 @@ gem 'rails-simple-search'
 gem "simple_calendar", "~> 2.0"
 #Bcrypt gets many errors when you bundle it
 gem 'bcrypt', platforms: :ruby
-gem 'acts_as_bookable'
-gem 'ice_cube_chosko'
+gem 'icalendar', '~> 2.4', '>= 2.4.1'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 gem 'gmaps4rails'
 #Redcarpet Markdown.
 gem 'redcarpet'

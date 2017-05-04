@@ -1,24 +1,16 @@
-<p1>
   <title>Verhuren.</title>
   <div class="w3-col m3">
     <h1><%= @time_start %></h1>
     <h2>Machines</h2>
-    <ul>
-      <% @machines.each do |machine| %>
-          <h3><%= machine.name %></h3>
-          <% machine.bookings.each do |booking| %>
-              <li>
-                <%= booking.time_start %>
-                -
-                <%= booking.time_end %>
-              </li>
-
-          <% end %>
-      <% end %>
-    </ul>
+      <div id="calendar" style="width: 100%;"></div>
     <ul>
       <%= link_to "Nieuw Verhuuring", [:new, :admin, :renting],
                   class: "new w3-btn w3-purple w3-margin-bottom"%>
     </ul>
   </div>
-</p1>
+
+  <script>
+      $('#calendar').fullCalendar({
+        events: "<%= @renting.to_json %>"
+    });
+  </script>

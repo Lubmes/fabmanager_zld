@@ -3,6 +3,7 @@
  @import "fabmoments";
  @import "admin/users";
  @import "pictures";
+ @import "fullcalendar";
 
  a {
    text-decoration: none;
@@ -60,4 +61,15 @@
 
  .countdown-timer {
 
+ }
+
+ #calendar{
+ width: 50%;
+
+
+ #calendar.header{
+   left: 'prev, next today';
+   center: 'title';
+   right: 'month, basicWeek, basicDay';
+ }
  }
