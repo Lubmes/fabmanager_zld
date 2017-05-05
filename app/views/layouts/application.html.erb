@@ -14,41 +14,50 @@
   	<ul class="w3-navbar w3-light-blue w3-large w3-card-8">
 			<li class="<% "active" if current_page?("/") %>">
 				<%= link_to "Home", root_path,
-															class: "w3-hover-text-black" %>
+															class: "w3-hover-white w3-hover-text-light-blue" %>
 			</li>
 
-      <li class="w3-dropdown-hover w3-hover-blue-gray">
+      <li class="w3-dropdown-hover w3-hover-white w3-hover-text-light-blue">
         <%= link_to "Contact <i class='fa fa-caret-down'></i>".html_safe,
-                    class: "w3-hover-text-dark-grey" %>
-        <div class="w3-dropdown-content w3-white w3-card-4">
+                    class: "w3-hover-white w3-hover-text-light-blue" %>
+        <div class="w3-dropdown-content w3-white w3-text-light-blue w3-card-4">
           <%= link_to 'FAQ', information_index_path%>
           <%= link_to 'Organiseren', information_index_path%>
         </div>
       </li>
 
-      <li class="w3-dropdown-hover w3-hover-blue-gray">
+      <li class="w3-dropdown-hover w3-hover-white w3-hover-text-light-blue">
         <%= link_to "Fabmoment <i class='fa fa-caret-down'></i>".html_safe,
-                    class: "w3-hover-text-dark-grey" %>
-        <div class="w3-dropdown-content w3-white w3-card-4">
+                    class: "w3-hover-white w3-hover-text-light-blue" %>
+        <div class="w3-dropdown-content w3-white w3-hover-white w3-hover-text-light-blue w3-card-4">
           <%= link_to 'Gallerij', root_path %>
           <%= link_to 'Nieuw Fabmoment', new_fabmoment_path %>
         </div>
       </li>
 
       <li class="<% "active" if current_page?("/") %>">
+        <%= link_to "Doe mee!", new_admin_occupation_path,
+                    class: "w3-hover-white w3-hover-text-light-blue" %>
+      </li>
+
+      <li class="<% "active" if current_page?("/") %>">
         <%= link_to "Bezetting", new_admin_occupation_path,
-                    class: "w3-hover-text-black" %>
+                    class: "w3-hover-white w3-hover-text-light-blue" %>
       </li>
       <li class="<% "active" if current_page?("/") %>">
         <% if user_signed_in? %>
         <%= link_to "Verhuur", admin_rentings_path,
-                    class: "w3-hover-text-black" %>
+                    class: "w3-hover-white w3-hover-text-light-blue" %>
         <% end %>
+      </li>
+      <li class="<% "active" if current_page?("/") %>">
+        <%= link_to "Agenda", events_path,
+                    class: "w3-hover-white w3-hover-text-light-blue" %>
       </li>
 			<% admins_only do %>
 			<li class="<% "active" if current_page?("/") %>">
 				<%= link_to "Admin", admin_root_path,
-														 class: "w3-hover-text-black" %>
+														 class: "w3-hover-white w3-hover-text-light-blue" %>
 			</li>
 			<% end %>
 			<% if user_signed_in? %>
@@ -56,11 +65,11 @@
 			<% unless user_signed_in? %>
 				<li class="<% "active" if current_page?("users/sign_up") %> w3-right">
 					<%= link_to "Inschrijven", 	new_user_registration_path,
-																			class: "w3-hover-sand w3-hover-text-dark-grey" %>
+																			class: "w3-hover-white w3-hover-text-light-blue" %>
 				</li>
 				<li class="<% "active" if current_page?("users/sign_in") %> w3-right">
 					<%= link_to "Inloggen", new_user_session_path,
-																	class: "w3-hover-sand w3-hover-text-dark-grey" %>
+																	class: "w3-hover-white w3-hover-text-light-blue" %>
 				</li>
 			<% end %>
 
@@ -71,7 +80,7 @@
           </li>
           <li class="w3-dropdown-hover w3-hover-orange">
             <%= link_to "#{current_user.username} <i class='fa fa-caret-down'></i>".html_safe,
-                class: "#{active if current_page?("users/sign_in")} w3-hover-text-dark-grey" %>
+                class: "#{active if current_page?("users/sign_in")} w3-hover-white w3-hover-text-light-blue" %>
             <div class="w3-dropdown-content w3-white w3-card-4">
               <%= link_to 'Profiel', user_path(current_user) %>
               <%= link_to 'Instellingen', user_path(current_user) %>

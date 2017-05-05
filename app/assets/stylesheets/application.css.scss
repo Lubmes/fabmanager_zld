@@ -7,12 +7,28 @@
 
  a {
    text-decoration: none;
-   color: white;
+
    font-weight: bold;
  }
 
+
+
+ div.hovercolour{
+   color: white;
+ }
+
+ div.container {
+   padding: 10px;
+ }
+
+ div.shader {
+   box-shadow: 8px 8px 12px 8px rgba(0, 0, 0, 0.2), 8px 6px 20px 8px rgba(0, 0, 0, 0.19);
+   text-align: center;
+ }
+
+
  body.background {
-   background: white url("FabLabBackgroundTransparent.jpg");
+   //background: white url("FabLabBackgroundTransparent.jpg");
    background-repeat: no-repeat;
    background-size: 100%;
    background-position: 50% bottom;
@@ -66,10 +82,10 @@
  #calendar{
  width: 50%;
 
-
+ }
  #calendar.header{
    left: 'prev, next today';
    center: 'title';
    right: 'month, basicWeek, basicDay';
  }
- }
+
