@@ -18,7 +18,13 @@
 
  body {
    padding: 5%;
+   background-origin: border-box;
    background-image: linear-gradient(rgb(255, 255, 255),rgb(78, 184, 229));
+ }
+
+ h1 {
+   font-family: Calibri;
+   font-weight: bold;
  }
 
  .navdropbtn {
