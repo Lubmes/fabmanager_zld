@@ -4,17 +4,62 @@
  @import "admin/users";
  @import "pictures";
  @import "fullcalendar";
+ @import "users";
+ @import "information";
+ @import "searchbar";
+ @import "bootstrap";
+
 
  a {
    text-decoration: none;
-
-   font-weight: bold;
+   color: white;
+   font-family: arial, sans-serif;
  }
 
+ body {
+   padding: 5%;
+   background-image: linear-gradient(rgb(255, 255, 255),rgb(78, 184, 229));
+ }
 
-
- div.hovercolour{
+ .navdropbtn {
+   background-color: #009ee3;
    color: white;
+   padding: 16px;
+   font-size: 16px;
+   border: none;
+   cursor: pointer;
+ }
+
+ .navdropdown {
+   position: relative;
+   display: inline-block;
+ }
+
+ .navdropdown-content {
+   display: none;
+   position: absolute;
+   background-color: #f9f9f9;
+   min-width: 160px;
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+   z-index: 1;
+ }
+
+ .navdropdown-content a {
+   color: black;
+   padding: 12px 16px;
+   text-decoration: none;
+   display: block;
+ }
+
+ .navdropdown-content a:hover {background-color: #f1f1f1}
+
+ .navdropdown:hover .navdropdown-content {
+   display: block;
+ }
+
+ .navdropdown:hover .navdropbtn {
+   background-color: #ffffff;
+   color: #009ee3;
  }
 
  div.container {
@@ -24,15 +69,6 @@
  div.shader {
    box-shadow: 8px 8px 12px 8px rgba(0, 0, 0, 0.2), 8px 6px 20px 8px rgba(0, 0, 0, 0.19);
    text-align: center;
- }
-
-
- body.background {
-   //background: white url("FabLabBackgroundTransparent.jpg");
-   background-repeat: no-repeat;
-   background-size: 100%;
-   background-position: 50% bottom;
-   background-attachement: scroll;
  }
 
 .w3-card,.w3-card-2 {
@@ -83,9 +119,55 @@
  width: 50%;
 
  }
- #calendar.header{
-   left: 'prev, next today';
-   center: 'title';
-   right: 'month, basicWeek, basicDay';
+
+ #login-dp{
+   min-width: 250px;
+   padding: 14px 14px 0;
+   overflow:hidden;
+   background-color:rgba(255,255,255,.8);
+ }
+ #login-dp .help-block{
+   font-size:12px
+ }
+ #login-dp .bottom{
+   background-color:rgba(255,255,255,.8);
+   border-top:1px solid #ddd;
+   clear:both;
+   padding:14px;
+ }
+ #login-dp .social-buttons{
+   margin:12px 0
+ }
+ #login-dp .social-buttons a{
+   width: 49%;
+ }
+ #login-dp .form-group {
+   margin-bottom: 10px;
+ }
+ .btn-fb{
+   color: #fff;
+   background-color:#3b5998;
+ }
+ .btn-fb:hover{
+   color: #fff;
+   background-color:#496ebc
+ }
+ .btn-tw{
+   color: #fff;
+   background-color:#55acee;
+ }
+ .btn-tw:hover{
+   color: #fff;
+   background-color:#59b5fa;
+ }
+ @media(max-width:768px){
+   #login-dp{
+     background-color: inherit;
+     color: #fff;
+   }
+   #login-dp .bottom{
+     background-color: inherit;
+     border-top:0 none;
+   }
  }
 

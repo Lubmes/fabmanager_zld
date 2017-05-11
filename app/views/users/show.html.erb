@@ -1,20 +1,30 @@
 <% title(@user.username, "Gebruiker") %>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+  <!--<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">-->
+  <!--<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>-->
+  <!--<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+  <!--<script src="js/bootstrap.min.js"></script>-->
 </head>
 
-<div class="w3-row w3-topbar w3-border-blue-grey w3-padding-xlarge">
+<div class="w3-row">
 	<!-- Basis Profiel gegevens -->
 	<div class="w3-twothird" style="margin-left: 16.65%">
 
-		<header class="w3-center">
-      <div class="image-cropper w3-center">
-			<img src="<%= @user.avatar.url %>"  class="img-thumbnail" ;>
+      <div class="container">
+        <div class="row">
+          <div class="profile-header-container">
+            <div class="profile-header-img">
+              <img class="img-circle" src="<%= @user.avatar.url %>"  class="img-thumbnail" />
+              <!-- badge -->
+              <div class="rank-label-container">
+                <span class="label label-default rank-label">100 Points</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
 
 			<h3>Gebruikersnaam: <%= @user.username %></h3>
 			<h3>Email: <%= @user.email %></h3>
@@ -24,20 +34,21 @@
 			<!-- Acties -->
 			<% if policy(@user).edit? %>
               <% if current_user.admin %>
-				<%= link_to "Bijwerken",
-								     	[:edit,:admin,@user],
-											class: "edit w3-btn w3-amber" %>
+				<%= link_to [:edit,:admin,@user],
+											class: "edit w3-btn w3-amber" do %>
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 			<% else %>
-				<%= link_to "Bijwerken",
-								     	[:edit, @user],
-											class: "edit w3-btn w3-amber" %>
+				<%= link_to [:edit, @user],
+											class: "edit w3-btn w3-amber" do %>
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 			<% end %>
+        <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 			<% if policy(@user).archive? %>
-				<%= link_to "Archiveer",
-										[:archive, :admin, @user],
+				<%= link_to [:archive, :admin, @user],
 										method: :patch,
 										data: { confirm: 'Weet je zeker dat je deze gebruiker wil archiveren?' },
-										class: "edit w3-btn w3-red" %>
+										class: "edit w3-btn w3-red" do %>
+            <i class="fa fa-archive" aria-hidden="true"></i>
 				<% end %>
 				<% end %>
 		</header>

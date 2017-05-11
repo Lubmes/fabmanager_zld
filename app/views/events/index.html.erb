@@ -26,6 +26,7 @@ $(document).ready(function() {
             right: 'month,agendaWeek,agendaDay'
         },
         defaultView: 'agendaWeek',
+        eventColor: '#afd0a4',
         weekends: false,
         editable: true,
         events: "<%= @events %>",
@@ -33,4 +34,6 @@ $(document).ready(function() {
 });
 </script>
 
-<%= link_to 'New Event', new_event_path, class:"w3-margin-left w3-margin-bottom edit w3-btn w3-amber w3-text-black w3-margin-top"%>
+  <td><%= link_to new_event_path, class:"btn btn-success"  do %>
+        <i class="fa fa-plus" aria-hidden="true"></i>
+    <% end %></td>
