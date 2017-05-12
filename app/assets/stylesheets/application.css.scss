@@ -19,7 +19,12 @@
  body {
    padding: 5%;
    background-origin: border-box;
-   background-image: linear-gradient(rgb(255, 255, 255),rgb(78, 184, 229));
+   background-image: linear-gradient(rgb(255, 255, 255) 2%,rgb(175, 225, 247),rgb(0, 158, 227),rgb(175, 225, 247),rgb(255, 255, 255)2%);
+ }
+
+ imgmachine{
+   width: 50%;
+   height: 50
  }
 
  h1 {
@@ -176,4 +181,46 @@
      border-top:0 none;
    }
  }
+
+ .bg-primary {
+   background-color: #009ee3 !important;
+ }
+
+ .bg-circle
+ {
+   display: inline-block;
+   width: 60px;
+   height: 60px;
+   padding: 14px 4px;
+   color: #ececec;
+   text-align: center;
+   border-radius: 50%;
+ }
+
+ .bg-circle-outline
+ {
+   width: 50px;
+   height: 50px;
+   color:smoke;
+   padding: 8px 2px;
+   border: 2px solid;
+   border-color: smoke;
+   border-radius: 50%;
+ }
+
+
+ .bg-circle a, a:hover, .media a:focus
+ {
+   text-decoration: none !important;
+   outline: none;
+   color: #ececec;
+ }
+ .bg-circle-outline a, a:hover, .media a:focus
+ {
+   text-decoration: none !important;
+   outline: none;
+   color: #ececec;
+ }
+
+
 
