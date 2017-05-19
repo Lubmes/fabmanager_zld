@@ -8,7 +8,16 @@
     <%= f.input :end_time %>
 
     <h5 class="w3-text-teal w3-center">Machines</h5>
-
+    <ul class="w3-ul" id="machines">
+      <%= f.collection_check_boxes :machine_ids, @machines, :id, :name do |b| %>
+          <li>
+            <%= b.label class: "w3-small" do %>
+                <%= b.check_box class: "w3-check" %>
+                <%= b.text %>
+            <% end %>
+          </li>
+      <% end %>
+    </ul>
 
   </div>
 </div>
