@@ -1,10 +1,10 @@
 <% title("Material", "Admin") %>
 <p>
-  <%= link_to "Nieuw Matriaal", [:new, :admin, :material], 
-                class: "new w3-btn w3-purple w3-margin-bottom"%>
+  <%= link_to "Nieuw Materiaal", [:new, :admin, :material],
+                class: "new w3-btn w3-purple w3-margin"%>
 
   <ul>
-    <strong>Material:</strong>
+    <strong>Materiaal:</strong>
     <% @materials.each do |material| %>
       <li>
         <%= material.sort %>

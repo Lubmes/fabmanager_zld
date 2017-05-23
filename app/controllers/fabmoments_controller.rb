@@ -68,7 +68,7 @@ class FabmomentsController < ApplicationController
     authorize @fabmoment, :destroy?
     @fabmoment.destroy
     flash[:notice] = "Fabmoment is verwijderd."
-    redirect_to fabmoments_path 
+    #redirect_to fabmoments_path 
   end
 
   def search
@@ -82,8 +82,9 @@ class FabmomentsController < ApplicationController
 
   private
 
-    def fabmoment_params
-    params.require(:fabmoment).permit(:title, :description, :source,  :license_id, :tag_names, 
+
+  def fabmoment_params
+    params.require(:fabmoment).permit(:title, :description, :source, :gingGoed, :gingFout, :kanBeter,  :license_id, :tag_names, 
       :program_ids => [], :machine_ids => [], :material_ids => [], pictures_attributes: [:image], project_files_attributes: [:file] )
   end
 

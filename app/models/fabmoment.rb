@@ -1,7 +1,7 @@
 class Fabmoment < ApplicationRecord
   # Main Models
   belongs_to :author, class_name: "User"
-  validates :title, length: { minimum: 5 }
+  validates :title, length: { in: 4..25 }
   validates :description, length: { minimum: 20 }
   # Fabmoment to interface with programs.
   has_many :interfaces, :dependent => :destroy

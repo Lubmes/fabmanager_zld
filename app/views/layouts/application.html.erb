@@ -99,7 +99,7 @@
 			<% color = key == "notice" ? "pale-green" : "red" %>
 			<!-- De melding -->
 			<div class="alert alert-<%= key %> w3-container w3-<%= color %>">
-		  	<span class="w3-closebtn" onclick="this.parentElement.style.display='none'">X</span>
+		  	<span class="w3-closebtn" onclick="this.parentElement.style.display='none'"><i class="fa fa-times" aria-hidden="true"></i></span>
 				<p><%= message %></p>
 			</div>
 		<% end %>
