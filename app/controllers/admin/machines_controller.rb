@@ -36,7 +36,7 @@ class Admin::MachinesController < ApplicationController
     redirect_to admin_machines_path
   end
     def machine_params
-    	params.require(:machine).permit(:id,:name,:admin)
+    	params.require(:machine).permit(:id,:name,:admin,:capacity)
     end
     def set_machine
     @machine = Machine.find(params[:id])

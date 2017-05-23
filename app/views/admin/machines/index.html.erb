@@ -5,12 +5,15 @@
   <ul>
     <strong>Machines:</strong>
     <% @machines.each do |machine| %>
-      <li>
-        <%= machine.name%>
-       <button> <%= link_to 'Verwijder', admin_machine_path(machine),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %> </button>
-              <button> <%= link_to 'Edit', edit_admin_machine_path(machine)%></button>
+      <li><%= machine.name%>
+
+          <%= link_to admin_machine_path(machine), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger"  do %>
+              <i class="fa fa-trash" aria-hidden="true"></i>
+          <% end %>
+
+        <td><%= link_to edit_admin_machine_path(machine), class:"btn btn-warning"  do %>
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          <% end %></td>
     <% end %>
   </ul>
 </p>

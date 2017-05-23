@@ -26,35 +26,40 @@
       </div>
 
 
-			Gebruikersnaam: <%= @user.username %>
-			<h2>Email: <%= @user.email %></h2>
-			<% if policy(@user).show? %>
-			<h2>Woonplaats: <%= @user.adress %></h2>
+  <div class="w3-card-2"><li>Gebruikersnaam: <%= @user.username %></li>
+    <li>Email: <%= @user.email %></li>
+    <% if policy(@user).show? %>
+        <li>Woonplaats: <%= @user.adress %></li>
 			<% end %>
-			<!-- Acties -->
-			<% if policy(@user).edit? %>
-              <% if current_user.admin %>
-				<%= link_to [:edit,:admin,@user],
-											class: "edit w3-btn w3-amber" do %>
-                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                <% end %>
+  </div>
+
+
+    <!-- Acties -->
+    <% if policy(@user).edit? %>
+        <% if current_user.admin %>
+            <%= link_to [:edit,:admin,@user],
+                        class: "edit w3-btn w3-amber" do %>
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            <% end %>
         <% end %>
 
-			<% else %>
-				<%= link_to [:edit, @user],
-											class: "edit w3-btn w3-amber" do %>
+    <% else %>
+        <%= link_to [:edit, @user],
+                    class: "edit w3-btn w3-amber" do %>
             <i class="fa fa-pencil-square-o" Bewerken aria-hidden="true"></i>
-            <% end %>
-			<% end %>
-        <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-			<% if policy(@user).archive? %>
-				<%= link_to [:archive, :admin, @user],
-										method: :patch,
-										data: { confirm: 'Weet je zeker dat je deze gebruiker wil archiveren?' },
-										class: "edit w3-btn w3-red" do %>
+        <% end %>
+    <% end %>
+    <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+    <% if policy(@user).archive? %>
+        <%= link_to [:archive, :admin, @user],
+                    method: :patch,
+                    data: { confirm: 'Weet je zeker dat je deze gebruiker wil archiveren?' },
+                    class: "edit w3-btn w3-red" do %>
             <i class="fa fa-archive" Archiveren aria-hidden="true"></i>
-				<% end %>
-				<% end %>
+        <% end %>
+    <% end %>
+
+
 		</header>
 
 		<!-- <p> user.bio etc. & user.comments.order(#van recent tot in verleden) </p> -->
