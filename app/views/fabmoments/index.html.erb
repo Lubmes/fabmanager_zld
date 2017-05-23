@@ -1,72 +1,26 @@
-<div class="w3-container w3-margin-top">
-	<header class="w3-container">
-		<h2 class="w3-center">Fabmomenten</h2>
-		<% if current_user %>
-			<div class="actions w3-margin-bottom">
-				<%= link_to "Nieuw Fabmoment", new_fabmoment_path, 
-				class: "new w3-left w3-btn w3-lime"%>
+<div class="w3-container w3-center w3-padding-xlarge">
+	<header class="w3-container w3-margin-bottom w3-margin-top">
+    <div class="w3-row-padding">
+      <div class="w3-card shader w3-padding-top w3-padding-bottom w3-margin-bottom w3-margin-top w3-margin-left w3-margin-right">
+          <img src="/assets/FablabHeader.jpg" alt="Fablab Header">
+      </div>
 
-					<div class="">			
-						<%= form_tag search_fabmoments_path, 
-						method: :get,
-						class: "w3-right" do %>
-						<%= text_field_tag "search", params[:search], class: "w3-form" %>
-						<%= submit_tag "Zoek", class: "w3-btn w3-indigo" %>
-					</div>
-				<% end %>
-			</div>
-		<% end %>
-	</header>
-
-	<div id="fabmoments" class="w3-row-padding w3-margin-top">
-		<% @fabmoments.each do |fabmoment| %>
-			<%= link_to fabmoment do %>
-				<div class="w3-col m3" id="fabmoment-ajax-<%= fabmoment.id %>">
-					<div class="w3-card-2 w3-hover-shadow w3-margin-bottom">
-						<header class="w3-container w3-blue-grey w3-center">
-							<h4><%= fabmoment.title %>
-							</h4>
-						</header>
-						<div align="center">
-						<% if fabmoment.pictures.any?%>
-							<img src="<%= fabmoment.pictures.first.image %>" style="max-width:100%;max-height:100%">
-
-						<% end %>	
-						</div>
-					</div>
-				<% end %>
-
-				<% if policy(fabmoment).destroy? %>
-					<footer class=" w3-container w3-red w3-margin-bottom w3-center w3-custom-1">
-						<%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe, fabmoment_url(fabmoment.id, fabmoment), 
-								method: :delete, 
-								remote: true, 
-								data: {confirm: 'Weet U zeker dat U het fabmoment wilt verwijderen?'}, 
-								class: "w3-text-black w3-show-inline" %>
-					</footer>
-				<% end %>
-			</div>
-		<% end %>
-	</div>
+      <!--<div style='width: 800px;'>-->
+        <!--<div id="one_marker" style='width: 800px; height: 400px;'></div>-->
+        <!--\%= render "fabmoments/locationmaps" %>-->
+      <!--</div>-->
+      <div class="openingtimes-ajax w3-left w3-row-padding w3-card w3-margin-bottom">
+        <%= render "admin/openingtimes/openingtime" %>
+      </div>
+      <div class="w3-right w3-row-padding w3-card w3-margin-bottom">
+        <%= render "fabmoments/countdown_timer" %>
+      </div>
+      </div>
+      <div class="w3-right-align">
+          <%= render "fabmoments/searchbar" %>
+      </div>
+    </header>
+    <footer class="w3-center w3-topbar w3-border-white w3-padding-xlarge">
+  <%= render "fabmoments/fabmoments_gallery", fabmoments: @fabmoments %>
+    </footer>
 </div>
-
-
-<% if false %>
-				<div class="w3-col m3" id="fabmoment-ajax-<%= fabmoment.id %>">
-					<div class="w3-card-2 w3-hover-shadow w3-margin-bottom">
-						<header class="w3-container w3-blue-grey w3-center">
-							<h4><%= fabmoment.title %>
-									<%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe, fabmoment_url(fabmoment.id, fabmoment), 
-												method: :delete, 
-												remote: true, 
-												data: {confirm: 'Weet U zeker dat U het fabmoment wilt verwijderen?'}, class: "w3-text-black w3-show-inline" %>
-							
-							</h4>
-						</header>
-						<div align="center">
-							<img src="<%= fabmoment.pictures.first.image %>" style="max-width:100%;max-height:100%">	
-						</div>
-					</div>
-				</div>
-
-				<% end %>

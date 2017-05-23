@@ -1,6 +1,6 @@
 <% title(@fabmoment.title, "Fabmoments") %>
 
-<div class="w3-row">
+<div class="w3-row w3-center w3-topbar w3-co w3-border-blue-grey w3-padding-xlarge" style="color: 009ee3" >
 	<div class="w3-twothird" style="margin-left: 16.65%">
 
 		<header class="w3-center w3-bottombar w3-border-blue-grey">
@@ -55,7 +55,7 @@
 
 		<!-- Project Files -->
 		<div id="project-files">
-			<div class="w3-row-padding">
+			<div class="w3-col m3">
 				<% @fabmoment.project_files.each do |files| %>
 				  <div class="w3-container">
 				    <u style="color:blue"><%= link_to files.file_file_name, files.file.url(original: false) %></u>
@@ -95,7 +95,9 @@
 			<%= @fabmoment.license.title %>
 		<br>
 		<br>
-			<%= @fabmoment.source %>
+      <div>
+        <%= link_to @fabmoment.source, @fabmoment.source, {:class => "sourcelink"}%>
+      </div>
 		<br>
 		<br>
 			<h4 class="w3-text-cyan"> Wat ging er goed ?</h4>

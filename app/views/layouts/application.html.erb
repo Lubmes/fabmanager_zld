@@ -1,7 +1,14 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="imgmachine">
+  <!--<img src="/assets/LogoZB.png">-->
+  <!--<img src="/assets/FablabMachines.jpg">-->
+</div>
+
 <html>
   <head>
-  <%= favicon_link_tag 'fablab.ico' %>
+  <%= favicon_link_tag 'favicon (3).ico' %>
 	<title><% if content_for?(:title) %><%= yield(:title) %>
 		<% else %>FabLab<% end %></title>
     <%= csrf_meta_tags %>
@@ -10,16 +17,48 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-  	<ul class="w3-navbar w3-blue-grey w3-large w3-card-8">
+
+
+
+
+  <body class="container-fluid">
+  <div class=""></div>
+  	<ul class="w3-navbar navdropbtn w3-large w3-card-8">
 			<li class="<% "active" if current_page?("/") %>">
-				<%= link_to "FabLab", root_path,
-															class: "w3-hover-text-dark-grey" %>
+				<%= link_to "Home", root_path,
+															class: "w3-hover-text-light-blue w3-hover-white" %>
 			</li>
+
+      <li class="w3-dropdown-hover navdropdown">
+        <%= link_to "Contact <i class='fa fa-caret-down'></i>".html_safe, style="",
+                    class: "navdropbtn" %>
+        <div.hovercolour class="w3-dropdown-content navdropdown-content">
+          <%= link_to 'FAQ', information_index_path%>
+          <%= link_to 'Organiseren', information_index_path%>
+        </div.hovercolour>
+      </li>
+
+      <li class="w3-dropdown-hover navdropdown">
+        <%= link_to "Fabmomenten <i class='fa fa-caret-down'></i>".html_safe, style="",
+                    class: "navdropbtn" %>
+        <div class="w3-dropdown-content navdropdown-content">
+          <%= link_to 'Gallerij', root_path %>
+          <%= link_to 'Nieuw Fabmoment', new_fabmoment_path %>
+        </div>
+      </li>
+
+      <li class="<% "active" if current_page?("/") %>">
+        <%= link_to "Doe mee!", new_admin_occupation_path,
+                    class: "w3-hover-white w3-hover-text-light-blue"%>
+      </li>
+      <li class="<% "active" if current_page?("/") %>">
+        <%= link_to "Agenda", events_path,
+                    class: "w3-hover-white w3-hover-text-light-blue" %>
+      </li>
 			<% admins_only do %>
 			<li class="<% "active" if current_page?("/") %>">
 				<%= link_to "Admin", admin_root_path,
-														 class: "w3-hover-text-dark-grey" %>
+														 class: "w3-hover-white w3-hover-text-light-blue" %>
 			</li>
 			<% end %>
 			<% if user_signed_in? %>
@@ -27,24 +66,25 @@
 			<% unless user_signed_in? %>
 				<li class="<% "active" if current_page?("users/sign_up") %> w3-right">
 					<%= link_to "Inschrijven", 	new_user_registration_path,
-																			class: "w3-hover-sand w3-hover-text-dark-grey" %>
+																			class: "w3-hover-white w3-hover-text-light-blue" %>
 				</li>
 				<li class="<% "active" if current_page?("users/sign_in") %> w3-right">
 					<%= link_to "Inloggen", new_user_session_path,
-																	class: "w3-hover-sand w3-hover-text-dark-grey" %>
+																	class: "w3-hover-white w3-hover-text-light-blue" %>
 				</li>
 			<% end %>
 
 			<% if user_signed_in? %>
         <div class='w3-right'>
           <li class='w3-padding'>
-            <small>Ingelogd als:</small>
+            <small style="color: white">Ingelogd als: </small>
           </li>
-          <li class="w3-dropdown-hover w3-hover-orange">
+          <li class="w3-dropdown-hover navdropdown">
             <%= link_to "#{current_user.username} <i class='fa fa-caret-down'></i>".html_safe,
-                class: "#{active if current_page?("users/sign_in")} w3-hover-text-dark-grey" %>
-            <div class="w3-dropdown-content w3-white w3-card-4">
+                class: "#{active if current_page?("users/sign_in")} navdropbtn" %>
+            <div class="w3-dropdown-content navdropdown-content w3-card-4">
               <%= link_to 'Profiel', user_path(current_user) %>
+              <%= link_to 'Instellingen', user_path(current_user) %>
               <%= link_to "Log uit", 	destroy_user_session_path,
                                 method: :delete,
                                 class: "w3-hover-red w3-hover-text-dark-grey" %>
@@ -64,5 +104,124 @@
 			</div>
 		<% end %>
     <%= yield %>
+
   </body>
+
+
+  <!--<footer class="mt-5">-->
+    <!--<div class="container-fluid mt-5">-->
+      <!--<div class="container">-->
+        <!--<div class="row py-3">-->
+          <!--&lt;!&ndash; footer column 1 start &ndash;&gt;-->
+          <!--<div class="col-md-4">-->
+            <!--&lt;!&ndash; row start &ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="row py-2">&ndash;&gt;-->
+              <!--&lt;!&ndash;<div class="col-sm-3 hidden-md-down">&ndash;&gt;-->
+                <!--&lt;!&ndash;<a class="bg-circle bg-info" href="https://twitter.com/ ">&ndash;&gt;-->
+                  <!--&lt;!&ndash;<i class="fa fa-2x fa-fw fa-twitter" aria-hidden="true "></i>&ndash;&gt;-->
+                <!--&lt;!&ndash;</a>&ndash;&gt;-->
+              <!--&lt;!&ndash;</div>&ndash;&gt;-->
+              <!--&lt;!&ndash;<div class="col-sm-9">&ndash;&gt;-->
+                <!--&lt;!&ndash;<h4>Tweets</h4>&ndash;&gt;-->
+                <!--&lt;!&ndash;Embed here?&ndash;&gt;-->
+              <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash; row end &ndash;&gt;-->
+          <!--</div>-->
+          <!--&lt;!&ndash; footer column 1 end &ndash;&gt;-->
+          <!--&lt;!&ndash; footer column 2 start &ndash;&gt;-->
+          <!--<div class="col-md-4">-->
+            <!--&lt;!&ndash; row start &ndash;&gt;-->
+            <!--<div class="row py-2">-->
+              <!--<div class="col-sm-3 hidden-md-down">-->
+                <!--<a class="bg-circle bg-success" href="#">-->
+                  <!--<i class="fa fa-2x fa-fw fa-address-card" aria-hidden="true "></i>-->
+                <!--</a>-->
+              <!--</div>-->
+              <!--<div class="col-sm-9">-->
+                <!--<h4>Contact us</h4>-->
+                <!--<p>Why not?</p>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; row end &ndash;&gt;-->
+            <!--&lt;!&ndash; row start &ndash;&gt;-->
+            <!--<div class="row py-2">-->
+              <!--<div class="col-sm-3 hidden-md-down">-->
+                <!--<a class="bg-circle bg-success" href="#">-->
+                  <!--<i class="fa fa-2x fa-fw fa-laptop" aria-hidden="true "></i>-->
+                <!--</a>-->
+              <!--</div>-->
+              <!--<div class="col-sm-9">-->
+                <!--<h4>Cookie policy</h4>-->
+                <!--<p class=" ">We use <a class=" " href="/# ">cookies </a></p>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; row end &ndash;&gt;-->
+          <!--</div>-->
+          <!--&lt;!&ndash; footer column 2 end &ndash;&gt;-->
+          <!--&lt;!&ndash; footer column 3 start &ndash;&gt;-->
+          <!--<div class="col-md-4">-->
+            <!--&lt;!&ndash; row starting  &ndash;&gt;-->
+            <!--<div class="row py-2">-->
+              <!--<div class="col-sm-3 hidden-md-down">-->
+                <!--<a class="bg-circle bg-danger" href="# ">-->
+                  <!--<i class="fa fa-2x fa-fw fa-file-pdf-o" aria-hidden="true "></i>-->
+                <!--</a>-->
+              <!--</div>-->
+              <!--<div class="col-sm-9">-->
+                <!--<h4>Download pdf</h4>-->
+                <!--<p> You like print?</p>-->
+
+              <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; row ended &ndash;&gt;-->
+            <!--&lt;!&ndash; row starting  &ndash;&gt;-->
+            <!--<div class="row py-2">-->
+              <!--<div class="col-sm-3 hidden-md-down">-->
+                <!--<a class="bg-circle bg-success" href="https://twitter.com/ ">-->
+                  <!--<i class="fa fa-2x fa-fw fa-info" aria-hidden="true "></i>-->
+                <!--</a>-->
+              <!--</div>-->
+              <!--<div class="col-sm-9">-->
+                <!--<h4>Info</h4>-->
+                <!--About us.-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; row ended &ndash;&gt;-->
+          <!--</div>-->
+          <!--&lt;!&ndash; footer column 3 end &ndash;&gt;-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+
+
+    <!--<div class="container-fluid bg-primary py-3">-->
+      <!--<div class="container">-->
+        <!--<div class="row py-3">-->
+          <!--<div class="col-md-9">-->
+            <!--<p class="text-white">Lorem ipsum.</p>-->
+          <!--</div>-->
+          <!--<div class="col-md-3">-->
+            <!--<div class="d-inline-block">-->
+              <!--<div class="bg-circle-outline d-inline-block">-->
+                <!--<a href="https://www.facebook.com/" class="text-white"><i class="fa fa-2x fa-fw fa-facebook"></i>-->
+                <!--</a>-->
+              <!--</div>-->
+
+              <!--<div class="bg-circle-outline d-inline-block">-->
+                <!--<a href="https://twitter.com/" class="text-white">-->
+                  <!--<i class="fa fa-2x fa-fw fa-twitter"></i></a>-->
+              <!--</div>-->
+
+              <!--<div class="bg-circle-outline d-inline-block">-->
+                <!--<a href="https://www.linkedin.com/company/" class="text-white">-->
+                  <!--<i class="fa fa-2x fa-fw fa-linkedin"></i></a>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</footer>-->
+
 </html>

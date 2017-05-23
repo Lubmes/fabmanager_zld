@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe FabmomentsController, type: :controller do
 
   it 'handles a missing fabmoment correctly' do
-    get :show, params: { id: 'not-here' }
+    get :index, params: {id: 'not-here' }
 
     expect(response).to redirect_to(fabmoments_path)
 

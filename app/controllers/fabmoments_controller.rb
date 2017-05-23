@@ -6,6 +6,7 @@ class FabmomentsController < ApplicationController
 
   def index
     @fabmoments = Fabmoment.all
+    @openingtimes = Openingtime.first
   end
 
   def show
@@ -80,6 +81,7 @@ class FabmomentsController < ApplicationController
   end
 
   private
+
 
   def fabmoment_params
     params.require(:fabmoment).permit(:title, :description, :source, :gingGoed, :gingFout, :kanBeter,  :license_id, :tag_names, 

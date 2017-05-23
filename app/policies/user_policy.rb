@@ -18,6 +18,10 @@ class UserPolicy < ApplicationPolicy
     edit?
   end
 
+  def settings?
+    edit?
+  end
+
   def archive?
     # return false if @current_user == @user
     @current_user.try(:admin?)

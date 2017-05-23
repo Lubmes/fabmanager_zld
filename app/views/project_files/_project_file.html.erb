@@ -1,9 +1,9 @@
 <li class="project_file">
 	<% if policy(fabmoment).project_file? %>
-		<%= link_to "<span></span>".html_safe, 
-				fabmoment_project_file_path(fabmoment, index), method: :delete, remote: true, 
-				class: "remove",
-				title: "remove" %>
+		<%= link_to "<span></span>".html_safe,
+                fabmoment_project_file_path(fabmoment, index), method: :delete, remote: true,
+                class: "remove",
+                title: "remove" %>
 	<% end %>
 	<%= link_to File.basename(project_file.url), project_file.url %>
   (<%= number_to_human_size(project_file.file.size) %>)

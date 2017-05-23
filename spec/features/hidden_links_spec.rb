@@ -16,7 +16,7 @@ RSpec.feature "Users can only see the appropriate links:" do
         expect(page).not_to have_link "Nieuw Fabmoment"
       end
     end
-    context "in a fabmoment's show" do
+    context "in a fabmoment's index" do
       before { visit fabmoment_path(fabmoment) }
 
       scenario "cannot see the Delete Fabmoment link" do
@@ -29,7 +29,7 @@ RSpec.feature "Users can only see the appropriate links:" do
         expect(page).not_to have_button "Commentaar toevoegen"
       end
     end
-    context "in a user's show" do
+    context "in a user's index" do
       scenario "cannot see the Edit User link" do
         visit user_path(random_user)
         expect(page).not_to have_button "Bijwerken"
@@ -52,7 +52,7 @@ RSpec.feature "Users can only see the appropriate links:" do
         expect(page).to have_link "Nieuw Fabmoment"
       end
     end
-    context "in a fabmoment's show" do
+    context "in a fabmoment's index" do
       before { visit fabmoment_path(fabmoment) }
 
       scenario "cannot see the Delete Fabmoment link" do
@@ -65,7 +65,7 @@ RSpec.feature "Users can only see the appropriate links:" do
           expect(page).to have_button "Commentaar toevoegen"
       end
     end
-    context "in a user's show" do
+    context "in a user's index" do
       scenario "cannot see the Edit User link" do
         visit user_path(other_random_user)
         expect(page).not_to have_button "Bijwerken"
@@ -92,7 +92,7 @@ RSpec.feature "Users can only see the appropriate links:" do
         expect(page).to have_link "Nieuw Fabmoment"
       end
     end
-    context "in a fabmoment's show" do
+    context "in a fabmoment's index" do
       before { visit fabmoment_path(fabmoment) }
 
       scenario "cannot see the Delete Fabmoment link" do
@@ -109,7 +109,7 @@ RSpec.feature "Users can only see the appropriate links:" do
         expect(page).to have_button "Commentaar toevoegen"
       end
     end
-    # De logica voor de niet-admin user's show hoeft hier
+    # De logica voor de niet-admin user's index hoeft hier
     # natuurlijk niet nogmaals vastgelegd te worden.
   end
 
@@ -122,7 +122,7 @@ RSpec.feature "Users can only see the appropriate links:" do
         expect(page).to have_link "Nieuw Fabmoment"
       end
     end
-    context "in a fabmoment's show" do
+    context "in a fabmoment's index" do
       before { visit fabmoment_path(fabmoment) }
 
       scenario "can see the Delete Fabmoment link" do
@@ -135,7 +135,7 @@ RSpec.feature "Users can only see the appropriate links:" do
         expect(page).to have_button "Commentaar toevoegen"
       end
     end
-    context "in a user's show" do
+    context "in a user's index" do
       scenario "can see the Edit User link" do
         visit admin_user_path(random_user)
         expect(page).to have_link "Bijwerken"

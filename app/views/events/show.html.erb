@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @event.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+<p>
+<% if @event.machines.any? %>
+    <div class="w3-col m4">
+      <div class="w3-card">
+        <h5 class="w3-center">Machines</h5>
+        <ul id="machines">
+          <% @event.machines.each do |machine| %>
+              <p><%= machine.name %></p>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+      <% end %>
+      </p>
+<p>
+  <strong>Start time:</strong>
+  <%= @event.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @event.end_time %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event), class:"w3-text-black"%> |
+<%= link_to 'Back', events_path, class:"w3-text-black"%>

@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
   private
 
   def not_authorized
-    redirect_to root_path, alert: "Je hebt geen toestemming om dat te doen."
+    flash[:alert] = "Je moet ingeschreven zijn om deze actie te ondergaan."
+    redirect_to(new_user_session_path)
   end
 
   protected

@@ -2,8 +2,229 @@
  @import "font-awesome";
  @import "fabmoments";
  @import "admin/users";
+ @import "pictures";
+ @import "fullcalendar";
+ @import "users";
+ @import "information";
+ @import "searchbar";
+ @import "bootstrap";
+
 
  a {
- 	text-decoration: none;
+   text-decoration: none;
+   color: white;
+   font-family: arial, sans-serif;
  }
+
+ body {
+   padding: 5%;
+   background-origin: border-box;
+   background-image: linear-gradient(rgb(255, 255, 255),rgb(175, 225, 247),rgb(0, 158, 227),rgb(175, 225, 247),rgb(255, 255, 255));
+ }
+
+ w3-label {
+   color: black
+ }
+
+ imgmachine{
+   width: 50%;
+   height: 50
+ }
+
+ h1 {
+   font-family: Calibri;
+   font-weight: bold;
+ }
+
+ .navdropbtn {
+   background-color: #009ee3;
+   color: white;
+   padding: 16px;
+   font-size: 16px;
+   border: none;
+   cursor: pointer;
+ }
+
+ .navdropdown {
+   position: relative;
+   display: inline-block;
+ }
+
+ .navdropdown-content {
+   display: none;
+   position: absolute;
+   background-color: #f9f9f9;
+   min-width: 160px;
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+   z-index: 1;
+ }
+
+ .navdropdown-content a {
+   color: black;
+   padding: 12px 16px;
+   text-decoration: none;
+   display: block;
+ }
+
+ .navdropdown-content a:hover {background-color: #f1f1f1}
+
+ .navdropdown:hover .navdropdown-content {
+   display: block;
+ }
+
+ .navdropdown:hover .navdropbtn {
+   background-color: #ffffff;
+   color: #009ee3;
+ }
+
+ div.container {
+   padding: 10px;
+ }
+
+ div.shader {
+   box-shadow: 8px 8px 12px 8px rgba(0, 0, 0, 0.2), 8px 6px 20px 8px rgba(0, 0, 0, 0.19);
+   text-align: center;
+ }
+
+.w3-card,.w3-card-2 {
+  @extend .w3-white;
+}
+
+ img {
+   display: inline;
+   margin: 0 auto;
+   height: 100%;
+   width: auto;
+ }
+
+ footer {
+
+ }
+
+ // This is for fabmoments/show.html.erb sourcelink!
+
+ a.sourcelink:link {
+   text-decoration: underline;
+   color: #0000EE;
+   font-style: italic
+
+ }
+ a.sourcelink:visited {
+   text-decoration: underline;
+   color: #551A8B;
+   font-style: italic;
+ }
+ //a.sourcelink:hover {
+ //  text-decoration: underline;
+ //  color: #cc9900;
+ //  font-style: italic;
+ //}
+ a.sourcelink:active {
+   text-decoration: underline;
+   color: #EE0000;
+   font-style: italic;
+ }
+
+
+ .countdown-timer {
+
+ }
+
+ #calendar{
+ width: 50%;
+
+ }
+
+ #login-dp{
+   min-width: 250px;
+   padding: 14px 14px 0;
+   overflow:hidden;
+   background-color:rgba(255,255,255,.8);
+ }
+ #login-dp .help-block{
+   font-size:12px
+ }
+ #login-dp .bottom{
+   background-color:rgba(255,255,255,.8);
+   border-top:1px solid #ddd;
+   clear:both;
+   padding:14px;
+ }
+ #login-dp .social-buttons{
+   margin:12px 0
+ }
+ #login-dp .social-buttons a{
+   width: 49%;
+ }
+ #login-dp .form-group {
+   margin-bottom: 10px;
+ }
+ .btn-fb{
+   color: #fff;
+   background-color:#3b5998;
+ }
+ .btn-fb:hover{
+   color: #fff;
+   background-color:#496ebc
+ }
+ .btn-tw{
+   color: #fff;
+   background-color:#55acee;
+ }
+ .btn-tw:hover{
+   color: #fff;
+   background-color:#59b5fa;
+ }
+ @media(max-width:768px){
+   #login-dp{
+     background-color: inherit;
+     color: #fff;
+   }
+   #login-dp .bottom{
+     background-color: inherit;
+     border-top:0 none;
+   }
+ }
+
+ .bg-primary {
+   background-color: #009ee3 !important;
+ }
+
+ .bg-circle
+ {
+   display: inline-block;
+   width: 60px;
+   height: 60px;
+   padding: 14px 4px;
+   color: #ececec;
+   text-align: center;
+   border-radius: 50%;
+ }
+
+ .bg-circle-outline
+ {
+   width: 50px;
+   height: 50px;
+   color:smoke;
+   padding: 8px 2px;
+   border: 2px solid;
+   border-color: smoke;
+   border-radius: 50%;
+ }
+
+
+ .bg-circle a, a:hover, .media a:focus
+ {
+   text-decoration: none !important;
+   outline: none;
+   color: #ececec;
+ }
+ .bg-circle-outline a, a:hover, .media a:focus
+ {
+   text-decoration: none !important;
+   outline: none;
+   color: #ececec;
+ }
+
+
 

@@ -32,12 +32,28 @@ nl:
       materials:
         sort: Matriaal naam
         name: Matriaal soort
-        thickness: Dikte matriaal 
-
+        thickness: Dikte matriaal
+      openingtime:
+        title: Titel
+        monday: Maandag
+        tuesday: Dinsdag
+        wednesday: Woensdag
+        thursday: Donderdag
+        friday: Vrijdag
+        saturday: Zaterdag
+        sunday: Zondag
 
     errors:
       models:
           user:
             attributes:
               username:
-                blank: "test"
+                blank: "een gebruikersnaam is vereist."
+              avatar:
+                blank: "png, jpg, gif"
+
+  acts_as_bookable:
+    errors:
+      messages:
+        availability:
+          unavailable_interval: "Interval niet beschikbaar."

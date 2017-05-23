@@ -1,0 +1,27 @@
+<%= simple_form_for(@event) do |f| %>
+  <%= f.error_notification %>
+<div class="w3-row">
+  <div class="w3-card form-inputs w3-margin w3-col w3-padding m3">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :start_time %>
+    <%= f.input :end_time %>
+
+    <h5 class="w3-text-teal w3-center">Machines</h5>
+    <ul class="w3-ul" id="machines">
+      <%= f.collection_check_boxes :machine_ids, @machines, :id, :name do |b| %>
+          <li>
+            <%= b.label class: "w3-small" do %>
+                <%= b.check_box class: "w3-check" %>
+                <%= b.text %>
+            <% end %>
+          </li>
+      <% end %>
+    </ul>
+
+  </div>
+</div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

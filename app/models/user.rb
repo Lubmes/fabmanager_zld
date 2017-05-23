@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   # Avatar
-  has_attached_file :avatar, :default_url => "/images/missing.png"
-  validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
+  has_attached_file :avatar, :default_url => '/images/standard.png'
+  validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/, /jpg\Z/]
+  validates_presence_of :username
 
   scope :excluding_archived, lambda { where(archived_at: nil) }
 

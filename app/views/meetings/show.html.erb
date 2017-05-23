@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rails:</strong>
+  <%= @meeting.rails %>
+</p>
+
+<p>
+  <strong>G:</strong>
+  <%= @meeting.g %>
+</p>
+
+<p>
+  <strong>Scaffold:</strong>
+  <%= @meeting.scaffold %>
+</p>
+
+<p>
+  <strong>Meeting:</strong>
+  <%= @meeting.Meeting %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @meeting.name %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @meeting.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @meeting.end_time %>
+</p>
+
+<p>
+  <strong>Calendar:</strong>
+  <%= @meeting.calendar %>
+</p>
+
+<%= link_to 'Edit', edit_meeting_path(@meeting) %> |
+<%= link_to 'Back', meetings_path %>

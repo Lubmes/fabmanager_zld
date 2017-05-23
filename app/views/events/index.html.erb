@@ -1,0 +1,40 @@
+  <meta charset='utf-8' />
+  <link rel='stylesheet' href='https://fullcalendar.io/js/fullcalendar-3.4.0/fullcalendar.css' />
+  <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js'></script>
+  <script src='//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='https://fullcalendar.io/js/fullcalendar-3.4.0/fullcalendar.min.js'></script>
+<body>
+  <p id="notice"><%= notice %></p>
+
+  <div class="w3-margin-left w3-card m3">
+    <h1 class="w3-text-light-blue w3-row-padding w3-card w3-margin-bottom" style="font-weight: bold">Agenda</h1></div>
+
+
+  <div class="w3-left w3-row-padding w3-padding-left w3-card w3-margin-bottom">
+    <%= render "events/eventlist"%>
+  </div>
+
+<div id="calendar" class="w3-left w3-row-padding w3-padding-left w3-card w3-margin-bottom"></div>
+<script>
+$(document).ready(function() {
+
+    $('#calendar').fullCalendar({
+
+        header: {
+            right: 'prev,next today',
+            left: 'title',
+            center: 'agendaDay,agendaWeek,month'
+        },
+        defaultView: 'month',
+//        eventColor: '#23dff3',
+        weekends: false,
+        editable: true,
+        events: "<%= @events %>",
+    });
+});
+</script>
+
+  <td><%= link_to new_event_path, class:"btn btn-success"  do %>
+        <i class="fa fa-plus" aria-hidden="true"></i>
+    <% end %></td>
+</body>

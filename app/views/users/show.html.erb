@@ -1,42 +1,76 @@
 <% title(@user.username, "Gebruiker") %>
+<head>
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+  <!--<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">-->
+  <!--<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>-->
+  <!--<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+  <!--<script src="js/bootstrap.min.js"></script>-->
+</head>
 
 <div class="w3-row">
 	<!-- Basis Profiel gegevens -->
 	<div class="w3-twothird" style="margin-left: 16.65%">
 
-		<header class="w3-center">
-			<img src="<%= @user.avatar.url %>" class="img-thumbnail" width="305" height="200">
-			<h3>Gebruikersnaam: <%= @user.username %></h3>
-			<h3>Email: <%= @user.email %></h3>
-			<% if policy(@user).show? %>
-			<h3>Woonplaats: <%= @user.adress %></h3>
+      <div class="container">
+        <div class="row">
+          <div class="profile-header-container">
+            <div class="profile-header-img">
+              <img class="img-circle" src="<%= @user.avatar.url %>"  class="img-thumbnail" />
+              <!-- badge -->
+              <div class="rank-label-container">
+                <span class="label label-default rank-label">100 Points</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+  <div class="w3-card-2"><li>Gebruikersnaam: <%= @user.username %></li>
+    <li>Email: <%= @user.email %></li>
+    <% if policy(@user).show? %>
+        <li>Woonplaats: <%= @user.adress %></li>
 			<% end %>
-			<!-- Acties -->
-			<% if policy(@user).edit? %>
-              <% if current_user.admin %>
-				<%= link_to "Bijwerken",
-								     	[:edit,:admin,@user],
-											class: "edit w3-btn w3-amber" %>
-			<% else %>
-				<%= link_to "Bijwerken",
-								     	[:edit, @user],
-											class: "edit w3-btn w3-amber" %>
-			<% end %>
-			<% if policy(@user).archive? %>
-				<%= link_to "Archiveer",
-										[:archive, :admin, @user],
-										method: :patch,
-										data: { confirm: 'Weet je zeker dat je deze gebruiker wil archiveren?' },
-										class: "edit w3-btn w3-red" %>
-				<% end %>
-				<% end %>
+  </div>
+
+
+    <!-- Acties -->
+    <% if policy(@user).edit? %>
+        <% if current_user.admin %>
+            <%= link_to [:edit,:admin,@user],
+                        class: "edit w3-btn w3-amber" do %>
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            <% end %>
+        <% end %>
+
+    <% else %>
+        <%= link_to [:edit, @user],
+                    class: "edit w3-btn w3-amber" do %>
+            <i class="fa fa-pencil-square-o" Bewerken aria-hidden="true"></i>
+        <% end %>
+    <% end %>
+    <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+    <% if policy(@user).archive? %>
+        <%= link_to [:archive, :admin, @user],
+                    method: :patch,
+                    data: { confirm: 'Weet je zeker dat je deze gebruiker wil archiveren?' },
+                    class: "edit w3-btn w3-red" do %>
+            <i class="fa fa-archive" Archiveren aria-hidden="true"></i>
+        <% end %>
+    <% end %>
+
+
 		</header>
 
 		<!-- <p> user.bio etc. & user.comments.order(#van recent tot in verleden) </p> -->
 
+    <div data-role="main" class="ui-content">
+  <form method="post" action="/action_page_post.php">
+    <fieldset data-role="collapsible">
+      <legend>Commentaar</legend>
 		<div id="comments">
 			<h3 class="w3-center">Geleverd commentaar</h3>
-			<ul class="w3-ul">
+			<ul class="w3-center">
 			<% @comments.each do |comment| %>
 				<li class="w3-text-pink">
 					<%= "#{time_ago_in_words(comment.created_at)} geleden gaf <i>#{@user.username}</i>
@@ -45,28 +79,20 @@
 			<% end %>
 			<ul>
 		</div>
+    </fieldset>
+  </form>
+</div>
+    <div class="w3-bottombar w3-border-white w3-padding-xlarge">
 		<h2 class="w3-center">Fabmomenten</h2>
 	</div>
 	<!-- (Einde van de twothird kolom.) -->
 
+    <!-- Ter informatie de <div> op lijn 62 zorgt voor verkleint gallerij fabmomenten -->
+
 	<!-- Fabmomenten van de gebruiker -->
-	<div id="fabmoments" class="w3-row-padding w3-margin-top w3-margin-bottom">
-	<% @fabmoments.each do |fabmoment| %>
-    <div class="w3-col m3">
+            </div>
+            </div>
 
-			<!-- Fabmoment card -->
-			<%= link_to fabmoment do %>
-			    <div class="w3-card-2 w3-hover-shadow w3-margin-bottom">
-			    	<header class="w3-container w3-blue-grey w3-center">
-			    		<h4><%= fabmoment.title %></h4>
-						</header>
-						<div class="w3-container">
-						  <p><%= fabmoment.description %></p>
-						</div>
-					</div>
-		 	<% end %>
-
-		</div>
-	<% end %>
-	</div>
-</div>
+  <footer class="w3-center">
+  <%= render "fabmoments/fabmoments_gallery", fabmoments: @fabmoments %>
+  </footer>

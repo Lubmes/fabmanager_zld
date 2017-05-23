@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :events
+  resources :meetings
   namespace :admin do
     root 'application#index'
     resources 'users' do
@@ -10,10 +12,14 @@ Rails.application.routes.draw do
     resources 'programs'
     resources 'materials'
     resources 'machines'
+    resources 'occupation'
+    resources 'rentings'
+    resources 'information'
   end
 
   devise_for :users
 
+  resources 'information'
   resources 'users'
   resources :avatar
 

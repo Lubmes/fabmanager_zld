@@ -4,11 +4,11 @@
       <%= simple_form_for @fabmoment, html: {multipart: true} do |f| %>
 
       	<!-- Input -->
+          <%= f.label :title %>
         <%= f.input_field :title %>
-        <%= f.label :title %>
         <%= f.error :title %>
+          <%= f.label :description %>
       	<%= f.input_field :description, rows: 7 %>
-        <%= f.label :description %>
         <%= f.error :description %><br><br>
         <!-- Gallery -->
 
@@ -53,7 +53,6 @@
               </ul>
             </div>
           </div>
-        <div class="w3-row-padding w3-margin-top w3-margin-bottom">
           <!-- Machines card -->
           <div class="w3-col m4">
             <div class="w3-card">
@@ -86,7 +85,7 @@
               </ul>
             </div>
           </div>
-        </div>
+
 
         <!-- Upload: Project Files -->
         <!-- Stored -->
