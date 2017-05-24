@@ -15,6 +15,6 @@ RSpec.feature "Users can delete fabmoments", type: :feature do
 
     expect(page).to have_content "Fabmoment is verwijderd."
     expect(page.current_url).to eq fabmoments_url
-    expect(page).to have_no_content "Bad cover for smartphone" 
+    expect(page).to have_no_content "Bad cover for smartphone"
   end
 end
