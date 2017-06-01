@@ -30,12 +30,16 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+    @user = current_user
     @event = Event.new(event_params)
     authorize @event
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+
+        EventsMailer.sample_email(@user, @event).deliver!
+
+        format.html { redirect_to @event, notice: 'Uw verzoek word bekeken.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -63,6 +67,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
+      flash[:notice] = "succesvol bijgewerkt."
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end

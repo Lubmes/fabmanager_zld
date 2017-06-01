@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>Geachte <%= @user.username %>,</h1>
+<p>
+  Dit is een automatisch emailtje als notificatie dat uw verzoek voor een apparaat te huren is aangemaakt.
+</p>
+<div class="w3-card-2">
+  <p>
+    <strong>Title:</strong>
+    <%= @event.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @event.description %>
+  </p>
+  <p>
+    <% if @event.machines.any? %>
+
+        <strong>Machines:</strong>
+        <% @event.machines.each do |machine| %>
+            <%= machine.name %>
+            -
+        <% end %>
+    <% end %>
+  </p>
+  <p>
+    <strong>Start time:</strong>
+    <%= @event.start_time %>
+  </p>
+
+  <p>
+    <strong>End time:</strong>
+    <%= @event.end_time %>
+  </p>
+</div>
+</body>
+</html>

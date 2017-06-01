@@ -12,6 +12,7 @@ class Admin::UsersController < Admin::ApplicationController
   end
 
   def new
+    EventsMailer.register_email(@user).deliver!
     @user = User.new
     flash[:notice] = "U bent succesvol ingeschreven."
   end
