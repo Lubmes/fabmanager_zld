@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.all.where(approved: false)
   end
 
   # GET /events/1
@@ -13,7 +13,7 @@ class EventsController < ApplicationController
   def show
   end
 
-  def approve
+  def approved
 
   end
 
@@ -34,10 +34,12 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     authorize @event
 
+    @event.approved = false
+
     respond_to do |format|
       if @event.save
 
-        EventsMailer.sample_email(@user, @event).deliver!
+        EventsMailer.event_email(@user, @event).deliver!
 
         format.html { redirect_to @event, notice: 'Uw verzoek word bekeken.' }
         format.json { render :show, status: :created, location: @event }

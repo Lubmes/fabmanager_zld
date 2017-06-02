@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# User.delete_all
+ User.delete_all
 # Machine.delete_all
 # Program.delete_all
 # Material.delete_all
 # License.delete_all
 
-unless User.exists?(email: "admin@fabmanager.com")
-  User.create!(email: "admin@fabmanager.com", password: "password", username: "Admin", admin: true)
+unless User.exists?(email: "FablabZeeland@gmail.com")
+  User.create!(email: "FablabZeeland@gmail.com", password: "password", username: "Administrator", admin: true)
 end
 
 unless Machine.exists?(name: "Ultimaker Original")

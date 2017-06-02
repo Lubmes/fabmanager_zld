@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_attached_file :avatar, :default_url => '/images/standard.png'
   validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/, /jpg\Z/]
   validates_presence_of :username
+  after_create :send_admin_mail
 
   scope :excluding_archived, lambda { where(archived_at: nil) }
 
@@ -20,5 +21,9 @@ class User < ApplicationRecord
 
   def inactive_message
     archived_at.nil? ? super : :archived
+  end
+
+  def send_admin_mail
+      EventsMailer.user_register(self).deliver!
   end
 end

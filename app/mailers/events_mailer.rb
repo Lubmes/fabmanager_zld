@@ -1,14 +1,14 @@
 class EventsMailer < ApplicationMailer
   default from: "Fabmanagerzeeland@gmail.com"
 
-  def sample_email(user, event)
+  def event_email(user, event)
     @user = user
     @event = event
-    mail(to: 'liamahk@live.nl', subject: 'Huur verzoek aangemaakt.')
+    mail(to: @user.email, subject: 'Huur verzoek aangemaakt.')
   end
 
-  def register_email(user)
+  def user_register(user)
     @user = user
-    mail(to: 'liamahk@live.nl', subject: 'Succesvol geregistreerd')
+    mail(to: @user.email, subject: 'Succesvol geregistreerd')
   end
 end

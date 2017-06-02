@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519140934) do
+ActiveRecord::Schema.define(version: 20170602113708) do
 
   create_table "acts_as_bookable_bookings", force: :cascade do |t|
     t.string   "bookable_type"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20170519140934) do
     t.datetime "end_time"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.boolean  "approved"
   end
 
   create_table "fabmoments", force: :cascade do |t|

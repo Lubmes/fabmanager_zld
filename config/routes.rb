@@ -15,6 +15,11 @@ Rails.application.routes.draw do
     resources 'occupation'
     resources 'rentings'
     resources 'information'
+    resources 'events' do
+      member do
+        get :approved
+      end
+    end
   end
 
   devise_for :users
