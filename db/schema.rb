@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20170519140934) do
 
-  create_table "acts_as_bookable_bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "acts_as_bookable_bookings", force: :cascade do |t|
     t.string   "bookable_type"
     t.integer  "bookable_id"
     t.string   "booker_type"
     t.integer  "booker_id"
     t.integer  "amount"
-    t.text     "schedule",      limit: 65535
+    t.text     "schedule"
     t.datetime "time_start"
     t.datetime "time_end"
     t.datetime "time"
@@ -27,17 +30,17 @@ ActiveRecord::Schema.define(version: 20170519140934) do
     t.index ["booker_type", "booker_id"], name: "index_acts_as_bookable_bookings_booker", using: :btree
   end
 
-  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "text",         limit: 65535
+  create_table "comments", force: :cascade do |t|
+    t.text     "text"
     t.integer  "fabmoment_id"
     t.integer  "author_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.index ["author_id"], name: "index_comments_on_author_id", using: :btree
     t.index ["fabmoment_id"], name: "index_comments_on_fabmoment_id", using: :btree
   end
 
-  create_table "event_machines", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "event_machines", force: :cascade do |t|
     t.integer  "event_id"
     t.integer  "machine_id"
     t.datetime "created_at", null: false
@@ -46,35 +49,38 @@ ActiveRecord::Schema.define(version: 20170519140934) do
     t.index ["machine_id"], name: "index_event_machines_on_machine_id", using: :btree
   end
 
-  create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "events", force: :cascade do |t|
     t.string   "title"
-    t.text     "description", limit: 65535
+    t.text     "description"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "fabmoments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "fabmoments", force: :cascade do |t|
     t.string   "title"
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "author_id"
     t.integer  "license_id"
     t.string   "source"
+    t.text     "gingGoed"
+    t.text     "gingFout"
+    t.text     "kanBeter"
     t.index ["author_id"], name: "index_fabmoments_on_author_id", using: :btree
     t.index ["license_id"], name: "index_fabmoments_on_license_id", using: :btree
   end
 
-  create_table "fabmoments_tags", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "fabmoments_tags", id: false, force: :cascade do |t|
     t.integer "tag_id",       null: false
     t.integer "fabmoment_id", null: false
     t.index ["fabmoment_id", "tag_id"], name: "index_fabmoments_tags_on_fabmoment_id_and_tag_id", using: :btree
     t.index ["tag_id", "fabmoment_id"], name: "index_fabmoments_tags_on_tag_id_and_fabmoment_id", using: :btree
   end
 
-  create_table "feeds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "feeds", force: :cascade do |t|
     t.integer  "fabmoment_id"
     t.integer  "material_id"
     t.datetime "created_at",   null: false
@@ -83,7 +89,7 @@ ActiveRecord::Schema.define(version: 20170519140934) do
     t.index ["material_id"], name: "index_feeds_on_material_id", using: :btree
   end
 
-  create_table "handles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "handles", force: :cascade do |t|
     t.integer  "fabmoment_id"
     t.integer  "machine_id"
     t.datetime "created_at",   null: false
@@ -92,12 +98,12 @@ ActiveRecord::Schema.define(version: 20170519140934) do
     t.index ["machine_id"], name: "index_handles_on_machine_id", using: :btree
   end
 
-  create_table "information", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "information", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "interfaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "interfaces", force: :cascade do |t|
     t.integer  "fabmoment_id"
     t.integer  "program_id"
     t.datetime "created_at",   null: false
@@ -106,22 +112,22 @@ ActiveRecord::Schema.define(version: 20170519140934) do
     t.index ["program_id"], name: "index_interfaces_on_program_id", using: :btree
   end
 
-  create_table "licenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "licenses", force: :cascade do |t|
     t.string   "title"
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "machines", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "machines", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.text     "schedule",   limit: 65535
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text     "schedule"
     t.integer  "capacity"
   end
 
-  create_table "materials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "materials", force: :cascade do |t|
     t.string   "sort"
     t.string   "name"
     t.integer  "thickness"
@@ -129,7 +135,7 @@ ActiveRecord::Schema.define(version: 20170519140934) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "meetings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "meetings", force: :cascade do |t|
     t.string   "rails"
     t.string   "g"
     t.string   "scaffold"
@@ -142,15 +148,15 @@ ActiveRecord::Schema.define(version: 20170519140934) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "occupation", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "description", limit: 65535
+  create_table "occupation", force: :cascade do |t|
+    t.text     "description"
     t.datetime "begin_time"
     t.datetime "end_time"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "openingtimes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "openingtimes", force: :cascade do |t|
     t.string   "title"
     t.string   "monday"
     t.string   "tuesday"
@@ -163,7 +169,7 @@ ActiveRecord::Schema.define(version: 20170519140934) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "pictures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "pictures", force: :cascade do |t|
     t.string   "name"
     t.string   "imageable_type"
     t.integer  "imageable_id"
@@ -176,13 +182,13 @@ ActiveRecord::Schema.define(version: 20170519140934) do
     t.index ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable_type_and_imageable_id", using: :btree
   end
 
-  create_table "programs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "programs", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "project_files", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "project_files", force: :cascade do |t|
     t.string   "name"
     t.integer  "fabmoment_id"
     t.datetime "created_at",        null: false
@@ -194,17 +200,17 @@ ActiveRecord::Schema.define(version: 20170519140934) do
     t.index ["fabmoment_id"], name: "index_project_files_on_fabmoment_id", using: :btree
   end
 
-  create_table "rentings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+  create_table "rentings", force: :cascade do |t|
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "tags", force: :cascade do |t|
     t.string "name"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"

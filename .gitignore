@@ -20,3 +20,4 @@ config/database.yml
 
 uploads
 config/database.yml
+db/schema.rb
