@@ -5,12 +5,16 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.all.where(approved: false)
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+  end
+
+  def approved
+
   end
 
   # GET /events/new
@@ -26,12 +30,18 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+    @user = current_user
     @event = Event.new(event_params)
     authorize @event
 
+    @event.approved = false
+
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+
+        EventsMailer.event_email(@user, @event).deliver!
+
+        format.html { redirect_to @event, notice: 'Uw verzoek word bekeken.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -59,6 +69,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
+      flash[:notice] = "succesvol bijgewerkt."
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end

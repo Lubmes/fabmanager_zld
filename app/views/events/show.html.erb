@@ -1,5 +1,5 @@
-<p id="notice"><%= notice %></p>
-
+<div class="w3-col m4 w3-margin-top">
+  <div class="w3-card-2">
 <p>
   <strong>Title:</strong>
   <%= @event.title %>
@@ -11,16 +11,12 @@
 </p>
 <p>
 <% if @event.machines.any? %>
-    <div class="w3-col m4">
-      <div class="w3-card">
-        <h5 class="w3-center">Machines</h5>
-        <ul id="machines">
+
+        <strong>Machines:</strong>
           <% @event.machines.each do |machine| %>
-              <p><%= machine.name %></p>
+          <%= machine.name %>
+          -
           <% end %>
-        </ul>
-      </div>
-    </div>
       <% end %>
       </p>
 <p>
@@ -32,6 +28,10 @@
   <strong>End time:</strong>
   <%= @event.end_time %>
 </p>
+  </div>
 
-<%= link_to 'Edit', edit_event_path(@event), class:"w3-text-black"%> |
-<%= link_to 'Back', events_path, class:"w3-text-black"%>
+<div class="w3-circle">
+<%= link_to 'Edit', edit_event_path(@event), class:"w3-text-black fa fa-pencil-square"%>
+</div>
+<%= link_to 'Back', events_path, class:"w3-text-black fa fa-arrow-circle-left"%>
+</div>

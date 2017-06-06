@@ -3,7 +3,7 @@ ruby "2.3.3"
 
 gem 'rails', '~> 5.0.0.1'
 # if Gem.win_platform?
-  gem 'mysql2', '>= 0.3.18', '< 0.5', group: [:development, :test]
+  gem 'sqlite3', group: [:development, :test]
 # else
   #gem 'pg', '~> 0.19.0', group: [:development, :test]
 #end
@@ -33,6 +33,7 @@ gem 'gmaps4rails'
 gem 'redcarpet'
 # bootstrap
 gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'figaro'
 
 group :development, :test do
   gem 'byebug', platform: :mri

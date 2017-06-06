@@ -20,4 +20,5 @@ config/database.yml
 
 uploads
 config/database.yml
+config/application.yml
 db/schema.rb
