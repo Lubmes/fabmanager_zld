@@ -8,7 +8,7 @@
 			<p class="w3-text-pink">
 				Door
 				<b class="w3-btn w3-pink w3-padding-tiny w3-padding-left w3-padding-right">
-					<%= link_to @fabmoment.username, user_path(@fabmoment.author) %>
+					<%= link_to @fabmoment.author.username, user_path(@fabmoment.author) %>
 				</b>
 				<%= " aangemaakt #{time_ago_in_words(@fabmoment.created_at)} geleden" %>
 				<!-- De fout in bovenstaande link_to zit hem erin dat je als admin
@@ -100,15 +100,15 @@
       </div>
 		<br>
 		<br>
-			<h4 class="w3-text-cyan"> Wat ging er goed ?</h4>
+			<h4 class="w3-text-black"> Wat ging er goed ?</h4>
 			<p><%= @fabmoment.gingGoed %></p>
 		<br>
 		<br>
-			<h4 class="w3-text-cyan"> Wat ging er fout ?</h4>
+			<h4 class="w3-text-black"> Wat ging er fout ?</h4>
 			<p><%= @fabmoment.gingFout %></p>
 		<br>
 		<br>
-			<h4 class="w3-text-cyan"> Wat kan beter ?</h4>
+			<h4 class="w3-text-black"> Wat kan beter ?</h4>
 			<p><%= @fabmoment.kanBeter %></p>
 		<br>
 		<!-- Fabmoment model moet de project files scopen, vergelijkbaar
