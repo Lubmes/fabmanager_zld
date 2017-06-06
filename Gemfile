@@ -31,6 +31,7 @@ gem 'momentjs-rails'
 gem 'gmaps4rails'
 #Redcarpet Markdown.
 gem 'redcarpet'
+# bootstrap
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'figaro'
 

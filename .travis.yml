@@ -1,0 +1,23 @@
+language: ruby
+before_install:
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+rvm:
+- 2.3.3
+bundler_args: "--jobs=2"
+script:
+- bundle exec rake db:setup
+- bundle exec rake spec
+cache: bundler
+services:
+- postgresql
+addons:
+  postgresql: '9.4'
+deploy:
+  provider: heroku
+  api_key:
+    secure: nALi2ieuzwEF+7aWbEE2cNyDItnFysgcDxCEUGqFt2GNS0pPNwez/FOz/F2EN4E1iJPmojGZRU0lkfFWOYsl9ie5aG2Rrffv2m2DvB7nVM4aPO1GHCwuVi43ok63/kgH50J7Chnzj3asqEjOJFno339Cf6n+35DId/xCHfsaBjgs/FPgtu+Z/y61VxqNBz6J4WufWBvc2G/WhtZgbq9z+0HReSPRpHIsjr3/fWFWItK0Mk5TeKVUxZ3bbHdgIrcifpuLu0Wj+mk+azXroPPW8sIb2QWlUZxEjuuQXUSETsbP+S1/c+yQPZjmmLr4g2qcnDG/lS3tPHQda5m80YlDZfjHYQlxtG+1IrUK/dMJmIJdK+BC5N5mlQvubxvQ7/OY2A5taLiuK9UB4Gm9uOBRsMuD6/+IrxJJrVls7OqcYuiici7d/iEho4j456zL7GxcTRbGoZdL1d0HHAvshvxSEaqL7JjBV/3oost8Qrp02hh+x7G0pBq3jgmNgdQcOiwf0A0eWwjIafva2hD8SXOM1y+/lE2J7ElJ/kZhK4ps9YGqaO/DUr3gZ2JhxXxJuTsnmXyeuEg3mR2hFIsrYgMpdRtZCzWnIWUOybSoTVm+HiE0SJeqKMWV1JVsk95wrQ4RyJx1kUp7b+ZyQHT02ZOwqSoU81Z8AFEPmPxUWmthyUc=
+  app: fabmanager-zld
+  on:
+    repo: Lubmes/fabmanager_zld
+  skip_cleanup: true
