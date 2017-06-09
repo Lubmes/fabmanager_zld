@@ -1,20 +1,23 @@
 <p>
   <%= link_to "Nieuwe Machine", [:new, :admin, :machine], 
                 class: "new w3-btn w3-purple w3-margin-bottom"%>
-
-  <ul>
+<ul>
+<div class="row">
+  <div class="col">
     <strong>Machines:</strong>
     <% @machines.each do |machine| %>
-      <li><%= machine.name%>
+        <li><%= machine.name%></li>
+        Capaciteit: <%= machine.capacity%>
 
-          <%= link_to admin_machine_path(machine), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger"  do %>
-              <i class="fa fa-trash" aria-hidden="true"></i>
-          <% end %>
-
-          <%= link_to edit_admin_machine_path(machine), class:"btn btn-warning"  do %>
-              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-          <% end %>
+    <%= link_to admin_machine_path(machine), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger"  do %>
+        <i class="fa fa-trash" aria-hidden="true"></i>
     <% end %>
-  </ul>
+    <%= link_to edit_admin_machine_path(machine), class:"btn btn-warning"  do %>
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    <% end %>
+    <% end %>
+  </div>
+</div>
+</ul>
 </p>
  

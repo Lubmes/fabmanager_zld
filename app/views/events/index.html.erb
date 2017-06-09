@@ -15,24 +15,7 @@
   </div>
 
 <div id="calendar" class="w3-left w3-row-padding w3-padding-left w3-card w3-margin-bottom"></div>
-<script>
-$(document).ready(function() {
-
-    $('#calendar').fullCalendar({
-
-        header: {
-            right: 'prev,next today',
-            left: 'title',
-            center: 'agendaDay,agendaWeek,month'
-        },
-        defaultView: 'month',
-//        eventColor: '#23dff3',
-        weekends: false,
-        editable: true,
-        events: "<%= @events %>",
-    });
-});
-</script>
+  <%= render "events/calendar" %>
 
   <td><%= link_to new_event_path, class:"btn btn-success"  do %>
         <i class="fa fa-plus" aria-hidden="true"></i>

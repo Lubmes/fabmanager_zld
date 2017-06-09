@@ -1,0 +1,19 @@
+<script>
+    $(document).ready(function() {
+
+        $('#calendar').fullCalendar({
+
+            header: {
+                right: 'prev,next today',
+                left: 'title',
+                center: 'agendaDay,agendaWeek,month'
+            },
+            defaultView: 'month',
+            eventColor: '#0000ff',
+            weekends: false,
+            editable: true,
+            events: "<%= @events %>",
+            timeFormat: 'H(:mm)' // uppercase H for 24-hour clock
+        });
+    });
+</script>

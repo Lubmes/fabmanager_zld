@@ -1,17 +1,21 @@
 <p>
-  <%= link_to "Nieuw Programma", [:new, :admin, :program], 
-                class: "new w3-btn w3-purple w3-margin-bottom"%>
+  <%= link_to "Nieuw Programma", [:new, :admin, :program],
+              class: "new w3-btn w3-purple w3-margin-bottom"%>
+<ul>
+  <div class="row">
+    <div class="col">
+      <strong>Machines:</strong>
+      <% @programs.each do |program| %>
+          <li><%= program.name%></li>
 
-  <ul>
-    <strong>Programma's:</strong>
-    <% @programs.each do |program| %>
-      <li>
-        <%= program.name%>
-        <button> <%= link_to 'Verwijder', admin_program_path(program),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %> </button>
-              <button> <%= link_to 'Edit', edit_admin_program_path(program)%></button>
-      </li>
-    <% end %>
-  </ul>
+          <%= link_to admin_program_path(program), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger"  do %>
+              <i class="fa fa-trash" aria-hidden="true"></i>
+          <% end %>
+          <%= link_to edit_admin_program_path(program), class:"btn btn-warning"  do %>
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+</ul>
 </p>

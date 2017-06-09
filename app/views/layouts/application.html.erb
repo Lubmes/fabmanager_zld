@@ -1,11 +1,5 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<div class="imgmachine">
-  <!--<img src="/assets/LogoZB.png">-->
-  <!--<img src="/assets/FablabMachines.jpg">-->
-</div>
-
 <html>
   <head>
   <%= favicon_link_tag 'favicon (3).ico' %>
@@ -16,26 +10,16 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-
-
-
-
   <body class="container-fluid">
-  <div class=""></div>
   	<ul class="w3-navbar navdropbtn w3-large w3-card-8">
 			<li class="<% "active" if current_page?("/") %>">
 				<%= link_to "Home", root_path,
 															class: "w3-hover-text-light-blue w3-hover-white" %>
 			</li>
 
-      <li class="w3-dropdown-hover navdropdown">
-        <%= link_to "Contact <i class='fa fa-caret-down'></i>".html_safe, style="",
-                    class: "navdropbtn" %>
-        <div.hovercolour class="w3-dropdown-content navdropdown-content">
-          <%= link_to 'FAQ', information_index_path%>
-          <%= link_to 'Organiseren', information_index_path%>
-        </div.hovercolour>
+      <li class="<% "active" if current_page?("/") %>">
+        <%= link_to "Contact", root_path,
+                    class: "w3-hover-text-light-blue w3-hover-white" %>
       </li>
 
       <li class="w3-dropdown-hover navdropdown">
@@ -47,10 +31,6 @@
         </div>
       </li>
 
-      <li class="<% "active" if current_page?("/") %>">
-        <%= link_to "Doe mee!", "https://www.dezb.nl/wat-we-doen/fablabzeeland/cursussen.html",
-                    class: "w3-hover-white w3-hover-text-light-blue"%>
-      </li>
       <% if user_signed_in? %>
           <li class="<% "active" if current_page?("/") %>">
             <%= link_to "Open Inloop", admin_root_path,
@@ -71,8 +51,9 @@
 			<% end %>
 			<% unless user_signed_in? %>
 				<li class="<% "active" if current_page?("users/sign_up") %> w3-right">
-					<%= link_to "Inschrijven", 	new_user_registration_path,
+					<%= link_to "Registeren", 	new_user_registration_path,
 																			class: "w3-hover-white w3-hover-text-light-blue" %>
+          <i class="fa fa-user fa-3x" aria-hidden="true"></i>
 				</li>
 				<li class="<% "active" if current_page?("users/sign_in") %> w3-right">
 					<%= link_to "Inloggen", new_user_session_path,
@@ -114,120 +95,65 @@
   </body>
 
 
-  <!--<footer class="mt-5">-->
-    <!--<div class="container-fluid mt-5">-->
-      <!--<div class="container">-->
-        <!--<div class="row py-3">-->
-          <!--&lt;!&ndash; footer column 1 start &ndash;&gt;-->
-          <!--<div class="col-md-4">-->
-            <!--&lt;!&ndash; row start &ndash;&gt;-->
-            <!--&lt;!&ndash;<div class="row py-2">&ndash;&gt;-->
-              <!--&lt;!&ndash;<div class="col-sm-3 hidden-md-down">&ndash;&gt;-->
-                <!--&lt;!&ndash;<a class="bg-circle bg-info" href="https://twitter.com/ ">&ndash;&gt;-->
-                  <!--&lt;!&ndash;<i class="fa fa-2x fa-fw fa-twitter" aria-hidden="true "></i>&ndash;&gt;-->
-                <!--&lt;!&ndash;</a>&ndash;&gt;-->
-              <!--&lt;!&ndash;</div>&ndash;&gt;-->
-              <!--&lt;!&ndash;<div class="col-sm-9">&ndash;&gt;-->
-                <!--&lt;!&ndash;<h4>Tweets</h4>&ndash;&gt;-->
-                <!--&lt;!&ndash;Embed here?&ndash;&gt;-->
-              <!--&lt;!&ndash;</div>&ndash;&gt;-->
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-            <!--&lt;!&ndash; row end &ndash;&gt;-->
-          <!--</div>-->
-          <!--&lt;!&ndash; footer column 1 end &ndash;&gt;-->
-          <!--&lt;!&ndash; footer column 2 start &ndash;&gt;-->
-          <!--<div class="col-md-4">-->
-            <!--&lt;!&ndash; row start &ndash;&gt;-->
-            <!--<div class="row py-2">-->
-              <!--<div class="col-sm-3 hidden-md-down">-->
-                <!--<a class="bg-circle bg-success" href="#">-->
-                  <!--<i class="fa fa-2x fa-fw fa-address-card" aria-hidden="true "></i>-->
-                <!--</a>-->
-              <!--</div>-->
-              <!--<div class="col-sm-9">-->
-                <!--<h4>Contact us</h4>-->
-                <!--<p>Why not?</p>-->
-              <!--</div>-->
-            <!--</div>-->
-            <!--&lt;!&ndash; row end &ndash;&gt;-->
-            <!--&lt;!&ndash; row start &ndash;&gt;-->
-            <!--<div class="row py-2">-->
-              <!--<div class="col-sm-3 hidden-md-down">-->
-                <!--<a class="bg-circle bg-success" href="#">-->
-                  <!--<i class="fa fa-2x fa-fw fa-laptop" aria-hidden="true "></i>-->
-                <!--</a>-->
-              <!--</div>-->
-              <!--<div class="col-sm-9">-->
-                <!--<h4>Cookie policy</h4>-->
-                <!--<p class=" ">We use <a class=" " href="/# ">cookies </a></p>-->
-              <!--</div>-->
-            <!--</div>-->
-            <!--&lt;!&ndash; row end &ndash;&gt;-->
-          <!--</div>-->
-          <!--&lt;!&ndash; footer column 2 end &ndash;&gt;-->
-          <!--&lt;!&ndash; footer column 3 start &ndash;&gt;-->
-          <!--<div class="col-md-4">-->
-            <!--&lt;!&ndash; row starting  &ndash;&gt;-->
-            <!--<div class="row py-2">-->
-              <!--<div class="col-sm-3 hidden-md-down">-->
-                <!--<a class="bg-circle bg-danger" href="# ">-->
-                  <!--<i class="fa fa-2x fa-fw fa-file-pdf-o" aria-hidden="true "></i>-->
-                <!--</a>-->
-              <!--</div>-->
-              <!--<div class="col-sm-9">-->
-                <!--<h4>Download pdf</h4>-->
-                <!--<p> You like print?</p>-->
+  <footer class="mt-5">
+    <div class="container-fluid w3-dark-gray py-3">
+      <div class="container">
+        <div class="row py-3">
+          <div class="col w3-text-white">
+            <p class="text-white">
+            <ul>
+            <li>website www.dezb.nl/fablabzeeland</li>
+            <li>e-mail info@fablabzeeland.com</li>
+            <li>telefoonnummer 0118-654217</li>
+            <li>cursussen klik hier!</li>
+            </ul>
+            </p>
+          </div>
 
-              <!--</div>-->
-            <!--</div>-->
-            <!--&lt;!&ndash; row ended &ndash;&gt;-->
-            <!--&lt;!&ndash; row starting  &ndash;&gt;-->
-            <!--<div class="row py-2">-->
-              <!--<div class="col-sm-3 hidden-md-down">-->
-                <!--<a class="bg-circle bg-success" href="https://twitter.com/ ">-->
-                  <!--<i class="fa fa-2x fa-fw fa-info" aria-hidden="true "></i>-->
-                <!--</a>-->
-              <!--</div>-->
-              <!--<div class="col-sm-9">-->
-                <!--<h4>Info</h4>-->
-                <!--About us.-->
-              <!--</div>-->
-            <!--</div>-->
-            <!--&lt;!&ndash; row ended &ndash;&gt;-->
-          <!--</div>-->
-          <!--&lt;!&ndash; footer column 3 end &ndash;&gt;-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-
-
-    <!--<div class="container-fluid bg-primary py-3">-->
-      <!--<div class="container">-->
-        <!--<div class="row py-3">-->
-          <!--<div class="col-md-9">-->
-            <!--<p class="text-white">Lorem ipsum.</p>-->
-          <!--</div>-->
-          <!--<div class="col-md-3">-->
-            <!--<div class="d-inline-block">-->
-              <!--<div class="bg-circle-outline d-inline-block">-->
-                <!--<a href="https://www.facebook.com/" class="text-white"><i class="fa fa-2x fa-fw fa-facebook"></i>-->
-                <!--</a>-->
-              <!--</div>-->
-
-              <!--<div class="bg-circle-outline d-inline-block">-->
-                <!--<a href="https://twitter.com/" class="text-white">-->
-                  <!--<i class="fa fa-2x fa-fw fa-twitter"></i></a>-->
-              <!--</div>-->
-
-              <!--<div class="bg-circle-outline d-inline-block">-->
-                <!--<a href="https://www.linkedin.com/company/" class="text-white">-->
-                  <!--<i class="fa fa-2x fa-fw fa-linkedin"></i></a>-->
-              <!--</div>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</footer>-->
+          <div class="col">
+            <div class="d-inline-block">
+              <div class="bg-circle bg-primary">
+                <a href="https://www.facebook.com/fablabzeeland?lang=nl" class="text-white"><i class="fa fa-2x fa-fw fa-facebook"></i>
+                </a>
+              </div>
+              <div class="bg-circle bg-info">
+                <a href="https://twitter.com/fablabzeeland?lang=nl" class="text-white">
+                  <i class="fa fa-2x fa-fw fa-twitter"></i></a>
+              </div>
+              <div class="bg-primary w3-button w3-round">
+                <a href="https://nl.linkedin.com/topic/fablab" class="text-white">
+                  <i class="fa fa-fw fa-linkedin fa-2x" aria-hidden="true"></i></a>
+              </div>
+            </div>
+            </div>
+           <div class="col">
+            <div class="w3-container">
+              <h2>Fabsheets.</h2>
+              <div class="bg-circle bg-danger">
+                <a onclick="document.getElementById('id01').style.display='block'" class="text-white">
+                  <i class="fa fa-2x fa-fw fa-file-pdf-o"></i></a>
+              </div>
+              <div id="id01" class="w3-modal">
+                <div class="w3-modal-content">
+                  <div class="w3-container w3-text-black">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright w3-text-black">&times;</span>
+                    <h1>Wat zijn FabSheets?</h1>
+                    <ul>FabSheets zijn werkdocumenten die bedoeld zijn om de bezoekers van het FabLab wegwijs te maken in het FabLab en de machines. Zo kunnen bezoekers zelfstandig beginnen.</ul>
+                    <ul>
+                      <li><a href="https://www.dezb.nl/dam/bestanden/fablab/Fabsheet%20Hoe%20werkt%20het%20FabLab%202016.pdf">FabSheet Hoe werkt het FabLab</a></li>
+                      <li>FabSheet Prijslijst materialen</li>
+                      <li>FabSheet Lasersnijder</li>
+                      <li>FabSheet 3D-printer</li>
+                      <li>FabSheet Vinylsnijder</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 </html>

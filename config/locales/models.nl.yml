@@ -42,14 +42,6 @@ nl:
         friday: Vrijdag
         saturday: Zaterdag
         sunday: Zondag
-      event:
-        title: Titel
-        description: Beschrijving
-        start_time: Start tijd
-        end_time: Eind tijd
-        approved: Geaccepteerd
-          true: Geaccepteerd
-          false: Geweigerd
 
     errors:
       models:
