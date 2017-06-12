@@ -50,15 +50,15 @@
 			<% if user_signed_in? %>
 			<% end %>
 			<% unless user_signed_in? %>
-				<li class="<% "active" if current_page?("users/sign_up") %> w3-right">
-					<%= link_to "Registeren", 	new_user_registration_path,
-																			class: "w3-hover-white w3-hover-text-light-blue" %>
-          <i class="fa fa-user fa-3x" aria-hidden="true"></i>
-				</li>
 				<li class="<% "active" if current_page?("users/sign_in") %> w3-right">
-					<%= link_to "Inloggen", new_user_session_path,
-																	class: "w3-hover-white w3-hover-text-light-blue" %>
+					<%= link_to "", new_user_session_path,
+																	class: "w3-hover-white w3-hover-text-light-blue fa fa-user fa-3x" %>
 				</li>
+          <li class="<% "active" if current_page?("users/sign_up") %> w3-right">
+            <%= link_to "Registeren", 	new_user_registration_path,
+                        class: "w3-hover-white w3-hover-text-light-blue" %>
+            <!--<i class="fa fa-user fa-3x" aria-hidden="true"></i>-->
+          </li>
 			<% end %>
 
 			<% if user_signed_in? %>
@@ -83,7 +83,7 @@
 
 		<% flash.each do |key, message| %>
 			<!-- De kleur: Is de melding gelijk aan type "notice"? dan groen : anders rood -->
-			<% color = key == "notice" ? "pale-green" : "red" %>
+			<% color = key == "notice" ? "light-green" : "red" %>
 			<!-- De melding -->
 			<div class="alert alert-<%= key %> w3-container w3-<%= color %>">
 		  	<span class="w3-closebtn" onclick="this.parentElement.style.display='none'"><i class="fa fa-times" aria-hidden="true"></i></span>
@@ -95,7 +95,7 @@
   </body>
 
 
-  <footer class="mt-5">
+  <footer class="mt-5 footer">
     <div class="container-fluid w3-dark-gray py-3">
       <div class="container">
         <div class="row py-3">
@@ -111,19 +111,24 @@
           </div>
 
           <div class="col">
-            <div class="d-inline-block">
+            <div class="d-inline-block row">
               <div class="bg-circle bg-primary">
                 <a href="https://www.facebook.com/fablabzeeland?lang=nl" class="text-white"><i class="fa fa-2x fa-fw fa-facebook"></i>
+                  https://www.facebook.com/fablabzeeland
                 </a>
               </div>
-              <div class="bg-circle bg-info">
+              <div class="bg-circle bg-info row">
                 <a href="https://twitter.com/fablabzeeland?lang=nl" class="text-white">
                   <i class="fa fa-2x fa-fw fa-twitter"></i></a>
+                https://twitter.com/fablabzeeland
               </div>
+              <div class="row">
               <div class="bg-primary w3-button w3-round">
                 <a href="https://nl.linkedin.com/topic/fablab" class="text-white">
                   <i class="fa fa-fw fa-linkedin fa-2x" aria-hidden="true"></i></a>
               </div>
+              </div>
+              https://nl.linkedin.com/topic/fablab
             </div>
             </div>
            <div class="col">
@@ -140,7 +145,7 @@
                     <h1>Wat zijn FabSheets?</h1>
                     <ul>FabSheets zijn werkdocumenten die bedoeld zijn om de bezoekers van het FabLab wegwijs te maken in het FabLab en de machines. Zo kunnen bezoekers zelfstandig beginnen.</ul>
                     <ul>
-                      <li><a href="https://www.dezb.nl/dam/bestanden/fablab/Fabsheet%20Hoe%20werkt%20het%20FabLab%202016.pdf">FabSheet Hoe werkt het FabLab</a></li>
+                      <li>FabSheet Hoe werkt het FabLab</a></li>
                       <li>FabSheet Prijslijst materialen</li>
                       <li>FabSheet Lasersnijder</li>
                       <li>FabSheet 3D-printer</li>
