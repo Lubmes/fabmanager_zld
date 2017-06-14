@@ -27,6 +27,13 @@ Rails.application.routes.draw do
   resources 'information'
   resources 'users'
   resources :avatar
+  resources 'machines' do
+  member do
+    get :take
+  end
+  end
+
+
 
   root 'fabmoments#index'
   get '/fabmoment/index', :controller => 'fabmoments', :action => "index"

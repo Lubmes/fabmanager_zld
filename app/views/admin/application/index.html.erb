@@ -5,8 +5,8 @@
 		<h2>Admin Lounge</h2>
 		<% if current_user %>
 			<ul class="actions w3-ul">
-
-				<li>			<%= link_to "Gebruikers", admin_users_path,
+        <li>
+							  <%= link_to "Gebruikers", admin_users_path,
 								class: "new w3-btn w3-purple w3-margin-bottom"%>
 								<%= link_to "Programma's", admin_programs_path,
 								class: "new w3-btn w3-purple w3-margin-bottom"%>
@@ -15,7 +15,7 @@
 								<%= link_to "Materialen", admin_materials_path,
 								class: "new w3-btn w3-purple w3-margin-bottom"%>
                 <%= link_to "Evenementen", admin_events_path,
-                            class: "new w3-btn w3-purple w3-margin-bottom"%>
+                class: "new w3-btn w3-purple w3-margin-bottom"%>
 				</li>
 			</ul>
 		<% end %>

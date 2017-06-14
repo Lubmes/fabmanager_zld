@@ -3,13 +3,14 @@
 <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js'></script>
 <script src='//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://fullcalendar.io/js/fullcalendar-3.4.0/fullcalendar.min.js'></script>
-<div class="w3-container w3-center w3-padding-xlarge">
+<div class="w3-container w3-center">
 	<header class="w3-container w3-margin-bottom w3-margin-top">
     <div class="w3-row-padding">
       <!--<div class="w3-card shader w3-padding-top w3-padding-bottom w3-margin-bottom w3-margin-top w3-margin-left w3-margin-right">-->
 
       <!--</div>-->
 
+      <div class=".col-md-4">
       <div class="w3-left jumbotron-icon">
         <!--<img src="/placeholder.png" alt="MISSING PNG">-->
         <!--<img id="ImgFab" src="/images/placeholder.png" alt="MISSING PNG" />-->
@@ -17,23 +18,23 @@
         <img src="http://www.jennybeaumont.com/wp-content/uploads/2015/03/placeholder.gif"/>
         <i class="fa fa-6 fa-caret-right w3-text-lime" aria-hidden="true"></i>
     </div>
+      </div>
+<div class=".col-md-4">
+      <div class="w3-bar w3-lime">
+        <button class="w3-bar-item w3-button w3-text-white" onclick="openCity('Agenda')">Agenda.</button>
+        <button class="w3-bar-item w3-button w3-text-white" onclick="openCity('Open Inloop')">Open Inloop.</button>
+      </div>
+
       <div id="calendar" class="w3-right w3-row-padding w3-padding-left w3-card w3-margin-bottom">
       <%= render "events/calendar" %>
       </div>
+
+
       <div class="w3-row-padding w3-padding-left w3-margin-bottom">
         <td><%= link_to new_event_path, class:"w3-button w3-circle w3-green"  do %>
               <i class="fa fa-plus" aria-hidden="true"></i>
           <% end %></td></div>
-
-      <!--<div style='width: 800px;'>-->
-        <!--<div id="one_marker" style='width: 800px; height: 400px;'></div>-->
-        <!--\%= render "fabmoments/locationmaps" %>-->
-      <!--</div>-->
-    </div>
-  </header>
-</div>
-
-      <div class="">
+      <div>
         <%= form_tag search_fabmoments_path,
                      method: :get,
                      class: "w3-right-align" do %>
@@ -41,7 +42,11 @@
             <%= submit_tag "Zoek", class: "w3-btn w3-indigo fa fa-search" %>
         <% end %>
       </div>
-<div class="w3-center w3-margin-top w3-topbar w3-border-white w3-padding-xlarge">
+    </div>
+    </div>
+  </header>
+</div>
+<div class="w3-center w3-margin-top w3-topbar w3-border-white">
   <%= render "fabmoments/fabmoments_gallery", fabmoments: @fabmoments %>
 </div>
 </div>

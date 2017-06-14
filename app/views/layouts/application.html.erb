@@ -11,6 +11,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body class="container-fluid">
+  <div class="content">
   	<ul class="w3-navbar navdropbtn w3-large w3-card-8">
 			<li class="<% "active" if current_page?("/") %>">
 				<%= link_to "Home", root_path,
@@ -91,12 +92,14 @@
 			</div>
 		<% end %>
     <%= yield %>
+    <div class="push">
+    </div>
+  </div>
 
-  </body>
 
 
-  <footer class="mt-5 footer">
-    <div class="container-fluid w3-dark-gray py-3">
+  <footer class="footer">
+    <div class="w3-dark-gray py-3">
       <div class="container">
         <div class="row py-3">
           <div class="col w3-text-white">
@@ -160,5 +163,5 @@
       </div>
     </div>
   </footer>
-
+  </body>
 </html>
