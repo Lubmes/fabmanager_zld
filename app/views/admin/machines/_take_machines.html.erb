@@ -8,13 +8,18 @@
       <span onclick="document.getElementById('id02').style.display='none'"
             class="w3-button w3-display-topright">&times;</span>
       <h5 class="w3-text-teal w3-center">Machines</h5>
+      <p>Dit is waar je een machine kunt bezetten voor (Tijd variable).</p>
 
       <% machines.each do |machine| %>
-          <li><%= machine.name%></li>
-          <%= link_to [:take, machine], class:"btn btn-success"  do %>
-              <i class="fa fa-check-square" aria-hidden="true"></i>
-          <% end %>
+          <ul style="list-style-type:none">
+            <li><%= machine.name%></li>
+            <li><%= link_to [:take, machine], data: { confirm: 'Wilt u deze machine bezetten?' } , class:"btn btn-success"  do %>
+                  <i class="fa fa-check-square" aria-hidden="true"></i>
+              <% end %></li>
+          </ul>
+
       <% end %>
+      <div class="w3-margin-bottom"></div>
     </div>
   </div>
 </div>

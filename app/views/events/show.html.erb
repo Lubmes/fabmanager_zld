@@ -9,19 +9,22 @@
   <strong>Description:</strong>
   <%= @event.description %>
 </p>
-<p>
+<p><strong>Machines:</strong>
+
 <% if @event.machines.any? %>
 
-        <strong>Machines:</strong>
+
           <% @event.machines.each do |machine| %>
           <%= machine.name %>
           -
           <% end %>
+  <% else %>
+  Geen Machines.
       <% end %>
       </p>
 <p>
   <strong>Start time:</strong>
-  <%= @event.start_time %>
+  <%= @event.start_time  %>
 </p>
 
 <p>

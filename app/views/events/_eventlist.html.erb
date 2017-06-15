@@ -37,6 +37,8 @@
           <td><%= link_to event, class:"btn btn-primary"  do %>
                 <i class="fa fa-search" aria-hidden="true"></i>
           <% end %></td>
+
+          <% if current_user.admin? %>
           <td><%= link_to edit_event_path(event), class:"btn btn-warning"  do %>
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             <% end %></td>
@@ -47,6 +49,10 @@
                 <i class="fa fa-trash" aria-hidden="true"></i>
             <% end %></td>
         </tr>
+              <% else %>
+
+
+          <% end %>
     <% end %>
     </tbody>
   </table>

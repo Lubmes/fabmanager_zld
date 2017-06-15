@@ -11,12 +11,15 @@
       <!--</div>-->
 
       <div class=".col-md-3">
-      <div class="w3-left jumbotron-icon">
+      <div class="w3-left jumbotron-icon w3-card">
         <!--<img src="/placeholder.png" alt="MISSING PNG">-->
         <!--<img id="ImgFab" src="/images/placeholder.png" alt="MISSING PNG" />-->
         <i class="fa fa-6 fa-caret-left w3-text-lime w3-hover-opacity" aria-hidden="true"></i>
         <img src="http://www.jennybeaumont.com/wp-content/uploads/2015/03/placeholder.gif"/>
         <i class="fa fa-6 fa-caret-right w3-text-lime w3-hover-opacity" aria-hidden="true"></i>
+        <!--<h1 class="w3-margin-top">Fabmoment</h1>-->
+        <!--<p>Dit is een fabmoment.</p>-->
+        <%= render "fabmoments/favourite_gallery", fabmoments: @fabmoments %>
     </div>
       </div>
 <div class=".col-md-4">
