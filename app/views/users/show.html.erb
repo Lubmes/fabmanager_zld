@@ -41,15 +41,14 @@
                         class: "edit w3-btn w3-amber" do %>
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             <% end %>
-        <% end %>
-
-    <% else %>
-        <%= link_to [:edit, @user],
-                    class: "edit w3-btn w3-amber" do %>
-            <i class="fa fa-pencil-square-o" Bewerken aria-hidden="true"></i>
+        <% else %>
+            <%= link_to [:edit, @user],
+                        class: "edit w3-btn w3-amber" do %>
+                <i class="fa fa-pencil-square-o" Bewerken aria-hidden="true"></i>
+            <% end %>
         <% end %>
     <% end %>
-    <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+
     <% if policy(@user).archive? %>
         <%= link_to [:archive, :admin, @user],
                     method: :patch,
@@ -63,25 +62,38 @@
 		</header>
 
 		<!-- <p> user.bio etc. & user.comments.order(#van recent tot in verleden) </p> -->
+    <div class="panel-group">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" href="#collapse1">Geleverd commentaar</a>
+          </h4>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse">
+          <div class="panel-body">
+            <% @comments.each do |comment| %>
+                <li class="w3-text-pink">
+                  <%= "#{time_ago_in_words(comment.created_at)} geleden gaf <i>#{@user.username}</i>
+							      commentaar op fabmoment <strong>#{comment.fabmoment.title}</strong>".html_safe %>
+                </li>
+            <% end %></div>
+          <div class="panel-footer">Panel Footer</div>
+        </div>
+      </div>
+    </div>
+    <!--<div data-role="main" class="ui-content">-->
+  <!--<form method="post" action="/action_page_post.php">-->
+    <!--<fieldset data-role="collapsible">-->
+      <!--<legend>Commentaar</legend>-->
+		<!--<div id="comments">-->
+			<!--<h3 class="w3-center">Geleverd commentaar</h3>-->
+			<!--<ul class="w3-center">-->
 
-    <div data-role="main" class="ui-content">
-  <form method="post" action="/action_page_post.php">
-    <fieldset data-role="collapsible">
-      <legend>Commentaar</legend>
-		<div id="comments">
-			<h3 class="w3-center">Geleverd commentaar</h3>
-			<ul class="w3-center">
-			<% @comments.each do |comment| %>
-				<li class="w3-text-pink">
-					<%= "#{time_ago_in_words(comment.created_at)} geleden gaf <i>#{@user.username}</i>
-							commentaar op fabmoment <strong>#{comment.fabmoment.title}</strong>".html_safe %>
-				</li>
-			<% end %>
-			<ul>
-		</div>
-    </fieldset>
-  </form>
-</div>
+			<!--<ul>-->
+		<!--</div>-->
+    <!--</fieldset>-->
+  <!--</form>-->
+<!--</div>-->
     <div class="w3-bottombar w3-border-white w3-padding-xlarge">
 		<h2 class="w3-center">Fabmomenten</h2>
 	</div>

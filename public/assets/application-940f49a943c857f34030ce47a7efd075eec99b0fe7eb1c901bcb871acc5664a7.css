@@ -2257,7 +2257,7 @@ input[type=checkbox].w3-check:disabled + .w3-validate, input[type=radio].w3-radi
 
 /* line 289, /Users/lmschukking/Documents/code/rails/fabmanager_zld/lib/assets/stylesheets/w3.css */
 .w3-lime, .w3-hover-lime:hover {
-  color: #000 !important;
+  color: #ffffff !important;
   background-color: #cddc39 !important;
 }
 

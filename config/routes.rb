@@ -28,9 +28,10 @@ Rails.application.routes.draw do
   resources 'users'
   resources :avatar
   resources 'machines' do
-  member do
-    get :take
-  end
+    member do
+      get :take
+      get :leave
+    end
   end
 
 

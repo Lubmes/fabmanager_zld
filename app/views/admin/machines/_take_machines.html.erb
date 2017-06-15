@@ -1,0 +1,20 @@
+<button onclick="document.getElementById('id02').style.display='block'"
+        class="w3-button w3-bar w3-lime fa fa-plus">Bezet een machine.</button>
+
+<!-- The Modal -->
+<div id="id02" class="w3-modal">
+  <div class="w3-modal-content">
+    <div class="w3-container">
+      <span onclick="document.getElementById('id02').style.display='none'"
+            class="w3-button w3-display-topright">&times;</span>
+      <h5 class="w3-text-teal w3-center">Machines</h5>
+
+      <% machines.each do |machine| %>
+          <li><%= machine.name%></li>
+          <%= link_to [:take, machine], class:"btn btn-success"  do %>
+              <i class="fa fa-check-square" aria-hidden="true"></i>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

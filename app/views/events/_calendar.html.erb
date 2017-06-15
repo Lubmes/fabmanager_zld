@@ -11,9 +11,18 @@
             defaultView: 'month',
             eventColor: '#0000ff',
             weekends: false,
-            editable: true,
+            editable: "<%current_user.admin%>",
             events: "<%= @events %>",
-            timeFormat: 'H(:mm)' // uppercase H for 24-hour clock
+            timeFormat: {
+                agenda: 'HH:mm{ - HH:mm}'
+            }
         });
     });
 </script>
+
+<div class="w3-row-padding w3-padding-left w3-margin-bottom">
+  <td><%= link_to new_event_path, class:"w3-button w3-circle w3-lime w3-white-text"  do %>
+        <i class="fa fa-plus" aria-hidden="true"></i>
+    <% end %>
+  </td>
+</div>

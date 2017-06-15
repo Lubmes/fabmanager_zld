@@ -26,11 +26,11 @@ class Admin::MachinesController < ApplicationController
    end
 
   def take
-    update attribute
+    usage.update +1
   end
 
   def leave
-
+    usage.update -1
   end
 
 	def create

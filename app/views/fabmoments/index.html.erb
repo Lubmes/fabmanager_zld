@@ -10,43 +10,48 @@
 
       <!--</div>-->
 
-      <div class=".col-md-4">
+      <div class=".col-md-3">
       <div class="w3-left jumbotron-icon">
         <!--<img src="/placeholder.png" alt="MISSING PNG">-->
         <!--<img id="ImgFab" src="/images/placeholder.png" alt="MISSING PNG" />-->
-        <i class="fa fa-6 fa-caret-left w3-text-lime" aria-hidden="true"></i>
+        <i class="fa fa-6 fa-caret-left w3-text-lime w3-hover-opacity" aria-hidden="true"></i>
         <img src="http://www.jennybeaumont.com/wp-content/uploads/2015/03/placeholder.gif"/>
-        <i class="fa fa-6 fa-caret-right w3-text-lime" aria-hidden="true"></i>
+        <i class="fa fa-6 fa-caret-right w3-text-lime w3-hover-opacity" aria-hidden="true"></i>
     </div>
       </div>
 <div class=".col-md-4">
-      <div class="w3-bar w3-lime">
-        <button class="w3-bar-item w3-button w3-text-white" onclick="openCity('Agenda')">Agenda.</button>
-        <button class="w3-bar-item w3-button w3-text-white" onclick="openCity('Open Inloop')">Open Inloop.</button>
-      </div>
-
       <div id="calendar" class="w3-right w3-row-padding w3-padding-left w3-card w3-margin-bottom">
+        <div class="w3-bar w3-lime">
+          <button class="w3-bar-item w3-button w3-text-white" onclick="openCity('Agenda')">Agenda.</button>
+          <button class="w3-bar-item w3-button w3-text-white" onclick="openCity('Open Inloop')">Open Inloop.</button>
+        </div>
       <%= render "events/calendar" %>
-      </div>
 
-
-      <div class="w3-row-padding w3-padding-left w3-margin-bottom">
-        <td><%= link_to new_event_path, class:"w3-button w3-circle w3-green"  do %>
-              <i class="fa fa-plus" aria-hidden="true"></i>
-          <% end %></td></div>
-      <div>
-        <%= form_tag search_fabmoments_path,
-                     method: :get,
-                     class: "w3-right-align" do %>
-            <%= text_field_tag "search", params[:search], class: "w3-form" %>
-            <%= submit_tag "Zoek", class: "w3-btn w3-indigo fa fa-search" %>
-        <% end %>
+        <%= render "admin/machines/take_machines", machines: @machines %>
+        </div>
       </div>
     </div>
+
+    <script>
+        object.onclick = function(){""};
+        }
+    </script>
+
+    <div class="span12">
+      <form id="custom-search-form" class="form-search form-horizontal pull-right">
+    <div class="input-append span12">
+      <%= form_tag search_fabmoments_path,
+                   method: :get,
+                   class: "w3-right-align" do %>
+          <%= text_field_tag "search", params[:search], class: "search-query mac-style" %>
+          <%= submit_tag "", class: "btn icon-search" %> <i class="icon-search"></i>
+      <% end %>
     </div>
+    </form>
+</div>
   </header>
 </div>
-<div class="w3-center w3-margin-top w3-topbar w3-border-white">
+<div class="w3-center w3-margin-top w3-topbar w3-border-blue-grey">
   <%= render "fabmoments/fabmoments_gallery", fabmoments: @fabmoments %>
 </div>
 </div>

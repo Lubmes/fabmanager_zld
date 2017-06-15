@@ -34,15 +34,20 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     authorize @event
 
-    @event.approved = false
+    @event.approved = current_user.admin? ? true : false
 
     respond_to do |format|
       if @event.save
 
-        EventsMailer.event_email(@user, @event).deliver!
+        if current_user.admin?
+          format.html { redirect_to @admin_event_url, notice: 'Uw evenement is aangemaakt.' }
+          format.json { render :show, status: :created, location: @event }
+        else
+          EventsMailer.event_email(@user, @event).deliver!
+          format.html { redirect_to @event, notice: 'Uw verzoek word bekeken.' }
+          format.json { render :show, status: :created, location: @event }
+        end
 
-        format.html { redirect_to @event, notice: 'Uw verzoek word bekeken.' }
-        format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
@@ -55,8 +60,16 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event }
+
+        if current_user.admin?
+          format.html { redirect_to admin_events_url, notice: 'Event was successfully destroyed.' }
+          format.json { render :show, status: :ok, location: @event }
+
+        else
+          format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+          format.json { render :show, status: :ok, location: @event }
+        end
+
       else
         format.html { render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }
@@ -70,8 +83,14 @@ class EventsController < ApplicationController
     @event.destroy
     respond_to do |format|
       flash[:notice] = "succesvol bijgewerkt."
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
-      format.json { head :no_content }
+
+      if current_user.admin?
+        format.html { redirect_to admin_events_url, notice: 'Event was successfully destroyed.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -89,4 +108,5 @@ class EventsController < ApplicationController
   def set_machines
     @machines = Machine.all
   end
-end
+
+  end

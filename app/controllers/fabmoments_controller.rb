@@ -6,6 +6,7 @@ class FabmomentsController < ApplicationController
 
   def index
     @fabmoments = Fabmoment.all
+    @machines = Machine.all
     @openingtimes = Openingtime.first
   end
 
