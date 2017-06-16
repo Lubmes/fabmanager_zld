@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170615094534) do
+ActiveRecord::Schema.define(version: 20170616113356) do
 
   create_table "acts_as_bookable_bookings", force: :cascade do |t|
     t.string   "bookable_type"
@@ -59,14 +59,16 @@ ActiveRecord::Schema.define(version: 20170615094534) do
   create_table "fabmoments", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "author_id"
     t.integer  "license_id"
     t.string   "source"
     t.text     "gingGoed"
     t.text     "gingFout"
     t.text     "kanBeter"
+    t.integer  "likes",       default: 0
+    t.boolean  "staff_pick",  default: false
     t.index ["author_id"], name: "index_fabmoments_on_author_id"
     t.index ["license_id"], name: "index_fabmoments_on_license_id"
   end

@@ -15,6 +15,11 @@ Rails.application.routes.draw do
     resources 'occupation'
     resources 'rentings'
     resources 'information'
+    resources 'fabmoments' do
+      member do
+        get :staff_pick
+      end
+    end
     resources 'events' do
       member do
         get :approved
@@ -41,6 +46,9 @@ Rails.application.routes.draw do
   post '/fabmoment/index', :controller => 'fabmoments', :action => "index"
 
   resources 'fabmoments' do
+    member do
+      get :likes
+    end
     collection do
       get :search
     end

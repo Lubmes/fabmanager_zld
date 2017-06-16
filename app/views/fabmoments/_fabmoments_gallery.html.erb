@@ -4,7 +4,14 @@
           <div class="w3-col m3">
             <div class="w3-card-2 w3-hover-shadow w3-margin-bottom">
               <header class="w3-container w3-blue-grey w3-center">
-                <h4><%= fabmoment.title %></h4>
+                <h4><%= fabmoment.title %>
+                  <%= link_to [:staff_pick, :admin, fabmoment] do %>
+                      <i class="fa fa-star w3-left w3-show-inline-block w3-hover-opacity <%= fabmoment.staff_pick? ? 'w3-text-yellow' : 'fa fa-star-o' %>"></i>
+                      <% end %>
+                  <%= link_to [:likes, fabmoment] do %>
+                      <i class="fa fa-heart w3-right w3-show-inline-block w3-hover-opacity <%= fabmoment.likes? ? 'w3-text-red' : 'fa fa-heart-o' %>"></i>
+                  <% end %>
+                </h4>
               </header>
               <div class="w3-container w3-white">
                 <%  if fabmoment.pictures.any? %>

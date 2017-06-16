@@ -6,29 +6,18 @@
 <div class="w3-container w3-center">
 	<header class="w3-container w3-margin-bottom w3-margin-top">
     <div class="w3-row-padding">
-      <!--<div class="w3-card shader w3-padding-top w3-padding-bottom w3-margin-bottom w3-margin-top w3-margin-left w3-margin-right">-->
+      <%= render "fabmoments/favourite_gallery" %>
 
-      <!--</div>-->
-
-      <div class=".col-md-3">
-      <div class="w3-left jumbotron-icon w3-card">
-        <!--<img src="/placeholder.png" alt="MISSING PNG">-->
-        <!--<img id="ImgFab" src="/images/placeholder.png" alt="MISSING PNG" />-->
-        <i class="fa fa-6 fa-caret-left w3-text-lime w3-hover-opacity" aria-hidden="true"></i>
-        <img src="http://www.jennybeaumont.com/wp-content/uploads/2015/03/placeholder.gif"/>
-        <i class="fa fa-6 fa-caret-right w3-text-lime w3-hover-opacity" aria-hidden="true"></i>
-        <!--<h1 class="w3-margin-top">Fabmoment</h1>-->
-        <!--<p>Dit is een fabmoment.</p>-->
-        <%= render "fabmoments/favourite_gallery", fabmoments: @fabmoments %>
-    </div>
-      </div>
 <div class=".col-md-4">
-      <div id="calendar" class="w3-right w3-row-padding w3-padding-left w3-card w3-margin-bottom">
-        <div class="w3-bar w3-lime">
-          <button class="w3-bar-item w3-button w3-text-white" onclick="openCity('Agenda')">Agenda.</button>
-          <button class="w3-bar-item w3-button w3-text-white" onclick="openCity('Open Inloop')">Open Inloop.</button>
-        </div>
+  <div class="w3-bar w3-lime">
+    <button class="w3-bar-item w3-button w3-text-white" onclick="openAgenda('Agenda')">Agenda.</button>
+    <button class="w3-bar-item w3-button w3-text-white" onclick="openWalkin('Open Inloop')">Open Inloop.</button>
+  </div>
+      <div id="calendar" class="w3-right w3-row-padding w3-padding-left w3-card w3-round-xxlarge w3-margin-bottom w3-padding-xxlarge">
+
       <%= render "events/calendar" %>
+
+        <%= render "admin/machines/machine_queue" %>
 
         <%= render "admin/machines/take_machines", machines: @machines %>
         </div>
@@ -47,11 +36,12 @@
                    method: :get,
                    class: "w3-right-align" do %>
           <%= text_field_tag "search", params[:search], class: "search-query mac-style" %>
-          <%= submit_tag "", class: "btn icon-search" %> <i class="icon-search"></i>
+          <%= submit_tag "", class: "fa fa-search" %> <i class="icon-search"></i>
       <% end %>
     </div>
     </form>
 </div>
+
   </header>
 </div>
 <div class="w3-center w3-margin-top w3-topbar w3-border-blue-grey">

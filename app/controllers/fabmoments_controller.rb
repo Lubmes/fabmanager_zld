@@ -65,6 +65,14 @@ class FabmomentsController < ApplicationController
     end
   end
 
+  def likes
+    # fabmoment. :likes
+    fabmoment = Fabmoment.find(params[:id])
+    fabmoment.likes += 1
+    fabmoment.save!
+    redirect_to(:back)
+  end
+
   def destroy
     authorize @fabmoment, :destroy?
     @fabmoment.destroy

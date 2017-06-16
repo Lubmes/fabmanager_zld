@@ -3,25 +3,31 @@
 
         $('#calendar').fullCalendar({
 
+            monthNames: ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'],
+            monthNamesShort: ['jan','feb','mar','apr','mei','jun','jul','aug','sep','okt','nov','dec'],
+            dayNames: ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'],
+            dayNamesShort: ['zo','ma','di','wo','do','vr','za'],
+            timeFormat: 'H(:mm)',
+            default: 'h(:mm)a',
+            allDayText: "Volledige dag",
+
             header: {
                 right: 'prev,next today',
                 left: 'title',
                 center: 'agendaDay,agendaWeek,month'
             },
+            locale: 'nl',
             defaultView: 'month',
             eventColor: '#cddc39',
             weekends: false,
             editable: false,
-            events: "<%= @events %>",
-            timeFormat: {
-                agenda: 'HH:mm{ - HH:mm}'
-            }
+            events: "<%= @events %>"
         });
     });
 </script>
 
 <div class="w3-row-padding w3-padding-left w3-margin-bottom">
-  <td><%= link_to new_event_path, class:"w3-button w3-circle w3-lime w3-white-text"  do %>
+  <td><%= link_to new_event_path, class:"w3-button w3-lime w3-white-text w3-round-xlarge"  do %>Nieuwe Reservering.
         <i class="fa fa-plus" aria-hidden="true"></i>
     <% end %>
   </td>

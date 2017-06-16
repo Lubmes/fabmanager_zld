@@ -14,11 +14,11 @@
       <div class="container">
         <div class="row">
           <div class="profile-header-container">
-            <div class="profile-header-img">
-              <img class="img-circle" src="<%= @user.avatar.url %>"  class="img-thumbnail" />
+            <div class="profile-header-img ">
+              <img class="img-circle w3-circle" src="<%= @user.avatar.url %>"  class="img-thumbnail" />
               <!-- badge -->
               <div class="rank-label-container">
-                <span class="label label-default rank-label w3-light-blue w3-text-white"><%= @user.username %></span>
+                <span class="label label-default rank-label w3-lime w3-text-white"><%= @user.username %></span>
               </div>
             </div>
           </div>
@@ -26,11 +26,20 @@
       </div>
 
 
-  <div class="w3-card-2"><li>Gebruikersnaam: <%= @user.username %></li>
-    <li>Email: <%= @user.email %></li>
-    <% if policy(@user).show? %>
-        <li>Woonplaats: <%= @user.adress %></li>
-			<% end %>
+  <div class="w3-card w3-round-xlarge w3-margin-bottom">
+    <div class="w3-padding w3-center">
+      <ul type="none">
+      <li><h1>Gebruikersnaam: <%= @user.username %></h1></li>
+        <li>Voornaam:</li>
+        <li>Achternaam:</li>
+        <li>Telefoon nummer:</li>
+      <li>Email: <%= @user.email %></li>
+        <li>Biografie:</li>
+      <% if policy(@user).show? %>
+          <li>Woonplaats: <%= @user.adress %></li>
+      <% end %>
+        </ul>
+    </div>
   </div>
 
 
@@ -38,12 +47,12 @@
     <% if policy(@user).edit? %>
         <% if current_user.admin %>
             <%= link_to [:edit,:admin,@user],
-                        class: "edit w3-btn w3-amber" do %>
+                        class: "edit w3-btn w3-amber w3-round-large" do %>
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             <% end %>
         <% else %>
             <%= link_to [:edit, @user],
-                        class: "edit w3-btn w3-amber" do %>
+                        class: "edit w3-btn w3-amber w3-round-large" do %>
                 <i class="fa fa-pencil-square-o" Bewerken aria-hidden="true"></i>
             <% end %>
         <% end %>
@@ -53,7 +62,7 @@
         <%= link_to [:archive, :admin, @user],
                     method: :patch,
                     data: { confirm: 'Weet je zeker dat je deze gebruiker wil archiveren?' },
-                    class: "edit w3-btn w3-red" do %>
+                    class: "edit w3-btn w3-red w3-round-large" do %>
             <i class="fa fa-archive" Archiveren aria-hidden="true"></i>
         <% end %>
     <% end %>
@@ -62,11 +71,12 @@
 		</header>
 
 		<!-- <p> user.bio etc. & user.comments.order(#van recent tot in verleden) </p> -->
-    <div class="panel-group">
+    <div class="panel-group w3-margin-top">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h4 class="panel-title">
+          <h4 class="panel-title w3-center w3-lime w3-round-xlarge w3-padding">
             <a data-toggle="collapse" href="#collapse1">Geleverd commentaar</a>
+            <p class="fa fa-plus"></p>
           </h4>
         </div>
         <div id="collapse1" class="panel-collapse collapse">
@@ -94,8 +104,8 @@
     <!--</fieldset>-->
   <!--</form>-->
 <!--</div>-->
-    <div class="w3-bottombar w3-border-white w3-padding-xlarge">
-		<h2 class="w3-center">Fabmomenten</h2>
+    <div class="w3-bottombar w3-border-blue-gray w3-padding-xlarge">
+		<h2 class="w3-center w3-lime w3-round-xlarge w3-padding">Fabmomenten</h2>
 	</div>
 	<!-- (Einde van de twothird kolom.) -->
 
