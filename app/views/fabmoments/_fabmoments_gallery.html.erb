@@ -1,15 +1,15 @@
 <div id="fabmoments" class="w3-row-padding w3-margin-top">
   <% fabmoments.each do |fabmoment| %>
       <%= link_to fabmoment do %>
-          <div class="w3-col m3">
+          <div class="w3-col m3 w3-text-yellow">
             <div class="w3-card-2 w3-hover-shadow w3-margin-bottom">
-              <header class="w3-container w3-blue-grey w3-center">
+              <header class="w3-container w3-lime w3-center">
                 <h4><%= fabmoment.title %>
                   <%= link_to [:staff_pick, :admin, fabmoment] do %>
-                      <i class="fa fa-star w3-left w3-show-inline-block w3-hover-opacity <%= fabmoment.staff_pick? ? 'w3-text-yellow' : 'fa fa-star-o' %>"></i>
+                      <i class="fa fa-star w3-left w3-show-inline-block w3-hover-opacity <%= fabmoment.staff_pick? ? 'w3-text-yellow w3-blue-gray' : 'fa fa-star-o w3-text-blue-gray' %>"></i>
                       <% end %>
                   <%= link_to [:likes, fabmoment] do %>
-                      <i class="fa fa-heart w3-right w3-show-inline-block w3-hover-opacity <%= fabmoment.likes? ? 'w3-text-red' : 'fa fa-heart-o' %>"></i>
+                      <i class="fa fa-heart w3-right w3-show-inline-block w3-hover-opacity <%= fabmoment.likes? ? 'w3-text-red' : 'fa fa-heart-o w3-text-blue-gray' %>"></i>
                   <% end %>
                 </h4>
               </header>

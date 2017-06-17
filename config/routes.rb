@@ -25,6 +25,7 @@ Rails.application.routes.draw do
         get :approved
       end
     end
+    resources 'openhours'
   end
 
   devise_for :users

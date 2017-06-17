@@ -1,4 +1,4 @@
-<div id="fabmoment" class=".col-md-3 w3-row-padding w3-left jumbotron-icon w3-card w3-round-xxlarge w3-margin-top">
+<div id="fabmoment" class=".col-md-3 w3-row-padding w3-left jumbotron-icon w3-card w3-round-xxlarge w3-margin-top" style="width:45%">
 
 
       <div class="w3-content w3-display-container">
@@ -7,8 +7,7 @@
         <img class="mySlides" src="http://www.jennybeaumont.com/wp-content/uploads/2015/03/placeholder.gif">
 
         <div class="w3-center w3-display-bottommiddle" style="width:100%">
-          <div class="w3-left fa fa-6 fa-caret-left w3-text-lime w3-hover-opacity" onclick="plusDivs(-1)"></div>
-          <div class="w3-right fa fa-6 fa-caret-right w3-text-lime w3-hover-opacity" onclick="plusDivs(1)"></div>
+
           <% @fabmoments.where(staff_pick: true).last(5).size.times do |i| %>
           <span class="w3-badge demo w3-border" onclick="currentDiv(<%= i+1 %>)"></span>
         <% end %>
@@ -16,18 +15,18 @@
 
 
             <div class="w3-display-container mySlides">
-              <img src="http://www.jennybeaumont.com/wp-content/uploads/2015/03/placeholder.gif" style="width:100%">
-              <div class="w3-display-bottomleft w3-large w3-container w3-padding-16 w3-black">
-                <%= fabmoment.title %>
+              <img class="w3-margin-top w3-round-xlarge favs" src="http://www.jennybeaumont.com/wp-content/uploads/2015/03/placeholder.gif" style="width:100%">
+              <div class="w3-left fa fa-6 fa-caret-left w3-text-lime w3-hover-opacity" onclick="plusDivs(-1)"></div>
+              <div class="w3-right fa fa-6 fa-caret-right w3-text-lime w3-hover-opacity" onclick="plusDivs(1)"></div>
+              <div class="w3-display-bottom w3-large w3-container w3-padding-16">
+                <h1><%= fabmoment.title %></h1>
               </div>
               <%= fabmoment.description %>
+              <div>
+                <%= link_to 'Nieuw Fabmoment', new_fabmoment_path, class:"w3-bar-item w3-button w3-text-white w3-lime w3-round-xlarge w3-margin-bottom" %>
+              </div>
             </div>
 
-
-
-            <h1 class="w3-margin-top"><%= fabmoment.title %></h1>
-      <p><%= fabmoment.description %></p>
-      <%= link_to 'Nieuw Fabmoment', new_fabmoment_path, class:"w3-bar-item w3-button w3-text-white w3-lime w3-round-xlarge w3-margin-bottom" %>
 
         <% end %>
   </div>

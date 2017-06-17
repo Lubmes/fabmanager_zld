@@ -27,12 +27,13 @@
                       <% event.machines.each do |machine| %>
 
 
-                    <p><%= machine.name %></p>
+                    <td><%= machine.name %></td>
                 <% end %>
                 </ul>
             </div>
         <% end %>
         </td>
+            <div class="w3-col"></div>
           <td><%=event.approved? %></td>
           <td><%= link_to event, class:"btn btn-primary"  do %>
                 <i class="fa fa-search" aria-hidden="true"></i>
