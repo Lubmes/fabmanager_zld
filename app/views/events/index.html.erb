@@ -6,18 +6,24 @@
 <body>
   <p id="notice"><%= notice %></p>
 
-  <div class="w3-margin-left w3-card m3">
-    <h1 class="w3-text-light-blue w3-row-padding w3-card w3-margin-bottom" style="font-weight: bold">Agenda</h1></div>
-
-
-  <div class="w3-left w3-row-padding w3-padding-left w3-card w3-margin-bottom">
-    <%= render "events/eventlist" %>
+  <div class="w3-padding m3">
+    <h1 class="w3-round-xlarge w3-lime w3-padding" style="font-weight: bold">Agenda</h1>
   </div>
 
-<div id="calendar" class="w3-left w3-row-padding w3-padding-left w3-card w3-margin-bottom"></div>
+<div class="w3-rightbar w3-border-blue-gray">
+  <div class="m5 w3-left w3-row-padding w3-padding-left w3-card w3-margin-bottom w3-round-xlarge">
+    <div class="w3-topbar w3-border-blue-gray w3-margin-top">
+    <%= render "events/eventlist" %>
+    </div>
+    <div class="w3-topbar w3-border-blue-gray">
+    <td><%= link_to new_event_path, class:"btn w3-lime w3-round-xlarge w3-margin-bottom w3-padding w3-margin-top w3-topbar w3-border-blue-gray w3-hover-blue"  do %>Nieuwe Reservering
+          <i class="fa fa-plus" aria-hidden="true"></i>
+      <% end %></td>
+    </div>
+  </div>
+  </div>
+<div id="calendar" class="w3-right w3-lime w3-text-blue w3-row-padding w3-padding-left w3-card w3-margin-bottom w3-round-xlarge">
   <%= render "events/calendar" %>
+</div>
 
-  <td><%= link_to new_event_path, class:"btn btn-success"  do %>
-        <i class="fa fa-plus" aria-hidden="true"></i>
-    <% end %></td>
 </body>
