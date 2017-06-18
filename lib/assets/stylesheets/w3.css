@@ -239,7 +239,7 @@ input[type=checkbox].w3-check:disabled+.w3-validate,input[type=radio].w3-radio:d
 .w3-card-12{box-shadow:0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19)!important}
 .w3-card-16{box-shadow:0 16px 24px 0 rgba(0,0,0,0.22),0 25px 55px 0 rgba(0,0,0,0.21)!important}
 .w3-card-24{box-shadow:0 24px 24px 0 rgba(0,0,0,0.2),0 40px 77px 0 rgba(0,0,0,0.22)!important}
-.w3-animate-fading{-webkit-animation:fading 10s infinite;animation:fading 10s infinite}
+.w3-animate-fading{-webkit-animation:fading 20s infinite;animation:fading 20s infinite}
 @-webkit-keyframes fading{0%{opacity:0}50%{opacity:1}100%{opacity:0}}
 @keyframes fading{0%{opacity:0}50%{opacity:1}100%{opacity:0}}
 .w3-animate-opacity{-webkit-animation:opac 0.8s;animation:opac 0.8s}

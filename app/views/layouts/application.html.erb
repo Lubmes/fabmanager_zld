@@ -19,12 +19,12 @@
 			</li>
 
       <li class="<% "active" if current_page?("/") %>">
-        <%= link_to "Contact", root_path,
+        <%= link_to "Contact", #bottom,
                     class: "w3-hover-text-light-blue w3-hover-white" %>
       </li>
 
       <li class="w3-dropdown-hover navdropdown">
-        <%= link_to "Fabmomenten <i class='fa fa-caret-down'></i>".html_safe, style="",
+        <%= link_to "Fabmomenten <i class='fa fa-caret-down'></i>".html_safe,
                     class: "navdropbtn" %>
         <div class="w3-dropdown-content navdropdown-content">
           <%= link_to 'Gallerij', root_path %>
@@ -98,7 +98,7 @@
 
 
 
-  <footer class="footer">
+  <footer class="footer mt-5"><a href="bottom"></a>
     <div class="w3-dark-gray py-3">
       <div class="container">
         <div class="row py-3">
@@ -148,7 +148,7 @@
                     <h1>Wat zijn FabSheets?</h1>
                     <ul>FabSheets zijn werkdocumenten die bedoeld zijn om de bezoekers van het FabLab wegwijs te maken in het FabLab en de machines. Zo kunnen bezoekers zelfstandig beginnen.</ul>
                     <ul>
-                      <li>FabSheet Hoe werkt het FabLab <a class="sourcelink w3-margin-left" href="https://www.dezb.nl/dam/bestanden/fablab/Fabsheet%20Hoe%20werkt%20het%20FabLab%202016.pdf">Download nu</a></li>
+                      <li>FabSheet Hoe werkt het FabLab<a class="sourcelink w3-margin-left" href="https://www.dezb.nl/dam/bestanden/fablab/Fabsheet%20Hoe%20werkt%20het%20FabLab%202016.pdf">Download nu</a></li>
                       <li>FabSheet Prijslijst materialen<a class="sourcelink w3-margin-left" href="https://www.dezb.nl/dam/bestanden/fablab/Fabsheet%20Prijslijst%20Materialen.pdf">Download nu</a></li>
                       <li>FabSheet Lasersnijder<a class="sourcelink w3-margin-left" href="https://www.dezb.nl/dam/bestanden/Wat%20we%20doen/Fablab-2017/Fabsheet%20lasersnijder%20januari%202017.pdf">Download nu</a></li>
                       <li>FabSheet 3D-printer<a class="sourcelink w3-margin-left" href="https://www.dezb.nl/dam/bestanden/Wat%20we%20doen/Fablab-2017/Fabsheet%203D-printer%202017.pdf">Download nu</a></li>

@@ -19,7 +19,7 @@
 
 
         <div class="w3-row-padding w3-padding-left w3-margin-bottom">
-          <td><%= link_to new_event_path, class:"w3-button w3-lime w3-white-text w3-round-xlarge"  do %>Nieuwe Reservering.
+          <td><%= link_to new_event_path, class:"new w3-btn w3-lime w3-margin-bottom w3-margin-top w3-round-xlarge w3-topbar w3-border-blue-gray w3-hover-blue"  do %>Nieuwe Reservering
                 <i class="fa fa-plus" aria-hidden="true"></i>
             <% end %>
           </td>
@@ -32,18 +32,13 @@
       </div>
     </div>
 
-    <script>
-        object.onclick = function(){""};
-        }
-    </script>
-
     <div class="span12">
       <form id="custom-search-form" class="form-search form-horizontal pull-right">
     <div class="input-append span12">
       <%= form_tag search_fabmoments_path,
                    method: :get,
                    class: "w3-right-align" do %>
-          <%= text_field_tag "search", params[:search], class: "search-query mac-style" %>
+          <%= text_field_tag "search", params[:search], class: "search-query mac-style fa fa-search w3-right" %>
           <%= submit_tag "", class: "fa fa-search" %> <i class="icon-search"></i>
       <% end %>
     </div>
