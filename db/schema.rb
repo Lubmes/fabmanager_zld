@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616113356) do
+ActiveRecord::Schema.define(version: 20170618102815) do
 
   create_table "acts_as_bookable_bookings", force: :cascade do |t|
     t.string   "bookable_type"
@@ -232,6 +232,11 @@ ActiveRecord::Schema.define(version: 20170616113356) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "firstname"
+    t.string   "insertion"
+    t.string   "lastname"
+    t.string   "biography"
+    t.string   "telephone"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

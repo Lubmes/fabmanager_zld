@@ -15,10 +15,10 @@
         <div class="row">
           <div class="profile-header-container">
             <div class="profile-header-img ">
-              <img class="img-circle w3-circle" src="<%= @user.avatar.url %>"  class="img-thumbnail" />
+              <img class="img-circle w3-circle w3-card-8" src="<%= @user.avatar.url %>"  class="img-thumbnail" />
               <!-- badge -->
               <div class="rank-label-container">
-                <span class="label label-default rank-label w3-lime w3-text-white"><%= @user.username %></span>
+                <span class="label label-default rank-label w3-lime w3-card-8 w3-text-white"><%= @user.username %></span>
               </div>
             </div>
           </div>
@@ -26,18 +26,20 @@
       </div>
 
 
-  <div class="w3-card w3-round-xlarge w3-margin-bottom">
+  <div class="w3-card w3-padding-12 w3-round-xlarge w3-margin-bottom">
     <div class="w3-padding w3-center">
       <ul type="none">
       <li><h1>Gebruikersnaam: <%= @user.username %></h1></li>
-        <li>Voornaam:</li>
-        <li>Achternaam:</li>
-        <li>Telefoon nummer:</li>
+        <li>Naam: <%= @user.firstname %> <%= @user.insertion %> <%= @user.lastname %></li>
+        <li>Biografie: <%= @user.biography %></li>
       <li>Email: <%= @user.email %></li>
-        <li>Biografie:</li>
+        <li>Telefoon nummer: <%= @user.telephone %></li>
       <% if policy(@user).show? %>
           <li>Woonplaats: <%= @user.adress %></li>
       <% end %>
+        <% if current_user.admin %>
+        <li>Administrator: <%= @user.admin? %></li>
+            <% end %>
         </ul>
     </div>
   </div>
@@ -47,7 +49,7 @@
     <% if policy(@user).edit? %>
         <% if current_user.admin %>
             <%= link_to [:edit,:admin,@user],
-                        class: "edit w3-btn w3-amber w3-round-large" do %>
+                        class: "edit w3-btn w3-blue w3-round-large w3-margin-right" do %>Bewerken
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             <% end %>
         <% else %>
@@ -62,7 +64,7 @@
         <%= link_to [:archive, :admin, @user],
                     method: :patch,
                     data: { confirm: 'Weet je zeker dat je deze gebruiker wil archiveren?' },
-                    class: "edit w3-btn w3-red w3-round-large" do %>
+                    class: "edit w3-btn w3-red w3-round-large w3-margin-left w3-right" do %>Account Verwijderen
             <i class="fa fa-archive" Archiveren aria-hidden="true"></i>
         <% end %>
     <% end %>

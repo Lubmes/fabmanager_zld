@@ -1,9 +1,11 @@
 <script>
     $(document).ready(function() {
 
+        $("<link rel='stylesheet' type='text/css' href='fullcalendar.css' />").appendTo("head");
+
         $('#calendar').fullCalendar({
 
-            locale: 'nl',
+            locales: 'nl',
             monthNames: ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'],
             monthNamesShort: ['jan','feb','mar','apr','mei','jun','jul','aug','sep','okt','nov','dec'],
             dayNames: ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'],

@@ -3,7 +3,7 @@
   <% @fabmoments.where(staff_pick: true).last(5).each do |fabmoment| %>
           <% @fabmoments.where(staff_pick: true).last(5).size.times do |i| %>
             <div class="w3-display-container mySlides">
-              <img class="w3-margin-top w3-round-xlarge w3-animate-fading" src="http://www.jennybeaumont.com/wp-content/uploads/2015/03/placeholder.gif" style="width:100%">
+              <img class="w3-margin-top w3-round-xlarge w3-animate-fading" src="http://via.placeholder.com/800x500" style="width:100%">
                 <div class="w3-left fa fa-6 fa-caret-left w3-text-lime w3-hover-opacity" onclick="plusDivs(-1)"></div>
                 <div class="w3-right fa fa-6 fa-caret-right w3-text-lime w3-hover-opacity" onclick="plusDivs(1)"></div>
                   <span class="w3-badge demo w3-border" onclick="currentDiv(<%= i+1 %>)"></span>

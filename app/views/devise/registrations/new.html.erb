@@ -1,7 +1,7 @@
-<% title("Inschrijving", "Gebruikers") %>
+<% title("Registreren", "Gebruikers") %>
 <div class="w3-container w3-margin-top">
 	<header>
-		<h2 class="w3-center">Inschrijving</h2>
+		<h2 class="w3-center">Registreren</h2>
 	<header>
 
 	<div class="w3-row">
@@ -10,15 +10,30 @@
 																		url: registration_path(resource_name), 
 																		html: {multipart: true} ) do |f| %>
 				<!-- Input -->
-				<%= f.input_field :username, required: true, autofocus: true %>
-				<%= f.label :username %>
-				<%= f.error :username %>
-				<%= f.input_field :adress, required: true, autofocus: true %>
-				<%= f.label :adress %>
-				<%= f.error :adress %>
-				<%= f.input_field :email, required: true, autofocus: true %>
-				<%= f.label :email %>
-				<%= f.error :email %>
+          <%= f.input_field :username, required: true, autofocus: true %>
+          <%= f.label :username %>
+          <%= f.error :username %>
+          <%= f.input_field :firstname %>
+          <%= f.label :firstname %>
+          <%= f.error :firstname %>
+          <%= f.input_field :insertion %>
+          <%= f.label :insertion %>
+          <%= f.error :insertion %>
+          <%= f.input_field :lastname %>
+          <%= f.label :lastname %>
+          <%= f.error :lastname %>
+          <%= f.input_field :biography, required: true %>
+          <%= f.label :biography %>
+          <%= f.error :biography %>
+          <%= f.input_field :email, required: true %>
+          <%= f.label :email %>
+          <%= f.error :email %>
+          <%= f.input_field :telephone %>
+          <%= f.label :telephone %>
+          <%= f.error :telephone %>
+          <%= f.input_field :adress %>
+          <%= f.label :adress %>
+          <%= f.error :adress %>
 				<%= f.input_field :password, required: true %>
 				<%= f.label :password %>
 				<%= "minimaal #{@minimum_password_length} karakters" if @minimum_password_length %>
