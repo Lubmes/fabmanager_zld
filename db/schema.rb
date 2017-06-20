@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519140934) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20170620125913) do
 
   create_table "acts_as_bookable_bookings", force: :cascade do |t|
     t.string   "bookable_type"
@@ -26,8 +23,8 @@ ActiveRecord::Schema.define(version: 20170519140934) do
     t.datetime "time_end"
     t.datetime "time"
     t.datetime "created_at"
-    t.index ["bookable_type", "bookable_id"], name: "index_acts_as_bookable_bookings_bookable", using: :btree
-    t.index ["booker_type", "booker_id"], name: "index_acts_as_bookable_bookings_booker", using: :btree
+    t.index ["bookable_type", "bookable_id"], name: "index_acts_as_bookable_bookings_bookable"
+    t.index ["booker_type", "booker_id"], name: "index_acts_as_bookable_bookings_booker"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -36,8 +33,8 @@ ActiveRecord::Schema.define(version: 20170519140934) do
     t.integer  "author_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["author_id"], name: "index_comments_on_author_id", using: :btree
-    t.index ["fabmoment_id"], name: "index_comments_on_fabmoment_id", using: :btree
+    t.index ["author_id"], name: "index_comments_on_author_id"
+    t.index ["fabmoment_id"], name: "index_comments_on_fabmoment_id"
   end
 
   create_table "event_machines", force: :cascade do |t|
@@ -45,8 +42,8 @@ ActiveRecord::Schema.define(version: 20170519140934) do
     t.integer  "machine_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_event_machines_on_event_id", using: :btree
-    t.index ["machine_id"], name: "index_event_machines_on_machine_id", using: :btree
+    t.index ["event_id"], name: "index_event_machines_on_event_id"
+    t.index ["machine_id"], name: "index_event_machines_on_machine_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -56,28 +53,31 @@ ActiveRecord::Schema.define(version: 20170519140934) do
     t.datetime "end_time"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.boolean  "approved"
   end
 
   create_table "fabmoments", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "author_id"
     t.integer  "license_id"
     t.string   "source"
     t.text     "gingGoed"
     t.text     "gingFout"
     t.text     "kanBeter"
-    t.index ["author_id"], name: "index_fabmoments_on_author_id", using: :btree
-    t.index ["license_id"], name: "index_fabmoments_on_license_id", using: :btree
+    t.integer  "likes",       default: 0
+    t.boolean  "staff_pick",  default: false
+    t.index ["author_id"], name: "index_fabmoments_on_author_id"
+    t.index ["license_id"], name: "index_fabmoments_on_license_id"
   end
 
   create_table "fabmoments_tags", id: false, force: :cascade do |t|
     t.integer "tag_id",       null: false
     t.integer "fabmoment_id", null: false
-    t.index ["fabmoment_id", "tag_id"], name: "index_fabmoments_tags_on_fabmoment_id_and_tag_id", using: :btree
-    t.index ["tag_id", "fabmoment_id"], name: "index_fabmoments_tags_on_tag_id_and_fabmoment_id", using: :btree
+    t.index ["fabmoment_id", "tag_id"], name: "index_fabmoments_tags_on_fabmoment_id_and_tag_id"
+    t.index ["tag_id", "fabmoment_id"], name: "index_fabmoments_tags_on_tag_id_and_fabmoment_id"
   end
 
   create_table "feeds", force: :cascade do |t|
@@ -85,8 +85,8 @@ ActiveRecord::Schema.define(version: 20170519140934) do
     t.integer  "material_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["fabmoment_id"], name: "index_feeds_on_fabmoment_id", using: :btree
-    t.index ["material_id"], name: "index_feeds_on_material_id", using: :btree
+    t.index ["fabmoment_id"], name: "index_feeds_on_fabmoment_id"
+    t.index ["material_id"], name: "index_feeds_on_material_id"
   end
 
   create_table "handles", force: :cascade do |t|
@@ -94,8 +94,8 @@ ActiveRecord::Schema.define(version: 20170519140934) do
     t.integer  "machine_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["fabmoment_id"], name: "index_handles_on_fabmoment_id", using: :btree
-    t.index ["machine_id"], name: "index_handles_on_machine_id", using: :btree
+    t.index ["fabmoment_id"], name: "index_handles_on_fabmoment_id"
+    t.index ["machine_id"], name: "index_handles_on_machine_id"
   end
 
   create_table "information", force: :cascade do |t|
@@ -108,8 +108,8 @@ ActiveRecord::Schema.define(version: 20170519140934) do
     t.integer  "program_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["fabmoment_id"], name: "index_interfaces_on_fabmoment_id", using: :btree
-    t.index ["program_id"], name: "index_interfaces_on_program_id", using: :btree
+    t.index ["fabmoment_id"], name: "index_interfaces_on_fabmoment_id"
+    t.index ["program_id"], name: "index_interfaces_on_program_id"
   end
 
   create_table "licenses", force: :cascade do |t|
@@ -121,10 +121,13 @@ ActiveRecord::Schema.define(version: 20170519140934) do
 
   create_table "machines", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.text     "schedule"
     t.integer  "capacity"
+    t.integer  "usage",             default: 0
+    t.integer  "usage_duration_id"
+    t.index ["usage_duration_id"], name: "index_machines_on_usage_duration_id"
   end
 
   create_table "materials", force: :cascade do |t|
@@ -179,7 +182,7 @@ ActiveRecord::Schema.define(version: 20170519140934) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.index ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable_type_and_imageable_id", using: :btree
+    t.index ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable_type_and_imageable_id"
   end
 
   create_table "programs", force: :cascade do |t|
@@ -197,7 +200,7 @@ ActiveRecord::Schema.define(version: 20170519140934) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
-    t.index ["fabmoment_id"], name: "index_project_files_on_fabmoment_id", using: :btree
+    t.index ["fabmoment_id"], name: "index_project_files_on_fabmoment_id"
   end
 
   create_table "rentings", force: :cascade do |t|
@@ -208,6 +211,14 @@ ActiveRecord::Schema.define(version: 20170519140934) do
 
   create_table "tags", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "usage_durations", force: :cascade do |t|
+    t.time     "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_usage_durations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -231,12 +242,13 @@ ActiveRecord::Schema.define(version: 20170519140934) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.string   "firstname"
+    t.string   "insertion"
+    t.string   "lastname"
+    t.string   "biography"
+    t.string   "telephone"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "comments", "fabmoments"
-  add_foreign_key "comments", "users", column: "author_id"
-  add_foreign_key "fabmoments", "licenses"
-  add_foreign_key "fabmoments", "users", column: "author_id"
 end

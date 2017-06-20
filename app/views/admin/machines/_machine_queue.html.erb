@@ -1,0 +1,18 @@
+<div class="">
+  <% @machines.each do |machine| %>
+
+      <% if machine.usage=0 %>
+
+          <% else %>
+
+          <% end %>
+      <li><%= machine.name%></li>
+      <li><%= machine.capacity%></li>
+      <li><%= machine.usage%></li>
+      <% if machine.usage_duration %>
+        <li><%= machine.usage_duration.duration %></li>
+        <li><%= machine.usage_duration.user.username %></li>
+      <% end %>
+      <br>
+  <% end %>
+</div>

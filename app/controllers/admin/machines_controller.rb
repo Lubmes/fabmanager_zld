@@ -1,15 +1,20 @@
 class Admin::MachinesController < ApplicationController
 	before_action :set_machine, only: [:show, :edit, :update, :destroy, :archive]
+
   def index
 		@machines = Machine.all
-	end
+  end
+
 	def new
 		@machine = Machine.new
-	end
+  end
+
   def show
   end
+
   def edit
   end
+
    def update
     @machine = Machine.find(params[:id])
     if @machine.update(machine_params)
@@ -18,7 +23,17 @@ class Admin::MachinesController < ApplicationController
     else
       render 'edit'
     end
+   end
+
+  def take
+    usage.update +1
+
   end
+
+  def leave
+    usage.update -1
+  end
+
 	def create
 		@machine = Machine.new(machine_params)
 
@@ -28,16 +43,19 @@ class Admin::MachinesController < ApplicationController
     else
       flash.now[:alert] = "Machine is niet toegevoegd."
     end
-	end
+  end
+
 	 def destroy
     @machine = Machine.find(@machine)
     @machine.delete
     flash[:notice] = "Machine is succesvol verwijderd."
     redirect_to admin_machines_path
-  end
+   end
+
     def machine_params
-    	params.require(:machine).permit(:id,:name,:admin,:capacity)
+    	params.require(:machine).permit(:id,:name,:admin,:capacity,:usage)
     end
+
     def set_machine
     @machine = Machine.find(params[:id])
   	end

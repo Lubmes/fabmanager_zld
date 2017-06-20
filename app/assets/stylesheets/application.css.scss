@@ -13,13 +13,66 @@
  a {
    text-decoration: none;
    color: white;
-   font-family: arial, sans-serif;
+   font-family: verdana, Verdana, Arial, Helvetica, sans-serif;
+ }
+
+ html {
+   height: 100%;
+   margin: 0;
+   //box-sizing: border-box;
+ }
+
+ *,
+ *:before,
+ *:after {
+   box-sizing: inherit;
  }
 
  body {
-   padding: 5%;
+   height: 100%;
+   margin: 0;
    background-origin: border-box;
    background-image: linear-gradient(rgb(255, 255, 255),rgb(175, 225, 247),rgb(0, 158, 227),rgb(175, 225, 247),rgb(255, 255, 255));
+ }
+
+ //footer {
+ //  //position: fixed;
+ //  position: absolute;
+ //  height: 50px;
+ //  right: 0;
+ //  margin-top: 40px;
+ //  bottom: 10%;
+ //  left: 0;
+ //  width: 100%;
+ //  height: 10%;
+ //  z-index: 1;
+ //  padding: 1rem;
+ //  text-align: center;
+ //}
+
+ //.footer,
+ //.push {
+ //  position: absolute;
+ //  height: 1000px;
+ //}
+
+ .footer {
+   position: absolute;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   padding: 1rem;
+   text-align: center;
+ }
+
+ .content{
+   padding: 20px;
+   min-height: 100%;
+   margin: 0 auto -50px;
+ }
+
+ #container {
+   height:100%;
  }
 
  w3-label {
@@ -28,7 +81,7 @@
 
  imgmachine{
    width: 50%;
-   height: 50
+   height: 50%;
  }
 
  h1 {
@@ -92,15 +145,19 @@
 
  img {
    display: inline;
-   margin: 0 auto;
+   border-image: round;
    height: 100%;
-   width: auto;
+   width: 75%;
  }
 
- footer {
-
+ favs {
+   height: 50%;
+   width: 50%;
  }
 
+ .jumbotron-icon .fa-6 {
+   font-size: 6em;
+ }
  // This is for fabmoments/show.html.erb sourcelink!
 
  a.sourcelink:link {
@@ -417,6 +474,104 @@
      padding: 10px 0px 9px;
    }
  }
+ /* The switch - the box around the slider */
+ .switch {
+   position: relative;
+   display: inline-block;
+   width: 60px;
+   height: 34px;
+ }
+
+ /* Hide default HTML checkbox */
+ .switch input {display:none;}
+
+ /* The slider */
+ .slider {
+   position: absolute;
+   cursor: pointer;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: #ccc;
+   -webkit-transition: .4s;
+   transition: .4s;
+ }
+
+ .slider:before {
+   position: absolute;
+   content: "";
+   height: 26px;
+   width: 26px;
+   left: 4px;
+   bottom: 4px;
+   background-color: white;
+   -webkit-transition: .4s;
+   transition: .4s;
+ }
+
+ input:checked + .slider {
+   background-color: #cddc39;
+ }
+
+ input:focus + .slider {
+   box-shadow: 0 0 1px #cddc39;
+ }
+
+ input:checked + .slider:before {
+   -webkit-transform: translateX(26px);
+   -ms-transform: translateX(26px);
+   transform: translateX(26px);
+ }
+
+
+
+ #custom-search-input {
+   margin:0;
+   margin-top: 10px;
+   padding: 0;
+ }
+
+ #custom-search-input .search-query {
+   padding-right: 3px;
+   padding-right: 4px \9;
+   padding-left: 3px;
+   padding-left: 4px \9;
+   /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+   margin-bottom: 0;
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+   border-radius: 3px;
+ }
+
+ #custom-search-input button {
+   border: 0;
+   background: none;
+   /** belows styles are working good */
+   padding: 2px 5px;
+   margin-top: 2px;
+   position: relative;
+   left: -28px;
+   /* IE7-8 doesn't have border-radius, so don't indent the padding */
+   margin-bottom: 0;
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+   border-radius: 3px;
+   color:#D9230F;
+ }
+
+ .search-query:focus + button {
+   z-index: 3;
+ }
+ w3-badge{
+   height: 13px;
+   width: 13px;
+   padding: 0;
+ }
+
+
+
 
 
 

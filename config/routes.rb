@@ -15,11 +15,17 @@ Rails.application.routes.draw do
     resources 'occupation'
     resources 'rentings'
     resources 'information'
+    resources 'fabmoments' do
+      member do
+        get :staff_pick
+      end
+    end
     resources 'events' do
       member do
         get :approved
       end
     end
+    resources 'openhours'
   end
 
   devise_for :users
@@ -27,12 +33,23 @@ Rails.application.routes.draw do
   resources 'information'
   resources 'users'
   resources :avatar
+  resources 'machines' do
+    member do
+      get :take
+      get :leave
+    end
+  end
+
+
 
   root 'fabmoments#index'
   get '/fabmoment/index', :controller => 'fabmoments', :action => "index"
   post '/fabmoment/index', :controller => 'fabmoments', :action => "index"
 
   resources 'fabmoments' do
+    member do
+      get :likes
+    end
     collection do
       get :search
     end

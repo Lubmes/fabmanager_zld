@@ -1,0 +1,36 @@
+<script>
+    $(document).ready(function() {
+
+        $('#calendar').fullCalendar({
+
+            locales: 'nl',
+            monthNames: ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'],
+            monthNamesShort: ['jan','feb','mar','apr','mei','jun','jul','aug','sep','okt','nov','dec'],
+            dayNames: ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'],
+            dayNamesShort: ['zo','ma','di','wo','do','vr','za'],
+            timeFormat: 'H(:mm)',
+            default: 'h(:mm)a',
+            allDayText: "Volledige dag",
+            titleFormat: 'MMMM D YYYY',
+            columnFormat: 'dddd',
+            buttonText: {
+                today: 'Vandaag',
+                agendaDay: 'Dag',
+                agendaWeek: 'Week',
+                month: 'Maand'
+            },
+
+            header: {
+                right: 'prev,next today',
+                left: 'title',
+                center: 'agendaDay,agendaWeek,month'
+            },
+            defaultView: 'month',
+            eventColor: '#cddc39',
+            ignoreTimezone: true,
+            weekends: false,
+            editable: false,
+            events: "<%= @events %>"
+        });
+    });
+</script>

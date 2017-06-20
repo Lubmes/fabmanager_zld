@@ -6,6 +6,7 @@ class FabmomentsController < ApplicationController
 
   def index
     @fabmoments = Fabmoment.all
+    @machines = Machine.all
     @openingtimes = Openingtime.first
   end
 
@@ -62,6 +63,14 @@ class FabmomentsController < ApplicationController
       flash.now[:alert] = "Fabmoment is niet bijgewerkt."
       render "edit"
     end
+  end
+
+  def likes
+    # fabmoment. :likes
+    fabmoment = Fabmoment.find(params[:id])
+    fabmoment.likes += 1
+    fabmoment.save!
+    redirect_to(:back)
   end
 
   def destroy

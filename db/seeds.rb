@@ -7,23 +7,24 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
  User.delete_all
-# Machine.delete_all
+ Machine.delete_all
 # Program.delete_all
 # Material.delete_all
 # License.delete_all
+Fabmoment.delete_all
 
 unless User.exists?(email: "FablabZeeland@gmail.com")
-  User.create!(email: "FablabZeeland@gmail.com", password: "password", username: "Administrator", admin: true)
+  User.create!(email: "FablabZeeland@gmail.com", password: "Z33landf@bl@b", username: "Administrator", admin: true)
 end
 
-unless Machine.exists?(name: "Ultimaker Original")
-  m1 = Machine.create(name: "Ultimaker Three")
-  m2 = Machine.create(name: "Ultimaker Original Plus")
-  m3 = Machine.create(name: "Ultimaker Two")
-  m4 = Machine.create(name: "Ultimaker Two Plus")
-  m5 = Machine.create(name: "Lasersnijder")
-  m6 = Machine.create(name: "Vinylsnijder")
-  m7 = Machine.create(name: "3D Scanner")
+unless Machine.exists?(name: "Ultimaker Original", capacity: 1)
+  m1 = Machine.create(name: "Ultimaker Three", capacity: 1)
+  m2 = Machine.create(name: "Ultimaker Original Plus", capacity: 1)
+  m3 = Machine.create(name: "Ultimaker Two", capacity: 3)
+  m4 = Machine.create(name: "Ultimaker Two Plus", capacity: 2)
+  m5 = Machine.create(name: "Lasersnijder", capacity: 1)
+  m6 = Machine.create(name: "Vinylsnijder", capacity: 1)
+  m7 = Machine.create(name: "3D Scanner", capacity: 1)
 end
 
 unless Program.exists?(name: "Adobe Illustrator")
@@ -34,7 +35,7 @@ unless Program.exists?(name: "Adobe Illustrator")
   Program.create(name: "Blender")
 end
 
-unless Material.exists?(sort: "Multiplex")
+unless Material.exists?(sort: "Multiplex ")
   mt1 = Material.create(sort: "Multiplex", thickness: 3)
   mt2 = Material.create(sort: "Multiplex", thickness: 4)
   mt3 = Material.create(sort: "Multiplex", thickness: 6)

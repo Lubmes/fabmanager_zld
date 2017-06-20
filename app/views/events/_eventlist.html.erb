@@ -13,7 +13,7 @@
     </tr>
     </thead>
 
-    <tbody class="w3-padding-0", style="font-size:14px">
+    <tbody class="w3-padding-0", style="font-size:9px">
     <% @events.each do |event|%>
         <tr>
           <td><%= event.title %></td>
@@ -27,16 +27,19 @@
                       <% event.machines.each do |machine| %>
 
 
-                    <p><%= machine.name %></p>
+                    <td><%= machine.name %></td>
                 <% end %>
                 </ul>
             </div>
         <% end %>
         </td>
+            <div class="w3-col"></div>
           <td><%=event.approved? %></td>
           <td><%= link_to event, class:"btn btn-primary"  do %>
                 <i class="fa fa-search" aria-hidden="true"></i>
           <% end %></td>
+
+          <% if current_user.admin? %>
           <td><%= link_to edit_event_path(event), class:"btn btn-warning"  do %>
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             <% end %></td>
@@ -47,39 +50,11 @@
                 <i class="fa fa-trash" aria-hidden="true"></i>
             <% end %></td>
         </tr>
+              <% else %>
+
+
+          <% end %>
     <% end %>
     </tbody>
   </table>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="[ col-xs-12 col-sm-offset-2 col-sm-6 ]">
-      <ul class="event-list">
-        <li>
-          <% @events.each do |events|%>
-              <time datetime=<%= events.start_time %>>
-                <span class="day">22</span>
-                <span class="month">04</span>
-                <span class="year">2004</span>
-                <span class="time">15:00</span>
-              </time>
-              <!--<img alt="ATATÜRK" src="http://www.rampartsofcivilization.com/wp-content/uploads/2011/02/MUSTAFA-KEMAL-ATATURK-150x150.jpg" />-->
-              <div class="info">
-                <h2 class="title"><%= events.title %></h2>
-                <p class="desc"><%= events.description %></p>
-              </div>
-
-              <div class="social">
-                <ul>
-                  <li class="edit" style="width:33%;"><a href="#"><span class="fa fa-pencil-square-o"></span></a></li>
-                  <li class="confirm" style="width:34%;"><a href="#"><span class="fa fa-check"></span></a></li>
-                  <li class="delete" style="width:33%;"><a href="#"><span class="fa fa-trash-o"></span></a></li>
-                </ul>
-              </div>
-          <% end %>
-        </li>
-      </ul>
-    </div>
-  </div>
 </div>

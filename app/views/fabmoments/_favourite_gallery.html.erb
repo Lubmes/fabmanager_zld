@@ -1,0 +1,54 @@
+<div id="fabmoment" class=".col-md-3 w3-row-padding w3-left jumbotron-icon w3-card w3-round-xxlarge w3-margin-top" style="width:45%">
+
+  <% @fabmoments.where(staff_pick: true).last(5).each do |fabmoment| %>
+          <% @fabmoments.where(staff_pick: true).last(5).size.times do |i| %>
+            <div class="w3-display-container mySlides">
+              <img class="w3-margin-top w3-round-xlarge w3-animate-fading" src="http://via.placeholder.com/800x500" style="width:100%">
+                <div class="w3-left fa fa-6 fa-caret-left w3-text-lime w3-hover-opacity" onclick="plusDivs(-1)"></div>
+                <div class="w3-right fa fa-6 fa-caret-right w3-text-lime w3-hover-opacity" onclick="plusDivs(1)"></div>
+                  <span class="w3-badge demo w3-border" onclick="currentDiv(<%= i+1 %>)"></span>
+                    <div class="w3-display-bottom w3-large w3-container w3-padding-16">
+                      <h1><%= fabmoment.title %></h1>
+                    </div>
+                  <%= fabmoment.description %>
+                <div>
+                  <%= link_to 'Nieuw Fabmoment', new_fabmoment_path, class:"new w3-btn w3-lime w3-margin-bottom w3-margin-top w3-round-xlarge w3-topbar w3-border-blue-gray w3-hover-blue" %>
+              </div>
+            </div>
+      <% end %>
+  <% end %>
+  </div>
+</div>
+
+<script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+    carousel();
+
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length} ;
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex-1].style.display = "block";
+    }
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > x.length) {slideIndex = 1}
+        x[slideIndex-1].style.display = "block";
+        setTimeout(carousel, 5000); // Change image every 2 seconds
+    }
+</script>

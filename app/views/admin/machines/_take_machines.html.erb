@@ -1,0 +1,28 @@
+<div class="w3-row-padding w3-padding-left w3-margin-bottom">
+<button onclick="document.getElementById('id02').style.display='block'"
+        class="new w3-btn w3-lime w3-margin-bottom w3-margin-top w3-round-xlarge w3-topbar w3-border-blue-gray w3-hover-blue">Bezet een machine.
+          <i class="fa fa-plus" aria-hidden="true"></i></button>
+</div>
+
+<!-- The Modal -->
+<div id="id02" class="w3-modal">
+  <div class="w3-modal-content">
+    <div class="w3-container">
+      <span onclick="document.getElementById('id02').style.display='none'"
+            class="w3-button w3-display-topright">&times;</span>
+      <h5 class="w3-text-teal w3-center">Machines</h5>
+      <p>Dit is waar je een machine kunt bezetten voor (Tijd variable).</p>
+
+      <% machines.each do |machine| %>
+          <ul style="list-style-type:none">
+            <li><%= machine.name%></li>
+            <li><%= link_to [:take, machine], data: { confirm: 'Wilt u deze machine bezetten?' } , class:"new w3-btn w3-lime w3-margin-bottom w3-margin-top w3-round-xlarge w3-hover-blue"  do %>
+                  <i class="fa fa-check-square" aria-hidden="true"></i>
+              <% end %></li>
+          </ul>
+
+      <% end %>
+      <div class="w3-margin-bottom"></div>
+    </div>
+  </div>
+</div>
