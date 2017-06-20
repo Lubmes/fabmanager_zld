@@ -27,6 +27,7 @@ class Admin::MachinesController < ApplicationController
 
   def take
     usage.update +1
+
   end
 
   def leave

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618102815) do
+ActiveRecord::Schema.define(version: 20170620125913) do
 
   create_table "acts_as_bookable_bookings", force: :cascade do |t|
     t.string   "bookable_type"
@@ -121,11 +121,13 @@ ActiveRecord::Schema.define(version: 20170618102815) do
 
   create_table "machines", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.text     "schedule"
     t.integer  "capacity"
-    t.integer  "usage",      default: 0
+    t.integer  "usage",             default: 0
+    t.integer  "usage_duration_id"
+    t.index ["usage_duration_id"], name: "index_machines_on_usage_duration_id"
   end
 
   create_table "materials", force: :cascade do |t|
@@ -209,6 +211,14 @@ ActiveRecord::Schema.define(version: 20170618102815) do
 
   create_table "tags", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "usage_durations", force: :cascade do |t|
+    t.time     "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_usage_durations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

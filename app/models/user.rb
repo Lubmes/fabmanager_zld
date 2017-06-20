@@ -9,6 +9,9 @@ class User < ApplicationRecord
   validates_presence_of :username
   after_create :send_admin_mail
 
+  # Machine occupier.
+  has_one :usage_duration
+
   scope :excluding_archived, lambda { where(archived_at: nil) }
 
   def archive
