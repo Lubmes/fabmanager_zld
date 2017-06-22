@@ -16,7 +16,7 @@
       <% machines.each do |machine| %>
           <ul style="list-style-type:none">
             <li><%= machine.name%></li>
-            <li><%= link_to [:take, machine], data: { confirm: 'Wilt u deze machine bezetten?' } , class:"new w3-btn w3-lime w3-margin-bottom w3-margin-top w3-round-xlarge w3-hover-blue"  do %>
+            <li><%= link_to [:take, machine], class:"new w3-btn w3-lime w3-margin-bottom w3-margin-top w3-round-xlarge w3-hover-blue"  do %>
                   <i class="fa fa-check-square" aria-hidden="true"></i>
               <% end %></li>
           </ul>
