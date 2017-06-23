@@ -22,7 +22,7 @@
 
           <h1><%= fabmoment.title %></h1>
 
-          <%= fabmoment.description %>
+          <%= truncate(fabmoment.description, length: 500) %>
           <div>
             <%= link_to 'Nieuw Fabmoment', new_fabmoment_path, class:"new w3-btn w3-lime w3-margin-bottom w3-margin-top w3-round-xlarge w3-topbar w3-border-blue-gray w3-hover-blue" %>
           </div>

@@ -1,8 +1,8 @@
-<div>
+<div class="w3-padding">
   <% @machines.each do |machine| %>
       <h5><%= machine.name%></h5>
       <% (machine.capacity - machine.usage).times do %>
-          <div><i class="w3-text-green fa fa-circle" aria-hidden="true"></i></div>
+          <div><i class="w3-text-light-green fa fa-circle" aria-hidden="true"> Deze machine is vrij</i></div>
       <% end %>
       <% (machine.usage).times do %>
           <% if machine.usage_duration %>

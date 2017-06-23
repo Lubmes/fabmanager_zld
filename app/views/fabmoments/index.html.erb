@@ -6,10 +6,8 @@
 
 <div class="w3-row-padding w3-margin-top">
   <div class="w3-col m5">
-    <div class="w3-card w3-round-xxlarge">
-      <% if true %>
+    <div class="w3-card w3-round-xxlarge" style="height: 735px">
       <%= render "fabmoments/favourite_gallery" %>
-      <% end %>
     </div>
   </div>
 
@@ -22,8 +20,8 @@
           </div>
 
         <div id="agenda" class="tab w3-padding">
-          <div id="calendar" class="w3-padding-xlarge w3-text-blue-gray">
-            <%= render "events/calendar", events: @events %>
+          <div id="calendar" class="w3-padding-xlarge w3-text-blue-gray" style="width: 76%;">
+            <%= render "events/calendar", events: @events%>
           </div>
           <td><%= link_to new_event_path, class:"new w3-btn w3-lime w3-margin-bottom w3-margin-top w3-round-xlarge w3-topbar w3-border-blue-gray w3-hover-blue"  do %>Nieuwe Reservering
                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -32,8 +30,10 @@
         </div>
 
         <div id="open-inloop" class="tab" style="display:none">
+          <div style="height: 735px">
           <%= render "admin/machines/machine_queue" %>
           <%= render "admin/machines/take_machines", machines: @machines %>
+          </div>
       </div>
     </div>
   </div>
@@ -67,5 +67,12 @@
             x[i].style.display = "none";
         }
         document.getElementById(tabName).style.display = "block";
+
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" w3-blue", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " w3-blue";
     }
 </script>
