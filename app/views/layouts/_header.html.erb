@@ -1,0 +1,81 @@
+<div class="content">
+  <ul class="w3-navbar navdropbtn w3-large w3-card-8">
+    <li class="<% "active" if current_page?("/") %>">
+      <%= link_to "Home", root_path,
+                  class: "w3-hover-text-light-blue w3-hover-white" %>
+    </li>
+
+    <li class="<% "active" if current_page?("/") %>">
+      <%= link_to "Contact", #bottom,
+                  class: "w3-hover-text-light-blue w3-hover-white" %>
+    </li>
+
+    <li class="w3-dropdown-hover navdropdown">
+      <%= link_to "Fabmomenten <i class='fa fa-caret-down'></i>".html_safe,
+                  class: "navdropbtn" %>
+      <div class="w3-dropdown-content navdropdown-content">
+        <%= link_to 'Gallerij', root_path %>
+        <%= link_to 'Nieuw Fabmoment', new_fabmoment_path %>
+      </div>
+    </li>
+
+    <% if user_signed_in? %>
+        <li class="<% "active" if current_page?("/") %>">
+          <%= link_to "Open Inloop", admin_root_path,
+                      class: "w3-hover-white w3-hover-text-light-blue" %>
+        </li>
+    <% end %>
+    <li class="<% "active" if current_page?("/") %>">
+      <%= link_to "Agenda", events_path,
+                  class: "w3-hover-white w3-hover-text-light-blue" %>
+    </li>
+    <% admins_only do %>
+        <li class="<% "active" if current_page?("/") %>">
+          <%= link_to "Admin", admin_root_path,
+                      class: "w3-hover-white w3-hover-text-light-blue" %>
+        </li>
+    <% end %>
+    <% if user_signed_in? %>
+    <% end %>
+    <% unless user_signed_in? %>
+        <li class="<% "active" if current_page?("users/sign_in") %> w3-right">
+          <%= link_to "", new_user_session_path,
+                      class: "w3-hover-white w3-hover-text-light-blue fa fa-user fa-3x" %>
+        </li>
+        <li class="<% "active" if current_page?("users/sign_up") %> w3-right">
+          <%= link_to "Registeren", 	new_user_registration_path,
+                      class: "w3-hover-white w3-hover-text-light-blue" %>
+          <!--<i class="fa fa-user fa-3x" aria-hidden="true"></i>-->
+        </li>
+    <% end %>
+
+    <% if user_signed_in? %>
+        <div class='w3-right'>
+          <li class='w3-padding'>
+            <small style="color: white">Ingelogd als: </small>
+          </li>
+          <li class="w3-dropdown-hover navdropdown">
+            <%= link_to "#{current_user.username} <i class='fa fa-caret-down'></i>".html_safe,
+                        class: "#{active if current_page?("users/sign_in")} navdropbtn" %>
+            <div class="w3-dropdown-content navdropdown-content w3-card-4">
+              <%= link_to 'Profiel', user_path(current_user) %>
+              <%= link_to 'Instellingen', user_path(current_user) %>
+              <%= link_to "Log uit", 	destroy_user_session_path,
+                          method: :delete,
+                          class: "w3-hover-red w3-hover-text-dark-grey" %>
+            </div>
+          </li>
+        </div>
+    <% end %>
+  </ul>
+
+  <% flash.each do |key, message| %>
+      <!-- De kleur: Is de melding gelijk aan type "notice"? dan groen : anders rood -->
+      <% color = key == "notice" ? "lime" : "red" %>
+      <!-- De melding -->
+      <div class="alert alert-<%= key %> w3-container w3-<%= color %>">
+        <span class="w3-closebtn" onclick="this.parentElement.style.display='none'"><i class="fa fa-times" aria-hidden="true"></i></span>
+        <p><%= message %></p>
+      </div>
+  <% end %>
+</div>

@@ -16,8 +16,6 @@ class MachinesController < ApplicationController
     machine = Machine.find(params[:id])
     machine.usage -= 1
     machine.save!
-    @usage_duration = UsageDuration.find(params[:id])
-    @usage_duration.destroy
     redirect_to fabmoment_index_path
   end
 end

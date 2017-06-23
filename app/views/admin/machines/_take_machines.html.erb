@@ -19,6 +19,9 @@
             <li><%= link_to [:take, machine], class:"new w3-btn w3-lime w3-margin-bottom w3-margin-top w3-round-xlarge w3-hover-blue"  do %>
                   <i class="fa fa-check-square" aria-hidden="true"></i>
               <% end %></li>
+            <li><%= link_to [:leave, machine], class:"new w3-btn w3-red w3-margin-bottom w3-margin-top w3-round-xlarge"  do %>
+                  <i class="fa fa-ban" aria-hidden="true"></i>
+              <% end %></li>
           </ul>
 
       <% end %>

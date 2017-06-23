@@ -1,24 +1,14 @@
-<div class="">
-  <% @machines.each do |machine| %>
-      <li><%= machine.name%></li>
-      <li>Capaciteit: <%= machine.capacity%></li>
-      <li>Usage<%= machine.usage %></li>
-      <% if machine.usage_duration %>
-        <li><%= distance_of_time_in_words(machine.usage_duration.duration) %></li>
-        <li><%= machine.usage_duration.user.username %></li>
-      <% end %>
-      <br>
-  <% end %>
-</div>
-
-<div class="">
+<div>
   <% @machines.each do |machine| %>
       <h5><%= machine.name%></h5>
       <% (machine.capacity - machine.usage).times do %>
-          <div>M</div>
+          <div><i class="w3-text-green fa fa-circle" aria-hidden="true"></i></div>
       <% end %>
       <% (machine.usage).times do %>
-          <div><b>M</b></div>
+          <% if machine.usage_duration %>
+
+          <div><i class="w3-text-red fa fa-ban" aria-hidden="true"> Ingebruik door <%= machine.usage_duration.user.username %></i></div>
+          <% end %>
       <% end %>
 
 <% end %>

@@ -14,7 +14,7 @@ class EventPolicy < ApplicationPolicy
   end
 
   def update?
-    user.try(:admin?) || record.author == user
+    user.try(:admin?) #|| record.user == user
   end
 
   def destroy?

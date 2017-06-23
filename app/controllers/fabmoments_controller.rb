@@ -8,6 +8,7 @@ class FabmomentsController < ApplicationController
     @fabmoments = Fabmoment.all
     @machines = Machine.all
     @openingtimes = Openingtime.first
+    @events = Event.all.where(approved: true)
   end
 
   def show

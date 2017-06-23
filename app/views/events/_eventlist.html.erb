@@ -14,7 +14,7 @@
     </thead>
 
     <tbody class="w3-padding-0", style="font-size:9px">
-    <% @events.each do |event|%>
+    <% @events.where(approved: approved).each do |event|%>
         <tr>
           <td><%= event.title %></td>
           <td><%= event.description %></td>
@@ -34,12 +34,12 @@
         <% end %>
         </td>
             <div class="w3-col"></div>
-          <td><%=event.approved? %></td>
+          <td><%= event.approved? %></td>
           <td><%= link_to event, class:"btn btn-primary"  do %>
                 <i class="fa fa-search" aria-hidden="true"></i>
           <% end %></td>
 
-          <% if current_user.admin? %>
+          <% if policy(event).update? %>
           <td><%= link_to edit_event_path(event), class:"btn btn-warning"  do %>
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             <% end %></td>
@@ -50,9 +50,6 @@
                 <i class="fa fa-trash" aria-hidden="true"></i>
             <% end %></td>
         </tr>
-              <% else %>
-
-
           <% end %>
     <% end %>
     </tbody>
