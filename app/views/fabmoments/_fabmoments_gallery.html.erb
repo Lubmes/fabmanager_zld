@@ -16,8 +16,10 @@
               <div class="w3-container w3-white">
                 <%  if fabmoment.pictures.any? %>
                 <%= image_path fabmoment.pictures.first %>
+                    <% else %>
+                <!--<img src="/images/450x300-placeholder.png">-->
                     <% end %>
-                <div class="">
+                <div>
                   <%= truncate(fabmoment.description, length: 350) %>
                 </div>
               </div>
