@@ -1,5 +1,5 @@
 class FabmomentsController < ApplicationController
-  before_action :set_fabmoment, only: [:show, :edit, :update, :destroy]
+  before_action :set_fabmoment, only: [:show, :edit, :update, :destroy, :like, :unlike]
   before_action :set_programs, only: [:new, :create, :edit, :update]
   before_action :set_machines, only: [:new, :create, :edit, :update]
   before_action :set_materials, only: [:new, :create, :edit, :update]
@@ -66,12 +66,20 @@ class FabmomentsController < ApplicationController
     end
   end
 
-  def likes
-    # fabmoment. :likes
-    fabmoment = Fabmoment.find(params[:id])
-    fabmoment.likes += 1
-    fabmoment.save!
-    redirect_to(:back)
+  def like
+    @fabmoment.liked_by current_user
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+      end
+    end
+
+  def unlike
+    @fabmoment.unliked_by current_user
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
   end
 
   def destroy

@@ -26,6 +26,8 @@ class Fabmoment < ApplicationRecord
   has_many :project_files, dependent: :destroy
   accepts_nested_attributes_for :project_files
 
+  acts_as_votable
+
 
   def tag_names=(names)
     @tag_names = names

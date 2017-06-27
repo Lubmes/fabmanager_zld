@@ -25,7 +25,7 @@ Rails.application.routes.draw do
         get :approved
       end
     end
-    resources 'openhours'
+    resources 'fabmanager_settings'
   end
 
   devise_for :users
@@ -48,7 +48,8 @@ Rails.application.routes.draw do
 
   resources 'fabmoments' do
     member do
-      get :likes
+      get :like
+      get :unlike
     end
     collection do
       get :search

@@ -9,6 +9,8 @@ class User < ApplicationRecord
   validates_presence_of :username
   after_create :send_admin_mail
 
+  acts_as_voter
+
   # Machine occupier.
   has_one :usage_duration
 

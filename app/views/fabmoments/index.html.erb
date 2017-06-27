@@ -38,17 +38,7 @@
   </div>
 </div>
 
-<div>
-  <%= form_tag search_fabmoments_path,
-      method: :get,
-      class: "w3-right-align" do %>
-  <%= text_field_tag "search", params[:search], class: "w3-form" %>
-  <%= submit_tag "Zoek", class: "w3-btn w3-indigo fa fa-search" %>
-  <% end %>
-</div>
-
 <%= render "fabmoments/searchbar" %>
-
 
 <div class="w3-center w3-margin-top w3-topbar w3-border-blue-grey">
   <%= render "fabmoments/fabmoments_gallery", fabmoments: @fabmoments %>

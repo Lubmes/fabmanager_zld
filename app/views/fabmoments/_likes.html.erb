@@ -1,0 +1,11 @@
+<div class=”likes” id=”likes_<%= fabmoment.id %>”>
+  <div class="w3-right w3-show-inline-block w3-hover-opacity">
+    <% if current_user.voted_for? fabmoment %>
+        <%= link_to '', [:unlike, fabmoment], remote: true, class: "fa fa-heart w3-text-red" %>
+        <% else %>
+        <%= link_to '', [:like, fabmoment], remote: true, class: "fa fa-heart-o w3-text-blue-gray" %>
+        <!--display container voor een mogelijke like counter IN het hartje-->
+    <% end %>
+<%= fabmoment.votes_for.size %>
+</div>
+</div>
