@@ -34,6 +34,7 @@ gem 'redcarpet'
 # bootstrap
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'figaro'
+gem 'acts_as_votable', '~> 0.10'
 
 group :development, :test do
   gem 'byebug', platform: :mri

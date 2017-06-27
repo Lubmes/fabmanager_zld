@@ -5,6 +5,10 @@ class Admin::EventsController < ApplicationController
       @events = Event.all
     end
 
+  def show
+
+  end
+
     def approved
       @event.approved = true
       @event.save!

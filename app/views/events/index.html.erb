@@ -1,10 +1,8 @@
   <meta charset='utf-8' />
-  <link rel='stylesheet' href='https://fullcalendar.io/js/fullcalendar-3.4.0/fullcalendar.css' />
   <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js'></script>
   <script src='//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src='https://fullcalendar.io/js/fullcalendar-3.4.0/fullcalendar.min.js'></script>
 <body>
-  <p id="notice"><%= notice %></p>
 
   <div class="w3-padding m3">
     <h1 class="w3-round-xlarge w3-lime w3-padding" style="font-weight: bold">Agenda</h1>
@@ -13,7 +11,7 @@
 <div class="w3-rightbar w3-border-blue-gray">
   <div class="m5 w3-left w3-row-padding w3-padding-left w3-card w3-margin-bottom w3-round-xlarge">
     <div class="w3-topbar w3-border-blue-gray w3-margin-top">
-    <%= render "events/eventlist" %>
+    <%= render "events/eventlist", approved: true %>
     </div>
     <div class="w3-topbar w3-border-blue-gray">
     <td><%= link_to new_event_path, class:"btn w3-lime w3-round-xlarge w3-margin-bottom w3-padding w3-margin-top w3-topbar w3-border-blue-gray w3-hover-blue"  do %>Nieuwe Reservering
@@ -22,8 +20,8 @@
     </div>
   </div>
   </div>
-<div id="calendar" class="w3-right w3-lime w3-text-blue w3-row-padding w3-padding-left w3-card w3-margin-bottom w3-round-xlarge">
-  <%= render "events/calendar" %>
+<div id="calendar" class="w3-right w3-lime w3-text-blue-gray w3-row-padding w3-padding-left w3-card w3-margin-bottom w3-round-xlarge" style="width: 50%;">
+  <%= render "events/calendar", events: @events %>
 </div>
 
 </body>

@@ -22,3 +22,7 @@ uploads
 config/database.yml
 config/application.yml
 db/schema.rb
+
+fabmanager_development
+
+\.idea/workspace\.xml

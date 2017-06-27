@@ -8,17 +8,19 @@
                   <%= link_to [:staff_pick, :admin, fabmoment] do %>
                       <i class="w3-left fa fa-star w3-left w3-show-inline-block w3-hover-opacity <%= fabmoment.staff_pick? ? 'w3-text-blue' : 'fa fa-star-o w3-text-blue-gray w3-hover-gray' %>"></i>
                       <% end %>
-                  <%= link_to [:likes, fabmoment] do %>
-                      <i class="w3-right fa fa-heart w3-right w3-show-inline-block w3-hover-opacity <%= fabmoment.likes? ? 'w3-text-red' : 'fa fa-heart-o w3-text-blue-gray' %>"></i>
-                  <% end %>
+                  <div id="fabmoment-likes-ajax-<%= fabmoment.id %>">
+                    <%= render 'fabmoments/likes', fabmoment: fabmoment %>
+                  </div>
                 </h4>
               </header>
               <div class="w3-container w3-white">
                 <%  if fabmoment.pictures.any? %>
                 <%= image_path fabmoment.pictures.first %>
+                    <% else %>
+                <!--<img src="/images/450x300-placeholder.png">-->
                     <% end %>
-                <div class="">
-                <%= fabmoment.description %>
+                <div>
+                  <%= truncate(fabmoment.description, length: 350) %>
                 </div>
               </div>
             </div>

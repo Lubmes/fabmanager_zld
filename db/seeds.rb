@@ -35,6 +35,11 @@ unless Program.exists?(name: "Adobe Illustrator")
   Program.create(name: "Blender")
 end
 
+unless Fabmoment.exists?(title: "Fabmoment 01", )
+  Fabmoment.create()
+
+end
+
 unless Material.exists?(sort: "Multiplex ")
   mt1 = Material.create(sort: "Multiplex", thickness: 3)
   mt2 = Material.create(sort: "Multiplex", thickness: 4)
