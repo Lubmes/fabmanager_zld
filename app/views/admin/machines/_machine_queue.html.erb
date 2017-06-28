@@ -2,7 +2,7 @@
   <% @machines.each do |machine| %>
       <h5><%= machine.name%></h5>
 
-      <% unless machine.usage.nil? %>
+      <% unless machine.usage.nil? or machine.capacity.nil? %>
       <% (machine.capacity - machine.usage).times do %>
           <div><i class="w3-text-light-green fa fa-circle" aria-hidden="true"> Deze machine is vrij</i></div>
       <% end %>
