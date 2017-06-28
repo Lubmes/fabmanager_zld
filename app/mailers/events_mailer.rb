@@ -7,6 +7,12 @@ class EventsMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Huur verzoek aangemaakt.')
   end
 
+  def event_email_admin(user, event)
+    @user = user
+    @event = event
+    mail(to: @user.admin, subject: 'Een nieuw huur verzoek is aangemaakt.')
+  end
+
   def event_approve_email(user, event)
     @user = user
     @event = event

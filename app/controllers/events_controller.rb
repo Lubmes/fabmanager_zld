@@ -40,7 +40,7 @@ class EventsController < ApplicationController
       if @event.save
 
         if current_user.admin?
-          format.html { redirect_to @admin_event_url, notice: 'Uw evenement is aangemaakt.' }
+          format.html { redirect_to event_url(@event), notice: 'Uw evenement is aangemaakt.' }
           format.json { render :show, status: :created, location: @event }
         else
           EventsMailer.event_email(@user, @event).deliver!

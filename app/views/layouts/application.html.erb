@@ -7,161 +7,21 @@
 		<% else %>FabLab<% end %></title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body class="container-fluid">
-  <div class="content">
-  	<ul class="w3-navbar navdropbtn w3-large w3-card-8">
-			<li class="<% "active" if current_page?("/") %>">
-				<%= link_to "Home", root_path,
-															class: "w3-hover-text-light-blue w3-hover-white" %>
-			</li>
+  <body>
 
-      <li class="<% "active" if current_page?("/") %>">
-        <%= link_to "Contact", #bottom,
-                    class: "w3-hover-text-light-blue w3-hover-white" %>
-      </li>
+  <div class="page-wrap">
 
-      <li class="w3-dropdown-hover navdropdown">
-        <%= link_to "Fabmomenten <i class='fa fa-caret-down'></i>".html_safe,
-                    class: "navdropbtn" %>
-        <div class="w3-dropdown-content navdropdown-content">
-          <%= link_to 'Gallerij', root_path %>
-          <%= link_to 'Nieuw Fabmoment', new_fabmoment_path %>
-        </div>
-      </li>
+    <%= render 'layouts/header' %>
 
-      <% if user_signed_in? %>
-          <li class="<% "active" if current_page?("/") %>">
-            <%= link_to "Open Inloop", admin_root_path,
-                        class: "w3-hover-white w3-hover-text-light-blue" %>
-          </li>
-      <% end %>
-      <li class="<% "active" if current_page?("/") %>">
-        <%= link_to "Agenda", events_path,
-                    class: "w3-hover-white w3-hover-text-light-blue" %>
-      </li>
-			<% admins_only do %>
-			<li class="<% "active" if current_page?("/") %>">
-				<%= link_to "Admin", admin_root_path,
-														 class: "w3-hover-white w3-hover-text-light-blue" %>
-			</li>
-			<% end %>
-			<% if user_signed_in? %>
-			<% end %>
-			<% unless user_signed_in? %>
-				<li class="<% "active" if current_page?("users/sign_in") %> w3-right">
-					<%= link_to "", new_user_session_path,
-																	class: "w3-hover-white w3-hover-text-light-blue fa fa-user fa-3x" %>
-				</li>
-          <li class="<% "active" if current_page?("users/sign_up") %> w3-right">
-            <%= link_to "Registeren", 	new_user_registration_path,
-                        class: "w3-hover-white w3-hover-text-light-blue" %>
-            <!--<i class="fa fa-user fa-3x" aria-hidden="true"></i>-->
-          </li>
-			<% end %>
-
-			<% if user_signed_in? %>
-        <div class='w3-right'>
-          <li class='w3-padding'>
-            <small style="color: white">Ingelogd als: </small>
-          </li>
-          <li class="w3-dropdown-hover navdropdown">
-            <%= link_to "#{current_user.username} <i class='fa fa-caret-down'></i>".html_safe,
-                class: "#{active if current_page?("users/sign_in")} navdropbtn" %>
-            <div class="w3-dropdown-content navdropdown-content w3-card-4">
-              <%= link_to 'Profiel', user_path(current_user) %>
-              <%= link_to 'Instellingen', user_path(current_user) %>
-              <%= link_to "Log uit", 	destroy_user_session_path,
-                                method: :delete,
-                                class: "w3-hover-red w3-hover-text-dark-grey" %>
-            </div>
-          </li>
-        </div>
-			<% end %>
-		</ul>
-
-		<% flash.each do |key, message| %>
-			<!-- De kleur: Is de melding gelijk aan type "notice"? dan groen : anders rood -->
-			<% color = key == "notice" ? "lime" : "red" %>
-			<!-- De melding -->
-			<div class="alert alert-<%= key %> w3-container w3-<%= color %>">
-		  	<span class="w3-closebtn" onclick="this.parentElement.style.display='none'"><i class="fa fa-times" aria-hidden="true"></i></span>
-				<p><%= message %></p>
-			</div>
-		<% end %>
     <%= yield %>
-    <div class="push">
-    </div>
+
   </div>
 
 
+  <%= render 'layouts/footer' %>
 
-  <!--<footer class="footer mt-5"><a href="bottom"></a>-->
-    <!--<div class="w3-dark-gray py-3">-->
-      <!--<div class="container">-->
-        <!--<div class="row py-3">-->
-          <!--<div class="col w3-text-white">-->
-            <!--<p class="text-white">-->
-            <!--<ul>-->
-            <!--<li>website www.dezb.nl/fablabzeeland</li>-->
-            <!--<li>e-mail info@fablabzeeland.com</li>-->
-            <!--<li>telefoonnummer 0118-654217</li>-->
-            <!--<li>cursussen klik hier!</li>-->
-            <!--</ul>-->
-            <!--</p>-->
-          <!--</div>-->
-
-          <!--<div class="col">-->
-            <!--<div class="d-inline-block ">-->
-              <!--<div class="bg-circle bg-primary w3-hover-opacity">-->
-                <!--<a href="https://www.facebook.com/fablabzeeland?lang=nl" class="text-white"><i class="fa fa-2x fa-fw fa-facebook"></i>-->
-                  <!--https://www.facebook.com/fablabzeeland-->
-                <!--</a>-->
-              <!--</div>-->
-              <!--<div class="bg-circle bg-info row w3-hover-opacity">-->
-                <!--<a href="https://twitter.com/fablabzeeland?lang=nl" class="text-white">-->
-                  <!--<i class="fa fa-2x fa-fw fa-twitter"></i></a>-->
-                <!--https://twitter.com/fablabzeeland-->
-              <!--</div>-->
-              <!--<div class="row">-->
-              <!--<div class="bg-primary w3-button w3-round w3-hover-opacity">-->
-                <!--<a href="https://nl.linkedin.com/topic/fablab" class="text-white">-->
-                  <!--<i class="fa fa-fw fa-linkedin fa-2x" aria-hidden="true"></i></a>-->
-              <!--</div>-->
-              <!--</div>-->
-              <!--https://nl.linkedin.com/topic/fablab-->
-            <!--</div>-->
-            <!--</div>-->
-           <!--<div class="col">-->
-            <!--<div class="w3-container">-->
-              <!--<h2>Fabsheets.</h2>-->
-              <!--<div class="bg-circle bg-danger w3-hover-opacity">-->
-                <!--<a onclick="document.getElementById('id01').style.display='block'" class="text-white">-->
-                <!--<i class="fa fa-2x fa-fw fa-file-pdf-o"></i></a>-->
-              <!--</div>-->
-              <!--<div id="id01" class="w3-modal">-->
-                <!--<div class="w3-modal-content">-->
-                  <!--<div class="w3-container w3-text-black">-->
-                    <!--<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright w3-text-black">&times;</span>-->
-                    <!--<h1>Wat zijn FabSheets?</h1>-->
-                    <!--<ul>FabSheets zijn werkdocumenten die bedoeld zijn om de bezoekers van het FabLab wegwijs te maken in het FabLab en de machines. Zo kunnen bezoekers zelfstandig beginnen.</ul>-->
-                    <!--<ul>-->
-                      <!--<li>FabSheet Hoe werkt het FabLab<a class="sourcelink w3-margin-left" href="https://www.dezb.nl/dam/bestanden/fablab/Fabsheet%20Hoe%20werkt%20het%20FabLab%202016.pdf">Download nu</a></li>-->
-                      <!--<li>FabSheet Prijslijst materialen<a class="sourcelink w3-margin-left" href="https://www.dezb.nl/dam/bestanden/fablab/Fabsheet%20Prijslijst%20Materialen.pdf">Download nu</a></li>-->
-                      <!--<li>FabSheet Lasersnijder<a class="sourcelink w3-margin-left" href="https://www.dezb.nl/dam/bestanden/Wat%20we%20doen/Fablab-2017/Fabsheet%20lasersnijder%20januari%202017.pdf">Download nu</a></li>-->
-                      <!--<li>FabSheet 3D-printer<a class="sourcelink w3-margin-left" href="https://www.dezb.nl/dam/bestanden/Wat%20we%20doen/Fablab-2017/Fabsheet%203D-printer%202017.pdf">Download nu</a></li>-->
-                      <!--<li>FabSheet Vinylsnijder<a class="sourcelink w3-margin-left" href="https://www.dezb.nl/dam/bestanden/fablab/Fabsheet%20Vinylsnijder%20FabLab%20Zeeland%202016.pdf">Download nu</a></li>-->
-                    <!--</ul>-->
-                  <!--</div>-->
-                <!--</div>-->
-              <!--</div>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</footer>-->
   </body>
 </html>

@@ -1,0 +1,2 @@
+class FabmanagerSettings < ApplicationRecord
+end

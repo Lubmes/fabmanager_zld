@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170620125913) do
+ActiveRecord::Schema.define(version: 20170627142409) do
 
   create_table "acts_as_bookable_bookings", force: :cascade do |t|
     t.string   "bookable_type"
@@ -56,6 +56,14 @@ ActiveRecord::Schema.define(version: 20170620125913) do
     t.boolean  "approved"
   end
 
+  create_table "fabmanager_settings", force: :cascade do |t|
+    t.time     "max_time_to_occupy_machine"
+    t.integer  "max_machines_to_occupy"
+    t.boolean  "open_hour"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
   create_table "fabmoments", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -67,7 +75,6 @@ ActiveRecord::Schema.define(version: 20170620125913) do
     t.text     "gingGoed"
     t.text     "gingFout"
     t.text     "kanBeter"
-    t.integer  "likes",       default: 0
     t.boolean  "staff_pick",  default: false
     t.index ["author_id"], name: "index_fabmoments_on_author_id"
     t.index ["license_id"], name: "index_fabmoments_on_license_id"
@@ -249,6 +256,20 @@ ActiveRecord::Schema.define(version: 20170620125913) do
     t.string   "telephone"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.string   "votable_type"
+    t.integer  "votable_id"
+    t.string   "voter_type"
+    t.integer  "voter_id"
+    t.boolean  "vote_flag"
+    t.string   "vote_scope"
+    t.integer  "vote_weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
   end
 
 end
