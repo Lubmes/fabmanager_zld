@@ -3,15 +3,17 @@
       <%= link_to fabmoment do %>
           <div class="w3-col m3 w3-text-yellow">
             <div class="w3-card-2 w3-hover-shadow w3-margin-bottom">
-              <header class="w3-container w3-lime w3-center">
-                <h4><%= fabmoment.title %>
-                  <%= link_to [:staff_pick, :admin, fabmoment] do %>
-                      <i class="w3-left fa fa-star w3-left w3-show-inline-block w3-hover-opacity <%= fabmoment.staff_pick? ? 'w3-text-blue' : 'fa fa-star-o w3-text-blue-gray w3-hover-gray' %>"></i>
-                      <% end %>
-                  <div id="fabmoment-likes-ajax-<%= fabmoment.id %>">
-                    <%= render 'fabmoments/likes', fabmoment: fabmoment %>
-                  </div>
-                </h4>
+              <header class="w3-container w3-lime w3-padding-top">
+
+                <%= link_to [:staff_pick, :admin, fabmoment] do %>
+                    <i class="w3-left fa fa-star w3-show-inline-block w3-hover-opacity w3-large <%= fabmoment.staff_pick? ? 'w3-text-blue' : 'fa fa-star-o w3-text-blue-gray w3-hover-gray' %>"></i>
+                <% end %>
+
+                <h4 class="w3-show-inline-block w3-center"><%= fabmoment.title %></h4>
+
+                <div id="fabmoment-likes-ajax-<%= fabmoment.id %>" class="w3-right w3-show-inline-block w3-large">
+                   <%= render 'fabmoments/likes', fabmoment: fabmoment %>
+                 </div>
               </header>
               <div class="w3-container w3-white">
                 <%  if fabmoment.pictures.any? %>

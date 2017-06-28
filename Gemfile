@@ -24,7 +24,6 @@ gem 'coffee-script-source', '1.8.0'
 gem 'paperclip', '~> 5.1.0'
 gem 'rails-simple-search'
 #Bcrypt gets many errors when you bundle it
-gem 'bcrypt', '~> 3.1.7', platforms: :ruby
 gem 'icalendar', '~> 2.4', '>= 2.4.1'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
