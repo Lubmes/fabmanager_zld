@@ -32,14 +32,14 @@
       <li><h1>Gebruikersnaam: <%= @user.username %></h1></li>
         <li>Naam: <%= @user.firstname %> <%= @user.insertion %> <%= @user.lastname %></li>
         <li>Biografie: <%= @user.biography %></li>
-      <li>Email: <%= @user.email %></li>
+        <li>Email: <%= @user.email %></li>
         <li>Telefoon nummer: <%= @user.telephone %></li>
       <% if policy(@user).show? %>
-          <li>Woonplaats: <%= @user.adress %></li>
+        <li>Woonplaats: <%= @user.adress %></li>
       <% end %>
         <% if current_user.admin %>
         <li>Administrator: <%= @user.admin? %></li>
-            <% end %>
+      <% end %>
         </ul>
     </div>
   </div>

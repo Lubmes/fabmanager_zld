@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-
+  get '/redirect', to: 'events#redirect', as:'redirect'
+  get '/callback', to: 'events#callback', as:'callback'
   resources :events
+
   resources :meetings
   namespace :admin do
     root 'application#index'
@@ -25,7 +27,7 @@ Rails.application.routes.draw do
         get :approved
       end
     end
-    resources 'fabmanager_settings'
+    get 'fabmanager_settings/1', to: 'fabmanager_settings#settings'
   end
 
   devise_for :users

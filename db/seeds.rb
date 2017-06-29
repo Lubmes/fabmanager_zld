@@ -82,3 +82,7 @@ end
 unless Openingtime.exists?(title: "Openingstijden")
   Openingtime.create(title: "Openingstijden", monday: "17:00-20:00 **open inloop**", tuesday: "13:00-17:00 **open inloop** 18:00-20:00 **cursus**", wednesday: "**Alleen op afspraak**", thursday: "**Alleen op afspraak**", friday: "10:00-12:00 **cursus** 13:00-17:00 **open inloop**")
 end
+
+# unless FabmanagerSettings.exists?(id: 1)
+settings = FabmanagerSettings.create(id: 1, max_time_to_occupy_machine: 30*60, max_machines_to_occupy: 1, open_hour: false,)
+# end
