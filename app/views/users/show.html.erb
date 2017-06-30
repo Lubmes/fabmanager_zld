@@ -1,11 +1,4 @@
 <% title(@user.username, "Gebruiker") %>
-<head>
-  <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
-  <!--<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">-->
-  <!--<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>-->
-  <!--<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
-  <!--<script src="js/bootstrap.min.js"></script>-->
-</head>
 
 <div class="w3-row">
 	<!-- Basis Profiel gegevens -->
@@ -72,34 +65,14 @@
 
 		</header>
 
-		<!-- <p> user.bio etc. & user.comments.order(#van recent tot in verleden) </p> -->
-    <div class="panel-group w3-margin-top">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title w3-center w3-lime w3-round-xlarge w3-padding">
-            <a data-toggle="collapse" href="#collapse1">Geleverd commentaar <p class="fa fa-plus"></p></a>
-
-          </h4>
-        </div>
-        <div id="collapse1" class="panel-collapse collapse">
-          <div class="panel-body">
-            <% @comments.each do |comment| %>
-                <li class="w3-text-pink">
-                  <%= "#{time_ago_in_words(comment.created_at)} geleden gaf <i>#{@user.username}</i>
+		 <!--<p> user.bio etc. & user.comments.order(#van recent tot in verleden) </p>-->
+      <% @comments.each do |comment| %>
+          <li class="w3-text-pink">
+            <%= "#{time_ago_in_words(comment.created_at)} geleden gaf <i>#{@user.username}</i>
 							      commentaar op fabmoment <strong>#{comment.fabmoment.title}</strong>".html_safe %>
-                </li>
-            <% end %></div>
-          <div class="panel-footer">Panel Footer</div>
-        </div>
-      </div>
-    </div>
+          </li>
+      <% end %>
 
-
-    <a href="#demo" data-toggle="collapse">Collapsible</a>
-
-    <div id="demo" class="collapse">
-      Lorem ipsum dolor text....
-    </div>
     <!--<div data-role="main" class="ui-content">-->
   <!--<form method="post" action="/action_page_post.php">-->
     <!--<fieldset data-role="collapsible">-->

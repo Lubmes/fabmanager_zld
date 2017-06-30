@@ -4,18 +4,22 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<h1>Beste <%= @user.username %>,</h1>
+<h1>Beste Administrator,</h1>
 <p>
-  Dit is een automatisch emailtje als notificatie dat uw verzoek voor een apparaat te huren geaccepteerd is.
+  Dit emailtje ontvangt u als notificatie dat de gebruiker <strong><%= @user.username %></strong> een verhuring's verzoek heeft aangemaakt en moet bekeken worden.
 </p>
 <div class="w3-card-2">
   <p>
-    <strong>Title:</strong>
+    <strong>Gebruiker:</strong>
+      <%= @user.username %>
+  </p>
+  <p>
+    <strong>Titel:</strong>
     <%= @event.title %>
   </p>
 
   <p>
-    <strong>Description:</strong>
+    <strong>Beschrijving:</strong>
     <%= @event.description %>
   </p>
   <p>
@@ -29,14 +33,17 @@
     <% end %>
   </p>
   <p>
-    <strong>Start time:</strong>
+    <strong>Start tijd:</strong>
     <%= @event.start_time %>
   </p>
 
   <p>
-    <strong>End time:</strong>
+    <strong>Eind tijd:</strong>
     <%= @event.end_time %>
   </p>
+  <div class="w3-margin-top">
+    <div class="w3-btn w3-primary fa fa-search">Meer informatie.</div>
+  </div>
 </div>
 </body>
 </html>

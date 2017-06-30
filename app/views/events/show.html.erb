@@ -1,12 +1,15 @@
 <div class="w3-col m4 w3-margin-top">
-  <div class="w3-card-2">
+  <div class="w3-margin-top w3-padding-xxlarge">
+    <%= link_to ' Back', events_path, class:"btn w3-blue w3-round-xlarge fa fa-arrow-left"%>
+  </div>
+  <div class="w3-card-2 w3-round-xlarge w3-padding-xxlarge w3-margin-left">
 <p>
-  <strong>Title:</strong>
+  <strong>Titel:</strong>
   <%= @event.title %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Beschrijving:</strong>
   <%= @event.description %>
 </p>
 <p><strong>Machines:</strong>
@@ -23,18 +26,18 @@
       <% end %>
       </p>
 <p>
-  <strong>Start time:</strong>
+  <strong>Start tijd:</strong>
   <%= @event.start_time  %>
 </p>
 
 <p>
-  <strong>End time:</strong>
+  <strong>Eind tijd:</strong>
   <%= @event.end_time %>
 </p>
   </div>
 
-<div class="w3-margin-bottom">
-<%= link_to ' Edit', edit_event_path(@event), class:"btn btn-warning fa fa-pencil-square"%>
+<div class="w3-margin-top w3-padding-xxlarge">
+<%= link_to ' Edit', edit_event_path(@event), class:"btn w3-lime w3-round-xlarge fa fa-pencil"%>
 </div>
-<%= link_to ' Back', events_path, class:"btn btn-success fa fa-arrow-circle-left"%>
+
 </div>

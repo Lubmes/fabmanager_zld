@@ -8,7 +8,7 @@ class EventsController < ApplicationController
                                             client_secret: Rails.application.secrets.google_client_secret,
                                             authorization_uri: 'https://accounts.google.com/o/oauth2/auth',
                                             scope: Google::Apis::CalendarV3::AUTH_CALENDAR,
-                                            redirect_uri: callback_url
+                                            redirect_uri: "#{root_url}"
                                         })
 
     redirect_to client.authorization_uri.to_s
@@ -56,6 +56,7 @@ class EventsController < ApplicationController
           format.json { render :show, status: :created, location: @event }
         else
           EventsMailer.event_email(@user, @event).deliver!
+          EventsMailer.event_email_admin(@user, @event).deliver!
           format.html { redirect_to @event, notice: 'Uw verzoek word bekeken.' }
           format.json { render :show, status: :created, location: @event }
         end
