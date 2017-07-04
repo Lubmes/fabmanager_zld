@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get '/redirect', to: 'events#redirect', as:'redirect'
   get '/callback', to: 'events#callback', as:'callback'
   get '/calendars', to: 'events#calendars', as: 'calendars'
+  get '/events/:calendar_id', to: 'events#events', as: 'events', calendar_id: /[^\/]+/
   resources :events
 
   resources :meetings
