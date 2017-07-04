@@ -2,6 +2,9 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :set_machines, only: [:new, :create, :edit, :update]
 
+  require 'openssl'
+  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+
   def redirect
     client = Signet::OAuth2::Client.new({
                                             client_id: Rails.application.secrets.google_client_id,
