@@ -1,49 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-</head>
-<body>
-<h1>Beste Administrator,</h1>
-<p>
-  Dit emailtje ontvangt u als notificatie dat de gebruiker <strong><%= @user.username %></strong> een verhuring's verzoek heeft aangemaakt en moet bekeken worden.
-</p>
-<div class="w3-card-2">
-  <p>
-    <strong>Gebruiker:</strong>
-      <%= @user.username %>
-  </p>
-  <p>
-    <strong>Titel:</strong>
-    <%= @event.title %>
-  </p>
 
-  <p>
-    <strong>Beschrijving:</strong>
-    <%= @event.description %>
-  </p>
-  <p>
-    <% if @event.machines.any? %>
+Beste Administrator,
 
-        <strong>Machines:</strong>
-        <% @event.machines.each do |machine| %>
-            <%= machine.name %>
-            -
-        <% end %>
+  Dit emailtje ontvangt u als notificatie dat de gebruiker <%= @user.username %> een verhuring's verzoek heeft aangemaakt en moet bekeken worden.
+
+Title:
+<%= @event.title %>
+
+
+
+Description:
+<%= @event.description %>
+
+<% if @event.machines.any? %>
+
+    Machines:
+    <% @event.machines.each do |machine| %>
+        <%= machine.name %>
+        -
     <% end %>
-  </p>
-  <p>
-    <strong>Start tijd:</strong>
-    <%= @event.start_time %>
-  </p>
+<% end %>
 
-  <p>
-    <strong>Eind tijd:</strong>
-    <%= @event.end_time %>
-  </p>
-  <div class="w3-margin-top">
-    <div class="w3-btn w3-primary fa fa-search">Meer informatie.</div>
-  </div>
-</div>
-</body>
-</html>
+Start time:
+<%= @event.start_time %>
+
+
+
+End time:
+<%= @event.end_time %>
+
+Meer informatie.
