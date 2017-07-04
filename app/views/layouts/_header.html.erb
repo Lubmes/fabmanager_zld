@@ -26,7 +26,7 @@
         </li>
     <% end %>
     <li class="<% "active" if current_page?("/") %>">
-      <%= link_to "Agenda", events_path,
+      <%= link_to "Agenda", root_path,
                   class: "w3-hover-white w3-hover-text-light-blue" %>
     </li>
     <% admins_only do %>
