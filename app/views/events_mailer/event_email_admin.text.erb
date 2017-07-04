@@ -1,0 +1,31 @@
+
+Beste Administrator,
+
+  Dit emailtje ontvangt u als notificatie dat de gebruiker <%= @user.username %> een verhuring's verzoek heeft aangemaakt en moet bekeken worden.
+
+Title:
+<%= @event.title %>
+
+
+
+Description:
+<%= @event.description %>
+
+<% if @event.machines.any? %>
+
+    Machines:
+    <% @event.machines.each do |machine| %>
+        <%= machine.name %>
+        -
+    <% end %>
+<% end %>
+
+Start time:
+<%= @event.start_time %>
+
+
+
+End time:
+<%= @event.end_time %>
+
+Meer informatie.

@@ -31,4 +31,9 @@ module ApplicationHelper
 
     markdown.render(text).html_safe
   end
+
+  def open_inloop
+    settings = FabmanagerSettings.find(1)
+    @openinloop = settings.open_hour
+  end
 end

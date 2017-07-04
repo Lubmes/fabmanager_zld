@@ -34,6 +34,7 @@ gem 'redcarpet'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'figaro'
 gem 'acts_as_votable', '~> 0.10'
+gem 'google-api-client', '~> 0.11', require: 'google/apis/calendar_v3'
 
 group :development, :test do
   gem 'byebug', platform: :mri
