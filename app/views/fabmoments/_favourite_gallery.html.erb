@@ -1,0 +1,66 @@
+<div id="fabmoment" class="jumbotron-icon">
+
+  <div class="w3-bar w3-lime w3-round-xxlarge w3-center">
+    <h3 class="w3-medium">Highlights.</h3>
+  </div>
+
+  <% @fabmoments.where(staff_pick: true).last(5).each do |fabmoment| %>
+      <div class="mySlides">
+        <div class="w3-display-container">
+          <img class="w3-margin-top w3-padding w3-round-xxlarge w3-animate-fading" src="http://via.placeholder.com/800x500" style="width:100%">
+
+          <div class="w3-display-bottommiddle w3-container w3-center" style="width: 100%;">
+            <div class="w3-left fa fa-6 fa-caret-left w3-text-lime w3-hover-opacity" onclick="plusDivs(-1)"></div>
+            <div class="w3-right fa fa-6 fa-caret-right w3-text-lime w3-hover-opacity" onclick="plusDivs(1)"></div>
+            <% @fabmoments.where(staff_pick: true).last(5).size.times do |i| %>
+                <span class="w3-badge w3-hover-opacity-max demo w3-border w3-center" onclick="currentDiv(<%= i+1 %>)"></span>
+            <% end %>
+          </div>
+
+        </div>
+        <div class="w3-center">
+
+          <h1><%= fabmoment.title %></h1>
+
+          <%= truncate(fabmoment.description, length: 500) %>
+          <div>
+            <%= link_to 'Nieuw Fabmoment', new_fabmoment_path, class:"new w3-btn w3-lime w3-margin-bottom w3-margin-top w3-round-xlarge w3-topbar w3-border-blue-gray w3-hover-blue" %>
+          </div>
+        </div>
+      </div>
+
+  <% end %>
+</div>
+
+<script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+    carousel();
+
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length} ;
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex-1].style.display = "block";
+    }
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > x.length) {slideIndex = 1}
+        x[slideIndex-1].style.display = "block";
+        setTimeout(carousel, 5000); // Change image every 5 seconds
+    }
+</script>

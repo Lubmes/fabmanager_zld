@@ -1,0 +1,24 @@
+<h1 style="color: #00bcd4"><%=@openingtimes.title%></h1>
+<ul class="w3-ul w3-left-align">
+  <% if !@openingtimes.monday.nil? %>
+  <li><%= Openingtime.human_attribute_name :monday %> <span style="display: inline-block"><%= markdown @openingtimes.monday%></span></li>
+  <% end %>
+  <% if !@openingtimes.tuesday.nil? %>
+      <li><%= Openingtime.human_attribute_name :tuesday %>  <span style="display: inline-block"><%= markdown @openingtimes.tuesday%></span></li>
+  <% end %>
+  <% if !@openingtimes.wednesday.nil? %>
+      <li><%= Openingtime.human_attribute_name :wednesday %> <span style="display: inline-block"><%= markdown @openingtimes.wednesday%></span></li>
+  <% end %>
+  <% if !@openingtimes.thursday.nil? %>
+      <li><%= Openingtime.human_attribute_name :thursday %> <span style="display: inline-block"><%= markdown @openingtimes.thursday%></span></li>
+  <% end %>
+  <% if !@openingtimes.friday.nil? %>
+      <li><%= Openingtime.human_attribute_name :friday %> <span style="display: inline-block"><%= markdown @openingtimes.friday%></span></li>
+  <% end %>
+   <% if !@openingtimes.saturday.nil? %>
+      <li><%= Openingtime.human_attribute_name :saturday %> <span style="display: inline-block"><%= markdown @openingtimes.saturday%></span></li>
+  <% end %>
+  <% if !@openingtimes.sunday.nil? %>
+      <li><%= Openingtime.human_attribute_name :sunday %> <span style="display: inline-block"><%= markdown @openingtimes.sunday%></span></li>
+  <% end %>
+</ul>

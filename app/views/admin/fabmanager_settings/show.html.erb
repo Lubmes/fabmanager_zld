@@ -1,0 +1,41 @@
+<div class="w3-row-padding">
+  <ul>
+    <div id="settings-ajax">
+    <%= render "admin/fabmanager_settings/settings", settings: @settings%>
+    </div>
+  </ul>
+  <h1>Open inloop.</h1>
+  <div class="w3-col m6">
+    <div class="w3-container w3-block">
+      <%= simple_form_for [:admin, @settings] do |f| %>
+      <div class="w3-card-2 w3-round-xlarge w3-center w3-topbar w3-border-blue-gray">
+        <li><%= @settings.max_time_to_occupy_machine %></li>
+        <%= f.input_field :max_time_to_occupy_machine %>
+      </div>
+      <div class="w3-card-2 w3-round-xlarge w3-center w3-margin-top">
+        <li><%= @settings.max_machines_to_occupy %></li>
+        <%= f.input_field :max_machines_to_occupy %>
+      </div>
+          <button>Pas toe.</button>
+      <% end %>
+    </div>
+  </div>
+
+
+
+
+
+<div class="w3-col m6">
+   <div class="w3-card w3-round-xxlarge w3-topbar w3-border-blue-gray">
+      <%= render "admin/machines/machine_queue", machines: @machines %>
+     <div class="w3-padding">
+     <h1 class="w3-topbar w3-border-blue-gray" style="font-size: 18px">Uit | Aan</h1>
+     <label class="switch">
+       <input type="checkbox">
+       <div class="slider"></div>
+     </label>
+     </div>
+   </div>
+</div>
+
+</div>
