@@ -14,7 +14,7 @@
 Fabmoment.delete_all
 
 unless User.exists?(email: "FablabZeeland@gmail.com")
-  User.create!(email: "FablabZeeland@gmail.com", password: "Z33landf@bl@b", username: "Administrator", admin: true)
+  User.create!(email: "FablabZeeland@gmail.com", password: "Z33landf@bl@b", username: "Administrator", firstname: "Alinda", lastname: "Mastenbroek", telephone: "0118 654 000", biography: "Ik ben de grote baas en administrator van het FabLab", adress: "Middelburg", admin: true)
 end
 
 unless Machine.exists?(name: "Ultimaker Original", capacity: 1)
@@ -35,7 +35,7 @@ unless Program.exists?(name: "Adobe Illustrator")
   Program.create(name: "Blender")
 end
 
-unless Fabmoment.exists?(title: "Fabmoment 01", )
+unless Fabmoment.exists?(title: "Fabmoment 01", description: "Test test test test test test test test test test test" )
   Fabmoment.create()
 
 end
@@ -83,6 +83,6 @@ unless Openingtime.exists?(title: "Openingstijden")
   Openingtime.create(title: "Openingstijden", monday: "17:00-20:00 **open inloop**", tuesday: "13:00-17:00 **open inloop** 18:00-20:00 **cursus**", wednesday: "**Alleen op afspraak**", thursday: "**Alleen op afspraak**", friday: "10:00-12:00 **cursus** 13:00-17:00 **open inloop**")
 end
 
-# unless FabmanagerSettings.exists?(id: 1)
+unless FabmanagerSettings.exists?(id: 1)
 settings = FabmanagerSettings.create(id: 1, max_time_to_occupy_machine: 30*60, max_machines_to_occupy: 1, open_hour: false,)
-# end
+end

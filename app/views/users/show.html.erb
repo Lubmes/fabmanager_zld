@@ -11,7 +11,7 @@
               <img class="img-circle w3-circle w3-card-8" src="<%= @user.avatar.url %>"  class="img-thumbnail" />
               <!-- badge -->
               <div class="rank-label-container">
-                <span class="label label-default rank-label w3-lime w3-card-8 w3-text-white"><%= @user.username %></span>
+                <span class="label label-default rank-label w3-lime w3-card-8 w3-text-white w3-large"><b><%= @user.username %></b></span>
               </div>
             </div>
           </div>
@@ -21,8 +21,7 @@
 
   <div class="w3-card w3-padding-12 w3-round-xlarge w3-margin-bottom">
     <div class="w3-padding w3-center">
-      <ul type="none">
-      <li><h1>Gebruikersnaam: <%= @user.username %></h1></li>
+      <ul class="w3-large" type="none">
         <li>Naam: <%= @user.firstname %> <%= @user.insertion %> <%= @user.lastname %></li>
         <li>Biografie: <%= @user.biography %></li>
         <li>Email: <%= @user.email %></li>
@@ -66,23 +65,23 @@
 		</header>
 
 		 <!--<p> user.bio etc. & user.comments.order(#van recent tot in verleden) </p>-->
-      <% @comments.each do |comment| %>
-          <li class="w3-text-pink">
-            <%= "#{time_ago_in_words(comment.created_at)} geleden gaf <i>#{@user.username}</i>
-							      commentaar op fabmoment <strong>#{comment.fabmoment.title}</strong>".html_safe %>
-          </li>
-      <% end %>
+
 
     <!--<div data-role="main" class="ui-content">-->
   <!--<form method="post" action="/action_page_post.php">-->
     <!--<fieldset data-role="collapsible">-->
-      <!--<legend>Commentaar</legend>-->
-		<!--<div id="comments">-->
-			<!--<h3 class="w3-center">Geleverd commentaar</h3>-->
-			<!--<ul class="w3-center">-->
-
-			<!--<ul>-->
-		<!--</div>-->
+      <legend>Commentaar</legend>
+		<div id="comments">
+			<h3 class="w3-center">Geleverd commentaar</h3>
+			<ul class="w3-center">
+        <% @comments.each do |comment| %>
+            <li class="w3-text-pink">
+              <%= "#{time_ago_in_words(comment.created_at)} geleden gaf <i>#{@user.username}</i>
+							      commentaar op fabmoment <strong>#{comment.fabmoment.title}</strong>".html_safe %>
+            </li>
+        <% end %>
+			<ul>
+		</div>
     <!--</fieldset>-->
   <!--</form>-->
 <!--</div>-->
