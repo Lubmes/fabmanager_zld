@@ -1,0 +1,13 @@
+<ul>
+  <% @event_list.items.each do |event| %>
+      <li><b><%= event.summary %></b>
+
+      <% unless event.start.nil? %>
+       <%= event.start.date_time %> <%= event.end.date_time %>
+        <% if event.start.date_time.nil? %>
+            <%= event.start.date %>
+                <% end %>
+        <% end %>
+        </li>
+  <% end %>
+</ul>
