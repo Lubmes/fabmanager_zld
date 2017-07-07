@@ -1,5 +1,9 @@
-<ul>
+<h1 class="w3-round-xlarge w3-lime w3-padding w3-margin-top">Voeg of update een kalender.</h1>
+<ul type="none">
   <% @calendar_list.items.each do |calendar| %>
-    <li><%= calendar.summary %> (<%= calendar.id %>)</li>
+      <li>
+        <a href="http://localhost:3000/events_api/<%= calendar.summary %>" class="btn w3-lime w3-round-xlarge w3-margin-bottom w3-padding w3-margin-top w3-topbar w3-border-blue-gray w3-hover-blue fa fa-plus">
+          <%= calendar.summary %> <% calendar.id %>
+      </a>
   <% end %>
 </ul>

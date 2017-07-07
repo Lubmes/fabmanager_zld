@@ -1,6 +1,8 @@
+<h1 class="w3-round-xlarge w3-lime w3-padding w3-margin-top">Uw evenementen lijst is geupdate!</h1>
+<div class="w3-card w3-round-xlarge">
 <ul>
   <% @event_list.items.each do |event| %>
-      <li><b><%= event.summary %></b>
+      <li><b><%= event.summary %></b></li>
 
       <% unless event.start.nil? %>
        <%= event.start.date_time %> <%= event.end.date_time %>
@@ -8,6 +10,7 @@
             <%= event.start.date %>
                 <% end %>
         <% end %>
-        </li>
+
   <% end %>
 </ul>
+</div>

@@ -5,10 +5,8 @@
 
         <!--<input type="text" class="form-control" placeholder="Zoek voor fabmomenten"/>-->
 
-        <%= form_tag search_fabmoments_path,
-                     method: :get,
-                     class: "w3-right-align" do %>
-            <%= text_field_tag "search", params[:search], class: "form-control" %>
+        <div class="form-control"><%= form_tag search_fabmoments_path, method: :get, class: "" do %></div>
+            <%= text_field_tag "search", params[:search], class:"", placeholder: "Zoek voor fabmomenten" %>
 
         <div class="input-group-btn">
           <div class="btn-group" role="group">
@@ -36,13 +34,14 @@
                     <label for="contain">Contains the words</label>
                     <input class="form-control" type="text" />
                   </div>
-                  <button type="submit" class="btn w3-blue"><span class="fa fa-search" aria-hidden="true"></span>
+                  <button <%= submit_tag "Zoek", class: "btn w3-blue" %>><span class="fa fa-search" aria-hidden="true"></span>
                   </button>
                 </form>
               </div>
             </div>
             <!--<button type="button" class="btn w3-blue"><span class="fa fa-search" aria-hidden="true"></span>-->
-              <%= submit_tag "Zoek", class: "btn w3-blue fa fa-search" %>
+            <button <%= submit_tag "Zoek", class: "btn w3-blue" %>Zoek <span class="fa fa-search" aria-hidden="true"></span>
+            </button>
           </div>
         </div>
         <% end %>

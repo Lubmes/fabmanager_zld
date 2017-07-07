@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       end
     end
     get 'fabmanager_settings/1', to: 'fabmanager_settings#settings'
+    resources 'fabmanager_settings', only: [:update]
   end
 
   devise_for :users

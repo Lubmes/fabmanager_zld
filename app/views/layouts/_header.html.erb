@@ -18,12 +18,6 @@
       </div>
     </li>
 
-    <% if user_signed_in? %>
-        <li class="<% "active" if current_page?("/") %>">
-          <%= link_to "Open Inloop", admin_root_path,
-                      class: "w3-hover-white w3-hover-text-light-blue" %>
-        </li>
-    <% end %>
     <li class="<% "active" if current_page?("/") %>">
       <%= link_to "Agenda", events_path,
                   class: "w3-hover-white w3-hover-text-light-blue" %>

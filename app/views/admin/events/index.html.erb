@@ -1,20 +1,18 @@
 <div class="w3-padding">
   <h1 class="w3-round-xlarge w3-lime w3-padding">Evenementen lijst.</h1>
+  <td><%= link_to new_event_path, class:"btn w3-lime w3-round-xlarge w3-margin-bottom w3-padding w3-margin-top w3-topbar w3-border-blue-gray w3-hover-blue fa fa-plus"  do %> Nieuwe Reservering
+    <% end %>
+    <p><a class="btn w3-lime w3-round-xlarge w3-margin-bottom w3-padding w3-margin-top w3-topbar w3-border-blue-gray w3-hover-blue fa fa-refresh" aria-hidden="true" href="http://localhost:3000/redirect" target="_blank"> Sync</a></p>
+  </td>
 </div>
 <div class="row">
-<div class="w3-left w3-row-padding w3-padding-left w3-card w3-margin-top col m5 w3-round-xlarge">
+  <div class="w3-left w3-row-padding w3-padding-left w3-card w3-margin-top col m5 w3-round-xlarge w3-margin-bottom w3-margin-right w3-margin-left">
+    <h1 class="w3-bottombar w3-border-blue-gray">Nog niet geaccepteerde evenementen.</h1>
+      <%= render "events/eventlist", approved: false %>
+</div>
 
-  <%= render "events/eventlist", approved: false %>
-
-  <div class="w3-topbar w3-border-blue-gray">
-    <td><%= link_to new_event_path, class:"btn w3-lime w3-round-xlarge w3-margin-bottom w3-padding w3-margin-top w3-topbar w3-border-blue-gray w3-hover-blue"  do %>Nieuwe Reservering
-          <i class="fa fa-plus" aria-hidden="true"></i>
-      <% end %>
-    </td>
+  <div class="w3-right w3-row-padding w3-padding-left w3-card w3-margin-top col m5 w3-round-xlarge w3-margin-bottom w3-margin-right w3-margin-left">
+    <h1 class="w3-bottombar w3-border-blue-gray">Geaccepteerde evenementen.</h1>
+      <%= render "events/eventlist", approved: true %>
   </div>
-</div>
-
-<div class="w3-right w3-row-padding w3-padding-left w3-card w3-margin-top col m5 w3-round-xlarge">
-  <%= render "events/eventlist", approved: true %>
-</div>
 </div>
