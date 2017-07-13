@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91eac67d-7eb1-4fe6-a265-cff4877064db" name="Default" comment="">
+<<<<<<< Updated upstream
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/fabmoments/index.json.jbuilder" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fabmanager_development" afterPath="$PROJECT_DIR$/fabmanager_development" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -15,6 +16,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
 =======
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/fabmoments/_favourite_gallery.html.erb" afterPath="$PROJECT_DIR$/app/views/fabmoments/_favourite_gallery.html.erb" />
+>>>>>>> Stashed changes
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/fullcalendar.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/fullcalendar.scss" />
 >>>>>>> Stashed changes
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -74,11 +78,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_fabmoments_gallery.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_fabmoments_gallery.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/fabmoments/_fabmoments_gallery.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
               <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fullcalendar.scss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/fullcalendar.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1950">
+              <caret line="239" column="27" lean-forward="false" selection-start-line="239" selection-start-column="27" selection-end-line="239" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -172,7 +186,6 @@
         <option value="$PROJECT_DIR$/app/views/users/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/calendar.scss" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/fullcalendar.scss" />
         <option value="$PROJECT_DIR$/app/views/users/show.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20170620114934_add_column_to_occupation.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20170620120304_create_usage_durations.rb" />
@@ -205,8 +218,12 @@
         <option value="$PROJECT_DIR$/app/views/fabmoments/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/fabmoments/_searchbar.html.erb" />
         <option value="$PROJECT_DIR$/app/views/fabmoments/_fabmoments_gallery.html.erb" />
+<<<<<<< Updated upstream
 =======
         <option value="$PROJECT_DIR$/app/views/fabmoments/_favourite_gallery.html.erb" />
+>>>>>>> Stashed changes
+=======
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/fullcalendar.scss" />
 >>>>>>> Stashed changes
       </list>
     </option>
@@ -434,6 +451,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fabmanager_zld" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fabmanager_zld" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fabmanager_zld" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fabmanager_zld" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -753,18 +810,26 @@
 <<<<<<< Updated upstream
       <workItem from="1498257557249" duration="93000" />
       <workItem from="1498257728007" duration="1969000" />
+<<<<<<< Updated upstream
       <workItem from="1498301484205" duration="2807000" />
 =======
       <workItem from="1498253934010" duration="516000" />
+>>>>>>> Stashed changes
+=======
+      <workItem from="1498301484205" duration="4638000" />
 >>>>>>> Stashed changes
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="644189000" />
 =======
     <option name="totallyTimeSpent" value="639836000" />
+>>>>>>> Stashed changes
+=======
+    <option name="totallyTimeSpent" value="646020000" />
 >>>>>>> Stashed changes
   </component>
   <component name="TodoView">
@@ -827,7 +892,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/migrate/20170620114934_add_column_to_occupation.rb" />
     <entry file="file://$PROJECT_DIR$/app/controllers/admin/openingtimes_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -1290,6 +1354,14 @@
         <state relative-caret-position="391">
           <caret line="23" column="32" lean-forward="true" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
 >>>>>>> Stashed changes
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/fullcalendar.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1950">
+          <caret line="239" column="27" lean-forward="false" selection-start-line="239" selection-start-column="27" selection-end-line="239" selection-end-column="27" />
           <folding />
         </state>
       </provider>

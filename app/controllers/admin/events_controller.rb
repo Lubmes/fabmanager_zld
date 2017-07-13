@@ -1,5 +1,8 @@
 class Admin::EventsController < ApplicationController
+  include GoogleAPI
   before_action :set_event, only: [:approved, :show, :edit, :update, :destroy]
+
+
 
     def index
       @events = Event.all
@@ -12,6 +15,9 @@ class Admin::EventsController < ApplicationController
     def approved
       @event.approved = true
       @event.save!
+
+@event.add_to_google
+
     end
 
     private

@@ -11,7 +11,7 @@
               <img class="img-circle w3-circle w3-card-8" src="<%= @user.avatar.url %>"  class="img-thumbnail" />
               <!-- badge -->
               <div class="rank-label-container">
-                <span class="label label-default rank-label w3-lime w3-card-8 w3-text-white"><%= @user.username %></span>
+                <span class="label label-default rank-label w3-lime w3-card-8 w3-text-white w3-large"><b><%= @user.username %></b></span>
               </div>
             </div>
           </div>
@@ -19,19 +19,26 @@
       </div>
 
 
+
+
   <div class="w3-card w3-padding-12 w3-round-xlarge w3-margin-bottom">
     <div class="w3-padding w3-center">
-      <ul type="none">
-      <li><h1>Gebruikersnaam: <%= @user.username %></h1></li>
-        <li>Naam: <%= @user.firstname %> <%= @user.insertion %> <%= @user.lastname %></li>
-        <li>Biografie: <%= @user.biography %></li>
-        <li>Email: <%= @user.email %></li>
-        <li>Telefoon nummer: <%= @user.telephone %></li>
+      <ul class="w3-large w3-left-align" type="none">
+        <% if @user.firstname = "" %>
+
+        <% else %>
+        <li class="w3-margin-bottom"><a style="font-weight: bold">Naam:</a><%= @user.firstname %> <%= @user.insertion %> <%= @user.lastname %></li>
+        <% end %>
+
+        <li class="w3" style="font-weight: bold">Biografie:</li>
+        <li class="w3-margin-bottom"><%= @user.biography %></li>
+        <li class="w3-margin-bottom"><a style="font-weight: bold">Email:</a> <%= @user.email %></li>
+        <li class="w3-margin-bottom"><a style="font-weight: bold">Telefoon nummer:</a> <%= @user.telephone %></li>
       <% if policy(@user).show? %>
-        <li>Woonplaats: <%= @user.adress %></li>
+        <li class="w3-margin-bottom"><a style="font-weight: bold">Woonplaats:</a> <%= @user.adress %></li>
       <% end %>
         <% if current_user.admin %>
-        <li>Administrator: <%= @user.admin? %></li>
+        <li class="w3-margin-bottom">Administrator: <%= @user.admin? %></li>
       <% end %>
         </ul>
     </div>
@@ -47,7 +54,7 @@
             <% end %>
         <% else %>
             <%= link_to [:edit, @user],
-                        class: "edit w3-btn w3-amber w3-round-large" do %>
+                        class: "edit w3-btn w3-yellow w3-round-large" do %>Bewerken
                 <i class="fa fa-pencil-square-o" Bewerken aria-hidden="true"></i>
             <% end %>
         <% end %>
@@ -66,26 +73,19 @@
 		</header>
 
 		 <!--<p> user.bio etc. & user.comments.order(#van recent tot in verleden) </p>-->
-      <% @comments.each do |comment| %>
-          <li class="w3-text-pink">
-            <%= "#{time_ago_in_words(comment.created_at)} geleden gaf <i>#{@user.username}</i>
+		<div>
+			<h3 class="w3-center w3-lime w3-round-xlarge w3-padding w3-margin-top" data-toggle="collapse" data-target="#comments">Geleverd commentaar <i class="fa fa-plus-circle" aria-hidden="true"></i></h3>
+      <div id="comments" class="collapse">
+        <% @comments.each do |comment| %>
+            <li class="w3-text-pink">
+              <%= "#{time_ago_in_words(comment.created_at)} geleden gaf <i>#{@user.username}</i>
 							      commentaar op fabmoment <strong>#{comment.fabmoment.title}</strong>".html_safe %>
-          </li>
-      <% end %>
+            </li>
+        <% end %>
+      </div>
+		</div>
 
-    <!--<div data-role="main" class="ui-content">-->
-  <!--<form method="post" action="/action_page_post.php">-->
-    <!--<fieldset data-role="collapsible">-->
-      <!--<legend>Commentaar</legend>-->
-		<!--<div id="comments">-->
-			<!--<h3 class="w3-center">Geleverd commentaar</h3>-->
-			<!--<ul class="w3-center">-->
 
-			<!--<ul>-->
-		<!--</div>-->
-    <!--</fieldset>-->
-  <!--</form>-->
-<!--</div>-->
     <div class="w3-bottombar w3-border-blue-gray w3-padding-xlarge">
 		<h2 class="w3-center w3-lime w3-round-xlarge w3-padding">Fabmomenten</h2>
 	</div>

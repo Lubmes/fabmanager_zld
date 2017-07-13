@@ -7,17 +7,19 @@
   <h1>Open inloop.</h1>
   <div class="w3-col m6">
     <div class="w3-container w3-block">
-      <%= simple_form_for [:admin, @settings] do |f| %>
+      <%= simple_form_for [:admin, @settings], remote: true do |f| %>
       <div class="w3-card-2 w3-round-xlarge w3-center w3-topbar w3-border-blue-gray">
-        <li><%= @settings.max_time_to_occupy_machine %></li>
-        <%= f.input_field :max_time_to_occupy_machine %>
+        <h1>Max tijd machines te bezetten.</h1>
+        <li type="none"><%= @settings.max_time_to_occupy_machine %></li>
+        <%= select(:fabmanager_settings, :max_time_to_occupy_machine, [['15 min', 15.minutes],['30 min', 30.minutes],['1 uur', 1.hours]]) %>
       </div>
       <div class="w3-card-2 w3-round-xlarge w3-center w3-margin-top">
-        <li><%= @settings.max_machines_to_occupy %></li>
+        <h1>Max aantal machines te bezetten.</h1>
+        <li type="none"><%= @settings.max_machines_to_occupy %></li>
         <%= f.input_field :max_machines_to_occupy %>
       </div>
-          <button>Pas toe.</button>
-      <% end %>
+          <%= f.submit "Pas Toe", class:"btn btn-primary" %>
+
     </div>
   </div>
 
@@ -32,10 +34,12 @@
      <h1 class="w3-topbar w3-border-blue-gray" style="font-size: 18px">Uit | Aan</h1>
      <label class="switch">
        <input type="checkbox">
-       <div class="slider"></div>
+       <div class="slider">
+
+       </div>
      </label>
      </div>
    </div>
 </div>
-
+      <% end %>
 </div>

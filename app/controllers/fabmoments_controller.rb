@@ -95,6 +95,9 @@ class FabmomentsController < ApplicationController
     else
       @fabmoments = Fabmoment.all
     end
+    @machines = Machine.all
+    @openingtimes = Openingtime.first
+    @events = Event.all.where(approved: true)
     render 'fabmoments/index'
   end
 

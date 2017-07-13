@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get '/redirect', to: 'events#redirect', as:'redirect'
-  get '/callback', to: 'events#callback', as:'callback'
-  get '/calendars', to: 'events#calendars', as: 'calendars'
-  get '/events/:calendar_id', to: 'events#events', as: 'events', calendar_id: /[^\/]+/
-  resources :events
+  get '/redirect', to: 'events_api#redirect', as:'redirect'
+  get '/callback', to: 'events_api#callback', as:'callback'
+  get '/calendars', to: 'events_api#calendars', as: 'calendars'
+  get '/events_api/:calendar_id', to: 'events_api#retrieve_events', as: 'events_api', calendar_id: /[^\/]+/
+  resources :events, controller: 'events'
 
   resources :meetings
   namespace :admin do
@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       end
     end
     get 'fabmanager_settings/1', to: 'fabmanager_settings#settings'
+    resources 'fabmanager_settings', only: [:update]
   end
 
   devise_for :users

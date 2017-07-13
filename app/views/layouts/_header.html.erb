@@ -6,8 +6,7 @@
     </li>
 
     <li class="<% "active" if current_page?("/") %>">
-      <%= link_to "Contact", #bottom,
-                  class: "w3-hover-text-light-blue w3-hover-white" %>
+      <a href="#contact" class="w3-hover-text-light-blue w3-hover-white">Contact</a>
     </li>
 
     <li class="w3-dropdown-hover navdropdown">
@@ -19,14 +18,8 @@
       </div>
     </li>
 
-    <% if user_signed_in? %>
-        <li class="<% "active" if current_page?("/") %>">
-          <%= link_to "Open Inloop", admin_root_path,
-                      class: "w3-hover-white w3-hover-text-light-blue" %>
-        </li>
-    <% end %>
     <li class="<% "active" if current_page?("/") %>">
-      <%= link_to "Agenda", root_path,
+      <%= link_to "Agenda", events_path,
                   class: "w3-hover-white w3-hover-text-light-blue" %>
     </li>
     <% admins_only do %>
